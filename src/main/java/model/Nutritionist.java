@@ -11,8 +11,8 @@ import com.mysql.cj.protocol.Message;
 @Entity
 public class Nutritionist extends Compte{
 
-	@OneToMany(mappedBy="Nutritionist")
-	private List<Message> messages = new ArrayList();
+	@OneToMany(mappedBy="nutritionist")
+	private List<Message> messages = new ArrayList<>();
 
 	public Nutritionist() {
 		super();
