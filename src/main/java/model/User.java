@@ -11,6 +11,7 @@ public class User extends Compte{
 	@Column(length = 30,nullable = false)
 	private String pseudo;
 	
+	private Genre genre;
 	private Integer age;
 	private double taille;
 	private double poids;
@@ -32,6 +33,14 @@ public class User extends Compte{
 
 	public void setPseudo(String pseudo) {
 		this.pseudo = pseudo;
+	}
+
+	public Genre getGenre() {
+		return genre;
+	}
+
+	public void setGenre(Genre genre) {
+		this.genre = genre;
 	}
 
 	public Integer getAge() {
@@ -87,7 +96,7 @@ public class User extends Compte{
 		return "User [pseudo=" + pseudo + ", age=" + age + ", taille=" + taille + ", poids=" + poids + ", compteVIP="
 				+ compteVIP + ", vegetarien=" + vegetarien + ", vegan=" + vegan + "]";
 	}
-	
+
 	
 	
 }
