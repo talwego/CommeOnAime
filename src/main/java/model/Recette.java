@@ -25,7 +25,7 @@ public class Recette {
 	private boolean vegan;
 	
 	@OneToMany(mappedBy="Recette")
-	private transient List<RecetteIngredient> ingredients;
+	private transient List<RecetteIngredient> RecetteIngredients;
 	
 	private int calorie;	
 	private LocalDate debutSaison;	
