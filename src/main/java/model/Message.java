@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Message {
@@ -18,22 +20,37 @@ public class Message {
 	private String text;
 	private LocalDate dateMessageDate;
 	
+	@ManyToOne
+	@JoinColumn(name="id_nutritionnist",nullable = false)
+	private Nutritionist nutritionist;
+	
+	@ManyToOne
+	@JoinColumn(name="id_user",nullable = false)
+	private User user;
+	
 	
 	public Message() {}
 
 
-	public Message(Integer id, String sujet, String text, LocalDate dateMessageDate) {
+	public Message(Integer id, String sujet, String text, LocalDate dateMessageDate, Nutritionist nutritionist,
+			User user) {
+		super();
 		this.id = id;
 		this.sujet = sujet;
 		this.text = text;
 		this.dateMessageDate = dateMessageDate;
+		this.nutritionist = nutritionist;
+		this.user = user;
 	}
 
-	public Message(String sujet, String text, LocalDate dateMessageDate) {
+
+	public Message(String sujet, String text, LocalDate dateMessageDate, Nutritionist nutritionist, User user) {
 		super();
 		this.sujet = sujet;
 		this.text = text;
 		this.dateMessageDate = dateMessageDate;
+		this.nutritionist = nutritionist;
+		this.user = user;
 	}
 
 
@@ -76,11 +93,32 @@ public class Message {
 		this.dateMessageDate = dateMessageDate;
 	}
 
+	
+
+	public Nutritionist getNutritionist() {
+		return nutritionist;
+	}
+
+
+	public void setNutritionist(Nutritionist nutritionist) {
+		this.nutritionist = nutritionist;
+	}
+
+
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 
 	@Override
 	public String toString() {
 		return "Message [id=" + id + ", sujet=" + sujet + ", text=" + text + ", dateMessageDate=" + dateMessageDate
-				+ "]";
+				+ ", nutritionist=" + nutritionist + ", user=" + user + "]";
 	}
 	
 	
