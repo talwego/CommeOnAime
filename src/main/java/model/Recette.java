@@ -22,8 +22,8 @@ public class Recette {
 	private boolean vegetarien;	
 	private boolean vegan;
 	
-	@OneToMany(mappedBy="Recette")
-	private transient List<RecetteIngredient> RecetteIngredients;
+	@OneToMany(mappedBy="recette")
+	private List<RecetteIngredient> RecetteIngredients;
 	
 	private int calorie;	
 	private LocalDate debutSaison;	
@@ -37,13 +37,12 @@ public class Recette {
 	}
 	
 
-	public Recette(boolean vegetarien, boolean vegan, List<RecetteIngredient> ingredients, int calorie,
+	public Recette(boolean vegetarien, boolean vegan, int calorie,
 			LocalDate debutSaison, LocalDate finSaison, String commentaires, int notes, LocalTime tempsDeCuisine,
 			Boolean isValid) {
 
 		this.vegetarien = vegetarien;
 		this.vegan = vegan;
-		this.ingredients = ingredients;
 		this.calorie = calorie;
 		this.debutSaison = debutSaison;
 		this.finSaison = finSaison;
@@ -54,13 +53,17 @@ public class Recette {
 	}
 
 	
-	public List<RecetteIngredient> getIngredients() {
-		return ingredients;
+	
+
+	public List<RecetteIngredient> getRecetteIngredients() {
+		return RecetteIngredients;
 	}
 
-	public void setIngredients(List<RecetteIngredient> ingredients) {
-		this.ingredients = ingredients;
+
+	public void setRecetteIngredients(List<RecetteIngredient> recetteIngredients) {
+		RecetteIngredients = recetteIngredients;
 	}
+
 
 	public Integer getId() {
 		return id;

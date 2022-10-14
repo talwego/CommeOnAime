@@ -18,6 +18,8 @@ public class RecetteIngredient {
 	@OneToOne
 	private Ingredient Ingredient;
 	
+	@ManyToOne
+	private Recette recette;
 	private double quantite;
 	
 	public RecetteIngredient() {
