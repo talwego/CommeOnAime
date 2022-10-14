@@ -47,6 +47,4 @@ public class ElementFrigo {
 	public String toString() {
 		return "ElementFrigo [id=" + id + ", quantite=" + quantite + "]";
 	}
-
-	
 }
