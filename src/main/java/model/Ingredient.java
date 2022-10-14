@@ -26,9 +26,22 @@ public class Ingredient {
 	
 	private boolean vegan;
 	
-	private String name;
-	
 	public Ingredient() {}
+	
+	
+
+	public Ingredient(String name, int calorie, LocalDate dateDebutRecolte, LocalDate dateFinRecolteDate,
+			boolean vegetarien, boolean vegan) {
+		super();
+		this.calorie = calorie;
+		this.name = name;
+		this.dateDebutRecolte = dateDebutRecolte;
+		this.dateFinRecolteDate = dateFinRecolteDate;
+		this.vegetarien = vegetarien;
+		this.vegan = vegan;
+	}
+
+
 
 	public Integer getId() {
 		return id;
