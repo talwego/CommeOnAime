@@ -12,6 +12,8 @@ public class Ingredient {
 	
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	private Integer id;
+	
 	private int calorie;
 	
 	private LocalDate dateDebutRecolte;
@@ -27,6 +29,16 @@ public class Ingredient {
 	
 	
 	
+	public Ingredient(Integer id, int calorie, LocalDate dateDebutRecolte, LocalDate dateFinRecolteDate, boolean vegetarien,
+			boolean vegan) {
+		this.id = id;
+		this.calorie = calorie;
+		this.dateDebutRecolte = dateDebutRecolte;
+		this.dateFinRecolteDate = dateFinRecolteDate;
+		this.vegetarien = vegetarien;
+		this.vegan = vegan;
+	}
+	
 	public Ingredient(int calorie, LocalDate dateDebutRecolte, LocalDate dateFinRecolteDate, boolean vegetarien,
 			boolean vegan) {
 		super();
@@ -36,6 +48,8 @@ public class Ingredient {
 		this.vegetarien = vegetarien;
 		this.vegan = vegan;
 	}
+
+
 
 
 	public int getCalorie() {
