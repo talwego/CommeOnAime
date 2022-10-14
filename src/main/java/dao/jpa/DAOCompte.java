@@ -1,4 +1,4 @@
-package dao;
+package dao.jpa;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
 import context.Context;
+import dao.IDAOCompte;
 import model.Compte;
 
 public class DAOCompte implements IDAOCompte{
