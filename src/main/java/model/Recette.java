@@ -32,7 +32,6 @@ public class Recette {
 	
 	public Recette(boolean vegetarien, boolean vegan, int calorie, LocalDate debutSaison, LocalDate finSaison,
 			String commentaires, int notes, LocalTime tempsDeCuisine, Boolean isValid) {
-		super();
 		this.vegetarien = vegetarien;
 		this.vegan = vegan;
 		this.calorie = calorie;
