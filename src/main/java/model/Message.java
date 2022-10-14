@@ -21,7 +21,7 @@ public class Message {
 	private LocalDate dateMessageDate;
 	
 	@ManyToOne
-	@JoinColumn(name="id_nutritionnist",nullable = false)
+	@JoinColumn(name="id_nutritionist",nullable = false)
 	private Nutritionist nutritionist;
 	
 	@ManyToOne
