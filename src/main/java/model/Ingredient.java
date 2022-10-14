@@ -16,6 +16,8 @@ public class Ingredient {
 	
 	private int calorie;
 	
+	private String name;
+	
 	private LocalDate dateDebutRecolte;
 	
 	private LocalDate dateFinRecolteDate;
