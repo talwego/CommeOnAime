@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.mysql.cj.protocol.Message;
+
 
 @Entity
 @Table(name="utilisateur")
@@ -25,7 +25,7 @@ public class User extends Compte{
 	private boolean vegetarien;
 	private boolean vegan;
 	
-	@OneToMany(mappedBy="User")
+	@OneToMany(mappedBy="user")
 	private List<Message> messages = new ArrayList();
 	
 	public User() {
