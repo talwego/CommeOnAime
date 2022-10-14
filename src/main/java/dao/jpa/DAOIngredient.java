@@ -4,33 +4,32 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.Query;
 
 import context.Context;
-import dao.IDAOCompte;
-import model.Compte;
+import dao.IDAOIngredient;
+import model.Ingredient;
+import model.Ingredient;
 
-public class DAOCompte implements IDAOCompte{
+public class DAOIngredient implements IDAOIngredient {
 
 	@Override
-	public List<Compte> findAll() {
+	public List<Ingredient> findAll() {
 		EntityManager em = Context.getSingleton().getEmf().createEntityManager();
-		List<Compte> obj = em.createQuery("from Compte").getResultList();
-		em.close();
-		return obj;
-	}
-	
-	@Override
-	public Compte findById(Integer id) {
-		EntityManager em = Context.getSingleton().getEmf().createEntityManager();
-		Compte obj = em.find(Compte.class, id);
+		List<Ingredient> obj = em.createQuery("from Ingredient").getResultList();
 		em.close();
 		return obj;
 	}
 
 	@Override
-	public Compte save(Compte obj) {
-		
+	public Ingredient findById(Integer id) {
+		EntityManager em = Context.getSingleton().getEmf().createEntityManager();
+		Ingredient obj = em.find(Ingredient.class, id);
+		em.close();
+		return obj;
+	}
+
+	@Override
+	public Ingredient save(Ingredient obj) {
 		EntityManager em = null;
 		EntityTransaction tx = null;
 
@@ -38,9 +37,7 @@ public class DAOCompte implements IDAOCompte{
 			em = Context.getSingleton().getEmf().createEntityManager();
 			tx = em.getTransaction();
 			tx.begin();
-
 			obj = em.merge(obj);
-
 			tx.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -59,35 +56,11 @@ public class DAOCompte implements IDAOCompte{
 	@Override
 	public void delete(Integer id) {
 		EntityManager em = Context.getSingleton().getEmf().createEntityManager();
-		Compte c = em.find(Compte.class, id);
-
+		Ingredient c = em.find(Ingredient.class, id);
 		em.getTransaction().begin();
-
 		em.remove(c);
-
 		em.getTransaction().commit();
-
-
 		em.close();
-	}
-
-	@Override
-	public Compte seConnecter(String login, String password) {
-		EntityManager em = Context.getSingleton().getEmf().createEntityManager();
-		Compte compte = null;
-
-		try {
-
-			Query requete = em.createQuery("select c from Compte c where c.login=:login and c.password=:password");
-			requete.setParameter("login", login);
-			requete.setParameter("password", password);
-			compte = (Compte) requete.getSingleResult();
-		}
-		catch(Exception e) {e.printStackTrace();}
-
-		em.close();
-
-		return compte;
 	}
 
 }
