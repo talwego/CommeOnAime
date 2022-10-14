@@ -2,6 +2,7 @@ package model;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -23,7 +24,7 @@ public class Recette {
 	private boolean vegetarien;	
 	private boolean vegan;
 	
-	@ManyToOne(mappedBy = "Recette")
+	@OneToMany(mappedBy="Recette")
 	private transient List<RecetteIngredient> ingredients;
 	
 	private int calorie;	
