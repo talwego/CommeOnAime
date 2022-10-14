@@ -6,13 +6,13 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
-import com.mysql.cj.protocol.Message;
+
 
 @Entity
 public class Nutritionist extends Compte{
 
 	@OneToMany(mappedBy="nutritionist")
-	private List<Message> messages = new ArrayList<>();
+	private List<Message> messages = new ArrayList();
 
 	public Nutritionist() {
 		super();
