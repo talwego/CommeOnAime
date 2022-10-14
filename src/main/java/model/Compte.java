@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="type_compte",columnDefinition = "ENUM('Admin','Nutritionist',User)")
+@DiscriminatorColumn(name="type_compte",columnDefinition = "ENUM('Admin','Nutritionist','User')")
 @Table(name="compte")
 public class Compte {
 	

@@ -17,7 +17,7 @@ public class DAORecetteIngredient implements IDAORecetteIngredient {
 	@Override
 	public List<RecetteIngredient> findAll() {
 		EntityManager em = Context.getSingleton().getEmf().createEntityManager();
-		List<RecetteIngredient> obj = em.createQuery("from RecetteIngredient").getResultList();
+		List<RecetteIngredient> obj = em.createQuery("FROM recette_ingredient").getResultList();
 		em.close();
 		return obj;
 	}

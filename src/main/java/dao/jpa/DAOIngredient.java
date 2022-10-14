@@ -15,7 +15,7 @@ public class DAOIngredient implements IDAOIngredient {
 	@Override
 	public List<Ingredient> findAll() {
 		EntityManager em = Context.getSingleton().getEmf().createEntityManager();
-		List<Ingredient> obj = em.createQuery("from Ingredient").getResultList();
+		List<Ingredient> obj = em.createQuery("FROM ingredient").getResultList();
 		em.close();
 		return obj;
 	}

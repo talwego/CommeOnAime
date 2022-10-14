@@ -1,8 +1,14 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.mysql.cj.protocol.Message;
 
 @Entity
 @Table(name="utilisateur")
@@ -11,12 +17,16 @@ public class User extends Compte{
 	@Column(length = 30,nullable = false)
 	private String pseudo;
 	
+	private Genre genre;
 	private Integer age;
 	private double taille;
 	private double poids;
 	private boolean compteVIP;
 	private boolean vegetarien;
 	private boolean vegan;
+	
+	@OneToMany(mappedBy="User")
+	private List<Message> messages = new ArrayList();
 	
 	public User() {
 		super();
@@ -32,6 +42,14 @@ public class User extends Compte{
 
 	public void setPseudo(String pseudo) {
 		this.pseudo = pseudo;
+	}
+
+	public Genre getGenre() {
+		return genre;
+	}
+
+	public void setGenre(Genre genre) {
+		this.genre = genre;
 	}
 
 	public Integer getAge() {
@@ -82,12 +100,21 @@ public class User extends Compte{
 		this.vegan = vegan;
 	}
 
+	public List<Message> getMessages() {
+		return messages;
+	}
+
+	public void setMessages(List<Message> messages) {
+		this.messages = messages;
+	}
+
 	@Override
 	public String toString() {
-		return "User [pseudo=" + pseudo + ", age=" + age + ", taille=" + taille + ", poids=" + poids + ", compteVIP="
-				+ compteVIP + ", vegetarien=" + vegetarien + ", vegan=" + vegan + "]";
+		return "User [pseudo=" + pseudo + ", genre=" + genre + ", age=" + age + ", taille=" + taille + ", poids="
+				+ poids + ", compteVIP=" + compteVIP + ", vegetarien=" + vegetarien + ", vegan=" + vegan + ", messages="
+				+ messages + "]";
 	}
-	
+
 	
 	
 }

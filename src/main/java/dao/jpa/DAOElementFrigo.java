@@ -6,31 +6,29 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
 import context.Context;
-import dao.IDAOIngredient;
-import dao.IDAORecette;
-import model.Recette;
-import model.Recette;
+import dao.IDAOElementFrigo;
+import model.ElementFrigo;
 
-public class DAORecette implements IDAORecette {
+public class DAOElementFrigo implements IDAOElementFrigo {
 
 	@Override
-	public List<Recette> findAll() {
+	public List<ElementFrigo> findAll() {
 		EntityManager em = Context.getSingleton().getEmf().createEntityManager();
-		List<Recette> obj = em.createQuery("FROM recette").getResultList();
+		List<ElementFrigo> obj = em.createQuery("FROM element_frigo").getResultList();
 		em.close();
 		return obj;
 	}
 
 	@Override
-	public Recette findById(Integer id) {
+	public ElementFrigo findById(Integer id) {
 		EntityManager em = Context.getSingleton().getEmf().createEntityManager();
-		Recette obj = em.find(Recette.class, id);
+		ElementFrigo obj = em.find(ElementFrigo.class, id);
 		em.close();
 		return obj;
 	}
 
 	@Override
-	public Recette save(Recette obj) {
+	public ElementFrigo save(ElementFrigo obj) {
 		EntityManager em = null;
 		EntityTransaction tx = null;
 
@@ -57,7 +55,7 @@ public class DAORecette implements IDAORecette {
 	@Override
 	public void delete(Integer id) {
 		EntityManager em = Context.getSingleton().getEmf().createEntityManager();
-		Recette c = em.find(Recette.class, id);
+		ElementFrigo c = em.find(ElementFrigo.class, id);
 		em.getTransaction().begin();
 		em.remove(c);
 		em.getTransaction().commit();

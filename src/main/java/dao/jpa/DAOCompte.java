@@ -15,7 +15,7 @@ public class DAOCompte implements IDAOCompte{
 	@Override
 	public List<Compte> findAll() {
 		EntityManager em = Context.getSingleton().getEmf().createEntityManager();
-		List<Compte> obj = em.createQuery("from Compte").getResultList();
+		List<Compte> obj = em.createQuery("FROM compte").getResultList();
 		em.close();
 		return obj;
 	}
