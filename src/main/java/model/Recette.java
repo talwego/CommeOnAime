@@ -2,11 +2,14 @@ package model;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 
 @Entity
@@ -18,7 +21,11 @@ public class Recette {
 	
 	
 	private boolean vegetarien;	
-	private boolean vegan;	
+	private boolean vegan;
+	
+	@ManyToOne(mappedBy = "Recette")
+	private transient List<RecetteIngredient> ingredients;
+	
 	private int calorie;	
 	private LocalDate debutSaison;	
 	private LocalDate finSaison;
@@ -30,11 +37,18 @@ public class Recette {
 	public Recette() {
 	}
 	
+<<<<<<< HEAD
 	public Recette(boolean vegetarien, boolean vegan, int calorie, LocalDate debutSaison, LocalDate finSaison,
 			String commentaires, int notes, LocalTime tempsDeCuisine, Boolean isValid) {
+=======
+	public Recette(boolean vegetarien, boolean vegan, List<RecetteIngredient> ingredients, int calorie,
+			LocalDate debutSaison, LocalDate finSaison, String commentaires, int notes, LocalTime tempsDeCuisine,
+			Boolean isValid) {
 		super();
+>>>>>>> main
 		this.vegetarien = vegetarien;
 		this.vegan = vegan;
+		this.ingredients = ingredients;
 		this.calorie = calorie;
 		this.debutSaison = debutSaison;
 		this.finSaison = finSaison;
@@ -42,6 +56,15 @@ public class Recette {
 		this.notes = notes;
 		this.tempsDeCuisine = tempsDeCuisine;
 		this.isValid = isValid;
+	}
+
+	
+	public List<RecetteIngredient> getIngredients() {
+		return ingredients;
+	}
+
+	public void setIngredients(List<RecetteIngredient> ingredients) {
+		this.ingredients = ingredients;
 	}
 
 	public Integer getId() {
