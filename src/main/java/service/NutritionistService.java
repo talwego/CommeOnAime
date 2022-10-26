@@ -6,6 +6,7 @@ package service;
 	import org.springframework.beans.factory.annotation.Autowired;
 	import org.springframework.stereotype.Service;
 
+import exception.IdException;
 import exception.MessageException;
 import exception.NutritionistException;
 import model.Nutritionist;
