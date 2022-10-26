@@ -5,7 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 @Entity
 public class RecetteIngredient {
@@ -18,41 +17,48 @@ public class RecetteIngredient {
 	
 	@ManyToOne
 	private Recette recette;
-	private double quantite;
+	
 	
 	public RecetteIngredient() {
 	}
-
-	public RecetteIngredient(model.Ingredient ingredient, double quantite) {
-		super();
-		Ingredient = ingredient;
+	
+	private double quantite;
+	public RecetteIngredient(Integer id, Ingredient ingredient, Recette recette, double quantite) {
+		this.id = id;
+		this.ingredient = ingredient;
+		this.recette = recette;
 		this.quantite = quantite;
 	}
-
 	public Integer getId() {
 		return id;
 	}
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
 	public Ingredient getIngredient() {
-		return Ingredient;
+		return ingredient;
 	}
-
 	public void setIngredient(Ingredient ingredient) {
-		Ingredient = ingredient;
+		this.ingredient = ingredient;
 	}
-
+	public Recette getRecette() {
+		return recette;
+	}
+	public void setRecette(Recette recette) {
+		this.recette = recette;
+	}
 	public double getQuantite() {
 		return quantite;
 	}
-
 	public void setQuantite(double quantite) {
 		this.quantite = quantite;
 	}
+	@Override
+	public String toString() {
+		return "RecetteIngredient [id=" + id + ", ingredient=" + ingredient + ", recette=" + recette + ", quantite="
+				+ quantite + "]";
+	}
 	
+}
 	
 
-}

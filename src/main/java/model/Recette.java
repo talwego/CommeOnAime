@@ -36,8 +36,6 @@ public class Recette {
 	public Recette() {
 	}
 	
-
-
 	
 
 	public Recette(boolean vegetarien, boolean vegan, int calorie, LocalDate debutSaison, LocalDate finSaison,
