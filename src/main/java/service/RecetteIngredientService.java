@@ -5,23 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 import exception.RecetteException;
 import exception.RecetteIngredientException;
 import model.RecetteIngredient;
-import repository.IngredientRepository;
 import repository.RecetteIngredientRepository;
-import repository.RecetteRepository;
 
 
 @Service
 public class RecetteIngredientService {
 	@Autowired
 	private RecetteIngredientRepository recetteIngredientRepository;
-	@Autowired
-	private RecetteRepository recetteRepository;
-	@Autowired
-	private IngredientRepository ingredientRepository;
 	
 	public List<RecetteIngredient> findAll(){
 		return recetteIngredientRepository.findAll();
