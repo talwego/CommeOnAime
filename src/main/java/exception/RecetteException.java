@@ -1,5 +1,7 @@
 package exception;
 
-public class RecetteException {
-
+public class RecetteException extends RuntimeException {
+	public RecetteException(String string) {
+		super("Exception Recette" + string);
+	}
 }
