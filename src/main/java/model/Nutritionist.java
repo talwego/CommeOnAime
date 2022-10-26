@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 public class Nutritionist extends Compte{
 
 	@OneToMany(mappedBy="nutritionist")
-	private List<Message> messages = new ArrayList();
+	private List<Message> messages = new ArrayList<>();
 
 	public Nutritionist() {
 		super();

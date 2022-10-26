@@ -13,8 +13,8 @@ public class RecetteIngredient {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@OneToOne
-	private Ingredient Ingredient;
+	@ManyToOne
+	private Ingredient ingredient;
 	
 	@ManyToOne
 	private Recette recette;
