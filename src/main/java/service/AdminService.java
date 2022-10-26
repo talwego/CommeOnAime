@@ -25,19 +25,16 @@ public class AdminService {
 	
 	public Admin findById(Integer id) 
 	{
-		// A faire : IdException
 		return adminRepo.findById(id).orElseThrow(IdException::new);
 	}
 	
 	public List<Admin> findByLogin(String login) 
 	{
-		//TO DO
 		return adminRepo.findByLoginContaining(login);
 	}
 	
 	public List<Admin> findByPassword(String password) 
 	{
-		//TO DO
 		return adminRepo.findByPasswordContaining(password);
 	}
 	

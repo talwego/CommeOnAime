@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import exception.ElementFrigoException;
-import exception.IdException;
 import model.ElementFrigo;
 import repository.ElementFrigoRepository;
 
