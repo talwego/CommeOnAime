@@ -21,9 +21,9 @@ public class Ingredient {
 	
 	private String name;
 	
-	private LocalDate dateDebutRecolte;
+	private int dateDebutRecolte;
 	
-	private LocalDate dateFinRecolteDate;
+	private int dateFinRecolte;
 		
 	private boolean vegetarien;
 	
@@ -39,13 +39,13 @@ public class Ingredient {
 	
 	
 
-	public Ingredient(String name, int calorie, LocalDate dateDebutRecolte, LocalDate dateFinRecolteDate,
+	public Ingredient(String name, int calorie, int dateDebutRecolte, int dateFinRecolte,
 			boolean vegetarien, boolean vegan) {
 		super();
 		this.calorie = calorie;
 		this.name = name;
 		this.dateDebutRecolte = dateDebutRecolte;
-		this.dateFinRecolteDate = dateFinRecolteDate;
+		this.dateFinRecolte = dateFinRecolte;
 		this.vegetarien = vegetarien;
 		this.vegan = vegan;
 	}
@@ -68,20 +68,20 @@ public class Ingredient {
 		this.calorie = calorie;
 	}
 
-	public LocalDate getDateDebutRecolte() {
+	public int getDateDebutRecolte() {
 		return dateDebutRecolte;
 	}
 
-	public void setDateDebutRecolte(LocalDate dateDebutRecolte) {
+	public void setDateDebutRecolte(int dateDebutRecolte) {
 		this.dateDebutRecolte = dateDebutRecolte;
 	}
 
-	public LocalDate getDateFinRecolteDate() {
-		return dateFinRecolteDate;
+	public int getDateFinRecolte() {
+		return dateFinRecolte;
 	}
 
-	public void setDateFinRecolteDate(LocalDate dateFinRecolteDate) {
-		this.dateFinRecolteDate = dateFinRecolteDate;
+	public void setDateFinRecolteDate(int dateFinRecolte) {
+		this.dateFinRecolte = dateFinRecolte;
 	}
 
 	public boolean isVegetarien() {
@@ -111,7 +111,7 @@ public class Ingredient {
 	@Override
 	public String toString() {
 		return "Ingredient [id=" + id + ", calorie=" + calorie + ", dateDebutRecolte=" + dateDebutRecolte
-				+ ", dateFinRecolteDate=" + dateFinRecolteDate + ", vegetarien=" + vegetarien + ", vegan=" + vegan
+				+ ", dateFinRecolte=" + dateFinRecolte + ", vegetarien=" + vegetarien + ", vegan=" + vegan
 				+ ", name=" + name + "]";
 	}
 
