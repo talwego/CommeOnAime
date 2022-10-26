@@ -32,7 +32,7 @@ public class ElementFrigoService {
 		if(elementFrigo.getIngredient() == null) {
 			throw new ElementFrigoException("ingredient obligatoire");
 		}
-		if(elementFrigo.getQuantite() == null) {
+		if(elementFrigo.getQuantite() == 0) {
 			throw new ElementFrigoException("quantite obligatoire");
 		}
 		

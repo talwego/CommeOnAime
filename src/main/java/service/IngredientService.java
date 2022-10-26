@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ajc.sopra.eshop.exception.ProduitException;
+import exception.IngredientException;
 import model.Ingredient;
 
 
