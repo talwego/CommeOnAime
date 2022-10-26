@@ -15,7 +15,6 @@ public class Message {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
 	private String sujet;
 	private String text;
 	private LocalDate dateMessageDate;
