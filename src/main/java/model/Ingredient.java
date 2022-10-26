@@ -32,6 +32,9 @@ public class Ingredient {
 	@OneToMany(mappedBy = "ingredient")
 	private List<RecetteIngredient> RecetteIngredients;
 	
+	@OneToMany(mappedBy="ingredient")
+	private List<ElementFrigo> elementFrigos;
+	
 	public Ingredient() {}
 	
 	

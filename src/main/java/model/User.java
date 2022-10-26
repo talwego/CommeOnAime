@@ -28,6 +28,9 @@ public class User extends Compte{
 	@OneToMany(mappedBy="user")
 	private List<Message> messages = new ArrayList<>();
 	
+	@OneToMany(mappedBy="user")
+	private List<ElementFrigo> elementFrigos;
+	
 	public User() {
 		super();
 	}
