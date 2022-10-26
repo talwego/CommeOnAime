@@ -6,28 +6,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import exception.ElementFrigoException;
+import exception.IdException;
 import model.ElementFrigo;
+import repository.ElementFrigoRepository;
 
 
 
 @Service
 public class ElementFrigoService {
 	@Autowired
-	private ElementFrigoService elementFrigoRepo;
+	private ElementFrigoRepository elementFrigoRepo;
 	
-	public List<ElementFrigoService> findAll(){
+	public List<ElementFrigo> findAll(){
 		return elementFrigoRepo.findAll();
 	}
 	
-	public ElementFrigoService findById(Integer id) {
+	public ElementFrigo findById(Integer id) {
 		return elementFrigoRepo.findById(id).orElseThrow(()->{
-			throw new GeneralException("unknown id");
+			throw new ElementFrigoException("unknown id");
 		});
 	}
 	
-	public void save(ElementFrigo elementFrigo) {
+	public ElementFrigo save(ElementFrigo elementFrigo) {
 		if(elementFrigo.getUser() == null) {
-			throw new IdException("user obligatoire");
+			throw new ElementFrigoException("user obligatoire");
 		}
 		if(elementFrigo.getIngredient() == null) {
 			throw new ElementFrigoException("ingredient obligatoire");
@@ -36,11 +38,11 @@ public class ElementFrigoService {
 			throw new ElementFrigoException("quantite obligatoire");
 		}
 		
-		return elementFrigo.save(elementFrigo);
+		return elementFrigo;
 		}
 	
-	public void delete(ElementFrigoService elementFrigo) {
-		elementFrigo.delete(elementFrigo);
+	public void delete(ElementFrigo elementFrigo) {
+		elementFrigoRepo.delete(elementFrigo);
 	}
 	
 	public void deleteById(Integer id) {

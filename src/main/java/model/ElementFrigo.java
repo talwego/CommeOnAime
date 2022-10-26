@@ -41,6 +41,22 @@ public class ElementFrigo {
 		return id;
 	}
 
+	public Ingredient getIngredient() {
+		return ingredient;
+	}
+
+	public void setIngredient(Ingredient ingredient) {
+		this.ingredient = ingredient;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}

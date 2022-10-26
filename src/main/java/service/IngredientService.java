@@ -5,32 +5,34 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ajc.sopra.eshop.exception.ProduitException;
+import exception.IdException;
 import exception.IngredientException;
+import exception.RecetteIngredientException;
 import model.Ingredient;
+import repository.ElementFrigoRepository;
+import repository.IngredientRepository;
 
 
 
 @Service
 public class IngredientService {
 
+	
+	
 	@Autowired
-	private IngredientService ingredientRepo;
+	private IngredientRepository  ingredientRepo;
 
 	public List<Ingredient> findAll() {
 		return ingredientRepo.findAll();
 	}
 
 	public Ingredient findById(Integer id) {
-//		return produitRepo.findById(id).orElseThrow(()->{
-//			throw new IdException();
-//		});
-		return ingredientRepo.findById(id).orElseThrow(IdException::new);
+		return ingredientRepo.findById(id).orElseThrow(()->{
+			throw new RecetteIngredientException("unknown id");
+		});
 	}
 
-	public List<Ingredient> findByName(String Name) {
-		return ingredientRepo.findByName(Name);
-	}
+	
 
 	public Ingredient create(Ingredient ingredient) {
 		if (ingredient.getId() != null) {
@@ -48,7 +50,7 @@ public class IngredientService {
 	}
 
 	private Ingredient save(Ingredient ingredient) {
-		f (ingredient.getId() == null || !ingredientRepo.existsById(ingredient.getId())) {
+		if (ingredient.getId() == null || !ingredientRepo.existsById(ingredient.getId())) {
 			throw new IdException();
 		}
 		
@@ -73,7 +75,7 @@ public class IngredientService {
 		ingredientRepo.delete(ingredient);
 	}
 
-	public void deleteId(Integer id) {
-		ingredientRepo.deleteById(id);
+	public void deleteById(Integer id) {
+		delete(findById(id));
 	}
 }
