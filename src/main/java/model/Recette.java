@@ -1,6 +1,5 @@
 package model;
 
-import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -23,11 +22,11 @@ public class Recette {
 	private boolean vegan;
 	
 	@OneToMany(mappedBy="recette")
-	private List<RecetteIngredient> RecetteIngredients;
+	private List<RecetteIngredient> recetteIngredients;
 	
 	private int calorie;	
-	private LocalDate debutSaison;	
-	private LocalDate finSaison;
+	private int debutSaison;	 //1 = Janvier, 2 = Fevrier, 3 = Mars...
+	private int finSaison; //1 = Janvier, 2 = Fevrier, 3 = Mars...
 	private String commentaires;
 	private int notes;
 	private LocalTime tempsDeCuisine;
@@ -38,7 +37,7 @@ public class Recette {
 	
 	
 
-	public Recette(boolean vegetarien, boolean vegan, int calorie, LocalDate debutSaison, LocalDate finSaison,
+	public Recette(boolean vegetarien, boolean vegan, int calorie, int debutSaison, int finSaison,
 			String commentaires, int notes, LocalTime tempsDeCuisine, Boolean isValid) {
 		this.vegetarien = vegetarien;
 		this.vegan = vegan;
@@ -86,12 +85,12 @@ public class Recette {
 
 
 	public List<RecetteIngredient> getRecetteIngredients() {
-		return RecetteIngredients;
+		return recetteIngredients;
 	}
 
 
 	public void setRecetteIngredients(List<RecetteIngredient> recetteIngredients) {
-		RecetteIngredients = recetteIngredients;
+		this.recetteIngredients = recetteIngredients;
 	}
 
 
@@ -105,22 +104,22 @@ public class Recette {
 	}
 
 
-	public LocalDate getDebutSaison() {
+	public int getDebutSaison() {
 		return debutSaison;
 	}
 
 
-	public void setDebutSaison(LocalDate debutSaison) {
+	public void setDebutSaison(int debutSaison) {
 		this.debutSaison = debutSaison;
 	}
 
 
-	public LocalDate getFinSaison() {
+	public int getFinSaison() {
 		return finSaison;
 	}
 
 
-	public void setFinSaison(LocalDate finSaison) {
+	public void setFinSaison(int finSaison) {
 		this.finSaison = finSaison;
 	}
 
