@@ -9,7 +9,6 @@ import exception.IdException;
 import exception.IngredientException;
 import exception.RecetteIngredientException;
 import model.Ingredient;
-import repository.ElementFrigoRepository;
 import repository.IngredientRepository;
 
 

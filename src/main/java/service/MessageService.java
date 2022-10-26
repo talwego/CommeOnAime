@@ -10,8 +10,6 @@ import exception.IdException;
 import exception.MessageException;
 import model.Message;
 import repository.MessageRepository;
-import repository.NutritionistRepository;
-import repository.UserRepository;
 
 @Service
 public class MessageService {
