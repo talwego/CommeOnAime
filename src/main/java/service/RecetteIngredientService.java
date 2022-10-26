@@ -5,15 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import exception.PatientException;
+
 import exception.RecetteException;
 import exception.RecetteIngredientException;
-import model.Patient;
 import model.RecetteIngredient;
 import repository.IngredientRepository;
 import repository.RecetteIngredientRepository;
 import repository.RecetteRepository;
-import repository.VisiteRepository;
+
 
 @Service
 public class RecetteIngredientService {
