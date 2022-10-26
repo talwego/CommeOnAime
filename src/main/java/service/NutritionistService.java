@@ -9,7 +9,6 @@ import exception.IdException;
 import exception.MessageException;
 import exception.NutritionistException;
 import model.Nutritionist;
-import repository.MessageRepository;
 import repository.NutritionistRepository;
 
 
@@ -19,8 +18,6 @@ import repository.NutritionistRepository;
 			@Autowired
 			private NutritionistRepository nutritionistRepo;
 			
-			@Autowired
-			private MessageRepository messageRepo;
 			
 			public List<Nutritionist> findAll(){
 				return nutritionistRepo.findAll();
