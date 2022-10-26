@@ -8,18 +8,19 @@ import org.springframework.stereotype.Service;
 import exception.GeneralException;
 import model.Achat;
 import repository.AchatRepository;
+import repository.RecetteIngredientRepository;
 
 @Service
 public class RecetteIngredientService {
 	@Autowired
-	private AchatRepository achatRepository;
+	private RecetteIngredientRepository recetteIngredientRepository;
 	
 	public List<Achat> findAll(){
-		return achatRepository.findAll();
+		return recetteIngredientRepository.findAll();
 	}
 	
 	public Achat findById(Integer id) {
-		return achatRepository.findById(id).orElseThrow(()->{
+		return recetteIngredientRepository.findById(id).orElseThrow(()->{
 			throw new GeneralException("unknown id");
 		});
 	}
@@ -31,11 +32,11 @@ public class RecetteIngredientService {
 		if(obj.getProduit() == null) {
 			throw new GeneralException("produit obligatoire");
 		}
-		achatRepository.save(obj);
+		recetteIngredientRepository.save(obj);
 	}
 	
 	public void delete(Achat obj) {
-		achatRepository.delete(obj);
+		recetteIngredientRepository.delete(obj);
 	}
 	
 	public void deleteById(Integer id) {
