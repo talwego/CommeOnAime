@@ -26,7 +26,7 @@ public class User extends Compte{
 	private boolean vegan;
 	
 	@OneToMany(mappedBy="user")
-	private List<Message> messages = new ArrayList();
+	private List<Message> messages = new ArrayList<>();
 	
 	public User() {
 		super();
