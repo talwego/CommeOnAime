@@ -1,5 +1,7 @@
 package exception;
 
-public class IngredientException {
-
+public class IngredientException extends RuntimeException {
+	public IngredientException(String string) {
+		super("Exception Ingredient" + string);
+	}
 }
