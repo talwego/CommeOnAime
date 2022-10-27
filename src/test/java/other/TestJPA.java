@@ -1,5 +1,5 @@
 
-package test;
+package other;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;

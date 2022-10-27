@@ -49,10 +49,6 @@ public class IngredientService {
 	}
 
 	private Ingredient save(Ingredient ingredient) {
-		if (ingredient.getId() == null || !ingredientRepo.existsById(ingredient.getId())) {
-			throw new IdException();
-		}
-		
 		if (ingredient.getCalorie() < 0 ) {
 			throw new IngredientException("le nombre de calories doit être positif");
 		}
