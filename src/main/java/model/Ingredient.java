@@ -22,7 +22,7 @@ public class Ingredient {
 	private int dateDebutRecolte;
 	
 	private int dateFinRecolte;
-		
+	
 	private boolean vegetarien;
 	
 	private boolean vegan;
@@ -35,7 +35,10 @@ public class Ingredient {
 	
 	public Ingredient() {}
 	
-	
+	public Ingredient(Integer id) {
+		super();
+		this.id = id;
+	}
 
 	public Ingredient(String name, int calorie, int dateDebutRecolte, int dateFinRecolte,
 			boolean vegetarien, boolean vegan) {

@@ -17,7 +17,7 @@ public class Recette {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	
+	private String name;
 	private boolean vegetarien;	
 	private boolean vegan;
 	
@@ -28,31 +28,36 @@ public class Recette {
 	private int debutSaison;	 //1 = Janvier, 2 = Fevrier, 3 = Mars...
 	private int finSaison; //1 = Janvier, 2 = Fevrier, 3 = Mars...
 	private String commentaires;
-	private int notes;
+	private int note;
 	private LocalTime tempsDeCuisine;
 	private Boolean isValid;
 	
 	public Recette() {
 	}
-	
-	
 
-	public Recette(boolean vegetarien, boolean vegan, int calorie, int debutSaison, int finSaison,
-			String commentaires, int notes, LocalTime tempsDeCuisine, Boolean isValid) {
+	public Recette(String name, boolean vegetarien, boolean vegan, int calorie, int debutSaison, int finSaison,
+			String commentaires, int note, LocalTime tempsDeCuisine, Boolean isValid) {
+		super();
+		this.name = name;
 		this.vegetarien = vegetarien;
 		this.vegan = vegan;
 		this.calorie = calorie;
 		this.debutSaison = debutSaison;
 		this.finSaison = finSaison;
 		this.commentaires = commentaires;
-		this.notes = notes;
+		this.note = note;
 		this.tempsDeCuisine = tempsDeCuisine;
 		this.isValid = isValid;
 	}
 
+	public String getName() {
+		return name;
+	}
 
 
-
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public Integer getId() {
 		return id;
@@ -134,13 +139,13 @@ public class Recette {
 	}
 
 
-	public int getNotes() {
-		return notes;
+	public int getNote() {
+		return note;
 	}
 
 
-	public void setNotes(int notes) {
-		this.notes = notes;
+	public void setNote(int note) {
+		this.note = note;
 	}
 
 
@@ -162,4 +167,13 @@ public class Recette {
 	public void setIsValid(Boolean isValid) {
 		this.isValid = isValid;
 	}
+
+	@Override
+	public String toString() {
+		return "Recette [id=" + id + ", name=" + name + ", vegetarien=" + vegetarien + ", vegan=" + vegan + ", calorie="
+				+ calorie + ", debutSaison=" + debutSaison + ", finSaison=" + finSaison + ", commentaires="
+				+ commentaires + ", note=" + note + ", tempsDeCuisine=" + tempsDeCuisine + ", isValid=" + isValid + "]";
+	}
+	
+	
 }

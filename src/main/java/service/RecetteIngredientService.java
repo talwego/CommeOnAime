@@ -5,16 +5,21 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import exception.RecetteException;
 import exception.RecetteIngredientException;
 import model.RecetteIngredient;
+import repository.IngredientRepository;
 import repository.RecetteIngredientRepository;
+import repository.RecetteRepository;
 
 
 @Service
 public class RecetteIngredientService {
 	@Autowired
 	private RecetteIngredientRepository recetteIngredientRepository;
+	@Autowired
+	private RecetteRepository recetteRepository;
+	@Autowired
+	private IngredientRepository ingredientRepository;
 	
 	public List<RecetteIngredient> findAll(){
 		return recetteIngredientRepository.findAll();
@@ -28,24 +33,34 @@ public class RecetteIngredientService {
 	
 	public RecetteIngredient create(RecetteIngredient obj) {
 		if (obj.getId() != null) {
-			throw new RecetteException("recetteIngredient deja dans la base");
+			throw new RecetteIngredientException("recetteIngredient deja dans la base");
 		}
 		return save(obj);
 	}
 
 	public RecetteIngredient update(RecetteIngredient obj) {
 		if (obj.getId() == null || !recetteIngredientRepository.existsById(obj.getId())) {
-			throw new RecetteException("id de la recetteIngredient pas dans la base");
+			throw new RecetteIngredientException("id de la recetteIngredient pas dans la base");
 		}
 		return save(obj);
 	}
 	
 	private RecetteIngredient save(RecetteIngredient obj) {
-		return recetteIngredientRepository.save(obj);
+		if (ingredientRepository.existsById(obj.getIngredient().getId()) && recetteRepository.existsById(obj.getIngredient().getId())) {
+			return recetteIngredientRepository.save(obj);
+		}
+		else {
+			throw new RecetteIngredientException("ingredient et/ou recette inconnu en BDD");
+		}
 	}
 	
 	public void delete(RecetteIngredient obj) {
-		recetteIngredientRepository.delete(obj);
+		if (ingredientRepository.existsById(obj.getId())) {
+			recetteIngredientRepository.delete(obj);
+		}
+		else {
+			throw new RecetteIngredientException("recetteIngredient inconnu en BDD");
+		}
 	}
 	
 	public void deleteById(Integer id) {

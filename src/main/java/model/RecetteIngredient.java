@@ -23,12 +23,19 @@ public class RecetteIngredient {
 	}
 	
 	private double quantite;
+	
+	public RecetteIngredient(Ingredient ingredient, Recette recette, double quantite) {
+		this.ingredient = ingredient;
+		this.recette = recette;
+		this.quantite = quantite;
+	}
 	public RecetteIngredient(Integer id, Ingredient ingredient, Recette recette, double quantite) {
 		this.id = id;
 		this.ingredient = ingredient;
 		this.recette = recette;
 		this.quantite = quantite;
 	}
+	
 	public Integer getId() {
 		return id;
 	}
