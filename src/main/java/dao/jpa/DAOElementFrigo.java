@@ -14,7 +14,7 @@ public class DAOElementFrigo implements IDAOElementFrigo {
 	@Override
 	public List<ElementFrigo> findAll() {
 		EntityManager em = Context.getSingleton().getEmf().createEntityManager();
-		List<ElementFrigo> obj = em.createQuery("FROM element_frigo").getResultList();
+		List<ElementFrigo> obj = em.createNamedQuery("FROM element_frigo",ElementFrigo.class).getResultList();
 		em.close();
 		return obj;
 	}

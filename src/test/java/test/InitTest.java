@@ -1,12 +1,9 @@
 package test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.time.LocalTime;
 
 import javax.transaction.Transactional;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,36 +24,42 @@ import service.RecetteService;
 @Transactional
 class InitTest {
 	@Autowired
-	RecetteService recetteService;
+	RecetteService _recetteService;
 	@Autowired
-	IngredientService ingredientService;
+	IngredientService _ingredientService;
 	@Autowired
-	RecetteIngredientService recetteIngredientService;
+	RecetteIngredientService _recetteIngredientService;
 	
 	@Test
 	@Commit
 	void initRecetteAndIngredient() {
+		//Test: Auto id generation commence a 1 avant de lancer l'init
 		Recette recette1 = new Recette("test01", false, false, 10, 1, 11, "comm01", 0, LocalTime.of(1, 10), true);
 		Recette recette2 = new Recette("test02", true, false, 20, 1, 11, "comm02", 2, LocalTime.of(12, 10), true);
 		
-		recetteService.create(recette1);
-		recetteService.create(recette2);
-		recetteService.create(new Recette("test03", true, true, 30, 1, 9, "comm03", 12, LocalTime.of(10, 1), false));
-		recetteService.create(new Recette("test04", false, true, 40, 8, 5, "comm04", 6, LocalTime.of(5, 50), false));
-		recetteService.create(new Recette("test05", false, true, 40, 11, 2, "comm05", 9, LocalTime.of(2, 1), false));
+		_recetteService.create(recette1);
+		_recetteService.create(recette2);
+		_recetteService.create(new Recette("test03", true, true, 30, 1, 9, "comm03", 12, LocalTime.of(10, 1), false));
+		_recetteService.create(new Recette("test04", false, true, 40, 8, 5, "comm04", 6, LocalTime.of(5, 50), false));
+		_recetteService.create(new Recette("test05", false, true, 40, 11, 2, "comm05", 9, LocalTime.of(2, 1), false));
 		
 		Ingredient ingredient1 = new Ingredient("tomate", 18, 7, 10, true, true);
 		Ingredient ingredient2 = new Ingredient("concombre", 15, 7, 9, true, true);
 		
-		ingredientService.create(ingredient1);
-		ingredientService.create(ingredient2);
-		ingredientService.create(new Ingredient("oeuf", 155, 1, 12, true, false));
-		ingredientService.create(new Ingredient("steak hache", 204, 1, 12, false, false));
+		_ingredientService.create(ingredient1);
+		_ingredientService.create(ingredient2);
+		_ingredientService.create(new Ingredient("oeuf", 155, 1, 12, true, false));
+		_ingredientService.create(new Ingredient("steak hache", 204, 1, 12, false, false));
+		_ingredientService.create(new Ingredient("test01", 105, 8, 3, true, false));
+		_ingredientService.create(new Ingredient("test02", 55, 10, 1, true, true));
 		
-		recetteIngredientService.create(new RecetteIngredient(ingredient1, recette1, 10));
-		recetteIngredientService.create(new RecetteIngredient(ingredient1, recette2, 20));
-		recetteIngredientService.create(new RecetteIngredient(ingredient2, recette1, 30));
-		recetteIngredientService.create(new RecetteIngredient(ingredient2, recette2, 40));
+		_recetteIngredientService.create(new RecetteIngredient(ingredient1, recette1, 10));
+		_recetteIngredientService.create(new RecetteIngredient(ingredient1, recette2, 20));
+		_recetteIngredientService.create(new RecetteIngredient(ingredient2, recette1, 30));
+		_recetteIngredientService.create(new RecetteIngredient(ingredient2, recette2, 40));
+		
+		System.out.println(_ingredientService.findAll());
+		System.out.println(_recetteIngredientService.findAll());
+		System.out.println(_recetteService.findAll());
 	}
-
 }

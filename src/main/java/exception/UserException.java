@@ -1,14 +1,16 @@
 package exception;
 
 public class UserException extends RuntimeException {
-	
-public UserException() {
-		
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public UserException() {
+
 	}
-	
 
 	public UserException(String message) {
 		super(message);
 	}
-
 }
