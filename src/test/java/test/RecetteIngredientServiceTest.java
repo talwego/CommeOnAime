@@ -4,11 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import javax.transaction.Transactional;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.Commit;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
@@ -24,11 +22,11 @@ import service.RecetteIngredientService;
 class RecetteIngredientServiceTest {
 
 	@Autowired
-	private RecetteIngredientService recetteIngredientService;
+	private RecetteIngredientService _recetteIngredientService;
 
 	@Test
 	void InjectionTest() {
-		assertNotNull(recetteIngredientService);
+		assertNotNull(_recetteIngredientService);
 	}
 	
 	@Test
@@ -38,9 +36,9 @@ class RecetteIngredientServiceTest {
 		ingredient.setId(1);
 		recette.setId(1);
 		RecetteIngredient recetteIngredient = new RecetteIngredient(ingredient, recette, 50);
-		recetteIngredient = recetteIngredientService.create(recetteIngredient);
+		recetteIngredient = _recetteIngredientService.create(recetteIngredient);
 		assertNotNull(recetteIngredient.getId());
-		assertNotNull(recetteIngredientService.findById(recetteIngredient.getId()));
+		assertNotNull(_recetteIngredientService.findById(recetteIngredient.getId()));
 	}
 
 }

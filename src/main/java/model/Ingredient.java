@@ -10,38 +10,40 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Ingredient {
-	
+
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	private int calorie;
-	
+
 	private String name;
-	
+
 	private int dateDebutRecolte;
-	
+
 	private int dateFinRecolte;
-	
+
 	private boolean vegetarien;
-	
+
 	private boolean vegan;
-	
+
 	@OneToMany(mappedBy = "ingredient")
-	private List<RecetteIngredient> RecetteIngredients;
-	
-	@OneToMany(mappedBy="ingredient")
+	private List<RecetteIngredient> recetteIngredients;
+
+	@OneToMany(mappedBy = "ingredient")
 	private List<ElementFrigo> elementFrigos;
-	
-	public Ingredient() {}
-	
+
+	public Ingredient() {
+
+	}
+
 	public Ingredient(Integer id) {
 		super();
 		this.id = id;
 	}
 
-	public Ingredient(String name, int calorie, int dateDebutRecolte, int dateFinRecolte,
-			boolean vegetarien, boolean vegan) {
+	public Ingredient(String name, int calorie, int dateDebutRecolte, int dateFinRecolte, boolean vegetarien,
+			boolean vegan) {
 		super();
 		this.calorie = calorie;
 		this.name = name;
@@ -50,8 +52,6 @@ public class Ingredient {
 		this.vegetarien = vegetarien;
 		this.vegan = vegan;
 	}
-
-
 
 	public Integer getId() {
 		return id;
@@ -81,7 +81,7 @@ public class Ingredient {
 		return dateFinRecolte;
 	}
 
-	public void setDateFinRecolteDate(int dateFinRecolte) {
+	public void setDateFinRecolte(int dateFinRecolte) {
 		this.dateFinRecolte = dateFinRecolte;
 	}
 
@@ -109,18 +109,27 @@ public class Ingredient {
 		this.name = name;
 	}
 
+	public List<RecetteIngredient> getRecetteIngredients() {
+		return recetteIngredients;
+	}
+
+	public void setRecetteIngredients(List<RecetteIngredient> recetteIngredients) {
+		this.recetteIngredients = recetteIngredients;
+	}
+
+	public List<ElementFrigo> getElementFrigos() {
+		return elementFrigos;
+	}
+
+	public void setElementFrigos(List<ElementFrigo> elementFrigos) {
+		this.elementFrigos = elementFrigos;
+	}
+
 	@Override
 	public String toString() {
 		return "Ingredient [id=" + id + ", calorie=" + calorie + ", dateDebutRecolte=" + dateDebutRecolte
-				+ ", dateFinRecolte=" + dateFinRecolte + ", vegetarien=" + vegetarien + ", vegan=" + vegan
-				+ ", name=" + name + "]";
+				+ ", dateFinRecolte=" + dateFinRecolte + ", vegetarien=" + vegetarien + ", vegan=" + vegan + ", name="
+				+ name + "]";
 	}
-
-	
-	
-	
-	
-	
-	
 
 }

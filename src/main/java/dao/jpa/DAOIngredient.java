@@ -8,14 +8,13 @@ import javax.persistence.EntityTransaction;
 import context.Context;
 import dao.IDAOIngredient;
 import model.Ingredient;
-import model.Ingredient;
 
 public class DAOIngredient implements IDAOIngredient {
 
 	@Override
 	public List<Ingredient> findAll() {
 		EntityManager em = Context.getSingleton().getEmf().createEntityManager();
-		List<Ingredient> obj = em.createQuery("FROM ingredient").getResultList();
+		List<Ingredient> obj = em.createNamedQuery("FROM ingredient",Ingredient.class).getResultList();
 		em.close();
 		return obj;
 	}

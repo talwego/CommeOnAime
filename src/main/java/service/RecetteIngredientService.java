@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import exception.RecetteException;
 import exception.RecetteIngredientException;
 import model.RecetteIngredient;
 import repository.IngredientRepository;
@@ -15,18 +16,18 @@ import repository.RecetteRepository;
 @Service
 public class RecetteIngredientService {
 	@Autowired
-	private RecetteIngredientRepository recetteIngredientRepository;
+	private RecetteIngredientRepository _recetteIngredientRepository;
 	@Autowired
-	private RecetteRepository recetteRepository;
+	private RecetteRepository _recetteRepository;
 	@Autowired
-	private IngredientRepository ingredientRepository;
+	private IngredientRepository _ingredientRepository;
 	
 	public List<RecetteIngredient> findAll(){
-		return recetteIngredientRepository.findAll();
+		return _recetteIngredientRepository.findAll();
 	}
 	
 	public RecetteIngredient findById(Integer id) {
-		return recetteIngredientRepository.findById(id).orElseThrow(()->{
+		return _recetteIngredientRepository.findById(id).orElseThrow(()->{
 			throw new RecetteIngredientException("unknown id");
 		});
 	}
@@ -39,15 +40,15 @@ public class RecetteIngredientService {
 	}
 
 	public RecetteIngredient update(RecetteIngredient obj) {
-		if (obj.getId() == null || !recetteIngredientRepository.existsById(obj.getId())) {
+		if (obj.getId() == null || !_recetteIngredientRepository.existsById(obj.getId())) {
 			throw new RecetteIngredientException("id de la recetteIngredient pas dans la base");
 		}
 		return save(obj);
 	}
 	
 	private RecetteIngredient save(RecetteIngredient obj) {
-		if (ingredientRepository.existsById(obj.getIngredient().getId()) && recetteRepository.existsById(obj.getIngredient().getId())) {
-			return recetteIngredientRepository.save(obj);
+		if (_ingredientRepository.existsById(obj.getIngredient().getId()) && _recetteRepository.existsById(obj.getIngredient().getId())) {
+			return _recetteIngredientRepository.save(obj);
 		}
 		else {
 			throw new RecetteIngredientException("ingredient et/ou recette inconnu en BDD");
@@ -55,8 +56,8 @@ public class RecetteIngredientService {
 	}
 	
 	public void delete(RecetteIngredient obj) {
-		if (ingredientRepository.existsById(obj.getId())) {
-			recetteIngredientRepository.delete(obj);
+		if (_ingredientRepository.existsById(obj.getId())) {
+			_recetteIngredientRepository.delete(obj);
 		}
 		else {
 			throw new RecetteIngredientException("recetteIngredient inconnu en BDD");
@@ -67,4 +68,9 @@ public class RecetteIngredientService {
 		delete(findById(id));
 	}
 	
+	private void quantiteIsValid(int obj) {
+		if(obj < 0) {
+			throw new RecetteException("quantite < 0");
+		}
+	}
 }

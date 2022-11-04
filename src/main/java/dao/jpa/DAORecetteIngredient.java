@@ -6,10 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
 import context.Context;
-import dao.IDAOIngredient;
-import dao.IDAORecette;
 import dao.IDAORecetteIngredient;
-import model.RecetteIngredient;
 import model.RecetteIngredient;
 
 public class DAORecetteIngredient implements IDAORecetteIngredient {
@@ -17,7 +14,7 @@ public class DAORecetteIngredient implements IDAORecetteIngredient {
 	@Override
 	public List<RecetteIngredient> findAll() {
 		EntityManager em = Context.getSingleton().getEmf().createEntityManager();
-		List<RecetteIngredient> obj = em.createQuery("FROM recette_ingredient").getResultList();
+		List<RecetteIngredient> obj = em.createNamedQuery("FROM recette_ingredient", RecetteIngredient.class).getResultList();
 		em.close();
 		return obj;
 	}
