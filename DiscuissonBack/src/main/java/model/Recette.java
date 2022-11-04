@@ -2,23 +2,39 @@ package model;
 
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+
+import ajc.sopra.eshop.model.JsonViews;
+import ajc.sopra.eshop.model.Produit;
 
 @Entity
 public class Recette {
-
+	@JsonView(JsonViews.Common.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+	@JsonView(JsonViews.Common.class)
+	@NotBlank
+	@Column(name = "name", length = 30, nullable = false)
 	private String name;
-	private boolean vegetarien;	
+	@JsonView(JsonViews.Common.class)
+	@Column(name = "vegetarien", length = 30, nullable = true)
+	private boolean vegetarien;
+	@JsonView(JsonViews.Common.class)
+	@Column(name = "vegan", length = 30, nullable = true)
 	private boolean vegan;
 	
 	@OneToMany(mappedBy="recette")
@@ -168,6 +184,23 @@ public class Recette {
 		this.isValid = isValid;
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Produit other = (Produit) obj;
+		return Objects.equals(id, other.id);
+	}
+	
 	@Override
 	public String toString() {
 		return "Recette [id=" + id + ", name=" + name + ", vegetarien=" + vegetarien + ", vegan=" + vegan + ", calorie="
