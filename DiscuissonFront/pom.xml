@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>perso</groupId>
+	<groupId>Sopra</groupId>
 	<artifactId>DiscuissonFront</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
@@ -35,8 +35,8 @@
 			<version>${spring-version}</version>
 		</dependency>
 		<dependency>
-			<groupId>perso</groupId>
-			<artifactId>persoEshopSpringBack2</artifactId>
+			<groupId>Sopra</groupId>
+			<artifactId>DiscuissonBack</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
