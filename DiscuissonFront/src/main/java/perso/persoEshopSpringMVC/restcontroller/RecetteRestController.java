@@ -1,4 +1,4 @@
-package perso.persoEshopSpringMVC.restcontroller;
+package model;
 
 import java.lang.reflect.Field;
 import java.util.List;
@@ -33,35 +33,40 @@ import perso.persoeshopspringback.service.ProduitService;
 @RequestMapping("/api/recette")
 public class RecetteRestController {
 	@Autowired
-	private RecetteService _recetteService;
+	private RecetteService recetteService;
 	
-	@ResponseStatus(code = HttpStatus.CREATED)
 	@PostMapping("")
 	@JsonView(JsonViews.Recette.class)
-	public Produit create(@Valid @RequestBody Recette recette, BindingResult br) {
-		if (br.hasErrors()) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "données incorrectes");
-		}
-		
-		return _produitService.create(recette);
+	public Recette create(@RequestBody Recette recette) {
+			
+		return recetteService.save(recette);
 	}
+	
+	@JsonView(JsonViews.Recette.class)
+	@PostMapping("/list")
+	public List<Recette> create(@RequestBody List<Recette> recettes) {
+			
+		return recetteService.saveAll(recettes);
+	}
+	
+	
+	@GetMapping("")
+	@JsonView(JsonViews.Recette.class)
+	public List<Recette> findAll(){
+		return recetteService.findAll();
+	}
+	
 	@DeleteMapping("/{id}")
-	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-	public void deleteById(@PathVariable Integer id) {
+	public void deleteById(@RequestBody Recette recette) {
 		try {
-			_recetteService.deleteById(id);
-		} catch (Exception e) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "id inconnu");
+			recetteService.deleteById(id);
 		}
 	}
 	@PutMapping("/{id}")
 	@JsonView(JsonViews.Recette.class)
-	public Produit update(@Valid @RequestBody Recette recette, BindingResult br, @PathVariable Integer id) {
-		if (br.hasErrors()) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "données incorrectes");
-		}
-		produit.setId(id);
-		return _recetteService.update(recette);
+	public Recette update(@RequestBody Recette recette) {
+	;
+		return recetteService.update(id);
 	}
 	
 	
