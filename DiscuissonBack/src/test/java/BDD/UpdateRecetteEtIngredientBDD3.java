@@ -82,6 +82,8 @@ public class UpdateRecetteEtIngredientBDD3 {
 		recette.setVegan(boolean1);
 		
 		System.out.println(recette.isVegan() + " + " + recette.isVegetarien());
+		
+		setDate(recette, ingredients);
 	}
 	
 	public static void main(String[] args) {
