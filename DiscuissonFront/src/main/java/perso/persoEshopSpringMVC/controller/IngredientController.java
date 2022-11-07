@@ -1,4 +1,4 @@
-package ajc.sopra.eshop.controller;
+package perso.persoEshopSpringMVC.controller;
 
 
 
