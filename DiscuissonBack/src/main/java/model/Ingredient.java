@@ -26,6 +26,8 @@ public class Ingredient {
 	private boolean vegetarien;
 
 	private boolean vegan;
+	
+	private Unite unite;
 
 	@OneToMany(mappedBy = "ingredient")
 	private List<RecetteIngredient> recetteIngredients;
@@ -43,7 +45,7 @@ public class Ingredient {
 	}
 
 	public Ingredient(String name, int calorie, int dateDebutRecolte, int dateFinRecolte, boolean vegetarien,
-			boolean vegan) {
+			boolean vegan, Unite unite) {
 		super();
 		this.calorie = calorie;
 		this.name = name;
@@ -51,6 +53,7 @@ public class Ingredient {
 		this.dateFinRecolte = dateFinRecolte;
 		this.vegetarien = vegetarien;
 		this.vegan = vegan;
+		this.unite = unite;
 	}
 
 	public Integer getId() {
@@ -123,6 +126,14 @@ public class Ingredient {
 
 	public void setElementFrigos(List<ElementFrigo> elementFrigos) {
 		this.elementFrigos = elementFrigos;
+	}
+
+	public Unite getUnite() {
+		return unite;
+	}
+
+	public void setUnite(Unite unite) {
+		this.unite = unite;
 	}
 
 	@Override

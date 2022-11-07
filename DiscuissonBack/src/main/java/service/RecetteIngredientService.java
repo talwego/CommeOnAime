@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import exception.RecetteException;
 import exception.RecetteIngredientException;
+import model.Ingredient;
+import model.Recette;
 import model.RecetteIngredient;
 import repository.IngredientRepository;
 import repository.RecetteIngredientRepository;
@@ -32,6 +34,13 @@ public class RecetteIngredientService {
 		});
 	}
 	
+	public RecetteIngredient create(Recette obj1, Ingredient obj2, int obj3) {
+		if (!_ingredientRepository.existsById(obj2.getId()) || !_recetteRepository.existsById(obj1.getId())) {
+			throw new RecetteIngredientException("recetteIngredient deja dans la base");
+		}
+		return save(new RecetteIngredient(obj2, obj1, obj3));
+	}
+	
 	public RecetteIngredient create(RecetteIngredient obj) {
 		if (obj.getId() != null) {
 			throw new RecetteIngredientException("recetteIngredient deja dans la base");
@@ -47,7 +56,7 @@ public class RecetteIngredientService {
 	}
 	
 	private RecetteIngredient save(RecetteIngredient obj) {
-		if (_ingredientRepository.existsById(obj.getIngredient().getId()) && _recetteRepository.existsById(obj.getIngredient().getId())) {
+		if (_ingredientRepository.existsById(obj.getIngredient().getId()) && _recetteRepository.existsById(obj.getRecette().getId())) {
 			return _recetteIngredientRepository.save(obj);
 		}
 		else {

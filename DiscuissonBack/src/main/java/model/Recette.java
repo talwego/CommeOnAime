@@ -48,6 +48,9 @@ public class Recette {
 	private LocalTime tempsDeCuisine;
 	private Boolean isValid;
 	
+	@OneToMany(mappedBy="recette")
+	private List<InstructionRecette> instructionRecettes;
+	
 	public Recette() {
 	}
 
@@ -182,6 +185,14 @@ public class Recette {
 
 	public void setIsValid(Boolean isValid) {
 		this.isValid = isValid;
+	}
+
+	public List<InstructionRecette> getInstructionRecettes() {
+		return instructionRecettes;
+	}
+
+	public void setInstructionRecettes(List<InstructionRecette> instructionRecettes) {
+		this.instructionRecettes = instructionRecettes;
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package other;
+package BDD;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
