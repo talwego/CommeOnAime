@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
-import perso.persoeshopspringback.config.JpaConfig;
+import config.JpaConfig;
 
 @Configuration
 @EnableWebMvc
