@@ -140,7 +140,6 @@ public class IngredientService {
 	}
 
 	public List<Ingredient> saveAll(List<Ingredient> ingredients) {
-		// TODO Auto-generated method stub
-		return null;
+		return _ingredientRepository.findAll();
 	}
 }

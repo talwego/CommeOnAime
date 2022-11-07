@@ -125,7 +125,7 @@ public class RecetteService {
 		}
 		else {
 			return recetteRepository.findBySaisonBetween(obj1, obj2+12);
-		
+		}
 	}
 	
 	public List<Recette> findByNoteBetween(int obj1, int obj2){
@@ -146,5 +146,9 @@ public class RecetteService {
 	
 	public List<Recette> findByIsValidEquals(boolean obj){
 		return recetteRepository.findByIsValidEquals(obj);
+	}
+
+	public List<Recette> saveAll(List<Recette> recettes) {
+		return recetteRepository.findAll();
 	}
 }

@@ -22,10 +22,10 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.fasterxml.jackson.annotation.JsonView;
 
 import model.Ingredient;
-import model.JsonView;
-
+import model.JsonViews;
 import service.IngredientService;
 
 
@@ -75,13 +75,13 @@ public class IngredientRestController {
 	
 	@DeleteMapping("/{id}")
 	@JsonView(JsonViews.Ingredient.class)
-	public void deleteById(@Valid @RequestBody Ingredient ingredient) {
+	public void deleteById(@RequestBody Ingredient ingredient) {
 		ingredientService.deleteById(id);
 		}
-	}
+	
 	@PutMapping("/{id}")
 	@JsonView(JsonViews.Ingredient.class)
-	public Ingredient update(@Valid @RequestBody Ingredient ingredient) {
+	public Ingredient update( @RequestBody Ingredient ingredient) {
 	
 		return ingredientService.update(id);
 	}

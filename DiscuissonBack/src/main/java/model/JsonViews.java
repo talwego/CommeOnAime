@@ -14,5 +14,10 @@ public class JsonViews {
 		
 	}
 	
-	
+	public static class Ingredient extends Common{			
+		
+	}
+	public static class Recette extends Common{			
+		
+	}
 }
