@@ -22,6 +22,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import model.JsonViews;
 import model.Message;
 import model.Nutritionist;
 import service.NutritionistService;
@@ -74,18 +75,18 @@ public class NutritionistRestController {
 	@JsonView(JsonViews.Common.class)
 	public Nutritionist patch(@RequestBody Map<String, Object> fields, @PathVariable Integer id) {
 		Nutritionist nutritionist = nutritionistSrv.findById(id);
-		fields.forEach((k, v) -> {
-			if (k.equals("message")) {
-				Map<String, Object> map = (Map<String, Object>) v;
-				map.forEach((k, v) -> {
-					Field field = ReflectionUtils.findField(Message.class, k);
+		fields.forEach((l, w) -> {
+			if (l.equals("message")) {
+				Map<String, Object> map = (Map<String, Object>) w;
+				map.forEach((l, w) -> {
+					Field field = ReflectionUtils.findField(Message.class, l);
 					ReflectionUtils.makeAccessible(field);
-					ReflectionUtils.setField(field, nutritionist.getMessage(), v);
+					ReflectionUtils.setField(field, nutritionist.getMessage(), w);
 				});
 			} else {
-				Field field = ReflectionUtils.findField(Nutritionist.class, k);
+				Field field = ReflectionUtils.findField(Nutritionist.class, l);
 				ReflectionUtils.makeAccessible(field);
-				ReflectionUtils.setField(field, nutritionist, v);
+				ReflectionUtils.setField(field, nutritionist, w);
 			}
 		});
 		return nutritionistSrv.save(nutritionist);

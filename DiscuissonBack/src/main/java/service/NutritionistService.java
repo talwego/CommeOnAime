@@ -61,6 +61,11 @@ import repository.NutritionistRepository;
 			public void deleteById(Integer id) {
 				delete(findById(id));
 			}
+
+			public Nutritionist findByIdFetchMessage(Integer id) {
+				// TODO Auto-generated method stub
+				return null;
+			}
 			
 		
 		}

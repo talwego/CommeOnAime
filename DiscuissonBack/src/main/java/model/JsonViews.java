@@ -1,4 +1,4 @@
-package perso.persoEshopSpringMVC.controller;
+package model;
 
 public class JsonViews {
 
@@ -6,7 +6,11 @@ public class JsonViews {
 		
 	}
 	
-	public static class MessageWithUser extends Common{
+	public static class MessageWithUser extends Common{			
+		
+	}
+	
+	public static class NutritionistWithMessage extends Common{			
 		
 	}
 	
