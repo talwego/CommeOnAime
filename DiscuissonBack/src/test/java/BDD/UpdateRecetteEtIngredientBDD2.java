@@ -33,13 +33,10 @@ public class UpdateRecetteEtIngredientBDD2 {
 			if (!ingredients.get(i).isVegetarien()) {
 				boolean1 = false;
 			}
+			i++;
 		}
-		if (boolean1 == false) {
-			recette.setVegetarien(boolean1);
-		}
-		else {
-			recette.setVegetarien(boolean1);
-		}
+		
+		recette.setVegetarien(boolean1);
 		
 		i =0;
 		boolean1 = true;
@@ -47,13 +44,12 @@ public class UpdateRecetteEtIngredientBDD2 {
 			if (!ingredients.get(i).isVegan()) {
 				boolean1 = false;
 			}
+			i++;
 		}
-		if (boolean1 == false) {
-			recette.setVegan(boolean1);
-		}
-		else {
-			recette.setVegan(boolean1);
-		}
+		
+		recette.setVegan(boolean1);
+		
+		System.out.println(recette.isVegan() + " + " + recette.isVegetarien());
 	}
 	
 	public static void main(String[] args) {
@@ -92,7 +88,7 @@ public class UpdateRecetteEtIngredientBDD2 {
 		
 		// RecetteIngredient 1
 		_recetteIngredientService.create(_recette, _ingredient, 1000);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(1));
 		
 		/// Ingredient 2 ///
 		_ingredient.setId(null);
@@ -107,7 +103,7 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 2
 		_recetteIngredientService.create(_recette, _ingredient, 100);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(2));
 		
 		/// Ingredient 3 ///
 		_ingredient.setId(null);
@@ -122,7 +118,7 @@ public class UpdateRecetteEtIngredientBDD2 {
 		
 		// RecetteIngredient 3
 		_recetteIngredientService.create(_recette, _ingredient, 200);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(3));
 		
 		/// Ingredient 4 ///
 		_ingredient.setId(null);
@@ -137,7 +133,7 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 4
 		_recetteIngredientService.create(_recette, _ingredient, 300);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(4));
 
 		/// Ingredient 5 ///
 		_ingredient.setId(null);
@@ -152,7 +148,7 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 5
 		_recetteIngredientService.create(_recette, _ingredient, 100);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(5));
 		
 		// -- Instruction 1 --//
 		_instructionRecetteService.create(_recette, "Préchauffez le four à 210 degrés");
@@ -181,8 +177,8 @@ public class UpdateRecetteEtIngredientBDD2 {
 		// -- Instruction 10 --//
 		_instructionRecetteService.create(_recette, "Servez bien chaud accompagné d'une salade verte assaisonnée.");
 		
-		_recette = _recetteService.update(_recette);
 		setRegimeRecette(_recette, _ingredients);
+		_recette = _recetteService.update(_recette);
 		_ingredients.clear();
 
 		//-------------------------------------------------//
@@ -211,7 +207,7 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 6
 		_recetteIngredientService.create(_recette, _ingredient, 240);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(6));
 		
 		/// Ingredient 7 ///
 		_ingredient.setName("Thon");
@@ -226,7 +222,7 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 7
 		_recetteIngredientService.create(_recette, _ingredient, 280);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(7));
 		
 		/// Ingredient 8 ///
 		_ingredient.setId(null);
@@ -241,12 +237,12 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 8
 		_recetteIngredientService.create(_recette, _ingredient, 400);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(8));
 
 		// RecetteIngredient 9
 		_ingredient.setId(5);
 		_recetteIngredientService.create(_recette, _ingredient, 500);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(5));
 		_ingredient.setId(null);
 
 		// -- Instruction 11 --//
@@ -274,8 +270,8 @@ public class UpdateRecetteEtIngredientBDD2 {
 		// -- Instruction 20 --//
 		_instructionRecetteService.create(_recette, "Servez bien chaud accompagné d'une salade verte assaisonnée.");
 		
-		_recette = _recetteService.update(_recette);
 		setRegimeRecette(_recette, _ingredients);
+		_recette = _recetteService.update(_recette);
 		_ingredients.clear();
 
 		//-------------------------------------------------//
@@ -304,7 +300,7 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 10
 		_recetteIngredientService.create(_recette, _ingredient, 700);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(9));
 
 		/// Ingredient 10 ///
 		_ingredient.setId(null);
@@ -319,12 +315,12 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 11
 		_recetteIngredientService.create(_recette, _ingredient, 140);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(10));
 
 		// RecetteIngredient 12
 		_ingredient.setId(5);
 		_recetteIngredientService.create(_recette, _ingredient, 200);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(5));
 		_ingredient.setId(null);
 
 		// -- Instruction 21 --//
@@ -348,8 +344,8 @@ public class UpdateRecetteEtIngredientBDD2 {
 		// -- Instruction 27 --//
 		_instructionRecetteService.create(_recette, "Dégustez.");
 
-		_recette = _recetteService.update(_recette);
 		setRegimeRecette(_recette, _ingredients);
+		_recette = _recetteService.update(_recette);
 		_ingredients.clear();
 
 		//-------------------------------------------------//
@@ -378,7 +374,7 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 13
 		_recetteIngredientService.create(_recette, _ingredient, 250);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(11));
 
 		/// Ingredient 12 ///
 		_ingredient.setId(null);
@@ -393,7 +389,7 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 14
 		_recetteIngredientService.create(_recette, _ingredient, 125);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(12));
 
 		/// Ingredient 13 ///
 		_ingredient.setId(null);
@@ -408,7 +404,7 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 15
 		_recetteIngredientService.create(_recette, _ingredient, 250);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(13));
 
 		/// Ingredient 14 ///
 		_ingredient.setId(null);
@@ -423,7 +419,7 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 16
 		_recetteIngredientService.create(_recette, _ingredient, 500);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(14));
 
 		/// Ingredient 15 ///
 		_ingredient.setId(null);
@@ -438,7 +434,7 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 17
 		_recetteIngredientService.create(_recette, _ingredient, 300);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(15));
 
 		/// Ingredient 16 ///
 		_ingredient.setId(null);
@@ -453,7 +449,7 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 18
 		_recetteIngredientService.create(_recette, _ingredient, 200);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(16));
 
 		/// Ingredient 17 ///
 		_ingredient.setId(null);
@@ -468,12 +464,12 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 19
 		_recetteIngredientService.create(_recette, _ingredient, 180);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(17));
 
 		// RecetteIngredient 20
 		_ingredient.setId(5);
 		_recetteIngredientService.create(_recette, _ingredient, 100);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(5));
 		_ingredient.setId(null);
 
 		// -- Instruction 28 --//
@@ -533,8 +529,8 @@ public class UpdateRecetteEtIngredientBDD2 {
 		_instructionRecetteService.create(_recette,
 				"Dégustez chaud ou froid accompagné d'une salade verte assaisonnée.");
 
-		_recette = _recetteService.update(_recette);
 		setRegimeRecette(_recette, _ingredients);
+		_recette = _recetteService.update(_recette);
 		_ingredients.clear();
 
 		//-------------------------------------------------//
@@ -553,7 +549,7 @@ public class UpdateRecetteEtIngredientBDD2 {
 		// RecetteIngredient 21
 		_ingredient.setId(1);
 		_recetteIngredientService.create(_recette, _ingredient, 400);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(1));
 		_ingredient.setId(null);
 
 		/// Ingredient 18 ///
@@ -569,7 +565,7 @@ public class UpdateRecetteEtIngredientBDD2 {
 		
 		// RecetteIngredient 22
 		_recetteIngredientService.create(_recette, _ingredient, 300);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(18));
 
 		/// Ingredient 19 ///
 		_ingredient.setId(null);
@@ -584,7 +580,7 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 23
 		_recetteIngredientService.create(_recette, _ingredient, 375);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(19));
 
 		/// Ingredient 20 ///
 		_ingredient.setId(null);
@@ -599,18 +595,18 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 24
 		_recetteIngredientService.create(_recette, _ingredient, 160);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(20));
 
 		// RecetteIngredient 25
 		_ingredient.setId(4);
 		_recetteIngredientService.create(_recette, _ingredient, 300);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(4));
 		_ingredient.setId(null);
 
 		// RecetteIngredient 26
 		_ingredient.setId(10);
 		_recetteIngredientService.create(_recette, _ingredient, 7);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(10));
 		_ingredient.setId(null);
 
 		// -- Instruction 48 --//
@@ -648,8 +644,8 @@ public class UpdateRecetteEtIngredientBDD2 {
 		// -- Instruction 59 --//
 		_instructionRecetteService.create(_recette, "Dégustez bien chaud.");
 
-		_recette = _recetteService.update(_recette);
 		setRegimeRecette(_recette, _ingredients);
+		_recette = _recetteService.update(_recette);
 		_ingredients.clear();
 
 		//-------------------------------------------------//
@@ -678,7 +674,7 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 27
 		_recetteIngredientService.create(_recette, _ingredient, 200);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(21));
 
 		/// Ingredient 22 ///
 		_ingredient.setId(null);
@@ -693,7 +689,7 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 28
 		_recetteIngredientService.create(_recette, _ingredient, 300);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(22));
 
 		/// Ingredient 23 ///
 		_ingredient.setId(null);
@@ -708,12 +704,12 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 29
 		_recetteIngredientService.create(_recette, _ingredient, 200);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(23));
 
 		// RecetteIngredient 30
 		_ingredient.setId(4);
 		_recetteIngredientService.create(_recette, _ingredient, 150);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(4));
 		_ingredient.setId(null);
 
 		/// Ingredient 24 ///
@@ -729,7 +725,7 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 31
 		_recetteIngredientService.create(_recette, _ingredient, 60);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(24));
 
 		// -- Instruction 60 --//
 		_instructionRecetteService.create(_recette, "Coupez la chair de potiron en petits cubes.");
@@ -755,8 +751,8 @@ public class UpdateRecetteEtIngredientBDD2 {
 		// -- Instruction 68 --//
 		_instructionRecetteService.create(_recette, "Dégustez sans attendre.");
 
-		_recette = _recetteService.update(_recette);
 		setRegimeRecette(_recette, _ingredients);
+		_recette = _recetteService.update(_recette);
 		_ingredients.clear();
 
 		//-------------------------------------------------//
@@ -785,30 +781,30 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 32
 		_recetteIngredientService.create(_recette, _ingredient, 800);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(25));
 
 		// RecetteIngredient 33
 		_ingredient.setId(19);
 		_recetteIngredientService.create(_recette, _ingredient, 375);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(19));
 		_ingredient.setId(null);
 
 		// RecetteIngredient 34
 		_ingredient.setId(4);
 		_recetteIngredientService.create(_recette, _ingredient, 300);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(4));
 		_ingredient.setId(null);
 
 		// RecetteIngredient 35
 		_ingredient.setId(13);
 		_recetteIngredientService.create(_recette, _ingredient, 225);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(13));
 		_ingredient.setId(null);
 
 		// RecetteIngredient 36
 		_ingredient.setId(8);
 		_recetteIngredientService.create(_recette, _ingredient, 45);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(8));
 		_ingredient.setId(null);
 
 		// -- Instruction 69 --//
@@ -837,8 +833,8 @@ public class UpdateRecetteEtIngredientBDD2 {
 		// -- Instruction 78 --//
 		_instructionRecetteService.create(_recette, "Rectifiez l'assaisonnement si besoin puis servez immédiatement.");
 
-		_recette = _recetteService.update(_recette);
 		setRegimeRecette(_recette, _ingredients);
+		_recette = _recetteService.update(_recette);
 		_ingredients.clear();
 
 		//-------------------------------------------------//
@@ -867,24 +863,24 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 32
 		_recetteIngredientService.create(_recette, _ingredient, 600);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(26));
 		
 		// RecetteIngredient 38
 		_ingredient.setId(4);
 		_recetteIngredientService.create(_recette, _ingredient, 150);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(4));
 		_ingredient.setId(null);
 
 		// RecetteIngredient 39
 		_ingredient.setId(10);
 		_recetteIngredientService.create(_recette, _ingredient, 7);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(10));
 		_ingredient.setId(null);
 
 		// RecetteIngredient 40
 		_ingredient.setId(19);
 		_recetteIngredientService.create(_recette, _ingredient, 500);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(19));
 		_ingredient.setId(null);
 
 		/// Ingredient 27 ///
@@ -900,12 +896,12 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 41
 		_recetteIngredientService.create(_recette, _ingredient, 300);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(27));
 
 		// RecetteIngredient 42
 		_ingredient.setId(13);
 		_recetteIngredientService.create(_recette, _ingredient, 350);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(13));
 		_ingredient.setId(null);
 
 		/// Ingredient 28 ///
@@ -921,7 +917,7 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 43
 		_recetteIngredientService.create(_recette, _ingredient, 20);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(28));
 
 		// -- Instruction 79 --//
 		_instructionRecetteService.create(_recette, "Epluchez et hachez l'oignon et l'ail.");
@@ -947,8 +943,8 @@ public class UpdateRecetteEtIngredientBDD2 {
 		// -- Instruction 87 --//
 		_instructionRecetteService.create(_recette, "Servez accompagné de riz blanc.");
 
-		_recette = _recetteService.update(_recette);
 		setRegimeRecette(_recette, _ingredients);
+		_recette = _recetteService.update(_recette);
 		_ingredients.clear();
 
 		//-------------------------------------------------//
@@ -977,30 +973,30 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 44
 		_recetteIngredientService.create(_recette, _ingredient, 150);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(29));
 
 		// RecetteIngredient 45
 		_ingredient.setId(1);
 		_recetteIngredientService.create(_recette, _ingredient, 960);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(1));
 		_ingredient.setId(null);
 
 		// RecetteIngredient 46
 		_ingredient.setId(19);
 		_recetteIngredientService.create(_recette, _ingredient, 250);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(19));
 		_ingredient.setId(null);
 
 		// RecetteIngredient 47
 		_ingredient.setId(20);
 		_recetteIngredientService.create(_recette, _ingredient, 300);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(20));
 		_ingredient.setId(null);
 
 		// RecetteIngredient 48
 		_ingredient.setId(4);
 		_recetteIngredientService.create(_recette, _ingredient, 150);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(4));
 		_ingredient.setId(null);
 
 		// -- Instruction 88 --//
@@ -1027,8 +1023,8 @@ public class UpdateRecetteEtIngredientBDD2 {
 		// -- Instruction 97 --//
 		_instructionRecetteService.create(_recette, "Servez bien chaud.");
 
-		_recette = _recetteService.update(_recette);
 		setRegimeRecette(_recette, _ingredients);
+		_recette = _recetteService.update(_recette);
 		_ingredients.clear();
 
 		//-------------------------------------------------//
@@ -1047,19 +1043,19 @@ public class UpdateRecetteEtIngredientBDD2 {
 		// RecetteIngredient 49
 		_ingredient.setId(11);
 		_recetteIngredientService.create(_recette, _ingredient, 250);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(11));
 		_ingredient.setId(null);
 
 		// RecetteIngredient 50
 		_ingredient.setId(12);
 		_recetteIngredientService.create(_recette, _ingredient, 125);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(12));
 		_ingredient.setId(null);
 
 		// RecetteIngredient 51
 		_ingredient.setId(7);
 		_recetteIngredientService.create(_recette, _ingredient, 125);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(7));
 		_ingredient.setId(null);
 
 		/// Ingredient 30 ///
@@ -1075,18 +1071,18 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 52
 		_recetteIngredientService.create(_recette, _ingredient, 150);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(30));
 
 		// RecetteIngredient 53
 		_ingredient.setId(17);
 		_recetteIngredientService.create(_recette, _ingredient, 125);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(17));
 		_ingredient.setId(null);
 
 		// RecetteIngredient 54
 		_ingredient.setId(5);
 		_recetteIngredientService.create(_recette, _ingredient, 100);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(5));
 		_ingredient.setId(null);
 
 		// -- Instruction 98 --//
@@ -1133,8 +1129,8 @@ public class UpdateRecetteEtIngredientBDD2 {
 		// -- Instruction 113 --//
 		_instructionRecetteService.create(_recette, "Servez chaud ou froid accompagné d'une salade verte assaisonnée.");
 
-		_recette = _recetteService.update(_recette);
 		setRegimeRecette(_recette, _ingredients);
+		_recette = _recetteService.update(_recette);
 		_ingredients.clear();
 
 		//-------------------------------------------------//
@@ -1153,13 +1149,13 @@ public class UpdateRecetteEtIngredientBDD2 {
 		// RecetteIngredient 55
 		_ingredient.setId(3);
 		_recetteIngredientService.create(_recette, _ingredient, 50);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(3));
 		_ingredient.setId(null);
 
 		// RecetteIngredient 56
 		_ingredient.setId(5);
 		_recetteIngredientService.create(_recette, _ingredient, 400);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(5));
 		_ingredient.setId(null);
 
 		/// Ingredient 31 ///
@@ -1175,12 +1171,12 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 57
 		_recetteIngredientService.create(_recette, _ingredient, 600);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(31));
 
 		// RecetteIngredient 58
 		_ingredient.setId(2);
 		_recetteIngredientService.create(_recette, _ingredient, 200);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(2));
 		_ingredient.setId(null);
 
 		// -- Instruction 114 --//
@@ -1197,8 +1193,8 @@ public class UpdateRecetteEtIngredientBDD2 {
 		// -- Instruction 118 --//
 		_instructionRecetteService.create(_recette, "Servez bien chaud et accompagnez d’une poêlée de légumes !");
 
-		_recette = _recetteService.update(_recette);
 		setRegimeRecette(_recette, _ingredients);
+		_recette = _recetteService.update(_recette);
 		_ingredients.clear();
 
 		//-------------------------------------------------//
@@ -1214,7 +1210,7 @@ public class UpdateRecetteEtIngredientBDD2 {
 		_recette.setFinSaison(3);
 		_recette = _recetteService.create(_recette);
 
-		/// Ingredient 33 ///
+		/// Ingredient 32 ///
 		_ingredient.setId(null);
 		_ingredient.setName("Filet de merlan");
 		_ingredient.setVegetarien(false);
@@ -1227,12 +1223,12 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 59
 		_recetteIngredientService.create(_recette, _ingredient, 360);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(32));
 
 		// RecetteIngredient 60
 		_ingredient.setId(19);
 		_recetteIngredientService.create(_recette, _ingredient, 500);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(32));
 		_ingredient.setId(null);
 
 		/// Ingredient 33 ///
@@ -1248,7 +1244,7 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 61
 		_recetteIngredientService.create(_recette, _ingredient, 500);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(33));
 		
 		/// Ingredient 34 ///
 		_ingredient.setId(null);
@@ -1263,7 +1259,7 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 62
 		_recetteIngredientService.create(_recette, _ingredient, 40);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(34));
 
 		// -- Instruction 118 --//
 		_instructionRecetteService.create(_recette, "Préchauffez le four à 180°C.");
@@ -1282,10 +1278,10 @@ public class UpdateRecetteEtIngredientBDD2 {
 		// -- Instruction 123 --//
 		_instructionRecetteService.create(_recette, "Servez immédiatement à la sortie du four avec du riz nature.");
 
-		_recette = _recetteService.update(_recette);
 		setRegimeRecette(_recette, _ingredients);
+		_recette = _recetteService.update(_recette);
 		_ingredients.clear();
-
+		
 		//-------------------------------------------------//
 		
 		/* Recette 13 */
@@ -1312,7 +1308,7 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 63
 		_recetteIngredientService.create(_recette, _ingredient, 700);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(35));
 
 		/// Ingredient 36 ///
 		_ingredient.setId(null);
@@ -1327,7 +1323,7 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 64
 		_recetteIngredientService.create(_recette, _ingredient, 1800);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(36));
 		
 		/// Ingredient 37 ///
 		_ingredient.setId(null);
@@ -1342,18 +1338,18 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 65
 		_recetteIngredientService.create(_recette, _ingredient, 172);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(37));
 
 		// RecetteIngredient 66
 		_ingredient.setId(4);
 		_recetteIngredientService.create(_recette, _ingredient, 150);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(4));
 		_ingredient.setId(null);
 
 		// RecetteIngredient 67
 		_ingredient.setId(10);
 		_recetteIngredientService.create(_recette, _ingredient, 21);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(10));
 		_ingredient.setId(null);
 
 		// -- Instruction 124 --//
@@ -1370,8 +1366,8 @@ public class UpdateRecetteEtIngredientBDD2 {
 		// -- Instruction 128 --//
 		_instructionRecetteService.create(_recette, "Servez chaud !");
 
-		_recette = _recetteService.update(_recette);
 		setRegimeRecette(_recette, _ingredients);
+		_recette = _recetteService.update(_recette);
 		_ingredients.clear();
 
 		//-------------------------------------------------//
@@ -1390,7 +1386,7 @@ public class UpdateRecetteEtIngredientBDD2 {
 		// RecetteIngredient 68
 		_ingredient.setId(17);
 		_recetteIngredientService.create(_recette, _ingredient, 480);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(17));
 		_ingredient.setId(null);
 
 		/// Ingredient 38 ///
@@ -1406,7 +1402,7 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 69
 		_recetteIngredientService.create(_recette, _ingredient, 200);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(38));
 		
 		/// Ingredient 39 ///
 		_ingredient.setId(null);
@@ -1421,7 +1417,7 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 70
 		_recetteIngredientService.create(_recette, _ingredient, 60);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(39));
 
 		// -- Instruction 129 --//
 		_instructionRecetteService.create(_recette, "Découpez les tranches de saumon fumé en fines lanières.");
@@ -1458,8 +1454,8 @@ public class UpdateRecetteEtIngredientBDD2 {
 		_instructionRecetteService.create(_recette,
 				"Astuce : Vous aimez l’aneth ? N’hésitez pas à en incorporer ciselé dans les oeufs battus avant cuisson des omelettes. Tout aussi bon !");
 
-		_recette = _recetteService.update(_recette);
 		setRegimeRecette(_recette, _ingredients);
+		_recette = _recetteService.update(_recette);
 		_ingredients.clear();
 
 		//-------------------------------------------------//
@@ -1488,9 +1484,9 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 71
 		_recetteIngredientService.create(_recette, _ingredient, 60);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(40));
 
-		/// Ingredient 40 ///
+		/// Ingredient 41 ///
 		_ingredient.setId(null);
 		_ingredient.setName("Comté");
 		_ingredient.setVegetarien(true);
@@ -1503,9 +1499,9 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 72
 		_recetteIngredientService.create(_recette, _ingredient, 390);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(41));
 
-		/// Ingredient 41 ///
+		/// Ingredient 42 ///
 		_ingredient.setId(null);
 		_ingredient.setName("Crème allégée");
 		_ingredient.setVegetarien(true);
@@ -1518,12 +1514,12 @@ public class UpdateRecetteEtIngredientBDD2 {
 
 		// RecetteIngredient 73
 		_recetteIngredientService.create(_recette, _ingredient, 300);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(42));
 
 		// RecetteIngredient 74
 		_ingredient.setId(10);
 		_recetteIngredientService.create(_recette, _ingredient, 7);
-		_ingredients.add(_ingredient);
+		_ingredients.add(_ingredientService.findById(10));
 		_ingredient.setId(null);
 
 		// -- Instruction 141 --//
@@ -1539,8 +1535,11 @@ public class UpdateRecetteEtIngredientBDD2 {
 		_instructionRecetteService.create(_recette,
 				"Enfourner dans un four préchauffé à 180°C pour 30 minutes de cuisson environ.");
 
-		_recette = _recetteService.update(_recette);
+		for(Ingredient obj: _ingredients) {
+			System.out.println(obj);
+		}
 		setRegimeRecette(_recette, _ingredients);
+		_recette = _recetteService.update(_recette);
 		_ingredients.clear();
 		
 		_ctx.close();

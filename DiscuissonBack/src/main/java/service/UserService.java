@@ -90,7 +90,7 @@ public class UserService {
 		return save(user);
 	}
 	
-	private User save(User user) 
+	public User save(User user) 
 	{
 		if (user.getPseudo() == null || user.getPseudo().isBlank() || user.getPseudo().length() > 30) 
 		{
