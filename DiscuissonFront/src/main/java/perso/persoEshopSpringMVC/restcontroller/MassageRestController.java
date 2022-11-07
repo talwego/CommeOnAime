@@ -1,5 +1,3 @@
-package perso.persoEshopSpringMVC.restcontroller;
-
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
@@ -24,78 +22,81 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import perso.persoeshopspringback.model.JsonViews;
-import perso.persoeshopspringback.model.Produit;
-import perso.persoeshopspringback.service.FournisseurService;
-import perso.persoeshopspringback.service.ProduitService;
+import ajc.sopra.eshop.model.Client;
+import ajc.sopra.eshop.model.JsonViews;
+import ajc.sopra.eshop.model.Produit;
+import ajc.sopra.eshop.service.ClientService;
 
 @RestController
-@RequestMapping("/api/produit")
-public class ProduitRestController {
-	@Autowired
-	private ProduitService _produitService;
-	@Autowired
-	private FournisseurService _fournisseurService;
+@RequestMapping("/api/message")
+public class MessageRestController {
 
+	@Autowired
+	private MessageService messageSrv;
+	@Autowired
+	private UserService userSrv;	
+
+	@JsonView(JsonViews.MessageWithUser.class)
 	@GetMapping("/{id}")
-	@JsonView(JsonViews.ProduitWithFournisseur.class)
-	public Produit findById(@PathVariable Integer id) {
-		return _produitService.findById(id);
+	public Message findById(@PathVariable Integer id) {
+		return messageSrv.findById(id);
 	}
 
+	@JsonView(JsonViews.MessageWithUser.class)
 	@GetMapping("")
-	@JsonView(JsonViews.ProduitWithFournisseur.class)
-	public List<Produit> findAll() {
-		return _produitService.findAll();
+	public List<Message> findAll() {
+		return messageSrv.findAll();
 	}
-
+	
 	@ResponseStatus(code = HttpStatus.CREATED)
 	@PostMapping("")
-	@JsonView(JsonViews.ProduitWithFournisseur.class)
-	public Produit create(@Valid @RequestBody Produit produit, BindingResult br) {
+	@JsonView(JsonViews.Common.class)
+	public Massage create(@Valid @RequestBody Message message, BindingResult br) {
 		if (br.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "données incorrectes");
 		}
-		if (produit.getFournisseur() != null && produit.getFournisseur().getId() != null) {
-			produit.setFournisseur(_fournisseurService.findById(produit.getFournisseur().getId()));
+		if (message.getUser() != null && message.getUser().getId() != null) {
+			message.setUser(userSrv.findById(message.getUser().getId()));
 		}
-		return _produitService.create(produit);
+		return messageSrv.create(message);
 	}
-
+	
 	@DeleteMapping("/{id}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	public void deleteById(@PathVariable Integer id) {
 		try {
-			_produitService.deleteById(id);
+			messageSrv.deleteId(id);
 		} catch (Exception e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "id inconnu");
 		}
 	}
-
+	
 	@PutMapping("/{id}")
-	@JsonView(JsonViews.ProduitWithFournisseur.class)
-	public Produit update(@Valid @RequestBody Produit produit, BindingResult br, @PathVariable Integer id) {
+	@JsonView(JsonViews.MessageWithUser.class)
+	public Message update(@Valid @RequestBody Message message, BindingResult br, @PathVariable Integer id) {
 		if (br.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "données incorrectes");
 		}
-		produit.setId(id);
-		return _produitService.update(produit);
+		message.setId(id);
+		return messageSrv.update(message);
 	}
-
+	
 	@PatchMapping("/{id}")
-	@JsonView(JsonViews.ProduitWithFournisseur.class)
-	public Produit update(@RequestBody Map<String, Object> fields, @PathVariable Integer id) {
-		Produit produit = _produitService.findById(id);
+	@JsonView(JsonViews.MessageWithUser.class)
+	public Message update(@RequestBody Map<String, Object> fields, @PathVariable Integer id) {
+		Message message = messageSrv.findById(id);
 		fields.forEach((k, v) -> {
-			if (k.equals("fournisseur")) {
+			if (k.equals("message")) {
 				Map<String, Object> map = (Map<String, Object>) v;
-				produit.setFournisseur(_fournisseurService.findById(Integer.parseInt(map.get("id").toString())));
+				message.setUser(messageSrv.findById(Integer.parseInt(map.get("id").toString())));
 			} else {
-				Field field = ReflectionUtils.findField(Produit.class, k);
+				Field field = ReflectionUtils.findField(Message.class, k);
 				ReflectionUtils.makeAccessible(field);
-				ReflectionUtils.setField(field, produit, v);
+				ReflectionUtils.setField(field, message, v);
 			}
 		});
-		return _produitService.update(produit);
+
+		return messageSrv.update(message);
 	}
+	
 }

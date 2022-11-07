@@ -25,8 +25,6 @@ public class MessageController {
 		private MessageService messageSrv;
 		@Autowired
 		private UserService userSrv;
-		@Autowired
-		private NutritionistService nutritionistSrv;
 		
 		private String goForm(Message message, Model model) {
 			model.addAttribute("message", message);

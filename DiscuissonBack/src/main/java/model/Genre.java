@@ -1,5 +1,5 @@
 package model;
 
 public enum Genre {
-	g,mL;
+	homme, femme;
 }

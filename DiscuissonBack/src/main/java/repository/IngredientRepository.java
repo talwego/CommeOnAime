@@ -21,7 +21,7 @@ public interface IngredientRepository extends JpaRepository<Ingredient, Integer>
 	
 	@Query("SELECT obj FROM Ingredient obj LEFT JOIN FETCH obj.recetteIngredients WHERE obj.id=:id")
 	Optional<Ingredient> findByIdFetchRecetteIngredient(@Param("id") Integer id);
-	//@Query("SELECT obj FROM Ingredient obj WHERE (obj.dateDebutRecolte <= obj.dateFinRecolte AND ((obj.dateDebutRecolte <= :obj1 AND obj.dateFinRecolte >= :obj2) OR (obj.dateDebutRecolte <= :obj1 AND obj.dateFinRecolte >= (:obj2 - 12)%12))) OR (obj.dateDebutRecolte > obj.dateFinRecolte AND ((obj.dateDebutRecolte <= :obj1 AND obj.dateFinRecolte + 12 >= :obj2) OR (obj.dateDebutRecolte <= :obj1 + 12 AND obj.dateFinRecolte + 12 >= :obj2 + 12)))")
-	@Query("SELECT obj FROM Ingredient obj WHERE ((obj.dateDebutRecolte <= obj.dateFinRecolte AND obj.dateFinRecolte - obj.dateDebutRecolte)")
+	@Query("SELECT obj FROM Ingredient obj WHERE (obj.dateDebutRecolte <= obj.dateFinRecolte AND ((obj.dateDebutRecolte <= :obj1 AND obj.dateFinRecolte >= :obj2) OR (obj.dateDebutRecolte <= :obj1 AND obj.dateFinRecolte >= (:obj2 - 12)%12))) OR (obj.dateDebutRecolte > obj.dateFinRecolte AND ((obj.dateDebutRecolte <= :obj1 AND obj.dateFinRecolte + 12 >= :obj2) OR (obj.dateDebutRecolte <= :obj1 + 12 AND obj.dateFinRecolte + 12 >= :obj2 + 12)))")
+	//@Query("SELECT obj FROM Ingredient obj WHERE ((obj.dateDebutRecolte <= obj.dateFinRecolte AND obj.dateFinRecolte - obj.dateDebutRecolte)")
 	List<Ingredient> findBySaisonBetween(@Param("obj1") Integer obj1, @Param("obj2") Integer obj2);
 }
