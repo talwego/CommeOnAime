@@ -11,7 +11,7 @@
 	rel="stylesheet"
 	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
 	crossorigin="anonymous">
-<title>produits.jsp</title>
+<title>Discuisson</title>
 <base href="${pageContext.request.contextPath}/">
 </head>
 <body>
@@ -19,28 +19,24 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th>id:</th>
-					<th>nom:</th>
-					<th>prix:</th>
-					<th>prenom du fournisseur:</th>
+					<th>Id:</th>				
+					<th>Nom :</th>
 					<th></th>
 					<th></th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="p" items="${produits}">
+				<c:forEach var="f" items="${nutritionists}">
 				<tr>
-					<td>${p.id}</td>
-					<td>${p.libelle}</td>
-					<td>${p.prix}</td>
-					<td>${p.fournisseur.prenom}</td>
-					<td><a href="produit/edit/${p.id}" class="btn btn-outline-primary">editer</a></td>
-					<td><a href="produit/delete/${p.id}" class="btn btn-outline-danger">supprimer</a></td>
+					<td>${f.id}</td>					
+					<td>${f.nom}</td>
+					<td><a href="nutritionist/edit/${f.id}" class="btn btn-outline-primary">editer</a></td>
+					<td><a href="nutritionist/delete?id=${f.id}" class="btn btn-outline-danger">supprimer</a></td>
 				</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-		<a href="produit/add" class="btn btn-link">nouveau produit</a>
+		<a href="nutritionist/add" class="btn btn-link">nouveau message</a>
 	</div>
 </body>
 </html>
