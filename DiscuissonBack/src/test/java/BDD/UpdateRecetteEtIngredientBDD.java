@@ -1,8 +1,6 @@
 package BDD;
 
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -18,44 +16,13 @@ import service.RecetteService;
 /*
  * Code DEGUEULASSE mais normalement fonctionnel
  * PS: Ne pas oublier de se mettre en: create
+ * attribut vegan, vegetarien, date ne fonctionne pas!
  * 
  * Source: https://www.fourchette-et-bikini.fr/cuisine/recettes-minceur/15-plats-dhiver-legers-et-gourmands.html
  * https://www.cuisineaz.com/recettes/pate-a-tarte-maison-rapide-36657.aspx
  */
 
-public class UpdateBDD2 {
-	
-	public static void setRegimeRecette(Recette recette, List<Ingredient> ingredients) {
-		int i =0;
-		int size = ingredients.size();
-		boolean boolean1 = true;
-		while (boolean1 &&  i < size) {
-			if (!ingredients.get(i).isVegetarien()) {
-				boolean1 = false;
-			}
-		}
-		if (boolean1 == false) {
-			recette.setVegetarien(boolean1);
-		}
-		else {
-			recette.setVegetarien(boolean1);
-		}
-		
-		i =0;
-		boolean1 = true;
-		while (boolean1 &&  i < size) {
-			if (!ingredients.get(i).isVegan()) {
-				boolean1 = false;
-			}
-		}
-		if (boolean1 == false) {
-			recette.setVegan(boolean1);
-		}
-		else {
-			recette.setVegan(boolean1);
-		}
-	}
-	
+public class UpdateRecetteEtIngredientBDD {
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext _ctx = new AnnotationConfigApplicationContext(JpaConfig.class);
 		IngredientService _ingredientService = _ctx.getBean(IngredientService.class);
@@ -64,12 +31,8 @@ public class UpdateBDD2 {
 		InstructionRecetteService _instructionRecetteService = _ctx.getBean(InstructionRecetteService.class);
 		Recette _recette = new Recette();
 		Ingredient _ingredient = new Ingredient();
-		List<Ingredient> _ingredients = new ArrayList<>();
 
-		//-------------------------------------------------//
-		
 		/* Recette 1: 8 personnes */
-		System.out.println("Recette 1");
 		_recette.setId(null);
 		_recette.setName("Tartiflette sans lardons au gruyère léger");
 		_recette.setTempsDeCuisine(LocalTime.of(1, 30));
@@ -77,7 +40,7 @@ public class UpdateBDD2 {
 		_recette.setIsValid(false);
 		_recette.setDebutSaison(3);
 		_recette.setFinSaison(3);
-		_recetteService.create(_recette);
+		_recette = _recetteService.create(_recette);
 
 		/// Ingredient 1 ///
 		_ingredient.setId(null);
@@ -89,10 +52,9 @@ public class UpdateBDD2 {
 		_ingredient.setDateDebutRecolte(3);
 		_ingredient.setDateFinRecolte(3);
 		_ingredient = _ingredientService.create(_ingredient);
-		
+
 		// RecetteIngredient 1
 		_recetteIngredientService.create(_recette, _ingredient, 1000);
-		_ingredients.add(_ingredient);
 		
 		/// Ingredient 2 ///
 		_ingredient.setId(null);
@@ -104,10 +66,11 @@ public class UpdateBDD2 {
 		_ingredient.setDateDebutRecolte(3);
 		_ingredient.setDateFinRecolte(3);
 		_ingredient = _ingredientService.create(_ingredient);
+		
+		System.out.println(_recette.getId() + " + " + _ingredient.getId());
 
 		// RecetteIngredient 2
 		_recetteIngredientService.create(_recette, _ingredient, 100);
-		_ingredients.add(_ingredient);
 		
 		/// Ingredient 3 ///
 		_ingredient.setId(null);
@@ -119,11 +82,12 @@ public class UpdateBDD2 {
 		_ingredient.setDateDebutRecolte(3);
 		_ingredient.setDateFinRecolte(3);
 		_ingredient = _ingredientService.create(_ingredient);
+
+		System.out.println(_recette.getId() + " + " + _ingredient.getId());
 		
 		// RecetteIngredient 3
 		_recetteIngredientService.create(_recette, _ingredient, 200);
-		_ingredients.add(_ingredient);
-		
+
 		/// Ingredient 4 ///
 		_ingredient.setId(null);
 		_ingredient.setName("Oignon");
@@ -134,10 +98,11 @@ public class UpdateBDD2 {
 		_ingredient.setDateDebutRecolte(3);
 		_ingredient.setDateFinRecolte(3);
 		_ingredient = _ingredientService.create(_ingredient);
+		
+		System.out.println(_recette.getId() + " + " + _ingredient.getId());
 
 		// RecetteIngredient 4
 		_recetteIngredientService.create(_recette, _ingredient, 300);
-		_ingredients.add(_ingredient);
 
 		/// Ingredient 5 ///
 		_ingredient.setId(null);
@@ -152,8 +117,7 @@ public class UpdateBDD2 {
 
 		// RecetteIngredient 5
 		_recetteIngredientService.create(_recette, _ingredient, 100);
-		_ingredients.add(_ingredient);
-		
+
 		// -- Instruction 1 --//
 		_instructionRecetteService.create(_recette, "Préchauffez le four à 210 degrés");
 		// -- Instruction 2 --//
@@ -180,15 +144,8 @@ public class UpdateBDD2 {
 				"Enfournez pendant 1 heure à 1h15 de cuisson jusqu'à ce que la tartiflette soit bien dorée.");
 		// -- Instruction 10 --//
 		_instructionRecetteService.create(_recette, "Servez bien chaud accompagné d'une salade verte assaisonnée.");
-		
-		_recette = _recetteService.update(_recette);
-		setRegimeRecette(_recette, _ingredients);
-		_ingredients.clear();
 
-		//-------------------------------------------------//
-		
 		/* Recette 2: 4 personnes */
-		System.out.println("Recette 2");
 		_recette.setId(null);
 		_recette.setName("Lasagnes minceur au thon et au parmesan léger");
 		_recette.setTempsDeCuisine(LocalTime.of(0, 40));
@@ -211,8 +168,7 @@ public class UpdateBDD2 {
 
 		// RecetteIngredient 6
 		_recetteIngredientService.create(_recette, _ingredient, 240);
-		_ingredients.add(_ingredient);
-		
+
 		/// Ingredient 7 ///
 		_ingredient.setName("Thon");
 		_ingredient.setId(null);
@@ -226,8 +182,7 @@ public class UpdateBDD2 {
 
 		// RecetteIngredient 7
 		_recetteIngredientService.create(_recette, _ingredient, 280);
-		_ingredients.add(_ingredient);
-		
+
 		/// Ingredient 8 ///
 		_ingredient.setId(null);
 		_ingredient.setName("Sauce tomate");
@@ -241,12 +196,10 @@ public class UpdateBDD2 {
 
 		// RecetteIngredient 8
 		_recetteIngredientService.create(_recette, _ingredient, 400);
-		_ingredients.add(_ingredient);
 
 		// RecetteIngredient 9
 		_ingredient.setId(5);
 		_recetteIngredientService.create(_recette, _ingredient, 500);
-		_ingredients.add(_ingredient);
 		_ingredient.setId(null);
 
 		// -- Instruction 11 --//
@@ -273,15 +226,8 @@ public class UpdateBDD2 {
 				"Enfournez pendant 30 minutes jusqu'à ce que les lasagnes soient bien gratinées.");
 		// -- Instruction 20 --//
 		_instructionRecetteService.create(_recette, "Servez bien chaud accompagné d'une salade verte assaisonnée.");
-		
-		_recette = _recetteService.update(_recette);
-		setRegimeRecette(_recette, _ingredients);
-		_ingredients.clear();
 
-		//-------------------------------------------------//
-		
 		/* Recette 3: 4 personnes */
-		System.out.println("Recette 3");
 		_recette.setId(null);
 		_recette.setName("Dos de cabillaud à la crème légère à l'ail");
 		_recette.setTempsDeCuisine(LocalTime.of(0, 30));
@@ -304,7 +250,6 @@ public class UpdateBDD2 {
 
 		// RecetteIngredient 10
 		_recetteIngredientService.create(_recette, _ingredient, 700);
-		_ingredients.add(_ingredient);
 
 		/// Ingredient 10 ///
 		_ingredient.setId(null);
@@ -319,12 +264,10 @@ public class UpdateBDD2 {
 
 		// RecetteIngredient 11
 		_recetteIngredientService.create(_recette, _ingredient, 140);
-		_ingredients.add(_ingredient);
 
 		// RecetteIngredient 12
 		_ingredient.setId(5);
 		_recetteIngredientService.create(_recette, _ingredient, 200);
-		_ingredients.add(_ingredient);
 		_ingredient.setId(null);
 
 		// -- Instruction 21 --//
@@ -348,14 +291,7 @@ public class UpdateBDD2 {
 		// -- Instruction 27 --//
 		_instructionRecetteService.create(_recette, "Dégustez.");
 
-		_recette = _recetteService.update(_recette);
-		setRegimeRecette(_recette, _ingredients);
-		_ingredients.clear();
-
-		//-------------------------------------------------//
-		
 		/* Recette 4: 4 personnes */
-		System.out.println("Recette 4");
 		_recette.setId(null);
 		_recette.setName("Quiche légère poulet, champignons et brocoli");
 		_recette.setTempsDeCuisine(LocalTime.of(0, 50));
@@ -378,7 +314,6 @@ public class UpdateBDD2 {
 
 		// RecetteIngredient 13
 		_recetteIngredientService.create(_recette, _ingredient, 250);
-		_ingredients.add(_ingredient);
 
 		/// Ingredient 12 ///
 		_ingredient.setId(null);
@@ -393,7 +328,6 @@ public class UpdateBDD2 {
 
 		// RecetteIngredient 14
 		_recetteIngredientService.create(_recette, _ingredient, 125);
-		_ingredients.add(_ingredient);
 
 		/// Ingredient 13 ///
 		_ingredient.setId(null);
@@ -408,7 +342,6 @@ public class UpdateBDD2 {
 
 		// RecetteIngredient 15
 		_recetteIngredientService.create(_recette, _ingredient, 250);
-		_ingredients.add(_ingredient);
 
 		/// Ingredient 14 ///
 		_ingredient.setId(null);
@@ -423,7 +356,6 @@ public class UpdateBDD2 {
 
 		// RecetteIngredient 16
 		_recetteIngredientService.create(_recette, _ingredient, 500);
-		_ingredients.add(_ingredient);
 
 		/// Ingredient 15 ///
 		_ingredient.setId(null);
@@ -438,7 +370,6 @@ public class UpdateBDD2 {
 
 		// RecetteIngredient 17
 		_recetteIngredientService.create(_recette, _ingredient, 300);
-		_ingredients.add(_ingredient);
 
 		/// Ingredient 16 ///
 		_ingredient.setId(null);
@@ -453,7 +384,6 @@ public class UpdateBDD2 {
 
 		// RecetteIngredient 18
 		_recetteIngredientService.create(_recette, _ingredient, 200);
-		_ingredients.add(_ingredient);
 
 		/// Ingredient 17 ///
 		_ingredient.setId(null);
@@ -468,12 +398,10 @@ public class UpdateBDD2 {
 
 		// RecetteIngredient 19
 		_recetteIngredientService.create(_recette, _ingredient, 180);
-		_ingredients.add(_ingredient);
 
 		// RecetteIngredient 20
 		_ingredient.setId(5);
 		_recetteIngredientService.create(_recette, _ingredient, 100);
-		_ingredients.add(_ingredient);
 		_ingredient.setId(null);
 
 		// -- Instruction 28 --//
@@ -533,14 +461,7 @@ public class UpdateBDD2 {
 		_instructionRecetteService.create(_recette,
 				"Dégustez chaud ou froid accompagné d'une salade verte assaisonnée.");
 
-		_recette = _recetteService.update(_recette);
-		setRegimeRecette(_recette, _ingredients);
-		_ingredients.clear();
-
-		//-------------------------------------------------//
-		
 		/* Recette 5: 4 personnes */
-		System.out.println("Recette 5");
 		_recette.setId(null);
 		_recette.setName(" Hachis parmentier sans viande aux légumes");
 		_recette.setTempsDeCuisine(LocalTime.of(1, 15));
@@ -553,7 +474,6 @@ public class UpdateBDD2 {
 		// RecetteIngredient 21
 		_ingredient.setId(1);
 		_recetteIngredientService.create(_recette, _ingredient, 400);
-		_ingredients.add(_ingredient);
 		_ingredient.setId(null);
 
 		/// Ingredient 18 ///
@@ -569,7 +489,6 @@ public class UpdateBDD2 {
 		
 		// RecetteIngredient 22
 		_recetteIngredientService.create(_recette, _ingredient, 300);
-		_ingredients.add(_ingredient);
 
 		/// Ingredient 19 ///
 		_ingredient.setId(null);
@@ -584,7 +503,6 @@ public class UpdateBDD2 {
 
 		// RecetteIngredient 23
 		_recetteIngredientService.create(_recette, _ingredient, 375);
-		_ingredients.add(_ingredient);
 
 		/// Ingredient 20 ///
 		_ingredient.setId(null);
@@ -599,18 +517,15 @@ public class UpdateBDD2 {
 
 		// RecetteIngredient 24
 		_recetteIngredientService.create(_recette, _ingredient, 160);
-		_ingredients.add(_ingredient);
 
 		// RecetteIngredient 25
 		_ingredient.setId(4);
 		_recetteIngredientService.create(_recette, _ingredient, 300);
-		_ingredients.add(_ingredient);
 		_ingredient.setId(null);
 
 		// RecetteIngredient 26
 		_ingredient.setId(10);
 		_recetteIngredientService.create(_recette, _ingredient, 7);
-		_ingredients.add(_ingredient);
 		_ingredient.setId(null);
 
 		// -- Instruction 48 --//
@@ -648,14 +563,7 @@ public class UpdateBDD2 {
 		// -- Instruction 59 --//
 		_instructionRecetteService.create(_recette, "Dégustez bien chaud.");
 
-		_recette = _recetteService.update(_recette);
-		setRegimeRecette(_recette, _ingredients);
-		_ingredients.clear();
-
-		//-------------------------------------------------//
-		
 		/* Recette 6: 4 personnes */
-		System.out.println("Recette 6");
 		_recette.setId(null);
 		_recette.setName("Tagliatelles légères lentilles, potiron et roquefort");
 		_recette.setTempsDeCuisine(LocalTime.of(1, 30));
@@ -678,7 +586,6 @@ public class UpdateBDD2 {
 
 		// RecetteIngredient 27
 		_recetteIngredientService.create(_recette, _ingredient, 200);
-		_ingredients.add(_ingredient);
 
 		/// Ingredient 22 ///
 		_ingredient.setId(null);
@@ -693,7 +600,6 @@ public class UpdateBDD2 {
 
 		// RecetteIngredient 28
 		_recetteIngredientService.create(_recette, _ingredient, 300);
-		_ingredients.add(_ingredient);
 
 		/// Ingredient 23 ///
 		_ingredient.setId(null);
@@ -708,12 +614,10 @@ public class UpdateBDD2 {
 
 		// RecetteIngredient 29
 		_recetteIngredientService.create(_recette, _ingredient, 200);
-		_ingredients.add(_ingredient);
 
 		// RecetteIngredient 30
 		_ingredient.setId(4);
 		_recetteIngredientService.create(_recette, _ingredient, 150);
-		_ingredients.add(_ingredient);
 		_ingredient.setId(null);
 
 		/// Ingredient 24 ///
@@ -729,7 +633,6 @@ public class UpdateBDD2 {
 
 		// RecetteIngredient 31
 		_recetteIngredientService.create(_recette, _ingredient, 60);
-		_ingredients.add(_ingredient);
 
 		// -- Instruction 60 --//
 		_instructionRecetteService.create(_recette, "Coupez la chair de potiron en petits cubes.");
@@ -755,14 +658,7 @@ public class UpdateBDD2 {
 		// -- Instruction 68 --//
 		_instructionRecetteService.create(_recette, "Dégustez sans attendre.");
 
-		_recette = _recetteService.update(_recette);
-		setRegimeRecette(_recette, _ingredients);
-		_ingredients.clear();
-
-		//-------------------------------------------------//
-		
 		/* Recette 7 */
-		System.out.println("Recette 7");
 		_recette.setId(null);
 		_recette.setName("Mijoté de boeuf maigre façon bourguignon à la tomate");
 		_recette.setTempsDeCuisine(LocalTime.of(2, 0));
@@ -785,30 +681,25 @@ public class UpdateBDD2 {
 
 		// RecetteIngredient 32
 		_recetteIngredientService.create(_recette, _ingredient, 800);
-		_ingredients.add(_ingredient);
 
 		// RecetteIngredient 33
 		_ingredient.setId(19);
 		_recetteIngredientService.create(_recette, _ingredient, 375);
-		_ingredients.add(_ingredient);
 		_ingredient.setId(null);
 
 		// RecetteIngredient 34
 		_ingredient.setId(4);
 		_recetteIngredientService.create(_recette, _ingredient, 300);
-		_ingredients.add(_ingredient);
 		_ingredient.setId(null);
 
 		// RecetteIngredient 35
 		_ingredient.setId(13);
 		_recetteIngredientService.create(_recette, _ingredient, 225);
-		_ingredients.add(_ingredient);
 		_ingredient.setId(null);
 
 		// RecetteIngredient 36
 		_ingredient.setId(8);
 		_recetteIngredientService.create(_recette, _ingredient, 45);
-		_ingredients.add(_ingredient);
 		_ingredient.setId(null);
 
 		// -- Instruction 69 --//
@@ -837,14 +728,7 @@ public class UpdateBDD2 {
 		// -- Instruction 78 --//
 		_instructionRecetteService.create(_recette, "Rectifiez l'assaisonnement si besoin puis servez immédiatement.");
 
-		_recette = _recetteService.update(_recette);
-		setRegimeRecette(_recette, _ingredients);
-		_ingredients.clear();
-
-		//-------------------------------------------------//
-		
 		/* Recette 8: 4 personnes */
-		System.out.println("Recette 8");
 		_recette.setId(null);
 		_recette.setName("Curry light de dinde aux légumes");
 		_recette.setTempsDeCuisine(LocalTime.of(1, 15));
@@ -867,24 +751,20 @@ public class UpdateBDD2 {
 
 		// RecetteIngredient 32
 		_recetteIngredientService.create(_recette, _ingredient, 600);
-		_ingredients.add(_ingredient);
-		
+
 		// RecetteIngredient 38
 		_ingredient.setId(4);
 		_recetteIngredientService.create(_recette, _ingredient, 150);
-		_ingredients.add(_ingredient);
 		_ingredient.setId(null);
 
 		// RecetteIngredient 39
 		_ingredient.setId(10);
 		_recetteIngredientService.create(_recette, _ingredient, 7);
-		_ingredients.add(_ingredient);
 		_ingredient.setId(null);
 
 		// RecetteIngredient 40
 		_ingredient.setId(19);
 		_recetteIngredientService.create(_recette, _ingredient, 500);
-		_ingredients.add(_ingredient);
 		_ingredient.setId(null);
 
 		/// Ingredient 27 ///
@@ -900,12 +780,10 @@ public class UpdateBDD2 {
 
 		// RecetteIngredient 41
 		_recetteIngredientService.create(_recette, _ingredient, 300);
-		_ingredients.add(_ingredient);
 
 		// RecetteIngredient 42
 		_ingredient.setId(13);
 		_recetteIngredientService.create(_recette, _ingredient, 350);
-		_ingredients.add(_ingredient);
 		_ingredient.setId(null);
 
 		/// Ingredient 28 ///
@@ -919,9 +797,8 @@ public class UpdateBDD2 {
 		_ingredient.setDateFinRecolte(3);
 		_ingredient = _ingredientService.create(_ingredient);
 
-		// RecetteIngredient 43
+		// RecetteIngredient 41
 		_recetteIngredientService.create(_recette, _ingredient, 20);
-		_ingredients.add(_ingredient);
 
 		// -- Instruction 79 --//
 		_instructionRecetteService.create(_recette, "Epluchez et hachez l'oignon et l'ail.");
@@ -947,14 +824,7 @@ public class UpdateBDD2 {
 		// -- Instruction 87 --//
 		_instructionRecetteService.create(_recette, "Servez accompagné de riz blanc.");
 
-		_recette = _recetteService.update(_recette);
-		setRegimeRecette(_recette, _ingredients);
-		_ingredients.clear();
-
-		//-------------------------------------------------//
-		
 		/* Recette 9: 4 personnes */
-		System.out.println("Recette 9");
 		_recette.setId(null);
 		_recette.setName("Soupe de légumes diététique au quinoa");
 		_recette.setTempsDeCuisine(LocalTime.of(0, 50));
@@ -975,32 +845,27 @@ public class UpdateBDD2 {
 		_ingredient.setDateFinRecolte(3);
 		_ingredient = _ingredientService.create(_ingredient);
 
-		// RecetteIngredient 44
+		// RecetteIngredient 41
 		_recetteIngredientService.create(_recette, _ingredient, 150);
-		_ingredients.add(_ingredient);
 
-		// RecetteIngredient 45
+		// RecetteIngredient 43
 		_ingredient.setId(1);
 		_recetteIngredientService.create(_recette, _ingredient, 960);
-		_ingredients.add(_ingredient);
+		_ingredient.setId(null);
+
+		// RecetteIngredient 44
+		_ingredient.setId(19);
+		_recetteIngredientService.create(_recette, _ingredient, 250);
+		_ingredient.setId(null);
+
+		// RecetteIngredient 45
+		_ingredient.setId(20);
+		_recetteIngredientService.create(_recette, _ingredient, 300);
 		_ingredient.setId(null);
 
 		// RecetteIngredient 46
-		_ingredient.setId(19);
-		_recetteIngredientService.create(_recette, _ingredient, 250);
-		_ingredients.add(_ingredient);
-		_ingredient.setId(null);
-
-		// RecetteIngredient 47
-		_ingredient.setId(20);
-		_recetteIngredientService.create(_recette, _ingredient, 300);
-		_ingredients.add(_ingredient);
-		_ingredient.setId(null);
-
-		// RecetteIngredient 48
 		_ingredient.setId(4);
 		_recetteIngredientService.create(_recette, _ingredient, 150);
-		_ingredients.add(_ingredient);
 		_ingredient.setId(null);
 
 		// -- Instruction 88 --//
@@ -1027,14 +892,7 @@ public class UpdateBDD2 {
 		// -- Instruction 97 --//
 		_instructionRecetteService.create(_recette, "Servez bien chaud.");
 
-		_recette = _recetteService.update(_recette);
-		setRegimeRecette(_recette, _ingredients);
-		_ingredients.clear();
-
-		//-------------------------------------------------//
-		
 		/* Recette 10: 8 personnes */
-		System.out.println("Recette 10");
 		_recette.setId(null);
 		_recette.setName("Tarte light thon-épinards");
 		_recette.setTempsDeCuisine(LocalTime.of(1, 0));
@@ -1044,22 +902,19 @@ public class UpdateBDD2 {
 		_recette.setFinSaison(3);
 		_recette = _recetteService.create(_recette);
 
-		// RecetteIngredient 49
+		// RecetteIngredient 47
 		_ingredient.setId(11);
 		_recetteIngredientService.create(_recette, _ingredient, 250);
-		_ingredients.add(_ingredient);
 		_ingredient.setId(null);
 
-		// RecetteIngredient 50
+		// RecetteIngredient 48
 		_ingredient.setId(12);
 		_recetteIngredientService.create(_recette, _ingredient, 125);
-		_ingredients.add(_ingredient);
 		_ingredient.setId(null);
 
-		// RecetteIngredient 51
+		// RecetteIngredient 49
 		_ingredient.setId(7);
 		_recetteIngredientService.create(_recette, _ingredient, 125);
-		_ingredients.add(_ingredient);
 		_ingredient.setId(null);
 
 		/// Ingredient 30 ///
@@ -1073,20 +928,17 @@ public class UpdateBDD2 {
 		_ingredient.setDateFinRecolte(3);
 		_ingredient = _ingredientService.create(_ingredient);
 
-		// RecetteIngredient 52
+		// RecetteIngredient 50
 		_recetteIngredientService.create(_recette, _ingredient, 150);
-		_ingredients.add(_ingredient);
 
-		// RecetteIngredient 53
+		// RecetteIngredient 51
 		_ingredient.setId(17);
 		_recetteIngredientService.create(_recette, _ingredient, 125);
-		_ingredients.add(_ingredient);
 		_ingredient.setId(null);
 
-		// RecetteIngredient 54
+		// RecetteIngredient 52
 		_ingredient.setId(5);
 		_recetteIngredientService.create(_recette, _ingredient, 100);
-		_ingredients.add(_ingredient);
 		_ingredient.setId(null);
 
 		// -- Instruction 98 --//
@@ -1133,14 +985,7 @@ public class UpdateBDD2 {
 		// -- Instruction 113 --//
 		_instructionRecetteService.create(_recette, "Servez chaud ou froid accompagné d'une salade verte assaisonnée.");
 
-		_recette = _recetteService.update(_recette);
-		setRegimeRecette(_recette, _ingredients);
-		_ingredients.clear();
-
-		//-------------------------------------------------//
-		
 		/* Recette 11: 4 personnes */
-		System.out.println("Recette 11");
 		_recette.setId(null);
 		_recette.setName("Endives au jambon minceur gratinées au gruyère");
 		_recette.setTempsDeCuisine(LocalTime.of(0, 50));
@@ -1150,16 +995,14 @@ public class UpdateBDD2 {
 		_recette.setFinSaison(3);
 		_recette = _recetteService.create(_recette);
 
-		// RecetteIngredient 55
+		// RecetteIngredient 53
 		_ingredient.setId(3);
 		_recetteIngredientService.create(_recette, _ingredient, 50);
-		_ingredients.add(_ingredient);
 		_ingredient.setId(null);
 
-		// RecetteIngredient 56
+		// RecetteIngredient 54
 		_ingredient.setId(5);
 		_recetteIngredientService.create(_recette, _ingredient, 400);
-		_ingredients.add(_ingredient);
 		_ingredient.setId(null);
 
 		/// Ingredient 31 ///
@@ -1173,14 +1016,12 @@ public class UpdateBDD2 {
 		_ingredient.setDateFinRecolte(3);
 		_ingredient = _ingredientService.create(_ingredient);
 
-		// RecetteIngredient 57
+		// RecetteIngredient 50
 		_recetteIngredientService.create(_recette, _ingredient, 600);
-		_ingredients.add(_ingredient);
 
-		// RecetteIngredient 58
+		// RecetteIngredient 51
 		_ingredient.setId(2);
 		_recetteIngredientService.create(_recette, _ingredient, 200);
-		_ingredients.add(_ingredient);
 		_ingredient.setId(null);
 
 		// -- Instruction 114 --//
@@ -1197,14 +1038,7 @@ public class UpdateBDD2 {
 		// -- Instruction 118 --//
 		_instructionRecetteService.create(_recette, "Servez bien chaud et accompagnez d’une poêlée de légumes !");
 
-		_recette = _recetteService.update(_recette);
-		setRegimeRecette(_recette, _ingredients);
-		_ingredients.clear();
-
-		//-------------------------------------------------//
-		
 		/* Recette 12: 4 personnes */
-		System.out.println("Recette 12");
 		_recette.setId(null);
 		_recette.setName("Papillote de merlan aux poivrons");
 		_recette.setTempsDeCuisine(LocalTime.of(1, 0));
@@ -1225,14 +1059,12 @@ public class UpdateBDD2 {
 		_ingredient.setDateFinRecolte(3);
 		_ingredient = _ingredientService.create(_ingredient);
 
-		// RecetteIngredient 59
+		// RecetteIngredient 52
 		_recetteIngredientService.create(_recette, _ingredient, 360);
-		_ingredients.add(_ingredient);
 
-		// RecetteIngredient 60
+		// RecetteIngredient 53
 		_ingredient.setId(19);
 		_recetteIngredientService.create(_recette, _ingredient, 500);
-		_ingredients.add(_ingredient);
 		_ingredient.setId(null);
 
 		/// Ingredient 33 ///
@@ -1246,10 +1078,9 @@ public class UpdateBDD2 {
 		_ingredient.setDateFinRecolte(3);
 		_ingredient = _ingredientService.create(_ingredient);
 
-		// RecetteIngredient 61
+		// RecetteIngredient 54
 		_recetteIngredientService.create(_recette, _ingredient, 500);
-		_ingredients.add(_ingredient);
-		
+
 		/// Ingredient 34 ///
 		_ingredient.setId(null);
 		_ingredient.setName("Echalote");
@@ -1261,9 +1092,8 @@ public class UpdateBDD2 {
 		_ingredient.setDateFinRecolte(3);
 		_ingredient = _ingredientService.create(_ingredient);
 
-		// RecetteIngredient 62
+		// RecetteIngredient 55
 		_recetteIngredientService.create(_recette, _ingredient, 40);
-		_ingredients.add(_ingredient);
 
 		// -- Instruction 118 --//
 		_instructionRecetteService.create(_recette, "Préchauffez le four à 180°C.");
@@ -1282,14 +1112,7 @@ public class UpdateBDD2 {
 		// -- Instruction 123 --//
 		_instructionRecetteService.create(_recette, "Servez immédiatement à la sortie du four avec du riz nature.");
 
-		_recette = _recetteService.update(_recette);
-		setRegimeRecette(_recette, _ingredients);
-		_ingredients.clear();
-
-		//-------------------------------------------------//
-		
 		/* Recette 13 */
-		System.out.println("Recette 13");
 		_recette.setId(null);
 		_recette.setName("Ragoût cramoisi de betterave, chou et bacon");
 		_recette.setTempsDeCuisine(LocalTime.of(2, 0));
@@ -1310,9 +1133,8 @@ public class UpdateBDD2 {
 		_ingredient.setDateFinRecolte(3);
 		_ingredient = _ingredientService.create(_ingredient);
 
-		// RecetteIngredient 63
+		// RecetteIngredient 56
 		_recetteIngredientService.create(_recette, _ingredient, 700);
-		_ingredients.add(_ingredient);
 
 		/// Ingredient 36 ///
 		_ingredient.setId(null);
@@ -1325,10 +1147,9 @@ public class UpdateBDD2 {
 		_ingredient.setDateFinRecolte(3);
 		_ingredient = _ingredientService.create(_ingredient);
 
-		// RecetteIngredient 64
+		// RecetteIngredient 57
 		_recetteIngredientService.create(_recette, _ingredient, 1800);
-		_ingredients.add(_ingredient);
-		
+
 		/// Ingredient 37 ///
 		_ingredient.setId(null);
 		_ingredient.setName("Tranche de bacon");
@@ -1340,20 +1161,17 @@ public class UpdateBDD2 {
 		_ingredient.setDateFinRecolte(3);
 		_ingredient = _ingredientService.create(_ingredient);
 
-		// RecetteIngredient 65
+		// RecetteIngredient 58
 		_recetteIngredientService.create(_recette, _ingredient, 172);
-		_ingredients.add(_ingredient);
 
-		// RecetteIngredient 66
+		// RecetteIngredient 59
 		_ingredient.setId(4);
 		_recetteIngredientService.create(_recette, _ingredient, 150);
-		_ingredients.add(_ingredient);
 		_ingredient.setId(null);
 
-		// RecetteIngredient 67
+		// RecetteIngredient 60
 		_ingredient.setId(10);
 		_recetteIngredientService.create(_recette, _ingredient, 21);
-		_ingredients.add(_ingredient);
 		_ingredient.setId(null);
 
 		// -- Instruction 124 --//
@@ -1370,14 +1188,7 @@ public class UpdateBDD2 {
 		// -- Instruction 128 --//
 		_instructionRecetteService.create(_recette, "Servez chaud !");
 
-		_recette = _recetteService.update(_recette);
-		setRegimeRecette(_recette, _ingredients);
-		_ingredients.clear();
-
-		//-------------------------------------------------//
-		
 		/* Recette 14: 4 personnes */
-		System.out.println("Recette 14");
 		_recette.setId(null);
 		_recette.setName("Omelette au saumon fumé");
 		_recette.setTempsDeCuisine(LocalTime.of(0, 23));
@@ -1387,10 +1198,9 @@ public class UpdateBDD2 {
 		_recette.setFinSaison(3);
 		_recette = _recetteService.create(_recette);
 
-		// RecetteIngredient 68
+		// RecetteIngredient 61
 		_ingredient.setId(17);
 		_recetteIngredientService.create(_recette, _ingredient, 480);
-		_ingredients.add(_ingredient);
 		_ingredient.setId(null);
 
 		/// Ingredient 38 ///
@@ -1404,10 +1214,9 @@ public class UpdateBDD2 {
 		_ingredient.setDateFinRecolte(3);
 		_ingredient = _ingredientService.create(_ingredient);
 
-		// RecetteIngredient 69
+		// RecetteIngredient 62
 		_recetteIngredientService.create(_recette, _ingredient, 200);
-		_ingredients.add(_ingredient);
-		
+
 		/// Ingredient 39 ///
 		_ingredient.setId(null);
 		_ingredient.setName("Citron jaune");
@@ -1419,9 +1228,8 @@ public class UpdateBDD2 {
 		_ingredient.setDateFinRecolte(3);
 		_ingredient = _ingredientService.create(_ingredient);
 
-		// RecetteIngredient 70
+		// RecetteIngredient 63
 		_recetteIngredientService.create(_recette, _ingredient, 60);
-		_ingredients.add(_ingredient);
 
 		// -- Instruction 129 --//
 		_instructionRecetteService.create(_recette, "Découpez les tranches de saumon fumé en fines lanières.");
@@ -1458,14 +1266,7 @@ public class UpdateBDD2 {
 		_instructionRecetteService.create(_recette,
 				"Astuce : Vous aimez l’aneth ? N’hésitez pas à en incorporer ciselé dans les oeufs battus avant cuisson des omelettes. Tout aussi bon !");
 
-		_recette = _recetteService.update(_recette);
-		setRegimeRecette(_recette, _ingredients);
-		_ingredients.clear();
-
-		//-------------------------------------------------//
-		
 		/* Recette 15: 6 personnes */
-		System.out.println("Recette 15");
 		_recette.setId(null);
 		_recette.setName("Gratin de chou fleur persillé au comté");
 		_recette.setTempsDeCuisine(LocalTime.of(1, 0));
@@ -1486,9 +1287,8 @@ public class UpdateBDD2 {
 		_ingredient.setDateFinRecolte(3);
 		_ingredient = _ingredientService.create(_ingredient);
 
-		// RecetteIngredient 71
+		// RecetteIngredient 64
 		_recetteIngredientService.create(_recette, _ingredient, 60);
-		_ingredients.add(_ingredient);
 
 		/// Ingredient 40 ///
 		_ingredient.setId(null);
@@ -1501,9 +1301,8 @@ public class UpdateBDD2 {
 		_ingredient.setDateFinRecolte(3);
 		_ingredient = _ingredientService.create(_ingredient);
 
-		// RecetteIngredient 72
+		// RecetteIngredient 65
 		_recetteIngredientService.create(_recette, _ingredient, 390);
-		_ingredients.add(_ingredient);
 
 		/// Ingredient 41 ///
 		_ingredient.setId(null);
@@ -1516,14 +1315,12 @@ public class UpdateBDD2 {
 		_ingredient.setDateFinRecolte(3);
 		_ingredient = _ingredientService.create(_ingredient);
 
-		// RecetteIngredient 73
+		// RecetteIngredient 66
 		_recetteIngredientService.create(_recette, _ingredient, 300);
-		_ingredients.add(_ingredient);
 
-		// RecetteIngredient 74
+		// RecetteIngredient 67
 		_ingredient.setId(10);
 		_recetteIngredientService.create(_recette, _ingredient, 7);
-		_ingredients.add(_ingredient);
 		_ingredient.setId(null);
 
 		// -- Instruction 141 --//
@@ -1539,10 +1336,6 @@ public class UpdateBDD2 {
 		_instructionRecetteService.create(_recette,
 				"Enfourner dans un four préchauffé à 180°C pour 30 minutes de cuisson environ.");
 
-		_recette = _recetteService.update(_recette);
-		setRegimeRecette(_recette, _ingredients);
-		_ingredients.clear();
-		
 		_ctx.close();
 	}
 }
