@@ -138,4 +138,9 @@ public class IngredientService {
 		calorieIsValid(obj2);
 		return _ingredientRepository.findByCalorieBetween(obj1, obj2);
 	}
+
+	public List<Ingredient> saveAll(List<Ingredient> ingredients) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

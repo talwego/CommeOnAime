@@ -1,10 +1,10 @@
-package model;
+package perso.persoEshopSpringMVC.restcontroller;
 
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 
-import javax.validation.Valid;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,11 +22,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.fasterxml.jackson.annotation.JsonView;
 
-import perso.persoeshopspringback.model.JsonViews;
-import perso.persoeshopspringback.model.Ingredient;
-import perso.persoeshopspringback.service.IngredientService;
+import model.Ingredient;
+import model.JsonView;
+
+import service.IngredientService;
+
 
 @RestController
 @RequestMapping("/api/ingredient")
@@ -48,6 +49,23 @@ public class IngredientRestController {
 		return ingredientService.saveAll(ingredients);
 	}
 	
+	@GetMapping("")
+	@JsonView(JsonViews.Ingredient.class)
+	public List<Ingredient> findByVegetarien(Boolean obj){
+		return ingredientService.findByVegetarien(obj);
+	}
+	@GetMapping("")
+	@JsonView(JsonViews.Ingredient.class)
+	public List<Ingredient> findByVegan(Boolean obj){
+		return ingredientService.findByVegan(obj);
+	}
+	
+	public List<Ingredient> findByCalorieBetween(int obj1, int obj2){
+		
+		return ingredientService.findByCalorieBetween(obj1, obj2);
+	}
+
+	
 	
 	@GetMapping("")
 	@JsonView(JsonViews.Ingredient.class)
@@ -57,15 +75,14 @@ public class IngredientRestController {
 	
 	@DeleteMapping("/{id}")
 	@JsonView(JsonViews.Ingredient.class)
-	public void deleteById(@RequestBody Ingredient ingredient) {
-		try {
-			ingredientService.deleteById(id);
+	public void deleteById(@Valid @RequestBody Ingredient ingredient) {
+		ingredientService.deleteById(id);
 		}
 	}
 	@PutMapping("/{id}")
 	@JsonView(JsonViews.Ingredient.class)
-	public Ingredient update(@RequestBody Ingredient ingredient) {
-	;
+	public Ingredient update(@Valid @RequestBody Ingredient ingredient) {
+	
 		return ingredientService.update(id);
 	}
 	

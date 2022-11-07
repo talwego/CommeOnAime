@@ -1,4 +1,4 @@
-package model;
+package perso.persoEshopSpringMVC.restcontroller;
 
 import java.lang.reflect.Field;
 import java.util.List;
@@ -24,10 +24,12 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import model.Recette;
 import perso.persoeshopspringback.model.JsonViews;
 import perso.persoeshopspringback.model.Produit;
 import perso.persoeshopspringback.service.FournisseurService;
 import perso.persoeshopspringback.service.ProduitService;
+import service.RecetteService;
 
 @RestController
 @RequestMapping("/api/recette")
@@ -40,6 +42,12 @@ public class RecetteRestController {
 	public Recette create(@RequestBody Recette recette) {
 			
 		return recetteService.save(recette);
+	}
+	
+	@GetMapping("/{id}")
+	@JsonView(JsonViews.Common.class)
+	public Recette findById(@PathVariable Integer id) {
+		return recetteService.findById(id);
 	}
 	
 	@JsonView(JsonViews.Recette.class)
@@ -55,17 +63,34 @@ public class RecetteRestController {
 	public List<Recette> findAll(){
 		return recetteService.findAll();
 	}
-	
+	//Liste recettes vegetariennes
+	@GetMapping("")
+	@JsonView(JsonViews.Recette.class)
+	public List<Recette> findByVegetarien(Boolean obj){
+		return recetteService.findByVegetarien(obj);
+	}
+	//Liste recettes vegetariennes
+	@GetMapping("")
+	@JsonView(JsonViews.Recette.class)
+	public List<Recette> findByVegan(Boolean obj){
+		return recetteService.findByVegan(obj);
+	}
+	//Liste recettes interval calories
+	@GetMapping("")
+	@JsonView(JsonViews.Recette.class)
+	public List<Recette> findByCalorieBetween(int obj1, int obj2){
+		
+		return recetteService.findByCalorieBetween(obj1, obj2);
+	}
 	@DeleteMapping("/{id}")
-	public void deleteById(@RequestBody Recette recette) {
-		try {
-			recetteService.deleteById(id)
-		}
+	public void deleteById(@Valid @RequestBody Recette recette) {
+			recetteService.deleteById(id);
+		
 	}
 	@PutMapping("/{id}")
 	@JsonView(JsonViews.Recette.class)
-	public Recette update(@RequestBody Recette recette) {
-	;
+	public Recette update(@Valid @RequestBody Recette recette) {
+	
 		return recetteService.update(id);
 	}
 	

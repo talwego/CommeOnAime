@@ -1,7 +1,6 @@
 package ajc.sopra.eshop.controller;
 
 
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,8 +11,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import perso.persoeshopspringback.model.Ingredient;
-import perso.persoeshopspringback.service.IngredientService;
+import model.Ingredient;
+import service.IngredientService;
+
+
 
 @Controller
 @RequestMapping("/ingredient")

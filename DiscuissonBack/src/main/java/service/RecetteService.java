@@ -65,7 +65,7 @@ public class RecetteService {
 	}
 
 	public Recette update(Recette obj) {
-		if (obj.getId() == null || !_recetteRepository.existsById(obj.getId())) {
+		if (obj.getId() == null || !recetteRepository.existsById(obj.getId())) {
 			throw new RecetteException("id de la recette pas dans la base");
 		}
 		return save(obj);
@@ -109,7 +109,7 @@ public class RecetteService {
 	
 	public List<Recette> findByDebutSaisonGreater(int obj){
 		debutSaisonIsValid(obj);
-		return _recetteRepository.findByDebutSaisonGreaterThanEqual(obj);
+		return recetteRepository.findByDebutSaisonGreaterThanEqual(obj);
 	}
 	
 	public List<Recette> findByFinSaisonGreater(int obj){
