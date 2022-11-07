@@ -1,7 +1,6 @@
 package perso.persoEshopSpringMVC.controller;
 
 
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -54,7 +53,7 @@ public class AdminController {
 	}
 	
 	@PostMapping("")
-	public String save(@Valid @ModelAttribute Admin admin,BindingResult br,Model model) {
+	public String save(@ModelAttribute Admin admin,BindingResult br,Model model) {
 		System.out.println(br);
 		if(br.hasErrors()) {
 			return goEdit(model, admin);

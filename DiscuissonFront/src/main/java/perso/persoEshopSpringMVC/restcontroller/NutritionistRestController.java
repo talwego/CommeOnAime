@@ -1,8 +1,8 @@
+package perso.persoEshopSpringMVC.restcontroller;
+
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
-
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,8 +22,9 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import model.JsonViews;
+import model.Message;
 import model.Nutritionist;
-import perso.persoEshopSpringMVC.controller.JsonViews;
 import service.NutritionistService;
 
 @RestController
@@ -45,7 +46,7 @@ public class NutritionistRestController {
 		return nutritionistSrv.findById(id);
 	}
 
-	@JsonView(JsonViews.FournisseurWithProduit.class)
+	@JsonView(JsonViews.NutritionistWithMessage.class)
 	@GetMapping("/{id}/message")
 	public Nutritionist findByIdWithMessage(@PathVariable Integer id) {
 		return nutritionistSrv.findByIdFetchMessage(id);
@@ -54,7 +55,7 @@ public class NutritionistRestController {
 	@PostMapping("")
 	@JsonView(JsonViews.Common.class)
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public Nutritionist create(@Valid @RequestBody Nutritionist nutritionist, BindingResult br) {
+	public Nutritionist create(@RequestBody Nutritionist nutritionist, BindingResult br) {
 		if (br.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
@@ -63,7 +64,7 @@ public class NutritionistRestController {
 
 	@PutMapping("/{id}")
 	@JsonView(JsonViews.Common.class)
-	public Nutritionist update(@Valid @RequestBody Nutritionist nutritionist, BindingResult br, @PathVariable Integer id) {
+	public Nutritionist update(@RequestBody Nutritionist nutritionist, BindingResult br, @PathVariable Integer id) {
 		if (br.hasErrors() && nutritionistSrv.findById(id) == null) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
@@ -74,18 +75,18 @@ public class NutritionistRestController {
 	@JsonView(JsonViews.Common.class)
 	public Nutritionist patch(@RequestBody Map<String, Object> fields, @PathVariable Integer id) {
 		Nutritionist nutritionist = nutritionistSrv.findById(id);
-		fields.forEach((k, v) -> {
-			if (k.equals("message")) {
-				Map<String, Object> map = (Map<String, Object>) v;
-				map.forEach((k, v) -> {
-					Field field = ReflectionUtils.findField(Message.class, k);
+		fields.forEach((l, w) -> {
+			if (l.equals("message")) {
+				Map<String, Object> map = (Map<String, Object>) w;
+				map.forEach((l, w) -> {
+					Field field = ReflectionUtils.findField(Message.class, l);
 					ReflectionUtils.makeAccessible(field);
-					ReflectionUtils.setField(field, nutritionist.getMessage(), v);
+					ReflectionUtils.setField(field, nutritionist.getMessage(), w);
 				});
 			} else {
-				Field field = ReflectionUtils.findField(Nutritionist.class, k);
+				Field field = ReflectionUtils.findField(Nutritionist.class, l);
 				ReflectionUtils.makeAccessible(field);
-				ReflectionUtils.setField(field, nutritionist, v);
+				ReflectionUtils.setField(field, nutritionist, w);
 			}
 		});
 		return nutritionistSrv.save(nutritionist);

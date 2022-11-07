@@ -4,7 +4,6 @@ import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,12 +23,8 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-
-
-import model.Admin;
+import model.JsonViews;
 import model.User;
-import perso.persoEshopSpringMVC.controller.JsonViews;
-import service.AdminService;
 import service.UserService;
 
 @RestController
@@ -55,7 +50,7 @@ public class UserRestController {
 	@PostMapping("")
 	@JsonView(JsonViews.Common.class)
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public User create(@Valid @RequestBody User user, BindingResult br) {
+	public User create(@RequestBody User user, BindingResult br) {
 		if (br.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
@@ -65,7 +60,7 @@ public class UserRestController {
 
 	@PutMapping("/{id}")
 	@JsonView(JsonViews.Common.class)
-	public User update(@Valid @RequestBody User user, BindingResult br, @PathVariable Integer id) {
+	public User update(@RequestBody User user, BindingResult br, @PathVariable Integer id) {
 		if (br.hasErrors() && userSrv.findById(id) == null) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
