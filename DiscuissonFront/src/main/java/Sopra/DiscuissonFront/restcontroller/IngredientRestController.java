@@ -49,15 +49,15 @@ public class IngredientRestController {
 		return ingredientService.saveAll(ingredients);
 	}
 	
-	@GetMapping("")
+	@GetMapping("/vegetarien")
 	@JsonView(JsonViews.Ingredient.class)
-	public List<Ingredient> findByVegetarien(Boolean obj){
-		return ingredientService.findByVegetarien(obj);
+	public List<Ingredient> findByVegetarien(){
+		return ingredientService.findByVegetarien(true);
 	}
-	@GetMapping("")
+	@GetMapping("/vegan")
 	@JsonView(JsonViews.Ingredient.class)
-	public List<Ingredient> findByVegan(Boolean obj){
-		return ingredientService.findByVegan(obj);
+	public List<Ingredient> findByVegan(){
+		return ingredientService.findByVegan(true);
 	}
 	
 	public List<Ingredient> findByCalorieBetween(int obj1, int obj2){

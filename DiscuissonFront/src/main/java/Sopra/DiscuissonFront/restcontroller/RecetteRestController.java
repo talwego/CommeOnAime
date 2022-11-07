@@ -51,19 +51,19 @@ public class RecetteRestController {
 		return recetteService.findAll();
 	}
 	//Liste recettes vegetariennes
-	@GetMapping("")
+	@GetMapping("/vegetarien")
 	@JsonView(JsonViews.Recette.class)
 	public List<Recette> findByVegetarien(Boolean obj){
 		return recetteService.findByVegetarien(obj);
 	}
 	//Liste recettes vegetariennes
-	@GetMapping("")
+	@GetMapping("/vegan")
 	@JsonView(JsonViews.Recette.class)
 	public List<Recette> findByVegan(Boolean obj){
 		return recetteService.findByVegan(obj);
 	}
 	//Liste recettes interval calories
-	@GetMapping("")
+	@GetMapping("/calorie")
 	@JsonView(JsonViews.Recette.class)
 	public List<Recette> findByCalorieBetween(int obj1, int obj2){
 		

@@ -12,7 +12,7 @@ import config.JpaConfig;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan({"perso.persoEshopSpringMVC.controller","perso.persoEshopSpringMVC.restcontroller"})
+@ComponentScan({"Sopra.DiscuissonFront.restcontroller"})
 @Import(JpaConfig.class)
 public class WebConfig {
 	@Bean
