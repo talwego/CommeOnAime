@@ -119,6 +119,12 @@ public class Message {
 		return "Message [id=" + id + ", sujet=" + sujet + ", text=" + text + ", dateMessageDate=" + dateMessageDate
 				+ ", nutritionist=" + nutritionist + ", user=" + user + "]";
 	}
+
+
+	public void setUser(Message findById) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	

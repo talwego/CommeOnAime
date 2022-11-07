@@ -1,4 +1,4 @@
-package perso.persoEshopSpringMVC.restcontroller;
+package Sopra.DiscuissonFront.restcontroller;
 
 import java.lang.reflect.Field;
 import java.util.List;

@@ -1,4 +1,4 @@
-package perso.persoEshopSpringMVC.controller;
+package Sopra.DiscuissonFront.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package perso.persoEshopSpringMVC.controller;
+package Sopra.DiscuissonFront.controller;
 
 
 

@@ -20,4 +20,6 @@ public class JsonViews {
 	public static class Recette extends Common{			
 		
 	}
+	
+	
 }
