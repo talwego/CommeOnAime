@@ -33,6 +33,11 @@ public class Nutritionist extends Compte{
 	@Override
 	public String toString() {
 		return "Nutritionist [messages=" + messages + "]";
+	}
+
+	public Object getMessage() {
+		// TODO Auto-generated method stub
+		return null;
 	} 
     
 

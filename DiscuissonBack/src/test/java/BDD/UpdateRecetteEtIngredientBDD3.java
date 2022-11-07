@@ -18,13 +18,45 @@ import service.RecetteService;
 /*
  * Code DEGUEULASSE mais normalement fonctionnel
  * PS: Ne pas oublier de se mettre en: create
- * les dates ne fonctionnent pas!
+ * les dates fonctionnent peut-etre :o
  * 
  * Source: https://www.fourchette-et-bikini.fr/cuisine/recettes-minceur/15-plats-dhiver-legers-et-gourmands.html
  * https://www.cuisineaz.com/recettes/pate-a-tarte-maison-rapide-36657.aspx
  */
 
-public class UpdateRecetteEtIngredientBDD2 {
+public class UpdateRecetteEtIngredientBDD3 {
+	public static void setDate(Recette recette, List<Ingredient> ingredients) {
+		int debut = ingredients.get(0).getDateDebutRecolte();
+		int fin = ingredients.get(0).getDateFinRecolte();
+		if (debut > fin) {
+			fin += 12;
+		}
+		int i = 1;
+		int size = ingredients.size();
+		boolean continuer = true;
+		while (continuer && i<size) {
+			if (ingredients.get(i).getDateDebutRecolte() > debut) {
+				debut = ingredients.get(i).getDateDebutRecolte();
+			}
+			if (ingredients.get(i).getDateDebutRecolte() > ingredients.get(i).getDateFinRecolte()) {
+				if (ingredients.get(i).getDateFinRecolte()+12 < fin) {
+					fin = ingredients.get(i).getDateFinRecolte()+12;
+				}
+			}
+			else {
+				if (ingredients.get(i).getDateFinRecolte() < fin) {
+					fin = ingredients.get(i).getDateFinRecolte();
+				}
+			}
+			if (debut > fin) {
+				System.out.println("Peut-etre probleme????");
+			}
+			i++;
+		}
+		recette.setDebutSaison(debut);
+		recette.setFinSaison(fin);
+	}
+	
 	public static void setRegimeRecette(Recette recette, List<Ingredient> ingredients) {
 		int i =0;
 		int size = ingredients.size();

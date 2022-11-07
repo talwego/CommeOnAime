@@ -1,8 +1,6 @@
 package perso.persoEshopSpringMVC.controller;
 
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -55,7 +53,7 @@ public class UserController {
 	}
 	
 	@PostMapping("")
-	public String save(@Valid @ModelAttribute User user,BindingResult br,Model model) {
+	public String save(@ModelAttribute User user,BindingResult br,Model model) {
 		System.out.println(br);
 		if(br.hasErrors()) {
 			return goEdit(model, user);

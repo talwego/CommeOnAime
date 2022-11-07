@@ -1,4 +1,4 @@
-import javax.validation.Valid;
+package perso.persoEshopSpringMVC.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import ajc.sopra.eshop.model.Fournisseur;
-import ajc.sopra.eshop.service.FournisseurService;
+import model.Nutritionist;
+import service.NutritionistService;
+
 
 @Controller
 @RequestMapping("/nutritionist")
@@ -48,7 +49,7 @@ public class NutritionistController {
 	}
 	
 	@PostMapping("")
-	public String save(@Valid @ModelAttribute Nutritionist nutritionist,BindingResult br,Model model) {
+	public String save(@ModelAttribute Nutritionist nutritionist,BindingResult br,Model model) {
 		System.out.println(br);
 		if(br.hasErrors()) {
 			return goEdit(model, nutritionist);

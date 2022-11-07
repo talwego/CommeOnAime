@@ -49,7 +49,7 @@ import repository.NutritionistRepository;
 				return save(nutritionist);
 			}
 
-			private Nutritionist save(Nutritionist nutritionist) {
+			public Nutritionist save(Nutritionist nutritionist) {
 				return nutritionistRepo.save(nutritionist);
 			}
 
@@ -60,6 +60,11 @@ import repository.NutritionistRepository;
 						
 			public void deleteById(Integer id) {
 				delete(findById(id));
+			}
+
+			public Nutritionist findByIdFetchMessage(Integer id) {
+				// TODO Auto-generated method stub
+				return null;
 			}
 			
 		

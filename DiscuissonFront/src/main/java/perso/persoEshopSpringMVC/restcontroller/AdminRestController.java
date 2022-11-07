@@ -4,7 +4,7 @@ import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 
-import javax.validation.Valid;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,8 +25,9 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.annotation.JsonView;
 
 
-import ajc.sopra.eshop.model.JsonViews;
+
 import model.Admin;
+import model.JsonViews;
 import service.AdminService;
 
 @RestController
@@ -52,7 +53,7 @@ public class AdminRestController {
 	@PostMapping("")
 	@JsonView(JsonViews.Common.class)
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public Admin create(@Valid @RequestBody Admin admin, BindingResult br) {
+	public Admin create(@RequestBody Admin admin, BindingResult br) {
 		if (br.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
@@ -61,7 +62,7 @@ public class AdminRestController {
 
 	@PutMapping("/{id}")
 	@JsonView(JsonViews.Common.class)
-	public Admin update(@Valid @RequestBody Admin admin, BindingResult br, @PathVariable Integer id) {
+	public Admin update(@RequestBody Admin admin, BindingResult br, @PathVariable Integer id) {
 		if (br.hasErrors() && adminSrv.findById(id) == null) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
