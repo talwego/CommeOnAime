@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.ReflectionUtils;
@@ -24,8 +25,9 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.annotation.JsonView;
 
 
-import perso.persoEshopSpringMVC.controller.JsonViews;
+
 import model.Admin;
+import model.JsonViews;
 import service.AdminService;
 
 @RestController

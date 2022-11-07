@@ -23,12 +23,8 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-
-
-import model.Admin;
+import model.JsonViews;
 import model.User;
-import perso.persoEshopSpringMVC.controller.JsonViews;
-import service.AdminService;
 import service.UserService;
 
 @RestController
