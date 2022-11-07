@@ -189,17 +189,6 @@ public class Recette {
 		return Objects.hash(id);
 	}
 	
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Produit other = (Produit) obj;
-		return Objects.equals(id, other.id);
-	}
 	
 	@Override
 	public String toString() {
