@@ -22,7 +22,7 @@ import service.RecetteService;
  * https://www.cuisineaz.com/recettes/pate-a-tarte-maison-rapide-36657.aspx
  */
 
-public class UpdateRecetteEtIngredientBDD {
+public class UpdateRecetteEtIngredientBDD_CorectDate {
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext _ctx = new AnnotationConfigApplicationContext(JpaConfig.class);
 		IngredientService _ingredientService = _ctx.getBean(IngredientService.class);
@@ -483,8 +483,8 @@ public class UpdateRecetteEtIngredientBDD {
 		_ingredient.setVegan(true);
 		_ingredient.setCalorie(28);
 		_ingredient.setUnite(Unite.g);
-		_ingredient.setDateDebutRecolte(3);
-		_ingredient.setDateFinRecolte(3);
+		_ingredient.setDateDebutRecolte(11);
+		_ingredient.setDateFinRecolte(6);
 		_ingredient = _ingredientService.create(_ingredient);
 		
 		// RecetteIngredient 22
@@ -497,8 +497,8 @@ public class UpdateRecetteEtIngredientBDD {
 		_ingredient.setVegan(true);
 		_ingredient.setCalorie(41);
 		_ingredient.setUnite(Unite.g);
-		_ingredient.setDateDebutRecolte(3);
-		_ingredient.setDateFinRecolte(3);
+		_ingredient.setDateDebutRecolte(1);
+		_ingredient.setDateFinRecolte(12);
 		_ingredient = _ingredientService.create(_ingredient);
 
 		// RecetteIngredient 23
@@ -511,8 +511,8 @@ public class UpdateRecetteEtIngredientBDD {
 		_ingredient.setVegan(true);
 		_ingredient.setCalorie(61);
 		_ingredient.setUnite(Unite.g);
-		_ingredient.setDateDebutRecolte(3);
-		_ingredient.setDateFinRecolte(3);
+		_ingredient.setDateDebutRecolte(1);
+		_ingredient.setDateFinRecolte(12);
 		_ingredient = _ingredientService.create(_ingredient);
 
 		// RecetteIngredient 24
@@ -594,8 +594,8 @@ public class UpdateRecetteEtIngredientBDD {
 		_ingredient.setVegan(true);
 		_ingredient.setCalorie(30);
 		_ingredient.setUnite(Unite.g);
-		_ingredient.setDateDebutRecolte(3);
-		_ingredient.setDateFinRecolte(3);
+		_ingredient.setDateDebutRecolte(11);
+		_ingredient.setDateFinRecolte(12);
 		_ingredient = _ingredientService.create(_ingredient);
 
 		// RecetteIngredient 28
@@ -608,8 +608,8 @@ public class UpdateRecetteEtIngredientBDD {
 		_ingredient.setVegan(true);
 		_ingredient.setCalorie(127);
 		_ingredient.setUnite(Unite.g);
-		_ingredient.setDateDebutRecolte(3);
-		_ingredient.setDateFinRecolte(3);
+		_ingredient.setDateDebutRecolte(1);
+		_ingredient.setDateFinRecolte(12);
 		_ingredient = _ingredientService.create(_ingredient);
 
 		// RecetteIngredient 29
@@ -627,8 +627,8 @@ public class UpdateRecetteEtIngredientBDD {
 		_ingredient.setVegan(false);
 		_ingredient.setCalorie(369);
 		_ingredient.setUnite(Unite.g);
-		_ingredient.setDateDebutRecolte(3);
-		_ingredient.setDateFinRecolte(3);
+		_ingredient.setDateDebutRecolte(1);
+		_ingredient.setDateFinRecolte(12);
 		_ingredient = _ingredientService.create(_ingredient);
 
 		// RecetteIngredient 31
@@ -675,8 +675,8 @@ public class UpdateRecetteEtIngredientBDD {
 		_ingredient.setVegan(false);
 		_ingredient.setCalorie(100);
 		_ingredient.setUnite(Unite.g);
-		_ingredient.setDateDebutRecolte(3);
-		_ingredient.setDateFinRecolte(3);
+		_ingredient.setDateDebutRecolte(1);
+		_ingredient.setDateFinRecolte(12);
 		_ingredient = _ingredientService.create(_ingredient);
 
 		// RecetteIngredient 32
@@ -745,8 +745,8 @@ public class UpdateRecetteEtIngredientBDD {
 		_ingredient.setVegan(false);
 		_ingredient.setCalorie(106);
 		_ingredient.setUnite(Unite.g);
-		_ingredient.setDateDebutRecolte(3);
-		_ingredient.setDateFinRecolte(3);
+		_ingredient.setDateDebutRecolte(1);
+		_ingredient.setDateFinRecolte(12);
 		_ingredient = _ingredientService.create(_ingredient);
 
 		// RecetteIngredient 32
@@ -774,8 +774,8 @@ public class UpdateRecetteEtIngredientBDD {
 		_ingredient.setVegan(true);
 		_ingredient.setCalorie(31);
 		_ingredient.setUnite(Unite.g);
-		_ingredient.setDateDebutRecolte(3);
-		_ingredient.setDateFinRecolte(3);
+		_ingredient.setDateDebutRecolte(7);
+		_ingredient.setDateFinRecolte(10);
 		_ingredient = _ingredientService.create(_ingredient);
 
 		// RecetteIngredient 41
@@ -793,8 +793,8 @@ public class UpdateRecetteEtIngredientBDD {
 		_ingredient.setVegan(true);
 		_ingredient.setCalorie(230);
 		_ingredient.setUnite(Unite.mL);
-		_ingredient.setDateDebutRecolte(3);
-		_ingredient.setDateFinRecolte(3);
+		_ingredient.setDateDebutRecolte(1);
+		_ingredient.setDateFinRecolte(12);
 		_ingredient = _ingredientService.create(_ingredient);
 
 		// RecetteIngredient 41
@@ -841,8 +841,8 @@ public class UpdateRecetteEtIngredientBDD {
 		_ingredient.setVegan(true);
 		_ingredient.setCalorie(75);
 		_ingredient.setUnite(Unite.g);
-		_ingredient.setDateDebutRecolte(3);
-		_ingredient.setDateFinRecolte(3);
+		_ingredient.setDateDebutRecolte(1);
+		_ingredient.setDateFinRecolte(12);
 		_ingredient = _ingredientService.create(_ingredient);
 
 		// RecetteIngredient 41
@@ -925,7 +925,7 @@ public class UpdateRecetteEtIngredientBDD {
 		_ingredient.setCalorie(23);
 		_ingredient.setUnite(Unite.g);
 		_ingredient.setDateDebutRecolte(3);
-		_ingredient.setDateFinRecolte(3);
+		_ingredient.setDateFinRecolte(1);
 		_ingredient = _ingredientService.create(_ingredient);
 
 		// RecetteIngredient 50
@@ -1012,8 +1012,8 @@ public class UpdateRecetteEtIngredientBDD {
 		_ingredient.setVegan(true);
 		_ingredient.setCalorie(17);
 		_ingredient.setUnite(Unite.g);
-		_ingredient.setDateDebutRecolte(3);
-		_ingredient.setDateFinRecolte(3);
+		_ingredient.setDateDebutRecolte(10);
+		_ingredient.setDateFinRecolte(4);
 		_ingredient = _ingredientService.create(_ingredient);
 
 		// RecetteIngredient 50
@@ -1055,7 +1055,7 @@ public class UpdateRecetteEtIngredientBDD {
 		_ingredient.setVegan(false);
 		_ingredient.setCalorie(128);
 		_ingredient.setUnite(Unite.g);
-		_ingredient.setDateDebutRecolte(3);
+		_ingredient.setDateDebutRecolte(1);
 		_ingredient.setDateFinRecolte(3);
 		_ingredient = _ingredientService.create(_ingredient);
 
@@ -1074,8 +1074,8 @@ public class UpdateRecetteEtIngredientBDD {
 		_ingredient.setVegan(true);
 		_ingredient.setCalorie(26);
 		_ingredient.setUnite(Unite.g);
-		_ingredient.setDateDebutRecolte(3);
-		_ingredient.setDateFinRecolte(3);
+		_ingredient.setDateDebutRecolte(6);
+		_ingredient.setDateFinRecolte(9);
 		_ingredient = _ingredientService.create(_ingredient);
 
 		// RecetteIngredient 54
@@ -1088,8 +1088,8 @@ public class UpdateRecetteEtIngredientBDD {
 		_ingredient.setVegan(true);
 		_ingredient.setCalorie(72);
 		_ingredient.setUnite(Unite.g);
-		_ingredient.setDateDebutRecolte(3);
-		_ingredient.setDateFinRecolte(3);
+		_ingredient.setDateDebutRecolte(1);
+		_ingredient.setDateFinRecolte(12);
 		_ingredient = _ingredientService.create(_ingredient);
 
 		// RecetteIngredient 55
@@ -1129,8 +1129,8 @@ public class UpdateRecetteEtIngredientBDD {
 		_ingredient.setVegan(true);
 		_ingredient.setCalorie(25);
 		_ingredient.setUnite(Unite.g);
-		_ingredient.setDateDebutRecolte(3);
-		_ingredient.setDateFinRecolte(3);
+		_ingredient.setDateDebutRecolte(6);
+		_ingredient.setDateFinRecolte(11);
 		_ingredient = _ingredientService.create(_ingredient);
 
 		// RecetteIngredient 56
@@ -1143,8 +1143,8 @@ public class UpdateRecetteEtIngredientBDD {
 		_ingredient.setVegan(true);
 		_ingredient.setCalorie(19);
 		_ingredient.setUnite(Unite.g);
-		_ingredient.setDateDebutRecolte(3);
-		_ingredient.setDateFinRecolte(3);
+		_ingredient.setDateDebutRecolte(1);
+		_ingredient.setDateFinRecolte(12);
 		_ingredient = _ingredientService.create(_ingredient);
 
 		// RecetteIngredient 57
@@ -1157,8 +1157,8 @@ public class UpdateRecetteEtIngredientBDD {
 		_ingredient.setVegan(false);
 		_ingredient.setCalorie(541);
 		_ingredient.setUnite(Unite.g);
-		_ingredient.setDateDebutRecolte(3);
-		_ingredient.setDateFinRecolte(3);
+		_ingredient.setDateDebutRecolte(1);
+		_ingredient.setDateFinRecolte(12);
 		_ingredient = _ingredientService.create(_ingredient);
 
 		// RecetteIngredient 58
@@ -1210,8 +1210,8 @@ public class UpdateRecetteEtIngredientBDD {
 		_ingredient.setVegan(false);
 		_ingredient.setCalorie(117);
 		_ingredient.setUnite(Unite.g);
-		_ingredient.setDateDebutRecolte(3);
-		_ingredient.setDateFinRecolte(3);
+		_ingredient.setDateDebutRecolte(2);
+		_ingredient.setDateFinRecolte(8);
 		_ingredient = _ingredientService.create(_ingredient);
 
 		// RecetteIngredient 62
@@ -1224,8 +1224,8 @@ public class UpdateRecetteEtIngredientBDD {
 		_ingredient.setVegan(true);
 		_ingredient.setCalorie(29);
 		_ingredient.setUnite(Unite.g);
-		_ingredient.setDateDebutRecolte(3);
-		_ingredient.setDateFinRecolte(3);
+		_ingredient.setDateDebutRecolte(1);
+		_ingredient.setDateFinRecolte(4);
 		_ingredient = _ingredientService.create(_ingredient);
 
 		// RecetteIngredient 63
@@ -1283,8 +1283,8 @@ public class UpdateRecetteEtIngredientBDD {
 		_ingredient.setVegan(true);
 		_ingredient.setCalorie(25);
 		_ingredient.setUnite(Unite.g);
-		_ingredient.setDateDebutRecolte(3);
-		_ingredient.setDateFinRecolte(3);
+		_ingredient.setDateDebutRecolte(5);
+		_ingredient.setDateFinRecolte(11);
 		_ingredient = _ingredientService.create(_ingredient);
 
 		// RecetteIngredient 64
@@ -1297,8 +1297,8 @@ public class UpdateRecetteEtIngredientBDD {
 		_ingredient.setVegan(false);
 		_ingredient.setCalorie(29);
 		_ingredient.setUnite(Unite.g);
-		_ingredient.setDateDebutRecolte(3);
-		_ingredient.setDateFinRecolte(3);
+		_ingredient.setDateDebutRecolte(1);
+		_ingredient.setDateFinRecolte(12);
 		_ingredient = _ingredientService.create(_ingredient);
 
 		// RecetteIngredient 65
@@ -1311,8 +1311,8 @@ public class UpdateRecetteEtIngredientBDD {
 		_ingredient.setVegan(false);
 		_ingredient.setCalorie(108);
 		_ingredient.setUnite(Unite.mL);
-		_ingredient.setDateDebutRecolte(3);
-		_ingredient.setDateFinRecolte(3);
+		_ingredient.setDateDebutRecolte(1);
+		_ingredient.setDateFinRecolte(12);
 		_ingredient = _ingredientService.create(_ingredient);
 
 		// RecetteIngredient 66
