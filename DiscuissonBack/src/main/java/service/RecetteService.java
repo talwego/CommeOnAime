@@ -13,14 +13,14 @@ import repository.RecetteRepository;
 @Service
 public class RecetteService {
 	@Autowired
-	private RecetteRepository _recetteRepository;
+	private RecetteRepository recetteRepository;
 	
 	public List<Recette> findAll(){
-		return _recetteRepository.findAll();
+		return recetteRepository.findAll();
 	}
 	
 	public Recette findById(Integer id) {
-		return _recetteRepository.findById(id).orElseThrow(()->{
+		return recetteRepository.findById(id).orElseThrow(()->{
 			throw new RecetteException("unknown id");
 		});
 	}
@@ -54,7 +54,7 @@ public class RecetteService {
 		noteIsValid(obj.getNote());
 		debutSaisonIsValid(obj.getDebutSaison());
 		finSaisonIsValid(obj.getFinSaison());
-		return _recetteRepository.save(obj);
+		return recetteRepository.save(obj);
 	}
 	
 	public Recette create(Recette obj) {
@@ -72,7 +72,7 @@ public class RecetteService {
 	}
 	
 	public void delete(Recette obj) {
-		_recetteRepository.delete(obj);
+		recetteRepository.delete(obj);
 	}
 	
 	public void deleteById(Integer id) {
@@ -80,31 +80,31 @@ public class RecetteService {
 	}
 	
 	public Recette findByIdFetch(Integer id) {
-		return _recetteRepository.findByIdFetchRecetteIngredient(id).orElseThrow(()->{
+		return recetteRepository.findByIdFetchRecetteIngredient(id).orElseThrow(()->{
 			throw new RecetteException("id inconnu");
 		});
 	}
 	
 	public List<Recette> findByName(String obj){
-		return _recetteRepository.findByNameContaining(obj);
+		return recetteRepository.findByNameContaining(obj);
 	}
 	
 	public List<Recette> findByVegetarien(Boolean obj){
-		return _recetteRepository.findByVegetarien(obj);
+		return recetteRepository.findByVegetarien(obj);
 	}
 	
 	public List<Recette> findByVegan(Boolean obj){
-		return _recetteRepository.findByVegan(obj);
+		return recetteRepository.findByVegan(obj);
 	}
 	
 	public List<Recette> findByDebutSaisonLess(int obj){
 		debutSaisonIsValid(obj);
-		return _recetteRepository.findByDebutSaisonLessThanEqual(obj);
+		return recetteRepository.findByDebutSaisonLessThanEqual(obj);
 	}
 	
 	public List<Recette> findByFinSaisonLess(int obj){
 		finSaisonIsValid(obj);
-		return _recetteRepository.findByFinSaisonLessThanEqual(obj);
+		return recetteRepository.findByFinSaisonLessThanEqual(obj);
 	}
 	
 	public List<Recette> findByDebutSaisonGreater(int obj){
@@ -114,37 +114,37 @@ public class RecetteService {
 	
 	public List<Recette> findByFinSaisonGreater(int obj){
 		finSaisonIsValid(obj);
-		return _recetteRepository.findByFinSaisonGreaterThanEqual(obj);
+		return recetteRepository.findByFinSaisonGreaterThanEqual(obj);
 	}
 	
 	public List<Recette> findBySaisonBetween(int obj1, int obj2){
 		debutSaisonIsValid(obj1);
 		finSaisonIsValid(obj2);
 		if(obj1 <= obj2) {
-			return _recetteRepository.findBySaisonBetween(obj1, obj2);
+			return recetteRepository.findBySaisonBetween(obj1, obj2);
 		}
 		else {
-			return _recetteRepository.findBySaisonBetween(obj1, obj2+12);
-		}
+			return recetteRepository.findBySaisonBetween(obj1, obj2+12);
+		
 	}
 	
 	public List<Recette> findByNoteBetween(int obj1, int obj2){
 		noteIsValid(obj1);
 		noteIsValid(obj2);
-		return _recetteRepository.findByNoteBetween(obj1, obj2);
+		return recetteRepository.findByNoteBetween(obj1, obj2);
 	}
 	
 	public List<Recette> findByCalorieBetween(int obj1, int obj2){
 		calorieIsValid(obj1);
 		calorieIsValid(obj2);
-		return _recetteRepository.findByCalorieBetween(obj1, obj2);
+		return recetteRepository.findByCalorieBetween(obj1, obj2);
 	}
 	
 	public List<Recette> findByTempsDeCuisineBetween(LocalTime obj1, LocalTime obj2){
-		return _recetteRepository.findByTempsDeCuisineBetween(obj1, obj2);
+		return recetteRepository.findByTempsDeCuisineBetween(obj1, obj2);
 	}
 	
 	public List<Recette> findByIsValidEquals(boolean obj){
-		return _recetteRepository.findByIsValidEquals(obj);
+		return recetteRepository.findByIsValidEquals(obj);
 	}
 }
