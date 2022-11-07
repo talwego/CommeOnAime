@@ -4,7 +4,6 @@ import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,11 +23,9 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import model.JsonViews;
 import model.Recette;
-import perso.persoeshopspringback.model.JsonViews;
-import perso.persoeshopspringback.model.Produit;
-import perso.persoeshopspringback.service.FournisseurService;
-import perso.persoeshopspringback.service.ProduitService;
+
 import service.RecetteService;
 
 @RestController
@@ -83,15 +80,15 @@ public class RecetteRestController {
 		return recetteService.findByCalorieBetween(obj1, obj2);
 	}
 	@DeleteMapping("/{id}")
-	public void deleteById(@Valid @RequestBody Recette recette) {
+	public void deleteById(@PathVariable Integer id) {
 			recetteService.deleteById(id);
 		
 	}
 	@PutMapping("/{id}")
 	@JsonView(JsonViews.Recette.class)
-	public Recette update(@Valid @RequestBody Recette recette) {
+	public Recette update(@RequestBody Recette recette) {
 	
-		return recetteService.update(id);
+		return recetteService.update(recette);
 	}
 	
 	

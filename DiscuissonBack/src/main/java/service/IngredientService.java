@@ -41,7 +41,7 @@ public class IngredientService {
 		return save(ingredient);
 	}
 
-	private Ingredient save(Ingredient ingredient) {
+	public Ingredient save(Ingredient ingredient) {
 		if (ingredient.getCalorie() < 0 ) {
 			throw new IngredientException("le nombre de calories doit être positif");
 		}
@@ -140,7 +140,6 @@ public class IngredientService {
 	}
 
 	public List<Ingredient> saveAll(List<Ingredient> ingredients) {
-		// TODO Auto-generated method stub
-		return null;
+		return _ingredientRepository.findAll();
 	}
 }
