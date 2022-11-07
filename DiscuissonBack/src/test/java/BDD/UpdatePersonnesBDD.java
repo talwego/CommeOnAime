@@ -24,8 +24,10 @@ public class UpdatePersonnesBDD {
 		User _user = new User();
 	
 
-		/* User 2 */
-		_user.setPseudo("Rachel");
+		/* User 1 */
+		_user.setId(null);
+		_user.setLogin("Rachel");
+		_user.setPassword("bernadette");
 		_user.setGenre(Genre.femme);
 		_user.setAge(27);
 		_user.setTaille(175);
@@ -37,7 +39,9 @@ public class UpdatePersonnesBDD {
 		_user = _userService.create(_user);
 		
 		/* User 2 */
-		_user.setPseudo("Phoebe");
+		_user.setId(null);
+		_user.setLogin("Phoebe");
+		_user.setPassword("bernadette");
 		_user.setGenre(Genre.femme);
 		_user.setAge(26);
 		_user.setTaille(170);
@@ -49,7 +53,9 @@ public class UpdatePersonnesBDD {
 		_user = _userService.create(_user);
 		
 		/* User 4 */
-		_user.setPseudo("Joey");
+		_user.setId(null);
+		_user.setLogin("Joey");
+		_user.setPassword("bernadette");
 		_user.setGenre(Genre.homme);
 		_user.setAge(28);
 		_user.setTaille(170);
@@ -61,7 +67,9 @@ public class UpdatePersonnesBDD {
 		_user = _userService.create(_user);
 		
 		/* User 5 */
-		_user.setPseudo("Ross");
+		_user.setId(null);
+		_user.setLogin("Ross");
+		_user.setPassword("bernadette");
 		_user.setGenre(Genre.homme);
 		_user.setAge(29);
 		_user.setTaille(185);
@@ -73,7 +81,9 @@ public class UpdatePersonnesBDD {
 		_user = _userService.create(_user);
 		
 		/* User 6 */
-		_user.setPseudo("Monica");
+		_user.setId(null);
+		_user.setLogin("Monica");
+		_user.setPassword("bernadette");
 		_user.setGenre(Genre.femme);
 		_user.setAge(27);
 		_user.setTaille(170);
@@ -85,7 +95,9 @@ public class UpdatePersonnesBDD {
 		_user = _userService.create(_user);
 		
 		/* User 7 */
-		_user.setPseudo("Chandler");
+		_user.setId(null);
+		_user.setLogin("Chandler");
+		_user.setPassword("bernadette");
 		_user.setGenre(Genre.homme);
 		_user.setAge(28);
 		_user.setTaille(190);

@@ -30,10 +30,6 @@ public class UserService {
 	}
 	
 	
-	public List<User> findByPseudo(String pseudo) 
-	{
-		return userRepo.findByPseudoContaining(pseudo);
-	}
 	
 	public List<User> findByGenre(Genre genre) 
 	{
@@ -92,10 +88,7 @@ public class UserService {
 	
 	public User save(User user) 
 	{
-		if (user.getPseudo() == null || user.getPseudo().isBlank() || user.getPseudo().length() > 30) 
-		{
-			throw new AdminException("probleme pseudo");
-		}
+		
 		
 		
 		return userRepo.save(user);

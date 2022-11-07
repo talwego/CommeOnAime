@@ -9,7 +9,6 @@ import model.Genre;
 import model.User;
 
 public interface UserRepository extends JpaRepository<User, Integer>{
-	List<User> findByPseudoContaining(String pseudo);
 	List<User> findByGenreContaining(Genre genre);
 	List<User> findByAgeContaining(int age);
 	List<User> findByTailleContaining(double taille);

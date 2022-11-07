@@ -14,8 +14,7 @@ import javax.persistence.Table;
 @Table(name="utilisateur")
 public class User extends Compte{
 
-	@Column(length = 30,nullable = false)
-	private String pseudo;
+	
 	
 	private Genre genre;
 	private Integer age;
@@ -39,13 +38,7 @@ public class User extends Compte{
 		super(id, login, password);
 	}
 
-	public String getPseudo() {
-		return pseudo;
-	}
-
-	public void setPseudo(String pseudo) {
-		this.pseudo = pseudo;
-	}
+	
 
 	public Genre getGenre() {
 		return genre;
@@ -113,7 +106,7 @@ public class User extends Compte{
 
 	@Override
 	public String toString() {
-		return "User [pseudo=" + pseudo + ", genre=" + genre + ", age=" + age + ", taille=" + taille + ", poids="
+		return "User [ genre=" + genre + ", age=" + age + ", taille=" + taille + ", poids="
 				+ poids + ", compteVIP=" + compteVIP + ", vegetarien=" + vegetarien + ", vegan=" + vegan + ", messages="
 				+ messages + "]";
 	}
