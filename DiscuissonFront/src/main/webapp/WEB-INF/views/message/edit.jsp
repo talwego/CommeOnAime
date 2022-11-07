@@ -26,7 +26,7 @@ package message;
 			<div class="form-group">
 				<form:label path="date">date:</form:label>
 				<form:input path="date" readonly="true" cssClass="form-control"
-					placeholder="DATE" />
+					placeholder="Auto" />
 			</div>
 			<div class="form-group">
 				<form:label path="sujet">sujet:</form:label>

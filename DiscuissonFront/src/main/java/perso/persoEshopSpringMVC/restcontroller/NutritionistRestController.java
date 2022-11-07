@@ -77,11 +77,11 @@ public class NutritionistRestController {
 		Nutritionist nutritionist = nutritionistSrv.findById(id);
 		fields.forEach((l, w) -> {
 			if (l.equals("message")) {
-				Map<String, Object> map = (Map<String, Object>) w;
-				map.forEach((l, w) -> {
-					Field field = ReflectionUtils.findField(Message.class, l);
-					ReflectionUtils.makeAccessible(field);
-					ReflectionUtils.setField(field, nutritionist.getMessage(), w);
+				Map<String, Object> mapMessage = (Map<String, Object>) w;
+				mapMessage.forEach((lMessage, wMessage) -> {
+					Field fieldMessage = ReflectionUtils.findField(Message.class, lMessage);
+					ReflectionUtils.makeAccessible(fieldMessage);
+					ReflectionUtils.setField(fieldMessage, nutritionist.getMessage(), wMessage);
 				});
 			} else {
 				Field field = ReflectionUtils.findField(Nutritionist.class, l);
