@@ -11,30 +11,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.NotBlank;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonView;
-
-import ajc.sopra.eshop.model.JsonViews;
-import ajc.sopra.eshop.model.Produit;
 
 @Entity
 public class Recette {
-	@JsonView(JsonViews.Common.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@JsonView(JsonViews.Common.class)
-	@NotBlank
-	@Column(name = "name", length = 30, nullable = false)
+	
 	private String name;
-	@JsonView(JsonViews.Common.class)
-	@Column(name = "vegetarien", length = 30, nullable = true)
 	private boolean vegetarien;
-	@JsonView(JsonViews.Common.class)
-	@Column(name = "vegan", length = 30, nullable = true)
 	private boolean vegan;
 	
 	@OneToMany(mappedBy="recette")
