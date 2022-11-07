@@ -61,7 +61,7 @@
 				<version>3.3.2</version>
 			</plugin>
 		</plugins>
-		<finalName>shop</finalName>
+		<finalName>discuisson</finalName>
 	</build>
 
 </project>
