@@ -25,48 +25,48 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import perso.persoeshopspringback.model.JsonViews;
-import perso.persoeshopspringback.model.Produit;
-import perso.persoeshopspringback.service.FournisseurService;
-import perso.persoeshopspringback.service.ProduitService;
+import perso.persoeshopspringback.model.Ingredient;
+import perso.persoeshopspringback.service.IngredientService;
 
 @RestController
-@RequestMapping("/api/recette")
-public class RecetteRestController {
+@RequestMapping("/api/ingredient")
+public class IngredientRestController {
 	@Autowired
-	private RecetteService recetteService;
+	private IngredientService ingredientService;
 	
 	@PostMapping("")
-	@JsonView(JsonViews.Recette.class)
-	public Recette create(@RequestBody Recette recette) {
+	@JsonView(JsonViews.Ingredient.class)
+	public Ingredient create(@RequestBody Ingredient ingredient) {
 			
-		return recetteService.save(recette);
+		return ingredientService.save(ingredient);
 	}
 	
-	@JsonView(JsonViews.Recette.class)
+	@JsonView(JsonViews.Ingredient.class)
 	@PostMapping("/list")
-	public List<Recette> create(@RequestBody List<Recette> recettes) {
+	public List<Ingredient> create(@RequestBody List<Ingredient> ingredients) {
 			
-		return recetteService.saveAll(recettes);
+		return ingredientService.saveAll(ingredients);
 	}
 	
 	
 	@GetMapping("")
-	@JsonView(JsonViews.Recette.class)
-	public List<Recette> findAll(){
-		return recetteService.findAll();
+	@JsonView(JsonViews.Ingredient.class)
+	public List<Ingredient> findAll(){
+		return ingredientService.findAll();
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleteById(@RequestBody Recette recette) {
+	@JsonView(JsonViews.Ingredient.class)
+	public void deleteById(@RequestBody Ingredient ingredient) {
 		try {
-			recetteService.deleteById(id)
+			ingredientService.deleteById(id);
 		}
 	}
 	@PutMapping("/{id}")
-	@JsonView(JsonViews.Recette.class)
-	public Recette update(@RequestBody Recette recette) {
+	@JsonView(JsonViews.Ingredient.class)
+	public Ingredient update(@RequestBody Ingredient ingredient) {
 	;
-		return recetteService.update(id);
+		return ingredientService.update(id);
 	}
 	
 	
