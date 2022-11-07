@@ -75,15 +75,15 @@ public class IngredientRestController {
 	
 	@DeleteMapping("/{id}")
 	@JsonView(JsonViews.Ingredient.class)
-	public void deleteById(@RequestBody Ingredient ingredient) {
+	public void deleteById(@PathVariable Integer id) {
 		ingredientService.deleteById(id);
 		}
 	
 	@PutMapping("/{id}")
 	@JsonView(JsonViews.Ingredient.class)
-	public Ingredient update( @RequestBody Ingredient ingredient) {
+	public Ingredient update(@RequestBody Ingredient ingredient) {
 	
-		return ingredientService.update(id);
+		return ingredientService.update(ingredient);
 	}
 	
 	
