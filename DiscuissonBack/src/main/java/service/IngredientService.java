@@ -41,7 +41,7 @@ public class IngredientService {
 		return save(ingredient);
 	}
 
-	private Ingredient save(Ingredient ingredient) {
+	public Ingredient save(Ingredient ingredient) {
 		if (ingredient.getCalorie() < 0 ) {
 			throw new IngredientException("le nombre de calories doit être positif");
 		}

@@ -49,7 +49,7 @@ public class RecetteService {
 		}
 	}
 	
-	private Recette save(Recette obj) {
+	public Recette save(Recette obj) {
 		calorieIsValid(obj.getCalorie());
 		noteIsValid(obj.getNote());
 		debutSaisonIsValid(obj.getDebutSaison());
