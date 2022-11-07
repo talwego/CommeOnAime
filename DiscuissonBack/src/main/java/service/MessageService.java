@@ -56,7 +56,7 @@ public class MessageService {
 			return save(message);
 		}
 
-		private Message save(Message message) {
+		public Message save(Message message) {
 			if (message.getSujet() == null || message.getSujet().isBlank() || message.getSujet().length() > 30) {
 				throw new MessageException("Probleme sujet");
 			}

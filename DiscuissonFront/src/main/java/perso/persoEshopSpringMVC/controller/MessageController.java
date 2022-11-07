@@ -1,4 +1,4 @@
-import javax.validation.Valid;
+package perso.persoEshopSpringMVC.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,12 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import ajc.sopra.eshop.model.Produit;
-import ajc.sopra.eshop.service.AchatService;
-import ajc.sopra.eshop.service.ClientService;
-import ajc.sopra.eshop.service.ProduitService;
-
-public class MessageController {
+import model.Message;
+import service.MessageService;
+import service.UserService;
 
 	@Controller
 	@RequestMapping("/message")
@@ -33,7 +30,7 @@ public class MessageController {
 		
 		@GetMapping("")
 		public String list(Model model) {
-			model.addAttribute("messages", produitSrv.findAll());
+			model.addAttribute("messages", messageSrv.findAll());
 			return "message/list";
 		}
 		
@@ -49,17 +46,16 @@ public class MessageController {
 		
 		@GetMapping("/delete")
 		public String delete(@RequestParam Integer id, Model model) {
-			messageSrv.deleteId(id);
+			messageSrv.deleteById(id);
 			return "redirect:/message";
 		}
 		
 		@PostMapping("")
-		public String save(@Valid @ModelAttribute Message message, BindingResult br, Model model) {
+		public String save(@ModelAttribute Message message, BindingResult br, Model model) {
 			if (br.hasErrors()) {
 				return goForm(message, model);
 			}
 			messageSrv.save(message);
 			return "redirect:/message";
 		}
-		
-}
+	}
