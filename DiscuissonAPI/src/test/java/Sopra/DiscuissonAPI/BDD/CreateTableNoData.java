@@ -1,13 +1,13 @@
 package Sopra.DiscuissonAPI.BDD;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import config.JpaConfig;
-
+@SpringBootTest
 public class CreateTableNoData {
-	public static void main(String[] args) {
-		AnnotationConfigApplicationContext ctx=new AnnotationConfigApplicationContext(JpaConfig.class);
+	
+	@Test
+	public void tableNoData() {
 		
-		ctx.close();
 	}
 }

@@ -2,7 +2,12 @@ package Sopra.DiscuissonAPI.BDD;
 
 import java.time.LocalTime;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import javax.transaction.Transactional;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 
 import Sopra.DiscuissonAPI.model.Ingredient;
 import Sopra.DiscuissonAPI.model.Recette;
@@ -11,7 +16,6 @@ import Sopra.DiscuissonAPI.service.IngredientService;
 import Sopra.DiscuissonAPI.service.InstructionRecetteService;
 import Sopra.DiscuissonAPI.service.RecetteIngredientService;
 import Sopra.DiscuissonAPI.service.RecetteService;
-import config.JpaConfig;
 
 /*
  * Code DEGUEULASSE mais normalement fonctionnel
@@ -21,14 +25,21 @@ import config.JpaConfig;
  * Source: https://www.fourchette-et-bikini.fr/cuisine/recettes-minceur/15-plats-dhiver-legers-et-gourmands.html
  * https://www.cuisineaz.com/recettes/pate-a-tarte-maison-rapide-36657.aspx
  */
-
-public class UpdateRecetteEtIngredientBDD_CorectDate {
-	public static void main(String[] args) {
-		AnnotationConfigApplicationContext _ctx = new AnnotationConfigApplicationContext(JpaConfig.class);
-		IngredientService _ingredientService = _ctx.getBean(IngredientService.class);
-		RecetteIngredientService _recetteIngredientService = _ctx.getBean(RecetteIngredientService.class);
-		RecetteService _recetteService = _ctx.getBean(RecetteService.class);
-		InstructionRecetteService _instructionRecetteService = _ctx.getBean(InstructionRecetteService.class);
+@SpringBootTest
+public class UpdateRecetteEtIngredientBDD_CorrectDate {
+	@Autowired
+	private IngredientService _ingredientService;
+	@Autowired
+	private RecetteIngredientService _recetteIngredientService;
+	@Autowired
+	private RecetteService _recetteService;
+	@Autowired
+	private InstructionRecetteService _instructionRecetteService;
+	
+	@Test
+	@Transactional
+	@Commit
+	public void UpdateRecetteEtIngredientBDDCorrectDate() {
 		Recette _recette = new Recette();
 		Ingredient _ingredient = new Ingredient();
 
@@ -1336,6 +1347,5 @@ public class UpdateRecetteEtIngredientBDD_CorectDate {
 		_instructionRecetteService.create(_recette,
 				"Enfourner dans un four préchauffé à 180°C pour 30 minutes de cuisson environ.");
 
-		_ctx.close();
 	}
 }

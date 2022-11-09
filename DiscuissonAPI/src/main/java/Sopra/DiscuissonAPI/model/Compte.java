@@ -23,6 +23,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Table(name="compte")
 public class Compte implements UserDetails{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="numero")

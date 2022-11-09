@@ -4,7 +4,12 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import javax.transaction.Transactional;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 
 import Sopra.DiscuissonAPI.model.Ingredient;
 import Sopra.DiscuissonAPI.model.Recette;
@@ -13,7 +18,6 @@ import Sopra.DiscuissonAPI.service.IngredientService;
 import Sopra.DiscuissonAPI.service.InstructionRecetteService;
 import Sopra.DiscuissonAPI.service.RecetteIngredientService;
 import Sopra.DiscuissonAPI.service.RecetteService;
-import config.JpaConfig;
 
 /*
  * Code DEGUEULASSE mais normalement fonctionnel
@@ -24,7 +28,17 @@ import config.JpaConfig;
  * https://www.cuisineaz.com/recettes/pate-a-tarte-maison-rapide-36657.aspx
  */
 
+@SpringBootTest
 public class UpdateRecetteEtIngredientBDD2 {
+	@Autowired
+	private IngredientService _ingredientService;
+	@Autowired
+	private RecetteIngredientService _recetteIngredientService;
+	@Autowired
+	private RecetteService _recetteService;
+	@Autowired
+	private InstructionRecetteService _instructionRecetteService;
+	
 	public static void setRegimeRecette(Recette recette, List<Ingredient> ingredients) {
 		int i =0;
 		int size = ingredients.size();
@@ -52,12 +66,10 @@ public class UpdateRecetteEtIngredientBDD2 {
 		System.out.println(recette.isVegan() + " + " + recette.isVegetarien());
 	}
 	
-	public static void main(String[] args) {
-		AnnotationConfigApplicationContext _ctx = new AnnotationConfigApplicationContext(JpaConfig.class);
-		IngredientService _ingredientService = _ctx.getBean(IngredientService.class);
-		RecetteIngredientService _recetteIngredientService = _ctx.getBean(RecetteIngredientService.class);
-		RecetteService _recetteService = _ctx.getBean(RecetteService.class);
-		InstructionRecetteService _instructionRecetteService = _ctx.getBean(InstructionRecetteService.class);
+	@Test
+	@Transactional
+	@Commit
+	public void updateRecetteEtIngredientBDD2() {
 		Recette _recette = new Recette();
 		Ingredient _ingredient = new Ingredient();
 		List<Ingredient> _ingredients = new ArrayList<>();
@@ -1541,7 +1553,5 @@ public class UpdateRecetteEtIngredientBDD2 {
 		setRegimeRecette(_recette, _ingredients);
 		_recette = _recetteService.update(_recette);
 		_ingredients.clear();
-		
-		_ctx.close();
 	}
 }

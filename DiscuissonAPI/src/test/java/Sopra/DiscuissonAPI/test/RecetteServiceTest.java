@@ -5,22 +5,15 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.time.LocalTime;
 
-import javax.transaction.Transactional;
-
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import Sopra.DiscuissonAPI.model.Recette;
 import Sopra.DiscuissonAPI.service.RecetteService;
-import config.JpaConfig;
 
-@ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = { JpaConfig.class })
-@Transactional
+@SpringBootTest
 class RecetteServiceTest {
 	@Autowired
 	RecetteService _recetteService;

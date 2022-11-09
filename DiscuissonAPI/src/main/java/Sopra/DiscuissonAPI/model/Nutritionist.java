@@ -10,7 +10,11 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Nutritionist extends Compte{
-
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	@OneToMany(mappedBy="nutritionist")
 	private List<Message> messages = new ArrayList<>();
 

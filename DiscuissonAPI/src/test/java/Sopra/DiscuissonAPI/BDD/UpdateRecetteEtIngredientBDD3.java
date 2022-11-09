@@ -4,7 +4,8 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import Sopra.DiscuissonAPI.model.Ingredient;
 import Sopra.DiscuissonAPI.model.Recette;
@@ -13,7 +14,6 @@ import Sopra.DiscuissonAPI.service.IngredientService;
 import Sopra.DiscuissonAPI.service.InstructionRecetteService;
 import Sopra.DiscuissonAPI.service.RecetteIngredientService;
 import Sopra.DiscuissonAPI.service.RecetteService;
-import config.JpaConfig;
 
 /*
  * Code DEGUEULASSE mais normalement fonctionnel
@@ -24,7 +24,16 @@ import config.JpaConfig;
  * https://www.cuisineaz.com/recettes/pate-a-tarte-maison-rapide-36657.aspx
  */
 
+@SpringBootTest
 public class UpdateRecetteEtIngredientBDD3 {
+	@Autowired
+	private IngredientService _ingredientService;
+	@Autowired
+	private RecetteIngredientService _recetteIngredientService;
+	@Autowired
+	private RecetteService _recetteService;
+	@Autowired
+	private InstructionRecetteService _instructionRecetteService;
 	public static void setDate(Recette recette, List<Ingredient> ingredients) {
 		int debut = ingredients.get(0).getDateDebutRecolte();
 		int fin = ingredients.get(0).getDateFinRecolte();
@@ -86,12 +95,7 @@ public class UpdateRecetteEtIngredientBDD3 {
 		setDate(recette, ingredients);
 	}
 	
-	public static void main(String[] args) {
-		AnnotationConfigApplicationContext _ctx = new AnnotationConfigApplicationContext(JpaConfig.class);
-		IngredientService _ingredientService = _ctx.getBean(IngredientService.class);
-		RecetteIngredientService _recetteIngredientService = _ctx.getBean(RecetteIngredientService.class);
-		RecetteService _recetteService = _ctx.getBean(RecetteService.class);
-		InstructionRecetteService _instructionRecetteService = _ctx.getBean(InstructionRecetteService.class);
+	public void updateRecetteEtIngredientBDD3(String[] args) {
 		Recette _recette = new Recette();
 		Ingredient _ingredient = new Ingredient();
 		List<Ingredient> _ingredients = new ArrayList<>();
@@ -1575,7 +1579,6 @@ public class UpdateRecetteEtIngredientBDD3 {
 		setRegimeRecette(_recette, _ingredients);
 		_recette = _recetteService.update(_recette);
 		_ingredients.clear();
-		
-		_ctx.close();
+
 	}
 }

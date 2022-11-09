@@ -1,6 +1,11 @@
 package Sopra.DiscuissonAPI.BDD;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import javax.transaction.Transactional;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 
 import Sopra.DiscuissonAPI.model.Admin;
 import Sopra.DiscuissonAPI.model.Genre;
@@ -10,14 +15,22 @@ import Sopra.DiscuissonAPI.service.AdminService;
 import Sopra.DiscuissonAPI.service.NutritionistService;
 import Sopra.DiscuissonAPI.service.UserService;
 
+@SpringBootTest
 public class UpdatePersonnesBDD {
-	public static void main(String[] args) {
+	@Autowired
+	private UserService _userService;
+	@Autowired
+	private AdminService _adminService;
+	@Autowired
+	private NutritionistService _nutritionistService;
 	
+	@Test
+	@Transactional
+	@Commit
+	public void updatePersonnesBDD() {
 	
 	/********************Users*******************/
 	
-		AnnotationConfigApplicationContext _ctx = new AnnotationConfigApplicationContext(JpaConfig.class);
-		UserService _userService = _ctx.getBean(UserService.class);
 		User _user = new User();
 	
 
@@ -106,7 +119,6 @@ public class UpdatePersonnesBDD {
 		_user = _userService.create(_user);
 		
 		/********************Admins*******************/
-		AdminService _adminService = _ctx.getBean(AdminService.class);
 		Admin _admin = new Admin();
 		
 		/* Admins 1 */
@@ -123,7 +135,6 @@ public class UpdatePersonnesBDD {
 
 		
 		/********************Nutritionist*******************/
-		NutritionistService _nutritionistService = _ctx.getBean(NutritionistService.class);
 		Nutritionist _nutritionist = new Nutritionist();
 		/* Nutritioniste 1 */
 		_nutritionist.setId(null);
