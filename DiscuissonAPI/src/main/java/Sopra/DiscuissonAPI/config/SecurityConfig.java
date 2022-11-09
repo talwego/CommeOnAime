@@ -20,9 +20,14 @@ public class SecurityConfig {
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 			.and()
 			.authorizeRequests()
-				.antMatchers(HttpMethod.POST ,"/api/compte/inscription").anonymous()
-				.antMatchers(HttpMethod.PATCH,"/api/compte/**").authenticated()
-				.antMatchers(HttpMethod.POST, "/api/achat/**").hasRole("CLIENT")
+				.antMatchers(HttpMethod.POST ,"/api/user/inscription").anonymous()
+				.antMatchers(HttpMethod.PATCH,"/api/user/**").authenticated()
+				.antMatchers(HttpMethod.POST, "/api/message/**").hasAnyRole("USER","NUTRITIONIST")
+				.antMatchers(HttpMethod.POST, "/api/nutritionist/**").hasAnyRole("NUTRITIONIST","ADMIN")
+				.antMatchers(HttpMethod.POST, "/api/ingredient/**").permitAll()	//rajouter sécurité voir/edit
+				.antMatchers(HttpMethod.POST, "/api/recette/**").permitAll()	//rajouter sécurité voir/edit
+				.antMatchers(HttpMethod.POST, "/api/ingredient/**").permitAll()	//rajouter sécurité voir/edit
+				.antMatchers(HttpMethod.POST, "/api/recette/**").permitAll()	//rajouter sécurité voir/edit
 				.anyRequest().hasRole("ADMIN")
 			.and()
 			.httpBasic()
