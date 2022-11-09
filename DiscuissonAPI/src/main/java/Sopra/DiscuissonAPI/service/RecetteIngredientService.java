@@ -34,39 +34,49 @@ public class RecetteIngredientService {
 		});
 	}
 	
-	public RecetteIngredient create(Recette obj1, Ingredient obj2, int obj3) {
-		if (!_ingredientRepository.existsById(obj2.getId()) || !_recetteRepository.existsById(obj1.getId())) {
+	public RecetteIngredient create(Recette recette, Ingredient ingredient, int quantite) {
+		if (!_ingredientRepository.existsById(ingredient.getId()) || !_recetteRepository.existsById(recette.getId())) {
 			throw new RecetteIngredientException("recetteIngredient deja dans la base");
 		}
-		return save(new RecetteIngredient(obj2, obj1, obj3));
+		return save(new RecetteIngredient(ingredient, recette, quantite));
 	}
 	
-	public RecetteIngredient create(RecetteIngredient obj) {
-		if (obj.getId() != null) {
+	public RecetteIngredient create(int idRecette, int idIngredient, int quantite) {
+		Recette recette = _recetteRepository.findById(idRecette).orElseThrow(()->{
+			throw new RecetteIngredientException("recette inconnu");
+		});
+		Ingredient ingredient = _ingredientRepository.findById(idIngredient).orElseThrow(()->{
+			throw new RecetteIngredientException("ingredient inconnu");
+		});
+		return save(new RecetteIngredient(ingredient, recette, quantite));
+	}
+	
+	public RecetteIngredient create(RecetteIngredient recetteIngredient) {
+		if (recetteIngredient.getId() != null) {
 			throw new RecetteIngredientException("recetteIngredient deja dans la base");
 		}
-		return save(obj);
+		return save(recetteIngredient);
 	}
 
-	public RecetteIngredient update(RecetteIngredient obj) {
-		if (obj.getId() == null || !_recetteIngredientRepository.existsById(obj.getId())) {
+	public RecetteIngredient update(RecetteIngredient recetteIngredient) {
+		if (recetteIngredient.getId() == null || !_recetteIngredientRepository.existsById(recetteIngredient.getId())) {
 			throw new RecetteIngredientException("id de la recetteIngredient pas dans la base");
 		}
-		return save(obj);
+		return save(recetteIngredient);
 	}
 	
-	private RecetteIngredient save(RecetteIngredient obj) {
-		if (_ingredientRepository.existsById(obj.getIngredient().getId()) && _recetteRepository.existsById(obj.getRecette().getId())) {
-			return _recetteIngredientRepository.save(obj);
+	private RecetteIngredient save(RecetteIngredient recetteIngredient) {
+		if (_ingredientRepository.existsById(recetteIngredient.getIngredient().getId()) && _recetteRepository.existsById(recetteIngredient.getRecette().getId())) {
+			return _recetteIngredientRepository.save(recetteIngredient);
 		}
 		else {
 			throw new RecetteIngredientException("ingredient et/ou recette inconnu en BDD");
 		}
 	}
 	
-	public void delete(RecetteIngredient obj) {
-		if (_ingredientRepository.existsById(obj.getId())) {
-			_recetteIngredientRepository.delete(obj);
+	public void delete(RecetteIngredient recetteIngredient) {
+		if (_ingredientRepository.existsById(recetteIngredient.getId())) {
+			_recetteIngredientRepository.delete(recetteIngredient);
 		}
 		else {
 			throw new RecetteIngredientException("recetteIngredient inconnu en BDD");

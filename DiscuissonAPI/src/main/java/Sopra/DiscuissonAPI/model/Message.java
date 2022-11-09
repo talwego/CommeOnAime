@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 public class Message {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonView(JsonViews.Common.class)
@@ -24,20 +24,19 @@ public class Message {
 	private String text;
 	@JsonView(JsonViews.Common.class)
 	private LocalDate dateMessageDate;
-	
+
 	@ManyToOne
-	@JoinColumn(name="id_nutritionist",nullable = false)
+	@JoinColumn(name = "id_nutritionist", nullable = false)
 	@JsonView(JsonViews.Common.class)
 	private Nutritionist nutritionist;
-	
+
 	@ManyToOne
-	@JoinColumn(name="id_user",nullable = false)
+	@JoinColumn(name = "id_user", nullable = false)
 	@JsonView(JsonViews.Common.class)
 	private User user;
-	
-	
-	public Message() {}
 
+	public Message() {
+	}
 
 	public Message(Integer id, String sujet, String text, LocalDate dateMessageDate, Nutritionist nutritionist,
 			User user) {
@@ -50,7 +49,6 @@ public class Message {
 		this.user = user;
 	}
 
-
 	public Message(String sujet, String text, LocalDate dateMessageDate, Nutritionist nutritionist, User user) {
 		super();
 		this.sujet = sujet;
@@ -60,67 +58,53 @@ public class Message {
 		this.user = user;
 	}
 
-
 	public Integer getId() {
 		return id;
 	}
-
 
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-
 	public String getSujet() {
 		return sujet;
 	}
-
 
 	public void setSujet(String sujet) {
 		this.sujet = sujet;
 	}
 
-
 	public String getText() {
 		return text;
 	}
-
 
 	public void setText(String text) {
 		this.text = text;
 	}
 
-
 	public LocalDate getDateMessageDate() {
 		return dateMessageDate;
 	}
-
 
 	public void setDateMessageDate(LocalDate dateMessageDate) {
 		this.dateMessageDate = dateMessageDate;
 	}
 
-	
-
 	public Nutritionist getNutritionist() {
 		return nutritionist;
 	}
-
 
 	public void setNutritionist(Nutritionist nutritionist) {
 		this.nutritionist = nutritionist;
 	}
 
-
 	public User getUser() {
 		return user;
 	}
 
-
 	public void setUser(User user) {
 		this.user = user;
 	}
-
 
 	@Override
 	public String toString() {
@@ -128,14 +112,9 @@ public class Message {
 				+ ", nutritionist=" + nutritionist + ", user=" + user + "]";
 	}
 
-
 	public void setUser(Message findById) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
-	
-	
-	
-	
+
 }

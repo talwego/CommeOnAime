@@ -3,10 +3,13 @@ package Sopra.DiscuissonAPI.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import Sopra.DiscuissonAPI.exception.AdminException;
 import Sopra.DiscuissonAPI.exception.IdException;
 import Sopra.DiscuissonAPI.exception.UserException;
+import Sopra.DiscuissonAPI.model.Admin;
 import Sopra.DiscuissonAPI.model.Genre;
 import Sopra.DiscuissonAPI.model.User;
 import Sopra.DiscuissonAPI.repository.UserRepository;
@@ -16,6 +19,8 @@ public class UserService {
 	
 	@Autowired
 	private UserRepository userRepo;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	
 	public List<User> findAll() 
 	{
@@ -76,6 +81,11 @@ public class UserService {
 		return save(user);
 	}
 	
+	public User creation(User user) {
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
+		return create(user);
+	}
+	
 	public User update(User user) 
 	{
 		if (user.getId() == null || !userRepo.existsById(user.getId()))
@@ -87,7 +97,14 @@ public class UserService {
 	
 	public User save(User user) 
 	{
-		
+		if (user.getLogin() == null || user.getLogin().isBlank() || user.getLogin().length() > 50) 
+		{
+			throw new UserException("probleme login");
+		}
+		if (user.getPassword() == null || user.getPassword().isBlank() || user.getPassword().length() > 255) 
+		{
+			throw new UserException("probleme password");
+		}
 		
 		
 		return userRepo.save(user);

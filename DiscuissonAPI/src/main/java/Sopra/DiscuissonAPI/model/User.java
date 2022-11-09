@@ -43,6 +43,10 @@ public class User extends Compte{
 		super();
 	}
 	
+	public User(String login, String password) {
+		super(login, password);
+	}
+	
 	public User(Integer id, String login, String password) {
 		super(id, login, password);
 	}

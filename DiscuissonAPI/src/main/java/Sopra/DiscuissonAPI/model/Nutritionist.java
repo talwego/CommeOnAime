@@ -22,6 +22,10 @@ public class Nutritionist extends Compte{
 		super();
 	}
 
+	public Nutritionist(String login, String password) {
+		super(login, password);
+	}
+	
 	public Nutritionist(Integer id, String login, String password) {
 		super(id, login, password);
 	}
