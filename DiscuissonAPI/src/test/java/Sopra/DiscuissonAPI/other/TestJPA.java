@@ -1,5 +1,5 @@
 
-package other;
+package Sopra.DiscuissonAPI.other;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;

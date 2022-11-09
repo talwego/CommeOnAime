@@ -1,4 +1,4 @@
-package Sopra.DiscuissonFront.restcontroller;
+package Sopra.DiscuissonAPI.restcontroller;
 
 import java.util.List;
 
@@ -18,9 +18,9 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import model.Admin;
-import model.JsonViews;
-import service.AdminService;
+import Sopra.DiscuissonAPI.model.Admin;
+import Sopra.DiscuissonAPI.model.JsonViews;
+import Sopra.DiscuissonAPI.service.AdminService;
 
 @RestController
 @RequestMapping("/api/admin")

@@ -1,16 +1,15 @@
-package service;
+package Sopra.DiscuissonAPI.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import exception.UserException;
-import exception.AdminException;
-import exception.IdException;
-import model.Genre;
-import model.User;
-import repository.UserRepository;
+import Sopra.DiscuissonAPI.exception.IdException;
+import Sopra.DiscuissonAPI.exception.UserException;
+import Sopra.DiscuissonAPI.model.Genre;
+import Sopra.DiscuissonAPI.model.User;
+import Sopra.DiscuissonAPI.repository.UserRepository;
 
 @Service
 public class UserService {

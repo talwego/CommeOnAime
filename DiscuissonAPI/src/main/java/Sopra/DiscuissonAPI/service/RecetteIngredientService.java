@@ -1,18 +1,18 @@
-package service;
+package Sopra.DiscuissonAPI.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import exception.RecetteException;
-import exception.RecetteIngredientException;
-import model.Ingredient;
-import model.Recette;
-import model.RecetteIngredient;
-import repository.IngredientRepository;
-import repository.RecetteIngredientRepository;
-import repository.RecetteRepository;
+import Sopra.DiscuissonAPI.exception.RecetteException;
+import Sopra.DiscuissonAPI.exception.RecetteIngredientException;
+import Sopra.DiscuissonAPI.model.Ingredient;
+import Sopra.DiscuissonAPI.model.Recette;
+import Sopra.DiscuissonAPI.model.RecetteIngredient;
+import Sopra.DiscuissonAPI.repository.IngredientRepository;
+import Sopra.DiscuissonAPI.repository.RecetteIngredientRepository;
+import Sopra.DiscuissonAPI.repository.RecetteRepository;
 
 
 @Service

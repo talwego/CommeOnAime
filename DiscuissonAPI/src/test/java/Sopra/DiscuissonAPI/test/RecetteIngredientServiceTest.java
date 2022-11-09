@@ -1,4 +1,4 @@
-package test;
+package Sopra.DiscuissonAPI.test;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -9,12 +9,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-
-import config.JpaConfig;
-import model.Ingredient;
-import model.Recette;
-import model.RecetteIngredient;
-import service.RecetteIngredientService;
+import Sopra.DiscuissonAPI.model.Ingredient;
+import Sopra.DiscuissonAPI.model.Recette;
+import Sopra.DiscuissonAPI.model.RecetteIngredient;
+import Sopra.DiscuissonAPI.service.RecetteIngredientService;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = { JpaConfig.class })

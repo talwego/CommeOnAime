@@ -1,4 +1,4 @@
-package context;
+package Sopra.DiscuissonAPI.context;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;

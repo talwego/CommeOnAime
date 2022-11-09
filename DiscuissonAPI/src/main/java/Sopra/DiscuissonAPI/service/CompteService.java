@@ -1,14 +1,14 @@
-package service;
+package Sopra.DiscuissonAPI.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import exception.CompteException;
-import exception.IdException;
-import model.Compte;
-import repository.CompteRepository;
+import Sopra.DiscuissonAPI.exception.CompteException;
+import Sopra.DiscuissonAPI.exception.IdException;
+import Sopra.DiscuissonAPI.model.Compte;
+import Sopra.DiscuissonAPI.repository.CompteRepository;
 
 
 

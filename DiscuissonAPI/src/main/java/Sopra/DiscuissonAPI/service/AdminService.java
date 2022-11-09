@@ -1,14 +1,14 @@
-package service;
+package Sopra.DiscuissonAPI.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import exception.AdminException;
-import exception.IdException;
-import model.Admin;
-import repository.AdminRepository;
+import Sopra.DiscuissonAPI.exception.AdminException;
+import Sopra.DiscuissonAPI.exception.IdException;
+import Sopra.DiscuissonAPI.model.Admin;
+import Sopra.DiscuissonAPI.repository.AdminRepository;
 
 
 

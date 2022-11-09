@@ -1,4 +1,4 @@
-package model;
+package Sopra.DiscuissonAPI.model;
 
 import java.util.List;
 

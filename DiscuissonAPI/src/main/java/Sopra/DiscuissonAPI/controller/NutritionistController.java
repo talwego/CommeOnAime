@@ -1,4 +1,4 @@
-package Sopra.DiscuissonFront.controller;
+package Sopra.DiscuissonAPI.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import model.Nutritionist;
-import service.NutritionistService;
+import Sopra.DiscuissonAPI.model.Nutritionist;
+import Sopra.DiscuissonAPI.service.NutritionistService;
 
 
 @Controller

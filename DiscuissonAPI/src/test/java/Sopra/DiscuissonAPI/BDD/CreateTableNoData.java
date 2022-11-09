@@ -1,4 +1,4 @@
-package BDD;
+package Sopra.DiscuissonAPI.BDD;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

@@ -1,4 +1,4 @@
-package repository;
+package Sopra.DiscuissonAPI.repository;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import model.Ingredient;
+import Sopra.DiscuissonAPI.model.Ingredient;
 
 public interface IngredientRepository extends JpaRepository<Ingredient, Integer>{
 	List<Ingredient> findByNameContaining(String obj);

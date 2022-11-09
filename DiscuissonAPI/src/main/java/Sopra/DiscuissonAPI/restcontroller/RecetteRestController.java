@@ -1,4 +1,4 @@
-package Sopra.DiscuissonFront.restcontroller;
+package Sopra.DiscuissonAPI.restcontroller;
 
 import java.util.List;
 
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import model.JsonViews;
-import model.Recette;
-import service.RecetteService;
+import Sopra.DiscuissonAPI.model.JsonViews;
+import Sopra.DiscuissonAPI.model.Recette;
+import Sopra.DiscuissonAPI.service.RecetteService;
 
 @RestController
 @RequestMapping("/api/recette")

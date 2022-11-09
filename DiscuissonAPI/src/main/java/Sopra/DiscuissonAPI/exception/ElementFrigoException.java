@@ -1,4 +1,4 @@
-package exception;
+package Sopra.DiscuissonAPI.exception;
 
 public class ElementFrigoException extends RuntimeException {
 	/**

@@ -1,17 +1,14 @@
-package BDD;
-
-import java.time.LocalTime;
+package Sopra.DiscuissonAPI.BDD;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import config.JpaConfig;
-import model.Admin;
-import model.Genre;
-import model.Nutritionist;
-import model.User;
-import service.AdminService;
-import service.NutritionistService;
-import service.UserService;
+import Sopra.DiscuissonAPI.model.Admin;
+import Sopra.DiscuissonAPI.model.Genre;
+import Sopra.DiscuissonAPI.model.Nutritionist;
+import Sopra.DiscuissonAPI.model.User;
+import Sopra.DiscuissonAPI.service.AdminService;
+import Sopra.DiscuissonAPI.service.NutritionistService;
+import Sopra.DiscuissonAPI.service.UserService;
 
 public class UpdatePersonnesBDD {
 	public static void main(String[] args) {

@@ -1,17 +1,17 @@
-package BDD;
+package Sopra.DiscuissonAPI.BDD;
 
 import java.time.LocalTime;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import Sopra.DiscuissonAPI.model.Ingredient;
+import Sopra.DiscuissonAPI.model.Recette;
+import Sopra.DiscuissonAPI.model.Unite;
+import Sopra.DiscuissonAPI.service.IngredientService;
+import Sopra.DiscuissonAPI.service.InstructionRecetteService;
+import Sopra.DiscuissonAPI.service.RecetteIngredientService;
+import Sopra.DiscuissonAPI.service.RecetteService;
 import config.JpaConfig;
-import model.Ingredient;
-import model.Recette;
-import model.Unite;
-import service.IngredientService;
-import service.InstructionRecetteService;
-import service.RecetteIngredientService;
-import service.RecetteService;
 
 /*
  * Code DEGUEULASSE mais normalement fonctionnel

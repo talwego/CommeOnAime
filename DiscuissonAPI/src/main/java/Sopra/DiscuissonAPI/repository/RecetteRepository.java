@@ -1,4 +1,4 @@
-package repository;
+package Sopra.DiscuissonAPI.repository;
 
 import java.time.LocalTime;
 import java.util.List;
@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import model.Recette;
+import Sopra.DiscuissonAPI.model.Recette;
 
 public interface RecetteRepository extends JpaRepository<Recette, Integer>{
 	List<Recette> findByNameContaining(String obj);

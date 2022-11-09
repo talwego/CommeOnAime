@@ -1,8 +1,8 @@
-package repository;
+package Sopra.DiscuissonAPI.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import model.ElementFrigo;
+import Sopra.DiscuissonAPI.model.ElementFrigo;
 
 public interface ElementFrigoRepository extends JpaRepository<ElementFrigo, Integer>{
 

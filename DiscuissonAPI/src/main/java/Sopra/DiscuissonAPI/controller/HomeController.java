@@ -1,4 +1,4 @@
-package Sopra.DiscuissonFront.controller;
+package Sopra.DiscuissonAPI.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

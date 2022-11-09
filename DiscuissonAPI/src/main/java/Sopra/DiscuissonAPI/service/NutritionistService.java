@@ -1,15 +1,15 @@
-package service;
+package Sopra.DiscuissonAPI.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import exception.IdException;
-import exception.MessageException;
-import exception.NutritionistException;
-import model.Nutritionist;
-import repository.NutritionistRepository;
+import Sopra.DiscuissonAPI.exception.IdException;
+import Sopra.DiscuissonAPI.exception.MessageException;
+import Sopra.DiscuissonAPI.exception.NutritionistException;
+import Sopra.DiscuissonAPI.model.Nutritionist;
+import Sopra.DiscuissonAPI.repository.NutritionistRepository;
 
 
 	@Service

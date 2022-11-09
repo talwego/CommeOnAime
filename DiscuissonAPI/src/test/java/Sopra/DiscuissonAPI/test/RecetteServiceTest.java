@@ -1,4 +1,4 @@
-package test;
+package Sopra.DiscuissonAPI.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -14,9 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import Sopra.DiscuissonAPI.model.Recette;
+import Sopra.DiscuissonAPI.service.RecetteService;
 import config.JpaConfig;
-import model.Recette;
-import service.RecetteService;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = { JpaConfig.class })

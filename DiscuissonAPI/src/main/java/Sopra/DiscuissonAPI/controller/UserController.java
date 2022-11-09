@@ -1,4 +1,4 @@
-package Sopra.DiscuissonFront.controller;
+package Sopra.DiscuissonAPI.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +10,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import model.User;
-import service.AdminService;
-import service.UserService;
+import Sopra.DiscuissonAPI.model.User;
+import Sopra.DiscuissonAPI.service.UserService;
 
 
 

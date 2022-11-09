@@ -1,4 +1,4 @@
-package service;
+package Sopra.DiscuissonAPI.service;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -6,10 +6,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import exception.IdException;
-import exception.MessageException;
-import model.Message;
-import repository.MessageRepository;
+import Sopra.DiscuissonAPI.exception.IdException;
+import Sopra.DiscuissonAPI.exception.MessageException;
+import Sopra.DiscuissonAPI.model.Message;
+import Sopra.DiscuissonAPI.repository.MessageRepository;
 
 @Service
 public class MessageService {

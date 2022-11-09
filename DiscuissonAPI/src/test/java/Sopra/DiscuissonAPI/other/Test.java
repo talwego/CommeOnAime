@@ -1,4 +1,4 @@
-package other;
+package Sopra.DiscuissonAPI.other;
 
 public class Test {
 

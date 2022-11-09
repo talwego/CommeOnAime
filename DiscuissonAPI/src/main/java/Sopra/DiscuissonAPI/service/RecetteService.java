@@ -1,4 +1,4 @@
-package service;
+package Sopra.DiscuissonAPI.service;
 
 import java.time.LocalTime;
 import java.util.List;
@@ -6,9 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import exception.RecetteException;
-import model.Recette;
-import repository.RecetteRepository;
+import Sopra.DiscuissonAPI.exception.RecetteException;
+import Sopra.DiscuissonAPI.model.Recette;
+import Sopra.DiscuissonAPI.repository.RecetteRepository;
 
 @Service
 public class RecetteService {

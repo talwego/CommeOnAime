@@ -1,8 +1,9 @@
-package Sopra.DiscuissonFront.restcontroller;
+package Sopra.DiscuissonAPI.restcontroller;
 
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.ReflectionUtils;
@@ -18,12 +19,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
+
 import com.fasterxml.jackson.annotation.JsonView;
 
-import model.JsonViews;
-import model.Message;
-import service.MessageService;
-import service.UserService;
+import Sopra.DiscuissonAPI.model.JsonViews;
+import Sopra.DiscuissonAPI.model.Message;
+import Sopra.DiscuissonAPI.service.MessageService;
+import Sopra.DiscuissonAPI.service.UserService;
 
 @RestController
 @RequestMapping("/api/message")

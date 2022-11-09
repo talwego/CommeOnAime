@@ -1,4 +1,4 @@
-package Sopra.DiscuissonFront.controller;
+package Sopra.DiscuissonAPI.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import model.Message;
-import service.MessageService;
-import service.UserService;
+import Sopra.DiscuissonAPI.model.Message;
+import Sopra.DiscuissonAPI.service.MessageService;
+import Sopra.DiscuissonAPI.service.UserService;
 
 	@Controller
 	@RequestMapping("/message")

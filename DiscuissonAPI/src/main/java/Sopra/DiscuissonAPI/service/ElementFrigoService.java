@@ -1,13 +1,13 @@
-package service;
+package Sopra.DiscuissonAPI.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import exception.ElementFrigoException;
-import model.ElementFrigo;
-import repository.ElementFrigoRepository;
+import Sopra.DiscuissonAPI.exception.ElementFrigoException;
+import Sopra.DiscuissonAPI.model.ElementFrigo;
+import Sopra.DiscuissonAPI.repository.ElementFrigoRepository;
 
 
 

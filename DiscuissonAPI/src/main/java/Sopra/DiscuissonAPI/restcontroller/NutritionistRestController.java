@@ -1,4 +1,4 @@
-package Sopra.DiscuissonFront.restcontroller;
+package Sopra.DiscuissonAPI.restcontroller;
 
 import java.lang.reflect.Field;
 import java.util.List;
@@ -22,10 +22,10 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import model.JsonViews;
-import model.Message;
-import model.Nutritionist;
-import service.NutritionistService;
+import Sopra.DiscuissonAPI.model.JsonViews;
+import Sopra.DiscuissonAPI.model.Message;
+import Sopra.DiscuissonAPI.model.Nutritionist;
+import Sopra.DiscuissonAPI.service.NutritionistService;
 
 @RestController
 @RequestMapping("/api/nutritionist")
