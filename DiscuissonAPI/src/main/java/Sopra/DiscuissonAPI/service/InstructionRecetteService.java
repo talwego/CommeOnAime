@@ -7,9 +7,11 @@ import org.springframework.stereotype.Service;
 
 import Sopra.DiscuissonAPI.exception.CompteException;
 import Sopra.DiscuissonAPI.exception.IdException;
+import Sopra.DiscuissonAPI.exception.RecetteIngredientException;
 import Sopra.DiscuissonAPI.model.InstructionRecette;
 import Sopra.DiscuissonAPI.model.Recette;
 import Sopra.DiscuissonAPI.repository.InstructionRecetteRepository;
+import Sopra.DiscuissonAPI.repository.RecetteRepository;
 
 
 
@@ -19,6 +21,8 @@ public class InstructionRecetteService {
 	
 	@Autowired
 	private InstructionRecetteRepository _instructionRecetteRepository;
+	@Autowired
+	private RecetteRepository _recetteRepository;
 	
 	public List<InstructionRecette> findAll() 
 	{
@@ -31,28 +35,36 @@ public class InstructionRecetteService {
 		return _instructionRecetteRepository.findById(id).orElseThrow(IdException::new);
 	}
 	
-	public InstructionRecette create(InstructionRecette obj) 
+	public InstructionRecette create(InstructionRecette instructionRecette) 
 	{
-		if (obj.getId() != null) 
+		if (instructionRecette.getId() != null) 
 		{
 			throw new CompteException("deja dans la base");
 		}
-		return save(obj);
+		return save(instructionRecette);
 	}
 	
-	public InstructionRecette create(Recette obj1, String ob2) 
+	public InstructionRecette create(Recette recette, String instruction) 
 	{
-		return save(new InstructionRecette(obj1, ob2));
+		return save(new InstructionRecette(recette, instruction));
 	}
 	
-	private InstructionRecette save(InstructionRecette obj) 
+	public InstructionRecette create(Integer idRecette, String instruction) 
 	{
-		return _instructionRecetteRepository.save(obj);
+		Recette recette = _recetteRepository.findById(idRecette).orElseThrow(()->{
+			throw new RecetteIngredientException("recette inconnu");
+		});
+		return save(new InstructionRecette(recette, instruction));
 	}
 	
-	public void delete(InstructionRecette obj) 
+	private InstructionRecette save(InstructionRecette instructionRecette) 
 	{
-		_instructionRecetteRepository.delete(obj);
+		return _instructionRecetteRepository.save(instructionRecette);
+	}
+	
+	public void delete(InstructionRecette instructionRecette) 
+	{
+		_instructionRecetteRepository.delete(instructionRecette);
 	}
 
 	public void deleteId(Integer id) 

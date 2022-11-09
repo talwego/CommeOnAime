@@ -3,6 +3,7 @@ package Sopra.DiscuissonAPI.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import Sopra.DiscuissonAPI.exception.AdminException;
@@ -17,6 +18,8 @@ public class AdminService {
 	
 	@Autowired
 	private AdminRepository adminRepo;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	
 	public List<Admin> findAll() 
 	{
@@ -49,6 +52,11 @@ public class AdminService {
 		return save(admin);
 	}
 	
+	public Admin creation(Admin admin) {
+		admin.setPassword(passwordEncoder.encode(admin.getPassword()));
+		return create(admin);
+	}
+	
 	public Admin update(Admin admin) 
 	{
 		if (admin.getId() == null || !adminRepo.existsById(admin.getId()))
@@ -60,11 +68,11 @@ public class AdminService {
 	
 	public Admin save(Admin admin) 
 	{
-		if (admin.getLogin() == null || admin.getLogin().isBlank() || admin.getLogin().length() > 30) 
+		if (admin.getLogin() == null || admin.getLogin().isBlank() || admin.getLogin().length() > 50) 
 		{
 			throw new AdminException("probleme libelle");
 		}
-		if (admin.getPassword() == null || admin.getPassword().isBlank() || admin.getPassword().length() > 30) 
+		if (admin.getPassword() == null || admin.getPassword().isBlank() || admin.getPassword().length() > 255) 
 		{
 			throw new AdminException("probleme libelle");
 		}

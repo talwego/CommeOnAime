@@ -36,7 +36,7 @@ public class Compte implements UserDetails{
 	@JsonView(JsonViews.Common.class)
 	protected Integer id;
 	
-	@Column(length = 200,nullable = false,unique=true)
+	@Column(length = 50,nullable = false,unique = true)
 	@JsonView(JsonViews.Common.class)
 	protected String login;
 	
@@ -47,6 +47,11 @@ public class Compte implements UserDetails{
 	public Compte() {
 	}
 
+	public Compte(String login, String password) {
+		this.login = login;
+		this.password = password;
+	}
+	
 	public Compte(Integer id, String login, String password) {
 		super();
 		this.id = id;
@@ -100,31 +105,26 @@ public class Compte implements UserDetails{
 
 	@Override
 	public String getUsername() {
-		// TODO Auto-generated method stub
 		return login;
 	}
 
 	@Override
 	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean isEnabled() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 	

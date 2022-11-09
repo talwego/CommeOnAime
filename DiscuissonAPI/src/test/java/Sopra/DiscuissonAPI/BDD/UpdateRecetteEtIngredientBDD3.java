@@ -4,6 +4,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -95,6 +96,7 @@ public class UpdateRecetteEtIngredientBDD3 {
 		setDate(recette, ingredients);
 	}
 	
+	@Test
 	public void updateRecetteEtIngredientBDD3(String[] args) {
 		Recette _recette = new Recette();
 		Ingredient _ingredient = new Ingredient();

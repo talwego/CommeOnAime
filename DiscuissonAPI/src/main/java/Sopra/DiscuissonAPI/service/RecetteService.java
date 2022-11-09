@@ -25,54 +25,54 @@ public class RecetteService {
 		});
 	}
 	
-	private void debutSaisonIsValid(int obj) {
-		if(obj < 1 || obj > 12) {
+	private void debutSaisonIsValid(int saison) {
+		if(saison < 1 || saison > 12) {
 			throw new RecetteException("mois du debut de la saison < 1 ou > 12");
 		}
 	}
 	
-	private void finSaisonIsValid(int obj) {
-		if(obj < 1 || obj > 12) {
+	private void finSaisonIsValid(int saison) {
+		if(saison < 1 || saison > 12) {
 			throw new RecetteException("mois de la fin de la saison < 1 ou > 12");
 		}
 	}
 	
-	private void calorieIsValid(int obj) {
-		if(obj < 0) {
+	private void calorieIsValid(int calorie) {
+		if(calorie < 0) {
 			throw new RecetteException("calorie < 0");
 		}
 	}
 	
-	private void noteIsValid(int obj) {
-		if(obj < 0) {
+	private void noteIsValid(double note) {
+		if(note < 0) {
 			throw new RecetteException("note < 0");
 		}
 	}
 	
-	public Recette save(Recette obj) {
-		calorieIsValid(obj.getCalorie());
-		noteIsValid(obj.getNote());
-		debutSaisonIsValid(obj.getDebutSaison());
-		finSaisonIsValid(obj.getFinSaison());
-		return recetteRepository.save(obj);
+	public Recette save(Recette recette) {
+		calorieIsValid(recette.getCalorie());
+		noteIsValid(recette.getNote());
+		debutSaisonIsValid(recette.getDebutSaison());
+		finSaisonIsValid(recette.getFinSaison());
+		return recetteRepository.save(recette);
 	}
 	
-	public Recette create(Recette obj) {
-		if (obj.getId() != null) {
+	public Recette create(Recette recette) {
+		if (recette.getId() != null) {
 			throw new RecetteException("recette deja dans la base");
 		}
-		return save(obj);
+		return save(recette);
 	}
 
-	public Recette update(Recette obj) {
-		if (obj.getId() == null || !recetteRepository.existsById(obj.getId())) {
+	public Recette update(Recette recette) {
+		if (recette.getId() == null || !recetteRepository.existsById(recette.getId())) {
 			throw new RecetteException("id de la recette pas dans la base");
 		}
-		return save(obj);
+		return save(recette);
 	}
 	
-	public void delete(Recette obj) {
-		recetteRepository.delete(obj);
+	public void delete(Recette recette) {
+		recetteRepository.delete(recette);
 	}
 	
 	public void deleteById(Integer id) {
@@ -85,16 +85,16 @@ public class RecetteService {
 		});
 	}
 	
-	public List<Recette> findByName(String obj){
-		return recetteRepository.findByNameContaining(obj);
+	public List<Recette> findByName(String name){
+		return recetteRepository.findByNameContaining(name);
 	}
 	
-	public List<Recette> findByVegetarien(Boolean obj){
-		return recetteRepository.findByVegetarien(obj);
+	public List<Recette> findByVegetarien(Boolean vegetarien){
+		return recetteRepository.findByVegetarien(vegetarien);
 	}
 	
-	public List<Recette> findByVegan(Boolean obj){
-		return recetteRepository.findByVegan(obj);
+	public List<Recette> findByVegan(Boolean vegan){
+		return recetteRepository.findByVegan(vegan);
 	}
 	
 	public List<Recette> findByDebutSaisonLess(int obj){
