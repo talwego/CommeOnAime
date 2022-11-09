@@ -34,10 +34,10 @@ public class UpdatePersonnesBDD {
 		User _user = new User();
 	
 
-		/* User 1 */
+		
 		_user.setId(null);
 		_user.setLogin("Rachel");
-		_user.setPassword("bernadette");
+		_user.setPassword("bernadette1");
 		_user.setGenre(Genre.femme);
 		_user.setAge(27);
 		_user.setTaille(175);
@@ -47,91 +47,98 @@ public class UpdatePersonnesBDD {
 		_user.setVegan(false);
 		_user.setMessages(null);
 		_user = _userService.create(_user);
+
+		User _user1 = new User();
+		_user1.setId(null);
+		_user1.setLogin("Phoebe");
+		_user1.setPassword("bernadette2");
+		_user1.setGenre(Genre.femme);
+		_user1.setAge(26);
+		_user1.setTaille(170);
+		_user1.setPoids(60);
+		_user1.setCompteVIP(false);
+		_user1.setVegetarien(true);
+		_user1.setVegan(false);
+		_user1.setMessages(null);
+		_user1 = _userService.create(_user1);
 		
-		/* User 2 */
-		_user.setId(null);
-		_user.setLogin("Phoebe");
-		_user.setPassword("bernadette");
-		_user.setGenre(Genre.femme);
-		_user.setAge(26);
-		_user.setTaille(170);
-		_user.setPoids(60);
-		_user.setCompteVIP(false);
-		_user.setVegetarien(true);
-		_user.setVegan(false);
-		_user.setMessages(null);
-		_user = _userService.create(_user);
 		
-		/* User 4 */
-		_user.setId(null);
-		_user.setLogin("Joey");
-		_user.setPassword("bernadette");
-		_user.setGenre(Genre.homme);
-		_user.setAge(28);
-		_user.setTaille(170);
-		_user.setPoids(60);
-		_user.setCompteVIP(false);
-		_user.setVegetarien(false);
-		_user.setVegan(false);
-		_user.setMessages(null);
-		_user = _userService.create(_user);
+		User _user2 = new User();
+
+		_user2.setId(null);
+		_user2.setLogin("Joey");
+		_user2.setPassword("bernadette3");
+		_user2.setGenre(Genre.homme);
+		_user2.setAge(28);
+		_user2.setTaille(170);
+		_user2.setPoids(60);
+		_user2.setCompteVIP(false);
+		_user2.setVegetarien(false);
+		_user2.setVegan(false);
+		_user2.setMessages(null);
+		_user2 = _userService.create(_user2);
 		
-		/* User 5 */
-		_user.setId(null);
-		_user.setLogin("Ross");
-		_user.setPassword("bernadette");
-		_user.setGenre(Genre.homme);
-		_user.setAge(29);
-		_user.setTaille(185);
-		_user.setPoids(75);
-		_user.setCompteVIP(false);
-		_user.setVegetarien(false);
-		_user.setVegan(true);
-		_user.setMessages(null);
-		_user = _userService.create(_user);
 		
-		/* User 6 */
-		_user.setId(null);
-		_user.setLogin("Monica");
-		_user.setPassword("bernadette");
-		_user.setGenre(Genre.femme);
-		_user.setAge(27);
-		_user.setTaille(170);
-		_user.setPoids(65);
-		_user.setCompteVIP(true);
-		_user.setVegetarien(false);
-		_user.setVegan(false);
-		_user.setMessages(null);
-		_user = _userService.create(_user);
+		User _user3 = new User();
+
+		_user3.setId(null);
+		_user3.setLogin("Ross");
+		_user3.setPassword("bernadette4");
+		_user3.setGenre(Genre.homme);
+		_user3.setAge(29);
+		_user3.setTaille(185);
+		_user3.setPoids(75);
+		_user3.setCompteVIP(false);
+		_user3.setVegetarien(false);
+		_user3.setVegan(true);
+		_user3.setMessages(null);
+		_user3 = _userService.create(_user3);
 		
-		/* User 7 */
-		_user.setId(null);
-		_user.setLogin("Chandler");
-		_user.setPassword("bernadette");
-		_user.setGenre(Genre.homme);
-		_user.setAge(28);
-		_user.setTaille(190);
-		_user.setPoids(100);
-		_user.setCompteVIP(true);
-		_user.setVegetarien(false);
-		_user.setVegan(false);
-		_user.setMessages(null);
-		_user = _userService.create(_user);
+		
+		User _user4 = new User();
+
+		_user4.setId(null);
+		_user4.setLogin("Monica");
+		_user4.setPassword("bernadette5");
+		_user4.setGenre(Genre.femme);
+		_user4.setAge(27);
+		_user4.setTaille(170);
+		_user4.setPoids(65);
+		_user4.setCompteVIP(true);
+		_user4.setVegetarien(false);
+		_user4.setVegan(false);
+		_user4.setMessages(null);
+		_user4 = _userService.create(_user4);
+		
+		User _user5 = new User();
+
+		_user5.setId(null);
+		_user5.setLogin("Chandler");
+		_user5.setPassword("bernadette6");
+		_user5.setGenre(Genre.homme);
+		_user5.setAge(28);
+		_user5.setTaille(190);
+		_user5.setPoids(100);
+		_user5.setCompteVIP(true);
+		_user5.setVegetarien(false);
+		_user5.setVegan(false);
+		_user5.setMessages(null);
+		_user5 = _userService.create(_user5);
 		
 		/********************Admins*******************/
-		Admin _admin = new Admin();
+		Admin _admin1 = new Admin();
 		
-		/* Admins 1 */
-		_admin.setId(null);
-		_admin.setLogin("lapin");
-		_admin.setPassword("carotte");
-		_admin = _adminService.create(_admin);
+		
+		_admin1.setId(null);
+		_admin1.setLogin("lapin");
+		_admin1.setPassword("carotte");
+		_admin1 = _adminService.create(_admin1);
 
-		/* Admins 2 */
-		_admin.setId(null);
-		_admin.setLogin("chat");
-		_admin.setPassword("raisin");
-		_admin = _adminService.create(_admin);
+		Admin _admin2 = new Admin();
+		_admin2.setId(null);
+		_admin2.setLogin("chat");
+		_admin2.setPassword("raisin");
+		_admin2 = _adminService.create(_admin2);
 
 		
 		/********************Nutritionist*******************/
