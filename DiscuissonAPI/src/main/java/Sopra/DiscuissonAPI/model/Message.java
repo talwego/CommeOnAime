@@ -9,22 +9,30 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Message {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(JsonViews.Common.class)
 	private Integer id;
+	@JsonView(JsonViews.Common.class)
 	private String sujet;
+	@JsonView(JsonViews.Common.class)
 	private String text;
+	@JsonView(JsonViews.Common.class)
 	private LocalDate dateMessageDate;
 	
 	@ManyToOne
 	@JoinColumn(name="id_nutritionist",nullable = false)
+	@JsonView(JsonViews.Common.class)
 	private Nutritionist nutritionist;
 	
 	@ManyToOne
 	@JoinColumn(name="id_user",nullable = false)
+	@JsonView(JsonViews.Common.class)
 	private User user;
 	
 	

@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 
 
 @Entity
@@ -16,13 +18,19 @@ public class User extends Compte{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+	@JsonView(JsonViews.Common.class)
 	private Genre genre;
+	@JsonView(JsonViews.Common.class)
 	private Integer age;
+	@JsonView(JsonViews.Common.class)
 	private double taille;
+	@JsonView(JsonViews.Common.class)
 	private double poids;
+	@JsonView(JsonViews.Common.class)
 	private boolean compteVIP;
+	@JsonView(JsonViews.Common.class)
 	private boolean vegetarien;
+	@JsonView(JsonViews.Common.class)
 	private boolean vegan;
 	
 	@OneToMany(mappedBy="user")

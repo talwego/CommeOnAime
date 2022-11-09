@@ -8,25 +8,35 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Ingredient {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(JsonViews.Common.class)
 	private Integer id;
 
+	@JsonView(JsonViews.Common.class)
 	private int calorie;
 
+	@JsonView(JsonViews.Common.class)
 	private String name;
 
+	@JsonView(JsonViews.Common.class)
 	private int dateDebutRecolte;
 
+	@JsonView(JsonViews.Common.class)
 	private int dateFinRecolte;
 
+	@JsonView(JsonViews.Common.class)
 	private boolean vegetarien;
 
+	@JsonView(JsonViews.Common.class)
 	private boolean vegan;
 	
+	@JsonView(JsonViews.Common.class)
 	private Unite unite;
 
 	@OneToMany(mappedBy = "ingredient")

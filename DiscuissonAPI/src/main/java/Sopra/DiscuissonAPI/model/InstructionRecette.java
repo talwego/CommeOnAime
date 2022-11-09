@@ -7,14 +7,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class InstructionRecette {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(JsonViews.Common.class)
 	private Integer id;
 	@ManyToOne
+	@JsonView(JsonViews.Common.class)
 	private Recette recette;
 	@Column(columnDefinition = "text")
+	@JsonView(JsonViews.Common.class)
 	private String instruction;
 
 	public InstructionRecette() {

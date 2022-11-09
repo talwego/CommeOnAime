@@ -17,6 +17,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="type_compte",columnDefinition = "ENUM('Admin','Nutritionist','User')")
@@ -31,12 +33,15 @@ public class Compte implements UserDetails{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="numero")
+	@JsonView(JsonViews.Common.class)
 	protected Integer id;
 	
 	@Column(length = 200,nullable = false,unique=true)
+	@JsonView(JsonViews.Common.class)
 	protected String login;
 	
 	@Column(length = 255,nullable = false)
+	@JsonView(JsonViews.Common.class)
 	protected String password;
 	
 	public Compte() {
