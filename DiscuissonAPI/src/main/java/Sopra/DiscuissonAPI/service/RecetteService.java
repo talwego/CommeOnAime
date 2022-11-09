@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import Sopra.DiscuissonAPI.exception.RecetteException;
+import Sopra.DiscuissonAPI.model.Ingredient;
 import Sopra.DiscuissonAPI.model.Recette;
 import Sopra.DiscuissonAPI.repository.RecetteRepository;
 
