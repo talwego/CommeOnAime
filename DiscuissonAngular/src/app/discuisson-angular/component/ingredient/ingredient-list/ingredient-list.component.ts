@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Ingredient } from '../../model/ingredient';
-import { IngredientService } from '../../service/ingredient.service';
+import { Ingredient } from 'src/app/discuisson-angular/model/ingredient';
+import { IngredientService } from 'src/app/discuisson-angular/service/ingredient.service';
 
 @Component({
-  selector: 'app-ingredient',
-  templateUrl: './ingredient.component.html',
-  styleUrls: ['./ingredient.component.css'],
+  selector: 'app-ingredient-list',
+  templateUrl: './ingredient-list.component.html',
+  styleUrls: ['./ingredient-list.component.css'],
 })
-export class IngredientComponent implements OnInit {
+export class IngredientListComponent implements OnInit {
   ingredients: Ingredient[] = [];
 
   constructor(private ingredientService: IngredientService) {}
