@@ -17,6 +17,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import Sopra.DiscuissonAPI.model.Ingredient;
 import Sopra.DiscuissonAPI.model.JsonViews;
+import Sopra.DiscuissonAPI.model.Recette;
 import Sopra.DiscuissonAPI.service.IngredientService;
 
 
@@ -64,6 +65,13 @@ public class IngredientRestController {
 	public List<Ingredient> findAll(){
 		return ingredientService.findAll();
 	}
+	
+	@GetMapping("/{id}")
+	@JsonView(JsonViews.Common.class)
+	public Ingredient findById(@PathVariable Integer id) {
+		return ingredientService.findById(id);
+	}
+	
 	
 	@DeleteMapping("/{id}")
 	@JsonView(JsonViews.Ingredient.class)
