@@ -3,19 +3,34 @@ package Sopra.DiscuissonAPI.service;
 import java.time.LocalDate;
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import Sopra.DiscuissonAPI.exception.IdException;
 import Sopra.DiscuissonAPI.exception.MessageException;
+import Sopra.DiscuissonAPI.exception.RecetteIngredientException;
+import Sopra.DiscuissonAPI.model.Ingredient;
 import Sopra.DiscuissonAPI.model.Message;
+import Sopra.DiscuissonAPI.model.Nutritionist;
+import Sopra.DiscuissonAPI.model.User;
+import Sopra.DiscuissonAPI.model.Recette;
+import Sopra.DiscuissonAPI.model.RecetteIngredient;
 import Sopra.DiscuissonAPI.repository.MessageRepository;
+import Sopra.DiscuissonAPI.repository.NutritionistRepository;
+import Sopra.DiscuissonAPI.repository.RecetteRepository;
+import Sopra.DiscuissonAPI.repository.UserRepository;
+import net.bytebuddy.asm.Advice.Return;
 
 @Service
 public class MessageService {
 		
 		@Autowired
 		private MessageRepository messageRepo;
+		@Autowired
+		private NutritionistRepository nutritionistRepo;
+		@Autowired
+		private UserRepository userRepo;
 		
 		
 		public List<Message> findAll(){
@@ -32,6 +47,17 @@ public class MessageService {
 			return messageRepo.findById(id).orElseThrow(()->{
 				throw new MessageException("id inconnu");
 			});
+		}
+		
+		public Message create(String sujet, String text, LocalDate dateMessage, int idNutritionnist, int idUser) {
+			Nutritionist nutritionist = nutritionistRepo.findById(idNutritionnist).orElseThrow(()->{
+				throw new MessageException("nutritionniste inconnu");
+			});
+			User user = userRepo.findById(idUser).orElseThrow(()->{
+				throw new MessageException("user inconnu");
+			});
+			return save(new Message(sujet, text, dateMessage, nutritionist, user));
+		
 		}
 		
 		
