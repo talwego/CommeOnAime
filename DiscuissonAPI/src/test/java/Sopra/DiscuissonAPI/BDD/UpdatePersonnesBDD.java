@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Commit;
 
+import Sopra.DiscuissonAPI.model.ActivitePhysique;
 import Sopra.DiscuissonAPI.model.Admin;
 import Sopra.DiscuissonAPI.model.Genre;
 import Sopra.DiscuissonAPI.model.Nutritionist;
@@ -46,7 +47,9 @@ public class UpdatePersonnesBDD {
 		_user.setVegetarien(false);
 		_user.setVegan(false);
 		_user.setMessages(null);
+		_user.setActivitePhysique(ActivitePhysique.peu);
 		_user = _userService.create(_user);
+		
 
 		User _user1 = new User();
 		_user1.setId(null);
@@ -60,6 +63,7 @@ public class UpdatePersonnesBDD {
 		_user1.setVegetarien(true);
 		_user1.setVegan(false);
 		_user1.setMessages(null);
+		_user1.setActivitePhysique(ActivitePhysique.peu);
 		_user1 = _userService.create(_user1);
 		
 		
@@ -76,6 +80,7 @@ public class UpdatePersonnesBDD {
 		_user2.setVegetarien(false);
 		_user2.setVegan(false);
 		_user2.setMessages(null);
+		_user2.setActivitePhysique(ActivitePhysique.peu);
 		_user2 = _userService.create(_user2);
 		
 		
@@ -92,6 +97,7 @@ public class UpdatePersonnesBDD {
 		_user3.setVegetarien(false);
 		_user3.setVegan(true);
 		_user3.setMessages(null);
+		_user3.setActivitePhysique(ActivitePhysique.peu);
 		_user3 = _userService.create(_user3);
 		
 		
@@ -108,6 +114,7 @@ public class UpdatePersonnesBDD {
 		_user4.setVegetarien(false);
 		_user4.setVegan(false);
 		_user4.setMessages(null);
+		_user4.setActivitePhysique(ActivitePhysique.peu);
 		_user4 = _userService.create(_user4);
 		
 		User _user5 = new User();
@@ -123,6 +130,7 @@ public class UpdatePersonnesBDD {
 		_user5.setVegetarien(false);
 		_user5.setVegan(false);
 		_user5.setMessages(null);
+		_user5.setActivitePhysique(ActivitePhysique.peu);
 		_user5 = _userService.create(_user5);
 		
 		/********************Admins*******************/

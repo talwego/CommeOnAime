@@ -32,6 +32,8 @@ public class User extends Compte{
 	private boolean vegetarien;
 	@JsonView(JsonViews.Common.class)
 	private boolean vegan;
+	@JsonView(JsonViews.Common.class)
+	private ActivitePhysique activitePhysique;
 	
 	@OneToMany(mappedBy="user")
 	private List<Message> messages = new ArrayList<>();
@@ -52,6 +54,14 @@ public class User extends Compte{
 	}
 
 	
+
+	public ActivitePhysique getActivitePhysique() {
+		return activitePhysique;
+	}
+
+	public void setActivitePhysique(ActivitePhysique activitePhysique) {
+		this.activitePhysique = activitePhysique;
+	}
 
 	public Genre getGenre() {
 		return genre;
