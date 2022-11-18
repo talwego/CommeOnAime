@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Recette } from 'src/app/discuisson-angular/model/recette';
+import { RecetteService } from 'src/app/discuisson-angular/service/recette.service';
 
 @Component({
   selector: 'app-recette-edit',
