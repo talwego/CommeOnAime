@@ -8,9 +8,10 @@ import { AppComponent } from './app.component';
 import { SertARienDirective } from './discuisson-angular/directive/sert-arien.directive';
 import { routes } from './routes';
 import { IngredientComponent } from './discuisson-angular/component/ingredient/ingredient.component';
+import { SecretComponent } from './secret/secret.component';
 
 @NgModule({
-  declarations: [AppComponent, SertARienDirective, IngredientComponent],
+  declarations: [AppComponent, SertARienDirective, IngredientComponent, SecretComponent],
   imports: [
     BrowserModule,
     FormsModule,
