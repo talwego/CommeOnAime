@@ -20,15 +20,16 @@ public class SecurityConfig {
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 			.and()
 			.authorizeRequests()
-				.antMatchers(HttpMethod.GET ,"/api/user/inscription").anonymous()
-				.antMatchers(HttpMethod.GET,"/api/user/**").authenticated()
-				.antMatchers(HttpMethod.POST, "/api/message/**").hasAnyRole("USER","NUTRITIONIST")
-				.antMatchers(HttpMethod.POST, "/api/nutritionist/**").hasAnyRole("NUTRITIONIST","ADMIN")
-				.antMatchers(HttpMethod.POST, "/api/ingredient/**").permitAll()	//rajouter sécurité voir/edit
-				.antMatchers(HttpMethod.POST, "/api/recette/**").permitAll()	//rajouter sécurité voir/edit
-				.antMatchers(HttpMethod.POST, "/api/ingredient/**").permitAll()	//rajouter sécurité voir/edit
-				.antMatchers(HttpMethod.POST, "/api/recette/**").permitAll()	//rajouter sécurité voir/edit
-				.anyRequest().hasRole("ADMIN")
+			.anyRequest().permitAll()
+			//	.antMatchers(HttpMethod.GET ,"/api/user/inscription").anonymous()
+			//	.antMatchers(HttpMethod.GET,"/api/user/**").authenticated()
+				//.antMatchers(HttpMethod.POST, "/api/message/**").hasAnyRole("USER","NUTRITIONIST")
+				//.antMatchers(HttpMethod.POST, "/api/nutritionist/**").hasAnyRole("NUTRITIONIST","ADMIN")
+				//.antMatchers(HttpMethod.POST, "/api/ingredient/**").permitAll()	//rajouter sécurité voir/edit
+				//.antMatchers(HttpMethod.POST, "/api/recette/**").permitAll()	//rajouter sécurité voir/edit
+				//.antMatchers(HttpMethod.POST, "/api/ingredient/**").permitAll()	//rajouter sécurité voir/edit
+				//.antMatchers(HttpMethod.POST, "/api/recette/**").permitAll()	//rajouter sécurité voir/edit
+				//.anyRequest().hasRole("ADMIN")
 			.and()
 			.httpBasic()
 			.and()
