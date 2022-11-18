@@ -23,6 +23,7 @@ public class User extends Compte{
 	private boolean compteVIP;
 	private boolean vegetarien;
 	private boolean vegan;
+	private ActivitePhysique activitePhysique;
 	
 	@OneToMany(mappedBy="user")
 	private List<Message> messages = new ArrayList<>();
@@ -38,7 +39,14 @@ public class User extends Compte{
 		super(id, login, password);
 	}
 
-	
+
+	public ActivitePhysique getActivitePhysique() {
+		return activitePhysique;
+	}
+
+	public void setActivitePhysique(ActivitePhysique activitePhysique) {
+		this.activitePhysique = activitePhysique;
+	}
 
 	public Genre getGenre() {
 		return genre;
@@ -110,6 +118,8 @@ public class User extends Compte{
 				+ poids + ", compteVIP=" + compteVIP + ", vegetarien=" + vegetarien + ", vegan=" + vegan + ", messages="
 				+ messages + "]";
 	}
+
+
 
 	
 	
