@@ -1,0 +1,193 @@
+<div>
+  <form (ngSubmit)="save()" #form="ngForm">
+    <div class="form-group">
+      <label for="id">id:</label>
+      <input
+        class="form-control"
+        id="id"
+        name="id"
+        [(ngModel)]="recette.id"
+        readonly
+        placeholder="generation automatique"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="name">name:</label>
+      <input
+        class="form-control"
+        name="name"
+        id="name"
+        [(ngModel)]="recette.name"
+        required
+        #libelleCtrl="ngModel"
+      />
+      <div
+        *ngIf="nameCtrl.dirty && nameCtrl.invalid"
+        class="alert alert-danger"
+      >
+        name obligatoire
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="vegetarien">vegetarien:</label>
+      <input
+        class="form-control"
+        name="vegetarien"
+        id="vegetarien"
+        [(ngModel)]="recette.vegetarien"
+        required
+        #libelleCtrl="ngModel"
+      />
+      <div
+        *ngIf="vegetarienCtrl.dirty && vegetarienCtrl.invalid"
+        class="alert alert-danger"
+      >
+        regime obligatoire
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="vegan">vegan:</label>
+      <input
+        class="form-control"
+        name="vegan"
+        id="vegan"
+        [(ngModel)]="recette.vegan"
+        required
+        #libelleCtrl="ngModel"
+      />
+      <div
+        *ngIf="veganCtrl.dirty && veganCtrl.invalid"
+        class="alert alert-danger"
+      >
+        regime obligatoire
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="calorie">calorie:</label>
+      <input
+        class="form-control"
+        name="calorie"
+        id="calorie"
+        [(ngModel)]="recette.calorie"
+        required
+        #libelleCtrl="ngModel"
+      />
+      <div
+        *ngIf="calorieCtrl.dirty && calorieCtrl.invalid"
+        class="alert alert-danger"
+      >
+        calorie obligatoire
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="debutSaison">debutSaison:</label>
+      <input
+        class="form-control"
+        name="debutSaison"
+        id="debutSaison"
+        [(ngModel)]="recette.debutSaison"
+        required
+        #libelleCtrl="ngModel"
+      />
+      <div
+        *ngIf="debutSaisonCtrl.dirty && debutSaisonCtrl.invalid"
+        class="alert alert-danger"
+      >
+        Debut de saison obligatoire
+      </div>
+    </div>
+
+     <div class="form-group">
+      <label for="finSaison">finSaison:</label>
+      <input
+        class="form-control"
+        name="finSaison"
+        id="finSaison"
+        [(ngModel)]="recette.finSaison"
+        required
+        #libelleCtrl="ngModel"
+      />
+      <div
+        *ngIf="finSaisonCtrl.dirty && finSaisonCtrl.invalid"
+        class="alert alert-danger"
+      >
+        Fin de saison obligatoire
+      </div>
+    </div>
+
+     <div class="form-group">
+      <label for="commentaires">commentaires:</label>
+      <input
+        class="form-control"
+        name="commentaires"
+        id="commentaires"
+      />
+     </div>
+
+     <div class="form-group">
+      <label for="note">note:</label>
+      <input
+        class="form-control"
+        name="note"
+        id="note"
+      />
+     </div>
+
+     <div class="form-group">
+      <label for="tempsDeCuisine">tempsDeCuisine:</label>
+      <input
+        class="form-control"
+        name="tempsDeCuisine"
+        id="tempsDeCuisine"
+        [(ngModel)]="recette.tempsDeCuisine"
+        required
+        #libelleCtrl="ngModel"
+      />
+      <div
+        *ngIf="tempsDeCuisineCtrl.dirty && tempsDeCuisineCtrl.invalid"
+        class="alert alert-danger"
+      >
+        Temps De Cuisine obligatoire
+      </div>
+    </div>
+
+     <div class="form-group">
+      <label for="isValid">isValid:</label>
+      <input
+        class="form-control"
+        name="isValid"
+        id="isValid"
+        [(ngModel)]="recette.isValid"
+        required
+        #libelleCtrl="ngModel"
+      />
+      <div
+        *ngIf="isValidCtrl.dirty && isValidCtrl.invalid"
+        class="alert alert-danger"
+      >
+        isValid obligatoire
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button
+        type="submit"
+        class="btn btn-outline-primary"
+        [disabled]="form.invalid"
+      >
+        enregistrer
+      </button>
+      <a
+        routerLink="/produit"
+        routerLinkActive="active"
+        class="btn btn-outline-warning"
+        >annuler</a
+      >
+    </div>
+  </form>
+</div>
