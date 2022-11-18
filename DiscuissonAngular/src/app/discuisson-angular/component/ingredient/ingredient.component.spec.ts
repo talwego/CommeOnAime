@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SertARienComponent } from './sert-arien.component';
+import { IngredientComponent } from './ingredient.component';
 
-describe('SertARienComponent', () => {
-  let component: SertARienComponent;
-  let fixture: ComponentFixture<SertARienComponent>;
+describe('IngredientComponent', () => {
+  let component: IngredientComponent;
+  let fixture: ComponentFixture<IngredientComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SertARienComponent ]
+      declarations: [ IngredientComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SertARienComponent);
+    fixture = TestBed.createComponent(IngredientComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

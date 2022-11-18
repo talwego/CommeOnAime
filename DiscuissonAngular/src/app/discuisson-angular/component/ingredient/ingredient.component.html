@@ -1,0 +1,35 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>id:</th>
+      <th>name:</th>
+      <th>calorie:</th>
+      <th>debut de la recolte:</th>
+      <th>fin de la recolte:</th>
+      <th>type:</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let i of ingredients">
+      <td>{{ i.id }}</td>
+      <td>{{ i.name }}</td>
+      <td>{{ i.calorie }}</td>
+      <td>{{ i.dateDebutRecolte }}</td>
+      <td>{{ i.dateFinRecolte }}</td>
+      <td *ngIf="i.vegan && i.vegetarien">vegan</td>
+      <td *ngIf="!i.vegan && i.vegetarien">vegetarien</td>
+      <td *ngIf="!i.vegan && !i.vegetarien">normal</td>
+      <td>
+        <a routerLink="#" routerLinkActive="active">editer</a>
+      </td>
+      <td>
+        <button class="btn btn-outline-danger" (click)="delete(i.id!)">
+          supprimer
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<a routerLink="/produit/edit" routerLinkActive="active">nouveau produit</a>
