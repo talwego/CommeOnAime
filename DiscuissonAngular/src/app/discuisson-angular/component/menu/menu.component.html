@@ -1,61 +1,55 @@
-<nav class="navbar navbar-expand-sm bg-light navbar-light">
-  <div class="container-fluid">
-    <ul class="navbar-nav">
-      <li class="nav-item">
+<header>
+  <nav>
+    <ul class="nav-list">
+      <li>
         <a class="nav-link" routerLink="/home" routerLinkActive="active"
-          >DISCUISSON</a
-        >
+          ><img
+            src="assets/images/discuissonLogo.png"
+            alt="Logo"
+            width="140px"
+            height="108px"
+            style="margin-left: 1%; padding-bottom: 1%"
+        /></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/home" routerLinkActive="active"
-          >home</a
-        >
-      </li>
-      <li class="nav-item">
+      <li>
         <a class="nav-link" routerLink="/concept" routerLinkActive="active"
-          >Le concept</a
+          >Concept</a
         >
       </li>
-      <li class="nav-item">
+      <li>
         <a class="nav-link" routerLink="/recettes" routerLinkActive="active"
-          >Les Recettes</a
+          >Recettes</a
         >
       </li>
-        <li class="nav-item">
-        <a *ngIf="vip" class="nav-link" routerLink="/frigo" routerLinkActive="active"
+      <li>
+        <a class="nav-link" routerLink="/frigo" routerLinkActive="active"
           >Frigo</a
         >
       </li>
-        <li class="nav-item">
-        <a *ngIf="vip" class="nav-link" routerLink="/messagerie" routerLinkActive="active"
-          >Ma messagerie</a
+      <li>
+        <a class="nav-link" routerLink="/messagerie" routerLinkActive="active"
+          >Messagerie</a
         >
       </li>
-      <li class="nav-item">
-        <a
-          *ngIf="anonymous"
-          class="nav-link"
-          routerLink="/inscription"
-          routerLinkActive="active"
-          >inscription</a
-        >
+      <li>
+        <div>
+          <a
+            class="nav-link btnVert"
+            routerLink="/inscription"
+            routerLinkActive="active"
+            >S'inscrire/Se connecter</a
+          >
+        </div>
       </li>
-       <li class="nav-item">
-        <a
-          *ngIf="anonymous"
-          class="nav-link"
-          routerLink="/login"
-          routerLinkActive="active"
-          >connexion</a
-        >
-      </li>
-
-
-      <li *ngIf="authenticated" class="nav-item">
+      <li>
+        <!--
+      <div>
         <button class="btn btn-link nav-link" (click)="logoff()">
-          deconnexion
+          Déconnexion
         </button>
-      </li>
+      </div>
+      --></li>
     </ul>
-  </div>
-</nav>
+  </nav>
+  <hr />
+</header>

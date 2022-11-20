@@ -1,0 +1,87 @@
+body {
+  margin-top: 8%;
+  width: 76%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.div-z1 {
+  display: flex;
+  margin-bottom: 2%;
+  align-items: center;
+}
+
+.image {
+  flex-basis: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+#div-b1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+p {
+  font-size: 20px;
+}
+
+.p-imp {
+  font-size: 25px;
+}
+
+#div-c1 {
+  width: 70%;
+}
+
+hr {
+  border-top: 3px solid rgba(102, 172, 38, 1);
+  margin: auto;
+  width: 30%;
+  padding-bottom: 1%;
+}
+
+.div-z2 {
+  width: 40%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#div-b2 {
+  display: flex;
+  justify-content: center;
+}
+
+.btnVert {
+  width: 21%;
+  font-size: 30px;
+  color: white;
+  background-color: rgba(102, 172, 38, 1);
+  border-radius: 10px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  text-decoration: none;
+}
+
+#div-b3 {
+  display: flex;
+  flex-direction: row;
+  padding-left: 10%;
+  align-items: center;
+  gap: 1rem;
+}
+
+#div-c2 {
+  width: 75%;
+  height: 50px;
+  background-color: rgba(224, 125, 42, 1);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 7px;
+}
