@@ -22,7 +22,9 @@
       <td *ngIf="!i.vegan && i.vegetarien">vegetarien</td>
       <td *ngIf="!i.vegan && !i.vegetarien">normal</td>
       <td>
-        <a routerLink="#" routerLinkActive="active">editer</a>
+        <a routerLink="/ingredient/edit/{{ i.id }}" routerLinkActive="active"
+          >editer</a
+        >
       </td>
       <td>
         <button class="btn btn-outline-danger" (click)="delete(i.id!)">
@@ -32,4 +34,6 @@
     </tr>
   </tbody>
 </table>
-<a routerLink="/produit/edit" routerLinkActive="active">nouveau produit</a>
+<a routerLink="/ingredient/edit" routerLinkActive="active"
+  >nouveau ingredient</a
+>

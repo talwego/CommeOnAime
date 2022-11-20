@@ -1,1 +1,186 @@
-<p>ingredient-edit works!</p>
+<div id="background">
+  <div id="formulaire">
+    <form (ngSubmit)="save()" #form="ngForm">
+      <div class="divCentreFlex">
+        <div id="backgroundH2">
+          <h2 *ngIf="!ingredient.id">Création d'un ingrédient</h2>
+          <h2 *ngIf="ingredient.id">Mise à jour d'un ingrédient</h2>
+        </div>
+      </div>
+
+      <div class="form-group" *ngIf="ingredient.id">
+        <div class="divACoteFlex">
+          <div class="text">Mon id est...</div>
+          <input
+            class="form-control"
+            name="id"
+            id="id"
+            [(ngModel)]="ingredient.id"
+            readonly
+          />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="divACoteFlex">
+          <div class="text">Mon nom est...</div>
+          <input
+            class="form-control"
+            name="name"
+            id="name"
+            [(ngModel)]="ingredient.name"
+            required
+            placeholder="pomme, salade, cuisse de grenouille, etc..."
+            #nameCtrl="ngModel"
+          />
+        </div>
+        <div
+          *ngIf="nameCtrl.dirty && nameCtrl.invalid"
+          class="alert alert-danger"
+        >
+          Tu as oublié mon nom :o
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="divACoteFlex">
+          <div class="text">Mon nombre de calorie est...</div>
+          <input
+            type="number"
+            class="form-control"
+            name="calorie"
+            id="calorie"
+            [(ngModel)]="ingredient.calorie"
+            placeholder="Précision: pour 100g ou 100mL de l'ingrédient"
+            required
+            #calorieCtrl="ngModel"
+          />
+        </div>
+        <div
+          *ngIf="calorieCtrl.dirty && calorieCtrl.invalid"
+          class="alert alert-danger"
+        >
+          Tu as oublié mes calories :o
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="divACoteFlex">
+          <div class="text">On commence à m'avoir en...</div>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            name="dateDebutRecolte"
+            id="dateDebutRecolte"
+            [(ngModel)]="ingredient.dateDebutRecolte"
+          >
+            <option value="1">Janvier</option>
+            <option value="2">Février</option>
+            <option value="3">Mars</option>
+            <option value="4">Avril</option>
+            <option value="5">Mai</option>
+            <option value="6">Juin</option>
+            <option value="7">Juillet</option>
+            <option value="8">Août</option>
+            <option value="9">Septembre</option>
+            <option value="10">Octobre</option>
+            <option value="11">Novembre</option>
+            <option value="12">Décembre</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="divACoteFlex">
+          <div class="text">On finit de m'avoir en...</div>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            name="dateFinRecolte"
+            id="dateFinRecolte"
+            [(ngModel)]="ingredient.dateFinRecolte"
+          >
+            <option value="1">Janvier</option>
+            <option value="2">Février</option>
+            <option value="3">Mars</option>
+            <option value="4">Avril</option>
+            <option value="5">Mai</option>
+            <option value="6">Juin</option>
+            <option value="7">Juillet</option>
+            <option value="8">Août</option>
+            <option value="9">Septembre</option>
+            <option value="10">Octobre</option>
+            <option value="11">Novembre</option>
+            <option value="12">Décembre</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="divCentreFlex">
+        <div class="divCentreFlex2">
+          <div style="width: 65px">Je suis...</div>
+          <div>
+            <div class="form-check form-switch">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="vegan"
+                name="vegan"
+                [(ngModel)]="ingredient.vegan"
+              />
+              <label class="form-check-label" for="flexSwitchCheckDefault"
+                >vegan</label
+              >
+            </div>
+            <div class="form-check form-switch">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="vegetarien"
+                name="vegetarien"
+                [(ngModel)]="ingredient.vegetarien"
+              />
+              <label class="form-check-label" for="flexSwitchCheckChecked"
+                >végétarien</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="divCentreFlex2">
+          <div style="width: 185px">On mesure ma quantité...</div>
+          <div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="g"
+                name="g"
+                value="g"
+                [(ngModel)]="ingredient.unite"
+              />
+              <label class="form-check-label" for="g"> en g </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                id="mL"
+                name="flexRadioDefault"
+                name="mL"
+                value="mL"
+                [(ngModel)]="ingredient.unite"
+              />
+              <label class="form-check-label" for="mL"> en mL </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divCentreFlex">
+        <button type="submit" [disabled]="form.invalid">enregistrer</button>
+        <a routerLink="/produit" routerLinkActive="active">annuler</a>
+      </div>
+    </form>
+  </div>
+</div>

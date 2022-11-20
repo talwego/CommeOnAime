@@ -8,13 +8,25 @@ import { IngredientEditComponent } from './discuisson-angular/component/ingredie
 import { IngredientListComponent } from './discuisson-angular/component/ingredient/ingredient-list/ingredient-list.component';
 import { SertARienDirective } from './discuisson-angular/directive/sert-arien.directive';
 import { routes } from './routes';
+import { IngredientMenuComponent } from './discuisson-angular/component/ingredient/ingredient-menu/ingredient-menu.component';
+import { MenuComponent } from './discuisson-angular/component/menu/menu.component';
+import { FooterComponent } from './discuisson-angular/component/footer/footer.component';
+import { PageConceptComponent } from './discuisson-angular/component/page/page-concept/page-concept.component';
+import { PageHomeComponent } from './discuisson-angular/component/page/page-home/page-home.component';
+import { PageHomeBackgroundComponent } from './discuisson-angular/component/page/page-home/page-home-background/page-home-background.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SertARienDirective,
+    MenuComponent,
     IngredientEditComponent,
     IngredientListComponent,
+    IngredientMenuComponent,
+    FooterComponent,
+    PageConceptComponent,
+    PageHomeComponent,
+    PageHomeBackgroundComponent,
   ],
   imports: [
     BrowserModule,
