@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { IngredientEditComponent } from './discuisson-angular/component/ingredient/ingredient-edit/ingredient-edit.component';
 import { IngredientListComponent } from './discuisson-angular/component/ingredient/ingredient-list/ingredient-list.component';
+import { LoginComponent } from './discuisson-angular/component/login/login.component';
 import { PageConceptComponent } from './discuisson-angular/component/page/page-concept/page-concept.component';
 import { PageHomeComponent } from './discuisson-angular/component/page/page-home/page-home.component';
 export const routes: Routes = [
@@ -10,6 +11,8 @@ export const routes: Routes = [
   { path: 'ingredient', component: IngredientListComponent },
   { path: 'ingredient/edit', component: IngredientEditComponent },
   { path: 'ingredient/edit/:id', component: IngredientEditComponent },
+  { path: 'login', component: LoginComponent },
+  {path:'**', component:PageHomeComponent},
 ];
 
 @NgModule({

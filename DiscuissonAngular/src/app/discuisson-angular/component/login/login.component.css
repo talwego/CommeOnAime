@@ -1,0 +1,11 @@
+.btnVert {
+  font-size: 30px;
+  color: white;
+  background-color: rgba(102, 172, 38, 1);
+  border-radius: 10px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  text-decoration: none;
+}

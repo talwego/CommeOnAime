@@ -14,6 +14,7 @@ import { FooterComponent } from './discuisson-angular/component/footer/footer.co
 import { PageConceptComponent } from './discuisson-angular/component/page/page-concept/page-concept.component';
 import { PageHomeComponent } from './discuisson-angular/component/page/page-home/page-home.component';
 import { PageHomeBackgroundComponent } from './discuisson-angular/component/page/page-home/page-home-background/page-home-background.component';
+import { LoginComponent } from './discuisson-angular/component/login/login.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { PageHomeBackgroundComponent } from './discuisson-angular/component/page
     PageConceptComponent,
     PageHomeComponent,
     PageHomeBackgroundComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
