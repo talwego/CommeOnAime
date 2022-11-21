@@ -1,11 +1,13 @@
 package Sopra.DiscuissonAPI.BDD;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 import javax.transaction.Transactional;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.redis.RedisProperties.Jedis;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Commit;
 
@@ -13,6 +15,7 @@ import Sopra.DiscuissonAPI.model.ActivitePhysique;
 import Sopra.DiscuissonAPI.model.Admin;
 import Sopra.DiscuissonAPI.model.Genre;
 import Sopra.DiscuissonAPI.model.Ingredient;
+import Sopra.DiscuissonAPI.model.Message;
 import Sopra.DiscuissonAPI.model.Nutritionist;
 import Sopra.DiscuissonAPI.model.Recette;
 import Sopra.DiscuissonAPI.model.Unite;
@@ -20,6 +23,7 @@ import Sopra.DiscuissonAPI.model.User;
 import Sopra.DiscuissonAPI.service.AdminService;
 import Sopra.DiscuissonAPI.service.IngredientService;
 import Sopra.DiscuissonAPI.service.InstructionRecetteService;
+import Sopra.DiscuissonAPI.service.MessageService;
 import Sopra.DiscuissonAPI.service.NutritionistService;
 import Sopra.DiscuissonAPI.service.RecetteIngredientService;
 import Sopra.DiscuissonAPI.service.RecetteService;
@@ -51,7 +55,16 @@ public class UpdateRecetteEtIngredientBDD4 {
 	private RecetteService _recetteService;
 	@Autowired
 	private InstructionRecetteService _instructionRecetteService;
+	@Autowired
+	private  MessageService _messageService;
 
+	public void updateMessage() {
+		
+		_messageService.create("Yo","Je veux perdre 10 kilos en 1 semaine",null, 9, 1);
+		_messageService.create("Yo","Ca va être compliqué",null, 9, 1);
+		_messageService.create("Yo","noooooooooooooon qhxbezxbjz !!",null, 9, 1);
+		
+	}
 
 	public void updateCompte() {
 		/********************Users*******************/
@@ -942,5 +955,6 @@ public class UpdateRecetteEtIngredientBDD4 {
 	public void updateBDD() {
 		updateCompte();
 		updateRecetteEtIngredient();
+		updateMessage();
 	}
 }
