@@ -14,6 +14,9 @@ import { FooterComponent } from './discuisson-angular/component/footer/footer.co
 import { PageConceptComponent } from './discuisson-angular/component/page/page-concept/page-concept.component';
 import { PageHomeComponent } from './discuisson-angular/component/page/page-home/page-home.component';
 import { PageHomeBackgroundComponent } from './discuisson-angular/component/page/page-home/page-home-background/page-home-background.component';
+import { RecetteEditComponent } from './discuisson-angular/component/recette/recette-edit/recette-edit.component';
+import { RecetteListComponent } from './discuisson-angular/component/recette/recette-list/recette-list.component';
+
 
 @NgModule({
   declarations: [
@@ -27,6 +30,9 @@ import { PageHomeBackgroundComponent } from './discuisson-angular/component/page
     PageConceptComponent,
     PageHomeComponent,
     PageHomeBackgroundComponent,
+    RecetteEditComponent,
+    RecetteListComponent,
+
   ],
   imports: [
     BrowserModule,

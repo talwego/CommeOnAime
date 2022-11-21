@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Recette } from 'src/app/discuisson-angular/model/recette';
-import { RecetteService } from 'src/app/discuisson-angular/service/recette.service';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
+import { Recette } from "src/app/discuisson-angular/model/recette";
+import { RecetteService } from "src/app/discuisson-angular/service/recette.service";
+
 
 @Component({
   selector: 'app-recette-edit',
@@ -11,6 +12,14 @@ import { RecetteService } from 'src/app/discuisson-angular/service/recette.servi
 export class RecetteEditComponent implements OnInit {
 
   recette: Recette = new Recette();
+nameCtrl: any;
+vegetarienCtrl: any;
+veganCtrl: any;
+calorieCtrl: any;
+debutSaisonCtrl: any;
+finSaisonCtrl: any;
+tempsDeCuisineCtrl: any;
+isValidCtrl: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
