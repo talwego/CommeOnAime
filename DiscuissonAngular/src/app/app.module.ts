@@ -15,6 +15,7 @@ import { PageConceptComponent } from './discuisson-angular/component/page/page-c
 import { PageHomeComponent } from './discuisson-angular/component/page/page-home/page-home.component';
 import { PageHomeBackgroundComponent } from './discuisson-angular/component/page/page-home/page-home-background/page-home-background.component';
 import { LoginComponent } from './discuisson-angular/component/login/login.component';
+import { RegisterComponent } from './discuisson-angular/component/register/register.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { LoginComponent } from './discuisson-angular/component/login/login.compo
     PageHomeComponent,
     PageHomeBackgroundComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
