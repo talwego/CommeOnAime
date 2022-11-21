@@ -18,8 +18,30 @@
           <th scope="row">{{ i.id }}</th>
           <td>{{ i.name }}</td>
           <td>{{ i.calorie }}</td>
-          <td>{{ i.dateDebutRecolte }}</td>
-          <td>{{ i.dateFinRecolte }}</td>
+          <td *ngIf="i.dateDebutRecolte == 1">Janvier</td>
+          <td *ngIf="i.dateDebutRecolte == 2">Février</td>
+          <td *ngIf="i.dateDebutRecolte == 3">Mars</td>
+          <td *ngIf="i.dateDebutRecolte == 4">Avril</td>
+          <td *ngIf="i.dateDebutRecolte == 5">Mai</td>
+          <td *ngIf="i.dateDebutRecolte == 6">Juin</td>
+          <td *ngIf="i.dateDebutRecolte == 7">Juillet</td>
+          <td *ngIf="i.dateDebutRecolte == 8">Août</td>
+          <td *ngIf="i.dateDebutRecolte == 9">Septembre</td>
+          <td *ngIf="i.dateDebutRecolte == 10">Octobre</td>
+          <td *ngIf="i.dateDebutRecolte == 11">Novembre</td>
+          <td *ngIf="i.dateDebutRecolte == 12">Décembre</td>
+          <td *ngIf="i.dateFinRecolte == 1">Janvier</td>
+          <td *ngIf="i.dateFinRecolte == 2">Février</td>
+          <td *ngIf="i.dateFinRecolte == 3">Mars</td>
+          <td *ngIf="i.dateFinRecolte == 4">Avril</td>
+          <td *ngIf="i.dateFinRecolte == 5">Mai</td>
+          <td *ngIf="i.dateFinRecolte == 6">Juin</td>
+          <td *ngIf="i.dateFinRecolte == 7">Juillet</td>
+          <td *ngIf="i.dateFinRecolte == 8">Août</td>
+          <td *ngIf="i.dateFinRecolte == 9">Septembre</td>
+          <td *ngIf="i.dateFinRecolte == 10">Octobre</td>
+          <td *ngIf="i.dateFinRecolte == 11">Novembre</td>
+          <td *ngIf="i.dateFinRecolte == 12">Décembre</td>
           <td *ngIf="i.vegan && i.vegetarien">vegan</td>
           <td *ngIf="!i.vegan && i.vegetarien">vegetarien</td>
           <td *ngIf="!i.vegan && !i.vegetarien">normal</td>
