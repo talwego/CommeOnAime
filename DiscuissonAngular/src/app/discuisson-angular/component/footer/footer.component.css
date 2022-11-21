@@ -1,0 +1,27 @@
+footer {
+  display: flex;
+  background-color: rgba(102, 172, 38, 1);
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  justify-content: space-around;
+  width: 100%;
+}
+
+#div-a1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80%;
+}
+
+div a {
+  color: white;
+  font-size: 15px;
+  text-align: center;
+  margin-left: 2%;
+  width: max-content;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
