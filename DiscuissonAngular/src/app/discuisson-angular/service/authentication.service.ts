@@ -16,7 +16,7 @@ export class AuthenticationService {
     let headers = new HttpHeaders({
       Authorization: 'Basic ' + btoa(login + ':' + password),
     });
-    return this.httpClient.get('http://localhost:8080/eshop/api/auth', {
+    return this.httpClient.get('http://localhost:8080/discuisson/api/auth', {
       headers: headers,
     });
   }
