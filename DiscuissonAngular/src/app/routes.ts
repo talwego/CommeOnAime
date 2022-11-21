@@ -5,7 +5,7 @@ import { IngredientListComponent } from './discuisson-angular/component/ingredie
 import { LoginComponent } from './discuisson-angular/component/login/login.component';
 import { PageConceptComponent } from './discuisson-angular/component/page/page-concept/page-concept.component';
 import { PageHomeComponent } from './discuisson-angular/component/page/page-home/page-home.component';
-import { RegisterComponent } from './discuisson-angular/component/register/register.component';
+//import { RegisterComponent } from './discuisson-angular/component/register/register.component';
 
 export const routes: Routes = [
   { path: 'home', component: PageHomeComponent },
@@ -14,8 +14,8 @@ export const routes: Routes = [
   { path: 'ingredient/edit', component: IngredientEditComponent },
   { path: 'ingredient/edit/:id', component: IngredientEditComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  {path:'**', component:PageHomeComponent},
+  //{ path: 'register', component: RegisterComponent },
+  { path: '**', component: PageHomeComponent },
 ];
 
 @NgModule({
