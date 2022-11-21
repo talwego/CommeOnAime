@@ -14,7 +14,9 @@ export class RecetteListComponent implements OnInit {
 
   ngOnInit(): void {
     this.initRecette();
+ 
   }
+
   initRecette() {
     this.recetteService.findAll().subscribe((data) => {
       this.recettes = data;
