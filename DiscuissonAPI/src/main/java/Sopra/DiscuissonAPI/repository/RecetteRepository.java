@@ -21,7 +21,7 @@ public interface RecetteRepository extends JpaRepository<Recette, Integer>{
 	List<Recette> findByFinSaisonGreaterThanEqual(int obj);
 	List<Recette> findByNoteBetween(int obj1, int obj2);
 	List<Recette> findByCalorieBetween(int obj1, int obj2);
-	List<Recette> findByTempsDeCuisineBetween(Duration obj1, Duration obj2);
+	List<Recette> findByTempsDeCuisineBetween(LocalTime obj1, LocalTime obj2);
 	List<Recette> findByIsValidEquals(boolean obj);
 	
 	@Query("SELECT obj FROM Recette obj LEFT JOIN FETCH obj.recetteIngredients WHERE obj.id=:id")

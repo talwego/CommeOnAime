@@ -45,7 +45,7 @@ public class Recette {
 	@JsonView(JsonViews.Common.class)
 	private int nombrePersonne; // la recette est prevu pour XX personnes
 	@JsonView(JsonViews.Common.class)
-	private Duration tempsDeCuisine;
+	private LocalTime tempsDeCuisine;
 	@JsonView(JsonViews.Common.class)
 	private Boolean isValid;
 	
@@ -55,7 +55,7 @@ public class Recette {
 	public Recette() {
 	}
 
-	public Recette(String name, int nombrePersonne, String commentaires, double note, int nombreVotant, Duration tempsDeCuisine,
+	public Recette(String name, int nombrePersonne, String commentaires, double note, int nombreVotant, LocalTime tempsDeCuisine,
 			Boolean isValid) {
 		this.name = name;
 		this.nombrePersonne = nombrePersonne;
@@ -156,11 +156,11 @@ public class Recette {
 		this.nombreVotant = nombreVotant;
 	}
 
-	public Duration getTempsDeCuisine() {
+	public LocalTime getTempsDeCuisine() {
 		return tempsDeCuisine;
 	}
 
-	public void setTempsDeCuisine(Duration tempsDeCuisine) {
+	public void setTempsDeCuisine(LocalTime tempsDeCuisine) {
 		this.tempsDeCuisine = tempsDeCuisine;
 	}
 

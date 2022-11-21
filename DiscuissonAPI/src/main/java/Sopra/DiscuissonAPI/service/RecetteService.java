@@ -141,7 +141,7 @@ public class RecetteService {
 		return recetteRepository.findByCalorieBetween(obj1, obj2);
 	}
 	
-	public List<Recette> findByTempsDeCuisineBetween(Duration obj1, Duration obj2){
+	public List<Recette> findByTempsDeCuisineBetween(LocalTime obj1, LocalTime obj2){
 		return recetteRepository.findByTempsDeCuisineBetween(obj1, obj2);
 	}
 	
