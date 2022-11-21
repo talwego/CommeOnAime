@@ -20,6 +20,7 @@ import { AdminHomeComponent } from './discuisson-angular/component/admin/admin-h
 import { AdminUserListComponent } from './discuisson-angular/component/admin/admin-user/admin-user-list/admin-user-list.component';
 import { AdminAdminListComponent } from './discuisson-angular/component/admin/admin-admin/admin-admin-list/admin-admin-list.component';
 import { AdminNutritionistListComponent } from './discuisson-angular/component/admin/admin-nutritionist/admin-nutritionist-list/admin-nutritionist-list.component';
+import { FrigoComponent } from './discuisson-angular/component/frigo/frigo.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { AdminNutritionistListComponent } from './discuisson-angular/component/a
     AdminUserListComponent,
     AdminAdminListComponent,
     AdminNutritionistListComponent,
+    FrigoComponent,
   ],
   imports: [
     BrowserModule,
