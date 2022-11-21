@@ -1,5 +1,6 @@
 package Sopra.DiscuissonAPI.BDD;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -198,7 +199,7 @@ public class UpdateRecetteEtIngredientBDD4 {
 	public void updateRecetteEtIngredient() {
 		/* Recette 1 */
 		_recetteService.create(
-				new Recette("Tartiflette sans lardons au gruyère léger", 8, null, 3.7, 51, LocalTime.of(1, 30), false));
+				new Recette("Tartiflette sans lardons au gruyère léger", 8, null, 3.7, 51, Duration.ofMinutes(75), false));
 
 		/// Ingredient 1 ///
 		_ingredientService.create(new Ingredient("Pomme de terre", 73, 1, 12, true, true, Unite.g));
@@ -254,7 +255,7 @@ public class UpdateRecetteEtIngredientBDD4 {
 
 		/* Recette 2 */
 		_recetteService.create(new Recette("Lasagnes minceur au thon et au parmesan léger", 4, null, 4.3, 127,
-				LocalTime.of(0, 40), false));
+				Duration.ofMinutes(40), false));
 
 		/// Ingredient 6 ///
 		_ingredientService.create(new Ingredient("Feuille de lasagnes", 284, 1, 12, true, false, Unite.g));
@@ -301,7 +302,7 @@ public class UpdateRecetteEtIngredientBDD4 {
 
 		/* Recette 3 */
 		_recetteService.create(new Recette("Dos de cabillaud à la crème légère à l'ail", 4, null, 3.9, 55,
-				LocalTime.of(0, 30), false));
+				Duration.ofMinutes(30), false));
 
 		/// Ingredient 9 ///
 		_ingredientService.create(new Ingredient("Dos de cabillaud", 29, 2, 5, false, false, Unite.g));
@@ -339,7 +340,7 @@ public class UpdateRecetteEtIngredientBDD4 {
 
 		/* Recette 4 */
 		_recetteService.create(new Recette("Quiche légère poulet, champignons et brocoli", 4, null, 3.6, 87,
-				LocalTime.of(0, 50), false));
+				Duration.ofMinutes(50), false));
 
 		/// Ingredient 11 ///
 		_ingredientService.create(new Ingredient("Farine de blé", 149, 1, 12, true, true, Unite.g));
@@ -432,7 +433,7 @@ public class UpdateRecetteEtIngredientBDD4 {
 
 		/* Recette 5 */
 		_recetteService.create(
-				new Recette("Hachis parmentier sans viande aux légumes", 4, null, 3.3, 60, LocalTime.of(1, 15), false));
+				new Recette("Hachis parmentier sans viande aux légumes", 4, null, 3.3, 60, Duration.ofMinutes(75), false));
 
 		// RecetteIngredient 21
 		_recetteIngredientService.create(5, 1, 400);
@@ -494,7 +495,7 @@ public class UpdateRecetteEtIngredientBDD4 {
 
 		/* Recette 6 */
 		_recetteService.create(new Recette("Tagliatelles légères lentilles, potiron et roquefort", 4, null, 3.7, 46,
-				LocalTime.of(1, 30), false));
+				Duration.ofMinutes(90), false));
 
 		/// Ingredient 21 ///
 		_ingredientService.create(new Ingredient("Tagliatelle sans oeuf", 288, 1, 12, true, true, Unite.g));
@@ -545,7 +546,7 @@ public class UpdateRecetteEtIngredientBDD4 {
 
 		/* Recette 7 */
 		_recetteService.create(new Recette("Mijoté de boeuf maigre façon bourguignon à la tomate", 123, null, 3.6, 77,
-				LocalTime.of(2, 0), false));
+				Duration.ofMinutes(120), false));
 
 		/// Ingredient 25 ///
 		_ingredientService.create(new Ingredient("Viande de boeuf dégraissée", 100, 1, 12, false, false, Unite.g));
@@ -591,7 +592,7 @@ public class UpdateRecetteEtIngredientBDD4 {
 
 		/* Recette 8 */
 		_recetteService
-				.create(new Recette("Curry light de dinde aux légumes", 4, null, 3, 63, LocalTime.of(1, 15), false));
+				.create(new Recette("Curry light de dinde aux légumes", 4, null, 3, 63, Duration.ofMinutes(75), false));
 
 		/// Ingredient 26 ///
 		_ingredientService.create(new Ingredient("Escalope de dinde", 106, 1, 12, false, false, Unite.g));
@@ -646,7 +647,7 @@ public class UpdateRecetteEtIngredientBDD4 {
 
 		/* Recette 9: 4 personnes */
 		_recetteService.create(
-				new Recette("Soupe de légumes diététique au quinoa", 4, null, 3.7, 30, LocalTime.of(0, 50), false));
+				new Recette("Soupe de légumes diététique au quinoa", 4, null, 3.7, 30, Duration.ofMinutes(50), false));
 
 		/// Ingredient 29 ///
 		_ingredientService.create(new Ingredient("Quinoa", 75, 1, 12, true, true, Unite.g));
@@ -690,7 +691,7 @@ public class UpdateRecetteEtIngredientBDD4 {
 		_instructionRecetteService.create(9, "Servez bien chaud.");
 
 		/* Recette 10: 8 personnes */
-		_recetteService.create(new Recette("Tarte light thon-épinards", 8, null, 4.9, 16, LocalTime.of(1, 0), false));
+		_recetteService.create(new Recette("Tarte light thon-épinards", 8, null, 4.9, 16, Duration.ofMinutes(60), false));
 
 		// RecetteIngredient 47
 		_recetteIngredientService.create(10, 11, 250);
@@ -755,7 +756,7 @@ public class UpdateRecetteEtIngredientBDD4 {
 
 		/* Recette 11: 4 personnes */
 		_recetteService.create(new Recette("Endives au jambon minceur gratinées au gruyère", 4, null, 4.4, 67,
-				LocalTime.of(0, 50), false));
+				Duration.ofMinutes(50), false));
 
 		// RecetteIngredient 53
 		_recetteIngredientService.create(11, 3, 50);
@@ -787,7 +788,7 @@ public class UpdateRecetteEtIngredientBDD4 {
 
 		/* Recette 12 */
 		_recetteService
-				.create(new Recette("Papillote de merlan aux poivrons", 4, null, 3.6, 39, LocalTime.of(1, 0), false));
+				.create(new Recette("Papillote de merlan aux poivrons", 4, null, 3.6, 39, Duration.ofMinutes(60), false));
 
 		/// Ingredient 32 ///
 		_ingredientService.create(new Ingredient("Filet de merlan", 128, 1, 3, false, false, Unite.g));
@@ -826,7 +827,7 @@ public class UpdateRecetteEtIngredientBDD4 {
 
 		/* Recette 13 */
 		_recetteService.create(new Recette("Ragoût cramoisi de betterave, chou et bacon", 123, null, 2.1, 28,
-				LocalTime.of(2, 0), false));
+				Duration.ofMinutes(120), false));
 
 		/// Ingredient 35 ///
 		_ingredientService.create(new Ingredient("Chou blanc", 25, 6, 11, true, true, Unite.g));
@@ -864,7 +865,7 @@ public class UpdateRecetteEtIngredientBDD4 {
 		_instructionRecetteService.create(13, "Servez chaud !");
 
 		/* Recette 14 */
-		_recetteService.create(new Recette("Omelette au saumon fumé", 123, null, 4.1, 11, LocalTime.of(0, 30), false));
+		_recetteService.create(new Recette("Omelette au saumon fumé", 123, null, 4.1, 11, Duration.ofMinutes(30), false));
 
 		// RecetteIngredient 61
 		_recetteIngredientService.create(14, 17, 480);
@@ -916,7 +917,7 @@ public class UpdateRecetteEtIngredientBDD4 {
 
 		/* Recette 15 */
 		_recetteService.create(
-				new Recette("Gratin de chou fleur persillé au comté", 6, null, 3.6, 56, LocalTime.of(1, 0), false));
+				new Recette("Gratin de chou fleur persillé au comté", 6, null, 3.6, 56, Duration.ofMinutes(60), false));
 
 		/// Ingredient 40 ///
 		_ingredientService.create(new Ingredient("Chou fleur", 25, 5, 11, true, true, Unite.g));

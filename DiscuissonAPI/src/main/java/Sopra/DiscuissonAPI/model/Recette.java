@@ -1,5 +1,6 @@
 package Sopra.DiscuissonAPI.model;
 
+import java.time.Duration;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Objects;
@@ -44,7 +45,7 @@ public class Recette {
 	@JsonView(JsonViews.Common.class)
 	private int nombrePersonne; // la recette est prevu pour XX personnes
 	@JsonView(JsonViews.Common.class)
-	private LocalTime tempsDeCuisine;
+	private Duration tempsDeCuisine;
 	@JsonView(JsonViews.Common.class)
 	private Boolean isValid;
 	
@@ -54,7 +55,7 @@ public class Recette {
 	public Recette() {
 	}
 
-	public Recette(String name, int nombrePersonne, String commentaires, double note, int nombreVotant, LocalTime tempsDeCuisine,
+	public Recette(String name, int nombrePersonne, String commentaires, double note, int nombreVotant, Duration tempsDeCuisine,
 			Boolean isValid) {
 		this.name = name;
 		this.nombrePersonne = nombrePersonne;
@@ -155,11 +156,11 @@ public class Recette {
 		this.nombreVotant = nombreVotant;
 	}
 
-	public LocalTime getTempsDeCuisine() {
+	public Duration getTempsDeCuisine() {
 		return tempsDeCuisine;
 	}
 
-	public void setTempsDeCuisine(LocalTime tempsDeCuisine) {
+	public void setTempsDeCuisine(Duration tempsDeCuisine) {
 		this.tempsDeCuisine = tempsDeCuisine;
 	}
 

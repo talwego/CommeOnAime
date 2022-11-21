@@ -1,5 +1,6 @@
 package Sopra.DiscuissonAPI.service;
 
+import java.time.Duration;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -7,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import Sopra.DiscuissonAPI.exception.RecetteException;
-import Sopra.DiscuissonAPI.model.Ingredient;
 import Sopra.DiscuissonAPI.model.Recette;
 import Sopra.DiscuissonAPI.repository.RecetteRepository;
 
@@ -141,7 +141,7 @@ public class RecetteService {
 		return recetteRepository.findByCalorieBetween(obj1, obj2);
 	}
 	
-	public List<Recette> findByTempsDeCuisineBetween(LocalTime obj1, LocalTime obj2){
+	public List<Recette> findByTempsDeCuisineBetween(Duration obj1, Duration obj2){
 		return recetteRepository.findByTempsDeCuisineBetween(obj1, obj2);
 	}
 	
