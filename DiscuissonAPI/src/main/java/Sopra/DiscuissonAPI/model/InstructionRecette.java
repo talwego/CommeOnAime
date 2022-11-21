@@ -13,13 +13,13 @@ import com.fasterxml.jackson.annotation.JsonView;
 public class InstructionRecette {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@JsonView(JsonViews.Common.class)
+	@JsonView({JsonViews.Common.class})
 	private Integer id;
 	@ManyToOne
 	@JsonView(JsonViews.Common.class)
 	private Recette recette;
 	@Column(columnDefinition = "text")
-	@JsonView(JsonViews.Common.class)
+	@JsonView({JsonViews.Common.class,JsonViews.RecetteWithInstructionAndIngredient.class})
 	private String instruction;
 
 	public InstructionRecette() {

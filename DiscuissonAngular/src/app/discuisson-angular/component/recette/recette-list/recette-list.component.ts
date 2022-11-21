@@ -14,7 +14,6 @@ export class RecetteListComponent implements OnInit {
 
   ngOnInit(): void {
     this.initRecette();
- 
   }
 
   initRecette() {
@@ -26,6 +25,18 @@ export class RecetteListComponent implements OnInit {
   delete(id: number) {
     this.recetteService.deleteById(id).subscribe(() => {
       this.initRecette();
+    });
+  }
+
+  initRecetteVegan() {
+    this.recetteService.findAllVegan().subscribe((data) => {
+      this.recettes = data;
+    });
+  }
+
+  initRecetteVegetarien() {
+    this.recetteService.findAllVegetarien().subscribe((data) => {
+      this.recettes = data;
     });
   }
 }
