@@ -14,12 +14,10 @@ recettes: Recette[] = [];
 
   ngOnInit(): void {
     this.initRecette();
-  }
-  initRecette() {
-    throw new Error('Method not implemented.');
+ 
   }
 
-  initProduit() {
+  initRecette() {
     this.recetteService.findAll().subscribe((data) => {
       this.recettes = data;
     });
