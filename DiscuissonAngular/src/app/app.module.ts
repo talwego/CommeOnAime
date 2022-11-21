@@ -16,6 +16,10 @@ import { RecetteEditComponent } from './discuisson-angular/component/recette/rec
 import { RecetteListComponent } from './discuisson-angular/component/recette/recette-list/recette-list.component';
 import { SertARienDirective } from './discuisson-angular/directive/sert-arien.directive';
 import { routes } from './routes';
+import { AdminHomeComponent } from './discuisson-angular/component/admin/admin-home/admin-home.component';
+import { AdminUserListComponent } from './discuisson-angular/component/admin/admin-user/admin-user-list/admin-user-list.component';
+import { AdminAdminListComponent } from './discuisson-angular/component/admin/admin-admin/admin-admin-list/admin-admin-list.component';
+import { AdminNutritionistListComponent } from './discuisson-angular/component/admin/admin-nutritionist/admin-nutritionist-list/admin-nutritionist-list.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +35,10 @@ import { routes } from './routes';
     PageHomeBackgroundComponent,
     RecetteEditComponent,
     RecetteListComponent,
+    AdminHomeComponent,
+    AdminUserListComponent,
+    AdminAdminListComponent,
+    AdminNutritionistListComponent,
   ],
   imports: [
     BrowserModule,
