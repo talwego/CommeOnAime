@@ -112,9 +112,5 @@ public class Message {
 				+ ", nutritionist=" + nutritionist + ", user=" + user + "]";
 	}
 
-	public void setUser(Message findById) {
-		// TODO Auto-generated method stub
-
-	}
 
 }

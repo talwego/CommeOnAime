@@ -31,7 +31,7 @@ public class IngredientRestController {
 	@PostMapping("")
 	@JsonView(JsonViews.Ingredient.class)
 	public Ingredient create(@RequestBody Ingredient ingredient) {
-			
+		System.out.println(ingredient);
 		return ingredientService.save(ingredient);
 	}
 	

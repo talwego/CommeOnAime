@@ -29,12 +29,21 @@ export class IngredientEditComponent implements OnInit {
       if (params['id']) {
         this.ingredientService.findById(params['id']).subscribe((data) => {
           this.ingredient = data;
+          console.log(this.ingredient.unite);
+
+          if (this.ingredient.unite == 'g') {
+            this.ingredient.unite = 'g';
+          } else if (this.ingredient.unite == 'mL') {
+            this.ingredient.unite = 'mL';
+          }
         });
       } else {
         this.ingredient.dateDebutRecolte = 1;
         this.ingredient.dateFinRecolte = 12;
-        this.ingredient.vegan = false;
-        this.ingredient.vegetarien = false;
+        this.ingredient.dateDebutRecolte = 1;
+        this.ingredient.dateFinRecolte = 12;
+        this.ingredient.vegetarien = true;
+        this.ingredient.unite = 'g';
       }
     });
   }
@@ -49,8 +58,5 @@ export class IngredientEditComponent implements OnInit {
         this.router.navigateByUrl('/ingredient');
       });
     }
-    console.log('vegan: ' + this.ingredient.vegan);
-    console.log('vegetarien: ' + this.ingredient.vegetarien);
-    console.log('unite: ' + this.ingredient.unite);
   }
 }

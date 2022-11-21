@@ -5,10 +5,10 @@ import { RecetteService } from 'src/app/discuisson-angular/service/recette.servi
 @Component({
   selector: 'app-recette-list',
   templateUrl: './recette-list.component.html',
-  styleUrls: ['./recette-list.component.css']
+  styleUrls: ['./recette-list.component.css'],
 })
 export class RecetteListComponent implements OnInit {
-recettes: Recette[] = [];
+  recettes: Recette[] = [];
 
   constructor(private recetteService: RecetteService) {}
 
@@ -16,10 +16,6 @@ recettes: Recette[] = [];
     this.initRecette();
   }
   initRecette() {
-    throw new Error('Method not implemented.');
-  }
-
-  initProduit() {
     this.recetteService.findAll().subscribe((data) => {
       this.recettes = data;
     });

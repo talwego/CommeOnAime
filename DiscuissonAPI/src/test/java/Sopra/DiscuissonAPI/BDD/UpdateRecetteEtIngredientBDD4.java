@@ -1,13 +1,11 @@
 package Sopra.DiscuissonAPI.BDD;
 
-import java.time.LocalDate;
 import java.time.LocalTime;
 
 import javax.transaction.Transactional;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.data.redis.RedisProperties.Jedis;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Commit;
 
@@ -15,7 +13,6 @@ import Sopra.DiscuissonAPI.model.ActivitePhysique;
 import Sopra.DiscuissonAPI.model.Admin;
 import Sopra.DiscuissonAPI.model.Genre;
 import Sopra.DiscuissonAPI.model.Ingredient;
-import Sopra.DiscuissonAPI.model.Message;
 import Sopra.DiscuissonAPI.model.Nutritionist;
 import Sopra.DiscuissonAPI.model.Recette;
 import Sopra.DiscuissonAPI.model.Unite;

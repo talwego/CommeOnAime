@@ -90,7 +90,7 @@ public class MessageRestController {
 		fields.forEach((k, v) -> {
 			if (k.equals("message")) {
 				Map<String, Object> map = (Map<String, Object>) v;
-				message.setUser(messageSrv.findById(Integer.parseInt(map.get("id").toString())));
+				message.setUser(userSrv.findById(Integer.parseInt(map.get("id").toString())));
 			} else {
 				Field field = ReflectionUtils.findField(Message.class, k);
 				ReflectionUtils.makeAccessible(field);
