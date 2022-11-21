@@ -44,8 +44,8 @@ export class IngredientService {
       calorie: ingredient.calorie,
       dateDebutRecolte: ingredient.dateDebutRecolte,
       dateFinRecolte: ingredient.dateFinRecolte,
-      vegetarien: ingredient.vegetarien,
       vegan: ingredient.vegan,
+      vegetarien: ingredient.vegetarien,
       unite: ingredient.unite,
     };
     return ingredientEnJsonPourJava;

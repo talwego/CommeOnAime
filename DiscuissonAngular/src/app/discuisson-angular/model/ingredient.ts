@@ -43,10 +43,10 @@ export class Ingredient {
   public set vegan(value: boolean | undefined) {
     this._vegan = value;
   }
-  public get unite(): Unite | undefined {
+  public get unite(): string | undefined {
     return this._unite;
   }
-  public set unite(value: Unite | undefined) {
+  public set unite(value: string | undefined) {
     this._unite = value;
   }
   constructor(
@@ -57,6 +57,6 @@ export class Ingredient {
     private _dateFinRecolte?: number,
     private _vegetarien?: boolean,
     private _vegan?: boolean,
-    private _unite?: Unite
+    private _unite?: string
   ) {}
 }
