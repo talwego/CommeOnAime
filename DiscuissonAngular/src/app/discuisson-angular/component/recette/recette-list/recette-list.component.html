@@ -1,31 +1,35 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th>id:</th>
-      <th>name:</th>
-      <th>note:</th>
-      <th>tempsDeCuisine:</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let p of recettes">
-      <td>{{ p.id }}</td>
-      <td>{{ p.name }}</td>
-      <td>{{ p.note }}</td>
-      <td>{{ p.tempsDeCuisine }}</td>
-      <td>
-        <a routerLink="/recette/recette-edit{p.id}" routerLinkActive="active"
-          >editer</a
-        >
-      </td>
-      <td>
-        <button class="btn btn-outline-danger" (click)="delete(p.id!)">
-          supprimer
-        </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<a routerLink="/recette/recette-edit" routerLinkActive="active">nouvelle recette</a>
+<div id="liste">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>id:</th>
+        <th>name:</th>
+        <th>note:</th>
+        <th>tempsDeCuisine:</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of recettes">
+        <td>{{ p.id }}</td>
+        <td>{{ p.name }}</td>
+        <td>{{ p.note }}</td>
+        <td>{{ p.tempsDeCuisine }}</td>
+        <td>
+          <a routerLink="/recette/recette/edit{{ p.id }}" routerLinkActive="active"
+            >editer</a
+          >
+        </td>
+        <td>
+          <button class="btn btn-outline-danger" (click)="delete(p.id!)">
+            supprimer
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a routerLink="/recette/edit" routerLinkActive="active">nouvelle recette</a>
+  
+
+</div>
