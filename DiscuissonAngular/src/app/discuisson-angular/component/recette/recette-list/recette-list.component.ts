@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Recette } from 'src/app/discuisson-angular/model/recette';
+import { RecetteService } from 'src/app/discuisson-angular/service/recette.service';
 
 @Component({
   selector: 'app-recette-list',
@@ -13,6 +14,9 @@ recettes: Recette[] = [];
 
   ngOnInit(): void {
     this.initRecette();
+  }
+  initRecette() {
+    throw new Error('Method not implemented.');
   }
 
   initProduit() {
