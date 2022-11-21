@@ -21,7 +21,7 @@
           id="name"
           [(ngModel)]="recette.name"
           required
-          #libelleCtrl="ngModel"
+          #nameCtrl="ngModel"
         />
         <div
           *ngIf="nameCtrl.dirty && nameCtrl.invalid"
@@ -39,7 +39,7 @@
           id="vegetarien"
           [(ngModel)]="recette.vegetarien"
           required
-          #libelleCtrl="ngModel"
+          #vegetarienCtrl="ngModel"
         />
         <div
           *ngIf="vegetarienCtrl.dirty && vegetarienCtrl.invalid"
@@ -57,7 +57,7 @@
           id="vegan"
           [(ngModel)]="recette.vegan"
           required
-          #libelleCtrl="ngModel"
+          #veganCtrl="ngModel"
         />
         <div
           *ngIf="veganCtrl.dirty && veganCtrl.invalid"
@@ -75,7 +75,7 @@
           id="calorie"
           [(ngModel)]="recette.calorie"
           required
-          #libelleCtrl="ngModel"
+          #calorieCtrl="ngModel"
         />
         <div
           *ngIf="calorieCtrl.dirty && calorieCtrl.invalid"
@@ -93,7 +93,7 @@
           id="debutSaison"
           [(ngModel)]="recette.debutSaison"
           required
-          #libelleCtrl="ngModel"
+          #debutSaisonCtrl="ngModel"
         />
         <div
           *ngIf="debutSaisonCtrl.dirty && debutSaisonCtrl.invalid"
@@ -111,7 +111,7 @@
           id="finSaison"
           [(ngModel)]="recette.finSaison"
           required
-          #libelleCtrl="ngModel"
+          #finSaisonCtrl="ngModel"
         />
         <div
           *ngIf="finSaisonCtrl.dirty && finSaisonCtrl.invalid"
@@ -147,7 +147,7 @@
           id="tempsDeCuisine"
           [(ngModel)]="recette.tempsDeCuisine"
           required
-          #libelleCtrl="ngModel"
+          #tempsDeCuisineCtrl="ngModel"
         />
         <div
           *ngIf="tempsDeCuisineCtrl.dirty && tempsDeCuisineCtrl.invalid"
@@ -165,7 +165,7 @@
           id="isValid"
           [(ngModel)]="recette.isValid"
           required
-          #libelleCtrl="ngModel"
+          #isValidCtrl="ngModel"
         />
         <div
           *ngIf="isValidCtrl.dirty && isValidCtrl.invalid"
@@ -192,5 +192,5 @@
       </div>
     </form>
   </div>
-  
+
 </body>
