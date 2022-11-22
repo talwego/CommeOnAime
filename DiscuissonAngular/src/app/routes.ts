@@ -6,6 +6,7 @@ import { PageConceptComponent } from './discuisson-angular/component/page/page-c
 import { PageHomeComponent } from './discuisson-angular/component/page/page-home/page-home.component';
 import { RecetteEditComponent } from './discuisson-angular/component/recette/recette-edit/recette-edit.component';
 import { RecetteListComponent } from './discuisson-angular/component/recette/recette-list/recette-list.component';
+
 export const routes: Routes = [
   { path: 'home', component: PageHomeComponent },
   { path: 'concept', component: PageConceptComponent },
@@ -15,6 +16,11 @@ export const routes: Routes = [
   { path: 'recette', component: RecetteListComponent },
   { path: 'recette/edit', component: RecetteEditComponent },
   { path: 'recette/edit/:id', component: RecetteEditComponent },
+  { path: 'admin', component: AdminHomeComponent },
+  { path: 'admin/admin', component: AdminAdminListComponent },
+  { path: 'admin/user', component: AdminUserListComponent },
+  { path: 'admin/nutrionniste', component: AdminNutritionistListComponent },
+  { path: 'frigo', component: FrigoComponent },
 ];
 
 @NgModule({
