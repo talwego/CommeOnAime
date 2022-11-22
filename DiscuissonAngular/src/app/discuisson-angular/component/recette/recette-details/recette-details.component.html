@@ -1,0 +1,88 @@
+<body>
+  <div id="fenetre">
+    <div id="div-a1">
+      <div id="title">
+        <p class="backgroundOrange">La recette n°: {{ recette.id }}</p>
+      </div>
+      <div id="image">
+        <img [src]="urlImage" alt="url" style="border-radius: 10%" />
+      </div>
+    </div>
+    <div id="div-a2">
+      <div id="InfosBasique">
+        <p>Mon nom est: {{ recette.name }}</p>
+        <p *ngIf="recette.vegan && recette.vegetarien">Je suis vegan</p>
+        <p *ngIf="!recette.vegan && recette.vegetarien">Je suis vegetarien</p>
+        <p>Mon nombre de calorie est: {{ recette.calorie }} kcal</p>
+        <p *ngIf="recette.commentaires">
+          Mon commentaire est: {{ recette.commentaires }}
+        </p>
+        <p>Note: {{ recette.note }} pour {{ recette.nombreVotant }} votants</p>
+        <p>Je suis pour {{ recette.nombrePersonne }} personnes</p>
+        <p>On me cuisine en {{ recette.tempsDeCuisine }}</p>
+
+        <p>
+          Je suis naturelle de début
+          <ng-container *ngIf="recette.debutSaison == 1"> Janvier</ng-container>
+          <ng-container *ngIf="recette.debutSaison == 2"> Février</ng-container>
+          <ng-container *ngIf="recette.debutSaison == 3"> Mars</ng-container>
+          <ng-container *ngIf="recette.debutSaison == 4"> Avril</ng-container>
+          <ng-container *ngIf="recette.debutSaison == 5"> Mai</ng-container>
+          <ng-container *ngIf="recette.debutSaison == 6"> Juin</ng-container>
+          <ng-container *ngIf="recette.debutSaison == 7"> Juillet</ng-container>
+          <ng-container *ngIf="recette.debutSaison == 8"> Août</ng-container>
+          <ng-container *ngIf="recette.debutSaison == 9">
+            Septembre</ng-container
+          >
+          <ng-container *ngIf="recette.debutSaison == 10">
+            Octobre</ng-container
+          >
+          <ng-container *ngIf="recette.debutSaison == 11">
+            Novembre</ng-container
+          >
+          <ng-container *ngIf="recette.debutSaison == 12">
+            Décembre</ng-container
+          >
+          - fin
+          <ng-container *ngIf="recette.finSaison == 1"> Janvier</ng-container>
+          <ng-container *ngIf="recette.finSaison == 2"> Février</ng-container>
+          <ng-container *ngIf="recette.finSaison == 3"> Mars</ng-container>
+          <ng-container *ngIf="recette.finSaison == 4"> Avril</ng-container>
+          <ng-container *ngIf="recette.finSaison == 5"> Mai</ng-container>
+          <ng-container *ngIf="recette.finSaison == 6"> Juin</ng-container>
+          <ng-container *ngIf="recette.finSaison == 7"> Juillet</ng-container>
+          <ng-container *ngIf="recette.finSaison == 8"> Août</ng-container>
+          <ng-container *ngIf="recette.finSaison == 9"> Septembre</ng-container>
+          <ng-container *ngIf="recette.finSaison == 10"> Octobre</ng-container>
+          <ng-container *ngIf="recette.finSaison == 11"> Novembre</ng-container>
+          <ng-container *ngIf="recette.finSaison == 12"> Décembre</ng-container>
+        </p>
+
+        <p *ngIf="recette.isValid">Je suis validé par un admin</p>
+        <p *ngIf="!recette.isValid">
+          Je ne suis pas encore validé par un admin
+        </p>
+      </div>
+
+      <div id="ingredients">
+        <p class="backgroundOrange">Pour me faire, il vous faut:</p>
+        <ng-container *ngFor="let i of recette.recetteIngredients">
+          <p>
+            {{ i.quantite }}{{ i.ingredient!.unite }} de
+            {{ i.ingredient!.name }}
+          </p>
+        </ng-container>
+      </div>
+    </div>
+    <div id="instructions">
+      <p class="backgroundOrange">Etapes pour me réaliser:</p>
+      <ol>
+        <ng-container *ngFor="let i of recette.instructionRecettes">
+          <li>
+            {{ i.instruction }}
+          </li>
+        </ng-container>
+      </ol>
+    </div>
+  </div>
+</body>

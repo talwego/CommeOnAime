@@ -21,6 +21,8 @@ import { AdminUserListComponent } from './discuisson-angular/component/admin/adm
 import { AdminAdminListComponent } from './discuisson-angular/component/admin/admin-admin/admin-admin-list/admin-admin-list.component';
 import { AdminNutritionistListComponent } from './discuisson-angular/component/admin/admin-nutritionist/admin-nutritionist-list/admin-nutritionist-list.component';
 import { FrigoComponent } from './discuisson-angular/component/frigo/frigo.component';
+import { RecetteDetailsComponent } from './discuisson-angular/component/recette/recette-details/recette-details.component';
+import { UserToVIPComponent } from './discuisson-angular/component/user-to-vip/user-to-vip.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { FrigoComponent } from './discuisson-angular/component/frigo/frigo.compo
     AdminAdminListComponent,
     AdminNutritionistListComponent,
     FrigoComponent,
+    RecetteDetailsComponent,
+    UserToVIPComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,23 +1,29 @@
-import { Ingredient } from "./ingredient";
-import { Recette } from "./recette";
+import { Ingredient } from './ingredient';
+import { Recette } from './recette';
 
 export class RecetteIngredient {
-  public get recette(): Recette  | undefined {
+  public get quantite(): number | undefined {
+    return this._quantite;
+  }
+  public set quantite(value: number | undefined) {
+    this._quantite = value;
+  }
+  public get recette(): Recette | undefined {
     return this._recette;
   }
-  public set recette(value: Recette  | undefined) {
+  public set recette(value: Recette | undefined) {
     this._recette = value;
   }
-  public get ingredient(): Ingredient  | undefined {
+  public get ingredient(): Ingredient | undefined {
     return this._ingredient;
   }
-  public set ingredient(value: Ingredient  | undefined) {
+  public set ingredient(value: Ingredient | undefined) {
     this._ingredient = value;
   }
-  public get id(): number  | undefined {
+  public get id(): number | undefined {
     return this._id;
   }
-  public set id(value: number  | undefined) {
+  public set id(value: number | undefined) {
     this._id = value;
   }
 
@@ -25,8 +31,6 @@ export class RecetteIngredient {
     private _id?: number,
     private _ingredient?: Ingredient,
     private _recette?: Recette,
-
+    private _quantite?: number
   ) {}
-
-
 }

@@ -9,8 +9,10 @@ import { IngredientEditComponent } from './discuisson-angular/component/ingredie
 import { IngredientListComponent } from './discuisson-angular/component/ingredient/ingredient-list/ingredient-list.component';
 import { PageConceptComponent } from './discuisson-angular/component/page/page-concept/page-concept.component';
 import { PageHomeComponent } from './discuisson-angular/component/page/page-home/page-home.component';
+import { RecetteDetailsComponent } from './discuisson-angular/component/recette/recette-details/recette-details.component';
 import { RecetteEditComponent } from './discuisson-angular/component/recette/recette-edit/recette-edit.component';
 import { RecetteListComponent } from './discuisson-angular/component/recette/recette-list/recette-list.component';
+import { UserToVIPComponent } from './discuisson-angular/component/user-to-vip/user-to-vip.component';
 
 export const routes: Routes = [
   { path: 'home', component: PageHomeComponent },
@@ -21,11 +23,13 @@ export const routes: Routes = [
   { path: 'recette', component: RecetteListComponent },
   { path: 'recette/edit', component: RecetteEditComponent },
   { path: 'recette/edit/:id', component: RecetteEditComponent },
+  { path: 'recette/details/:id', component: RecetteDetailsComponent },
   { path: 'admin', component: AdminHomeComponent },
   { path: 'admin/admin', component: AdminAdminListComponent },
   { path: 'admin/user', component: AdminUserListComponent },
   { path: 'admin/nutrionniste', component: AdminNutritionistListComponent },
   { path: 'frigo', component: FrigoComponent },
+  { path: 'userVIP', component: UserToVIPComponent },
 ];
 
 @NgModule({

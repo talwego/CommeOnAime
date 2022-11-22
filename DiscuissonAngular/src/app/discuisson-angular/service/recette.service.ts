@@ -39,6 +39,12 @@ export class RecetteService {
     );
   }
 
+  public findByIdWithDetails(id: number): Observable<Recette> {
+    return this.httpClient.get<Recette>(
+      `http://localhost:8080/discuisson/api/recette/details/${id}`
+    );
+  }
+
   public update(recette: Recette): Observable<Recette> {
     console.debug(recette);
     return this.httpClient.put<Recette>(
