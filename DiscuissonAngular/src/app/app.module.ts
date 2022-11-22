@@ -23,6 +23,7 @@ import { AdminNutritionistListComponent } from './discuisson-angular/component/a
 import { FrigoComponent } from './discuisson-angular/component/frigo/frigo.component';
 import { RecetteDetailsComponent } from './discuisson-angular/component/recette/recette-details/recette-details.component';
 import { UserToVIPComponent } from './discuisson-angular/component/user-to-vip/user-to-vip.component';
+import { FrigoBackgroundComponent } from './discuisson-angular/component/frigo/frigo-background/frigo-background.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { UserToVIPComponent } from './discuisson-angular/component/user-to-vip/u
     FrigoComponent,
     RecetteDetailsComponent,
     UserToVIPComponent,
+    FrigoBackgroundComponent,
   ],
   imports: [
     BrowserModule,

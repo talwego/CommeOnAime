@@ -1,60 +1,81 @@
+<app-frigo-background></app-frigo-background>
 <body>
-  <div>
-    <h1>Mon frigo</h1>
-    <img src="assets/images/frigo-sans-bg.png" alt="frigo" />
-  </div>
-  <div>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>nom:</th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let p of ingredients">
-          <ng-container *ngIf="getQuantite(p.id!)">
-            <td>{{ p.name }}</td>
-            <td>
-              <button (click)="ajouterPanier(p.id!)" class="btn btn-link">
-                plus
-              </button>
-            </td>
-            <ng-container *ngIf="getQuantite(p.id!)"
-              ><td>{{ getQuantite(p.id!) }}{{ p.unite }}</td>
+  <div id="div-a1">
+    <div id="div-b1"></div>
+    <div id="div-b2">
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of ingredients">
+            <ng-container *ngIf="getQuantite(p.id!)">
+              <td>{{ p.name }}</td>
               <td>
-                <button (click)="retirerPanier(p.id!)" class="btn btn-link">
-                  moins
-                </button>
+                <a (click)="ajouterPanier(p.id!)">
+                  <img
+                    src="assets/images/image-frigo/plusVert-sans-bg.png"
+                    width="30px"
+                    alt=""
+                  />
+                </a>
               </td>
-              <td>
-                <button (click)="supprimerPanier(p.id!)" class="btn btn-link">
-                  poubelle
-                </button>
-              </td>
+              <ng-container *ngIf="getQuantite(p.id!)"
+                ><td>{{ getQuantite(p.id!) }}{{ p.unite }}</td>
+                <td>
+                  <a (click)="retirerPanier(p.id!)">
+                    <img
+                      style="padding-top: 2%"
+                      src="assets/images/image-frigo/moinsVert-sans-bg.png"
+                      width="30px"
+                      alt=""
+                    />
+                  </a>
+                </td>
+                <td>
+                  <a (click)="supprimerPanier(p.id!)">
+                    <img
+                      style="padding-top: 2%"
+                      src="assets/images/image-frigo/poubelleVert-sans-bg.png"
+                      width="30px"
+                      alt=""
+                    />
+                  </a>
+                </td>
+              </ng-container>
             </ng-container>
-          </ng-container>
-        </tr>
-        <tr *ngFor="let p of ingredients">
-          <ng-container *ngIf="!getQuantite(p.id!)">
-            <td>{{ p.name }}</td>
-            <td>
-              <button (click)="ajouterPanier(p.id!)" class="btn btn-link">
-                plus
-              </button>
-            </td>
-          </ng-container>
-        </tr>
-      </tbody>
-    </table>
-    <a
-      routerLink="/achat/validation"
-      routerLinkActive="active"
-      class="btn btn-link"
-      >valider panier</a
-    >
+          </tr>
+          <tr *ngFor="let p of ingredients">
+            <ng-container *ngIf="!getQuantite(p.id!)">
+              <td>{{ p.name }}</td>
+              <td>
+                <a (click)="ajouterPanier(p.id!)">
+                  <img
+                    src="assets/images/image-frigo/plusVert-sans-bg.png"
+                    width="30px"
+                    alt=""
+                  />
+                </a>
+              </td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </ng-container>
+          </tr>
+        </tbody>
+      </table>
+      <a
+        routerLink="/achat/validation"
+        routerLinkActive="active"
+        class="btn btn-link"
+        >valider panier</a
+      >
+    </div>
   </div>
 </body>
