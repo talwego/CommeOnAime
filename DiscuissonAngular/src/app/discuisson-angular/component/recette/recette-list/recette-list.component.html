@@ -27,42 +27,32 @@
     </li>
   </ul>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th>id:</th>
-        <th>name:</th>
-        <th>note:</th>
-        <th>tempsDeCuisine:</th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let p of recettes">
-        <td>{{ p.id }}</td>
-        <td>{{ p.name }}</td>
-        <td>{{ p.note }}</td>
-        <td>{{ p.tempsDeCuisine }}</td>
-        <td>
+  <div class="table">
+    
+    <ul class="wrapper">
+      <li *ngFor="let p of recettes">
+        <ul>{{ p.name }}</ul>
+        <ul>note {{ p.note }}</ul>
+        <ul>Temps de préparation {{ p.tempsDeCuisine }}</ul>
+        <ul>
           <a routerLink="/recette/detail/{{ p.id }}" routerLinkActive="active"
             >plus de details</a
           >
-        </td>
-        <td>
+        </ul>
+        <ul>
           <a 
           routerLink="/recette/edit/{{ p.id }}" 
           routerLinkActive="active"
             >editer</a
           >
-        </td>
-        <td>
+        </ul>
+        <ul>
           <button class="btn btn-outline-danger" (click)="delete(p.id!)">
             supprimer
           </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </ul>
+      </li>
+    </ul>
+  </div>
   <a routerLink="/recette/edit" routerLinkActive="active">nouvelle recette</a>
 </body>
