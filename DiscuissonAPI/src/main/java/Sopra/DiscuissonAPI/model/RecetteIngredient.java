@@ -12,11 +12,11 @@ import com.fasterxml.jackson.annotation.JsonView;
 public class RecetteIngredient {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@JsonView(JsonViews.Common.class)
+	@JsonView({JsonViews.Common.class})
 	private Integer id;
 	
 	@ManyToOne
-	@JsonView(JsonViews.Common.class)
+	@JsonView({JsonViews.Common.class,JsonViews.RecetteWithInstructionAndIngredient.class})
 	private Ingredient ingredient;
 	
 	@ManyToOne
@@ -26,7 +26,7 @@ public class RecetteIngredient {
 	
 	public RecetteIngredient() {
 	}
-	
+	@JsonView({JsonViews.Common.class,JsonViews.RecetteWithInstructionAndIngredient.class})
 	private double quantite;
 	
 	public RecetteIngredient(Ingredient ingredient, Recette recette, double quantite) {
