@@ -1,3 +1,27 @@
 body {
   margin-top: 10%;
 }
+.nav-list .btnVert {
+  font-size: 25px;
+  color: white;
+  background-color: rgba(102, 172, 38, 1);
+  border-radius: 12px;
+  text-decoration: none;
+  padding-left: 12%;
+  padding-right: 12%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.nav-list {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 12px;
+  padding: 12px;
+  list-style: none;
+}
