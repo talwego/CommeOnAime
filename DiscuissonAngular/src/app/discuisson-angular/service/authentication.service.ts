@@ -20,4 +20,17 @@ export class AuthenticationService {
       headers: headers,
     });
   }
+
+  public isAdmin(): boolean {
+    return sessionStorage.getItem('role') == 'admin';
+  }
+
+  public isUser(): boolean {
+    return sessionStorage.getItem('role') == 'user';
+  }
+
+  public isNutritionist(): boolean {
+    return sessionStorage.getItem('role') == 'nutritionist';
+  }
 }
+

@@ -12,10 +12,11 @@ import { MenuComponent } from './discuisson-angular/component/menu/menu.componen
 import { PageConceptComponent } from './discuisson-angular/component/page/page-concept/page-concept.component';
 import { PageHomeBackgroundComponent } from './discuisson-angular/component/page/page-home/page-home-background/page-home-background.component';
 import { PageHomeComponent } from './discuisson-angular/component/page/page-home/page-home.component';
-import { PageHomeBackgroundComponent } from './discuisson-angular/component/page/page-home/page-home-background/page-home-background.component';
 import { LoginComponent } from './discuisson-angular/component/login/login.component';
-//import { RegisterComponent } from './discuisson-angular/component/register/register.component';
+import { RegisterComponent } from './discuisson-angular/component/register/register.component';
 import { BackgroundPourPageConnectionComponent } from './discuisson-angular/component/background-pour-page-connection/background-pour-page-connection.component';
+import { SertARienDirective } from './discuisson-angular/directive/sert-arien.directive';
+import { routes } from './routes';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { BackgroundPourPageConnectionComponent } from './discuisson-angular/comp
     PageHomeComponent,
     PageHomeBackgroundComponent,
     LoginComponent,
-    //RegisterComponent,
+    RegisterComponent,
     BackgroundPourPageConnectionComponent,
   ],
   imports: [
