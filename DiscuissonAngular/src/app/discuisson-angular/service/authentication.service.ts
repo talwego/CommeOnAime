@@ -33,4 +33,3 @@ export class AuthenticationService {
     return sessionStorage.getItem('role') == 'nutritionist';
   }
 }
-

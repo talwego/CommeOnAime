@@ -6,10 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import Sopra.DiscuissonAPI.exception.AdminException;
 import Sopra.DiscuissonAPI.exception.IdException;
 import Sopra.DiscuissonAPI.exception.UserException;
-import Sopra.DiscuissonAPI.model.Admin;
 import Sopra.DiscuissonAPI.model.Genre;
 import Sopra.DiscuissonAPI.model.User;
 import Sopra.DiscuissonAPI.repository.UserRepository;
@@ -78,6 +76,7 @@ public class UserService {
 			// TO DO AdminException
 			throw new UserException("user deja dans la base");
 		}
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		return save(user);
 	}
 	
@@ -108,7 +107,6 @@ public class UserService {
 	}
 	
 	public User creation(User user) {
-		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		return create(user);
 	}
 

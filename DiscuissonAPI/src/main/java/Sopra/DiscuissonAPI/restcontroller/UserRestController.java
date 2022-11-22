@@ -53,7 +53,7 @@ public class UserRestController {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
 		
-		return userSrv.save(user);
+		return userSrv.create(user);
 	}
 
 	@PutMapping("/{id}")
