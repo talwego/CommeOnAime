@@ -12,10 +12,15 @@ import { MenuComponent } from './discuisson-angular/component/menu/menu.componen
 import { PageConceptComponent } from './discuisson-angular/component/page/page-concept/page-concept.component';
 import { PageHomeBackgroundComponent } from './discuisson-angular/component/page/page-home/page-home-background/page-home-background.component';
 import { PageHomeComponent } from './discuisson-angular/component/page/page-home/page-home.component';
-import { PageHomeBackgroundComponent } from './discuisson-angular/component/page/page-home/page-home-background/page-home-background.component';
-import { LoginComponent } from './discuisson-angular/component/login/login.component';
-//import { RegisterComponent } from './discuisson-angular/component/register/register.component';
-import { BackgroundPourPageConnectionComponent } from './discuisson-angular/component/background-pour-page-connection/background-pour-page-connection.component';
+import { RecetteEditComponent } from './discuisson-angular/component/recette/recette-edit/recette-edit.component';
+import { RecetteListComponent } from './discuisson-angular/component/recette/recette-list/recette-list.component';
+import { SertARienDirective } from './discuisson-angular/directive/sert-arien.directive';
+import { routes } from './routes';
+import { AdminHomeComponent } from './discuisson-angular/component/admin/admin-home/admin-home.component';
+import { AdminUserListComponent } from './discuisson-angular/component/admin/admin-user/admin-user-list/admin-user-list.component';
+import { AdminAdminListComponent } from './discuisson-angular/component/admin/admin-admin/admin-admin-list/admin-admin-list.component';
+import { AdminNutritionistListComponent } from './discuisson-angular/component/admin/admin-nutritionist/admin-nutritionist-list/admin-nutritionist-list.component';
+import { FrigoComponent } from './discuisson-angular/component/frigo/frigo.component';
 
 @NgModule({
   declarations: [
@@ -29,9 +34,13 @@ import { BackgroundPourPageConnectionComponent } from './discuisson-angular/comp
     PageConceptComponent,
     PageHomeComponent,
     PageHomeBackgroundComponent,
-    LoginComponent,
-    //RegisterComponent,
-    BackgroundPourPageConnectionComponent,
+    RecetteEditComponent,
+    RecetteListComponent,
+    AdminHomeComponent,
+    AdminUserListComponent,
+    AdminAdminListComponent,
+    AdminNutritionistListComponent,
+    FrigoComponent,
   ],
   imports: [
     BrowserModule,

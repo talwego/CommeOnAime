@@ -7,10 +7,10 @@ import { AdminUserListComponent } from './discuisson-angular/component/admin/adm
 import { FrigoComponent } from './discuisson-angular/component/frigo/frigo.component';
 import { IngredientEditComponent } from './discuisson-angular/component/ingredient/ingredient-edit/ingredient-edit.component';
 import { IngredientListComponent } from './discuisson-angular/component/ingredient/ingredient-list/ingredient-list.component';
-import { LoginComponent } from './discuisson-angular/component/login/login.component';
 import { PageConceptComponent } from './discuisson-angular/component/page/page-concept/page-concept.component';
 import { PageHomeComponent } from './discuisson-angular/component/page/page-home/page-home.component';
-//import { RegisterComponent } from './discuisson-angular/component/register/register.component';
+import { RecetteEditComponent } from './discuisson-angular/component/recette/recette-edit/recette-edit.component';
+import { RecetteListComponent } from './discuisson-angular/component/recette/recette-list/recette-list.component';
 
 export const routes: Routes = [
   { path: 'home', component: PageHomeComponent },
@@ -18,9 +18,14 @@ export const routes: Routes = [
   { path: 'ingredient', component: IngredientListComponent },
   { path: 'ingredient/edit', component: IngredientEditComponent },
   { path: 'ingredient/edit/:id', component: IngredientEditComponent },
-  { path: 'login', component: LoginComponent },
-  //{ path: 'register', component: RegisterComponent },
-  { path: '**', component: PageHomeComponent },
+  { path: 'recette', component: RecetteListComponent },
+  { path: 'recette/edit', component: RecetteEditComponent },
+  { path: 'recette/edit/:id', component: RecetteEditComponent },
+  { path: 'admin', component: AdminHomeComponent },
+  { path: 'admin/admin', component: AdminAdminListComponent },
+  { path: 'admin/user', component: AdminUserListComponent },
+  { path: 'admin/nutrionniste', component: AdminNutritionistListComponent },
+  { path: 'frigo', component: FrigoComponent },
 ];
 
 @NgModule({
