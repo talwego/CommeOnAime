@@ -428,8 +428,10 @@ public class UpdateRecetteEtIngredientBDD4 {
 		_instructionRecetteService.create(4, "Dégustez chaud ou froid accompagné d'une salade verte assaisonnée.");
 
 		/* Recette 5 */
-		_recetteService.create(
-				new Recette("Hachis parmentier sans viande aux légumes", 4, null, 3.3, 60, LocalTime.of(1, 15), false));
+		
+				
+		_recetteService.create(new Recette("Hachis parmentier sans viande aux légumes", 4, null, 3.6, 87,
+				LocalTime.of(0, 50), false));
 
 		// RecetteIngredient 21
 		_recetteIngredientService.create(5, 1, 400);
@@ -784,7 +786,7 @@ public class UpdateRecetteEtIngredientBDD4 {
 
 		/* Recette 12 */
 		_recetteService
-				.create(new Recette("Papillote de merlan aux poivrons", 4, null, 3.6, 39, LocalTime.of(1, 0), false));
+				.create(new Recette("Papillote de merlan aux poivrons", 4, null, 3.6, 39, LocalTime.of(1, 00), false));
 
 		/// Ingredient 32 ///
 		_ingredientService.create(new Ingredient("Filet de merlan", 128, 1, 3, false, false, Unite.g));
