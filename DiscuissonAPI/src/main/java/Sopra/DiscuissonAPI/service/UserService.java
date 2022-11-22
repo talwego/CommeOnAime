@@ -81,10 +81,7 @@ public class UserService {
 		return save(user);
 	}
 	
-	public User creation(User user) {
-		user.setPassword(passwordEncoder.encode(user.getPassword()));
-		return create(user);
-	}
+
 	
 	public User update(User user) 
 	{
@@ -109,6 +106,12 @@ public class UserService {
 		
 		return userRepo.save(user);
 	}
+	
+	public User creation(User user) {
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
+		return create(user);
+	}
+
 	
 	public void delete(User user) 
 	{
