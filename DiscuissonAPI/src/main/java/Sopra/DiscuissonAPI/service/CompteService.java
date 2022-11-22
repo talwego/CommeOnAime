@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 
 import Sopra.DiscuissonAPI.exception.CompteException;
 import Sopra.DiscuissonAPI.exception.IdException;
+import Sopra.DiscuissonAPI.exception.MessageException;
 import Sopra.DiscuissonAPI.model.Compte;
+import Sopra.DiscuissonAPI.model.Nutritionist;
 import Sopra.DiscuissonAPI.repository.CompteRepository;
 
 
@@ -27,8 +29,10 @@ public class CompteService {
 	
 	public Compte findById(Integer id) 
 	{
-		// A faire : IdException
-		return compteRepo.findById(id).orElseThrow(IdException::new);
+		
+		return compteRepo.findById(id).orElseThrow(()->{
+			throw new MessageException("id inconnu");
+		});
 	}
 	
 	public List<Compte> findByLogin(String login) 
@@ -60,7 +64,7 @@ public class CompteService {
 		return save(compte);
 	}
 	
-	private Compte save(Compte compte) 
+	public Compte save(Compte compte) 
 	{
 		if (compte.getLogin() == null || compte.getLogin().isBlank() || compte.getLogin().length() > 30) 
 		{

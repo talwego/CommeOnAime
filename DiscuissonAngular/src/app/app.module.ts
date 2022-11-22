@@ -12,6 +12,11 @@ import { MenuComponent } from './discuisson-angular/component/menu/menu.componen
 import { PageConceptComponent } from './discuisson-angular/component/page/page-concept/page-concept.component';
 import { PageHomeBackgroundComponent } from './discuisson-angular/component/page/page-home/page-home-background/page-home-background.component';
 import { PageHomeComponent } from './discuisson-angular/component/page/page-home/page-home.component';
+import { LoginComponent } from './discuisson-angular/component/login/login.component';
+import { RegisterComponent } from './discuisson-angular/component/register/register.component';
+import { BackgroundPourPageConnectionComponent } from './discuisson-angular/component/background-pour-page-connection/background-pour-page-connection.component';
+import { SertARienDirective } from './discuisson-angular/directive/sert-arien.directive';
+import { routes } from './routes';
 import { RecetteEditComponent } from './discuisson-angular/component/recette/recette-edit/recette-edit.component';
 import { RecetteListComponent } from './discuisson-angular/component/recette/recette-list/recette-list.component';
 import { SertARienDirective } from './discuisson-angular/directive/sert-arien.directive';
@@ -34,6 +39,9 @@ import { FrigoComponent } from './discuisson-angular/component/frigo/frigo.compo
     PageConceptComponent,
     PageHomeComponent,
     PageHomeBackgroundComponent,
+    LoginComponent,
+    RegisterComponent,
+    BackgroundPourPageConnectionComponent,
     RecetteEditComponent,
     RecetteListComponent,
     AdminHomeComponent,
