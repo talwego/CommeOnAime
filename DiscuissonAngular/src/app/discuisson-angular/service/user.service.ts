@@ -30,7 +30,7 @@ export class UserService {
     );
   }
 
-  public create(ingredient: any): Observable<User> {
+  public create(ingredient: User): Observable<User> {
     return this.httpClient.post<User>(
       UserService.URL,
       this.adminToJson(ingredient)

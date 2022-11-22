@@ -11,7 +11,6 @@ import { PageConceptComponent } from './discuisson-angular/component/page/page-c
 import { PageHomeComponent } from './discuisson-angular/component/page/page-home/page-home.component';
 import { RecetteEditComponent } from './discuisson-angular/component/recette/recette-edit/recette-edit.component';
 import { RecetteListComponent } from './discuisson-angular/component/recette/recette-list/recette-list.component';
-import { RegisterComponent } from './discuisson-angular/component/register/register.component';
 
 export const routes: Routes = [
   { path: 'home', component: PageHomeComponent },
@@ -27,9 +26,6 @@ export const routes: Routes = [
   { path: 'admin/user', component: AdminUserListComponent },
   { path: 'admin/nutrionniste', component: AdminNutritionistListComponent },
   { path: 'frigo', component: FrigoComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: '**', component: PageHomeComponent },
 ];
 
 @NgModule({
