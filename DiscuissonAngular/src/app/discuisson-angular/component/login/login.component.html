@@ -1,0 +1,70 @@
+<app-background-pour-page-connection></app-background-pour-page-connection>
+<body>
+  <div style="margin-top: 10%" class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card shadow-lg p-5 mt-5 mb-5">
+          <h1>Bonjour !</h1>
+          <br />
+          <div *ngIf="showError" class="alert alert-danger">
+            Données incorrectes !
+          </div>
+          <form (ngSubmit)="send()" #form="ngForm" action="">
+            <div class="form-goup">
+              <label for="login">Nom d'utilisateur :</label>
+              <input
+                type="login"
+                name="login"
+                class="form-control"
+                placeholder="TiiToOnZ"
+                [(ngModel)]="login"
+                required
+                #loginCtrl="ngModel"
+              />
+              <div
+                *ngIf="loginCtrl.dirty && loginCtrl.invalid"
+                class="alert alert-danger"
+              >
+                Nom d'utilisateur obligatoire !
+              </div>
+              <br />
+              <div class="form-group">
+                <label for="password">Mot de passe :</label>
+                <input
+                  type="password"
+                  name="password"
+                  class="form-control"
+                  placeholder="*******"
+                  [(ngModel)]="password"
+                  required
+                  #passwordCtrl="ngModel"
+                />
+                <div
+                  *ngIf="passwordCtrl.dirty && passwordCtrl.invalid"
+                  class="alert alert-danger"
+                >
+                  Mot de passe obligatoire !
+                </div>
+              </div>
+            </div>
+            <br /><br />
+            <button
+              class="btn btn-outline-success"
+              type="submit"
+              [disabled]="form.invalid"
+            >
+              Se connecter
+            </button>
+            <button
+              class="btn btn-outline-warning"
+              routerLink="/register"
+              routerLinkActive="active"
+            >
+              S'inscrire
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
