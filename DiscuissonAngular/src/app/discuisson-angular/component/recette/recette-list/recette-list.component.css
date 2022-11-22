@@ -40,14 +40,14 @@ body {
   padding: 0 1rem;
 }
 
-body {
-  background: #efefef;
+.liste_recettes {
+  background: white;
   padding: 1rem 0;
   line-height: 1.4;
   font-family: sans-serif;
 }
 
-li {
+.recette {
   padding: 5rem 1rem;
   text-align: center;
   font-size: 1.2rem;

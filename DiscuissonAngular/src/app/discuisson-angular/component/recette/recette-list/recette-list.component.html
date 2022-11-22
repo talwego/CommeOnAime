@@ -26,19 +26,20 @@
       </button>
     </li>
   </ul>
-
+<div class="liste_recettes">
   <div  class="wrapper">
     
     <ul class="auto-grid">
-      <li *ngFor="let p of recettes">
+      <li class="recette" *ngFor="let p of recettes">
+        <a class="nav-link" routerLink="/recette/detail/{{ p.id }}" routerLinkActive="active"
+          ><img
+            src="assets/images/{{p}}.jpg"
+            width="140px"
+            height="108px"
+        /></a>
         <ul>{{ p.name }}</ul>
-        <ul>note {{ p.note }}</ul>
+        <ul>Note {{ p.note }}</ul>
         <ul>Temps de préparation {{ p.tempsDeCuisine }}</ul>
-        <ul>
-          <a routerLink="/recette/detail/{{ p.id }}" routerLinkActive="active"
-            >plus de details</a
-          >
-        </ul>
         <ul>
           <a 
           routerLink="/recette/edit/{{ p.id }}" 
@@ -54,5 +55,14 @@
       </li>
     </ul>
   </div>
-  <a routerLink="/recette/edit" routerLinkActive="active">nouvelle recette</a>
+</div>
+
 </body>
+
+
+  <div>
+    
+      <a routerLink="/recette/edit" routerLinkActive="active">nouvelle recette</a>
+  </div>
+  
+
