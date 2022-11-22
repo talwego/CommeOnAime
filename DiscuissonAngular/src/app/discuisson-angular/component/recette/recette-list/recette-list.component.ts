@@ -39,4 +39,9 @@ export class RecetteListComponent implements OnInit {
       this.recettes = data;
     });
   }
+  initRecetteDeSaison() {
+    this.recetteService.findBySaison().subscribe((data) => {
+      this.recettes = data;
+    });
+  }
 }

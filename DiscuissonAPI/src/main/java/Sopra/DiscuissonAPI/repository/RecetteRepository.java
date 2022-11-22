@@ -28,4 +28,9 @@ public interface RecetteRepository extends JpaRepository<Recette, Integer>{
 	Optional<Recette> findByIdFetchRecetteIngredient(@Param("id") Integer id);
 	@Query("SELECT obj FROM Recette obj WHERE (obj.debutSaison <= obj.finSaison AND obj.debutSaison <= :obj1 AND obj.finSaison >= :obj2) OR (obj.debutSaison > obj.finSaison AND obj.debutSaison <= :obj1 AND obj.finSaison + 12 >= :obj2)")
 	List<Recette> findBySaisonBetween(@Param("obj1") Integer obj1, @Param("obj2") Integer obj2);
+	
+	
+	@Query("SELECT obj FROM Recette obj WHERE (obj.debutSaison<=:saison AND obj.finSaison>=:saison)")
+	List<Recette> findBySaison(@Param("saison") Integer saison);
+	
 }

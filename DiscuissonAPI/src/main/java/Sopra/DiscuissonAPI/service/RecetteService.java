@@ -26,6 +26,7 @@ public class RecetteService {
 		});
 	}
 	
+	
 	private void debutSaisonIsValid(int saison) {
 		if(saison < 1 || saison > 12) {
 			throw new RecetteException("mois du debut de la saison < 1 ou > 12");
@@ -96,6 +97,11 @@ public class RecetteService {
 	
 	public List<Recette> findByVegan(Boolean vegan){
 		return recetteRepository.findByVegan(vegan);
+	}
+	
+	//find by saison
+	public List<Recette> findBySaison(int saison){
+		return recetteRepository.findBySaison(saison);
 	}
 	
 	public List<Recette> findByDebutSaisonLess(int obj){
