@@ -6,7 +6,9 @@
         <div class="card shadow-lg p-5 mt-5 mb-5">
           <h1>Bonjour !</h1>
           <br />
-          <div *ngIf="showError" class="alert alert-danger">Données incorrectes !</div>
+          <div *ngIf="showError" class="alert alert-danger">
+            Données incorrectes !
+          </div>
           <form (ngSubmit)="send()" #form="ngForm" action="">
             <div class="form-goup">
               <label for="login">Nom d'utilisateur :</label>
@@ -18,34 +20,34 @@
                 [(ngModel)]="login"
                 required
                 #loginCtrl="ngModel"
-                />
-                <div
+              />
+              <div
                 *ngIf="loginCtrl.dirty && loginCtrl.invalid"
                 class="alert alert-danger"
               >
-              Nom d'utilisateur obligatoire !
+                Nom d'utilisateur obligatoire !
               </div>
               <br />
               <div class="form-group">
-              <label for="password">Mot de passe :</label>
-              <input
-                type="password"
-                name="password"
-                class="form-control"
-                placeholder="*******"
-                [(ngModel)]="password"
-                required
-                #passwordCtrl="ngModel"
-              />
-              <div
-              *ngIf="passwordCtrl.dirty && passwordCtrl.invalid"
-              class="alert alert-danger"
-            >
-              Mot de passe obligatoire !
+                <label for="password">Mot de passe :</label>
+                <input
+                  type="password"
+                  name="password"
+                  class="form-control"
+                  placeholder="*******"
+                  [(ngModel)]="password"
+                  required
+                  #passwordCtrl="ngModel"
+                />
+                <div
+                  *ngIf="passwordCtrl.dirty && passwordCtrl.invalid"
+                  class="alert alert-danger"
+                >
+                  Mot de passe obligatoire !
+                </div>
+              </div>
             </div>
-            </div>
-            </div>
-            <br><br>
+            <br /><br />
             <button
               class="btn btn-outline-success"
               type="submit"
