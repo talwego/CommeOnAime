@@ -39,12 +39,6 @@ public class RecetteRestController {
 		return recetteService.findById(id);
 	}
 	
-	@GetMapping("/details/{id}")
-	@JsonView(JsonViews.RecetteWithInstructionAndIngredient.class)
-	public Recette findByIdWithInstructionAndIngredient(@PathVariable Integer id) {
-		return recetteService.findById(id);
-	}
-	
 	@JsonView(JsonViews.Recette.class)
 	@PostMapping("/list")
 	public List<Recette> create(@RequestBody List<Recette> recettes) {
@@ -61,14 +55,14 @@ public class RecetteRestController {
 	//Liste recettes vegetariennes
 	@GetMapping("/vegetarien")
 	@JsonView(JsonViews.Recette.class)
-	public List<Recette> findByVegetarien(){
-		return recetteService.findByVegetarien(true);
+	public List<Recette> findByVegetarien(Boolean obj){
+		return recetteService.findByVegetarien(obj);
 	}
 	//Liste recettes vegetariennes
 	@GetMapping("/vegan")
 	@JsonView(JsonViews.Recette.class)
-	public List<Recette> findByVegan(){
-		return recetteService.findByVegan(true);
+	public List<Recette> findByVegan(Boolean obj){
+		return recetteService.findByVegan(obj);
 	}
 	//Liste recettes interval calories
 	@GetMapping("/calorie")

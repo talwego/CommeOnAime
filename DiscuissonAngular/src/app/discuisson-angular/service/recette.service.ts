@@ -7,23 +7,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class RecetteService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(
+    private httpClient: HttpClient,
+  ) {}
 
   public findAll(): Observable<Recette[]> {
     return this.httpClient.get<Recette[]>(
       'http://localhost:8080/discuisson/api/recette'
-    );
-  }
-
-  public findAllVegetarien(): Observable<Recette[]> {
-    return this.httpClient.get<Recette[]>(
-      'http://localhost:8080/discuisson/api/recette/vegetarien'
-    );
-  }
-
-  public findAllVegan(): Observable<Recette[]> {
-    return this.httpClient.get<Recette[]>(
-      'http://localhost:8080/discuisson/api/recette/vegan'
     );
   }
 
@@ -71,3 +61,4 @@ export class RecetteService {
     return recetteEnJsonPourJava;
   }
 }
+

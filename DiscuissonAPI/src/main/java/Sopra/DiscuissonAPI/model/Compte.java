@@ -41,6 +41,7 @@ public class Compte implements UserDetails{
 	protected String login;
 	
 	@Column(length = 255,nullable = false)
+	@JsonView(JsonViews.Common.class)
 	protected String password;
 	
 	public Compte() {

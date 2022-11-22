@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Ingredient } from 'src/app/discuisson-angular/model/ingredient';
+import { Unite } from 'src/app/discuisson-angular/model/unite';
 import { IngredientService } from 'src/app/discuisson-angular/service/ingredient.service';
 
 @Component({
@@ -22,6 +29,7 @@ export class IngredientEditComponent implements OnInit {
       if (params['id']) {
         this.ingredientService.findById(params['id']).subscribe((data) => {
           this.ingredient = data;
+          console.log(this.ingredient.unite);
 
           if (this.ingredient.unite == 'g') {
             this.ingredient.unite = 'g';

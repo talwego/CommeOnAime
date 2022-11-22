@@ -1,6 +1,5 @@
 package Sopra.DiscuissonAPI.model;
 
-import java.time.Duration;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Objects;
@@ -18,40 +17,38 @@ import com.fasterxml.jackson.annotation.JsonView;
 public class Recette {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@JsonView({JsonViews.Common.class,JsonViews.RecetteWithInstructionAndIngredient.class})
+	@JsonView(JsonViews.Common.class)
 	private Integer id;
-	@JsonView({JsonViews.Common.class,JsonViews.RecetteWithInstructionAndIngredient.class})
+	@JsonView(JsonViews.Common.class)
 	private String name;
-	@JsonView({JsonViews.Common.class,JsonViews.RecetteWithInstructionAndIngredient.class})
+	@JsonView(JsonViews.Common.class)
 	private boolean vegetarien;
-	@JsonView({JsonViews.Common.class,JsonViews.RecetteWithInstructionAndIngredient.class})
+	@JsonView(JsonViews.Common.class)
 	private boolean vegan;
 	
 	@OneToMany(mappedBy="recette")
-	@JsonView(JsonViews.RecetteWithInstructionAndIngredient.class)
 	private List<RecetteIngredient> recetteIngredients;
 	
-	@JsonView({JsonViews.Common.class,JsonViews.RecetteWithInstructionAndIngredient.class})
+	@JsonView(JsonViews.Common.class)
 	private int calorie;	
-	@JsonView({JsonViews.Common.class,JsonViews.RecetteWithInstructionAndIngredient.class})
+	@JsonView(JsonViews.Common.class)
 	private int debutSaison;	 // 1 = Janvier, 2 = Fevrier, 3 = Mars...
-	@JsonView({JsonViews.Common.class,JsonViews.RecetteWithInstructionAndIngredient.class})
+	@JsonView(JsonViews.Common.class)
 	private int finSaison; // 1 = Janvier, 2 = Fevrier, 3 = Mars...
-	@JsonView({JsonViews.Common.class,JsonViews.RecetteWithInstructionAndIngredient.class})
+	@JsonView(JsonViews.Common.class)
 	private String commentaires;
-	@JsonView({JsonViews.Common.class,JsonViews.RecetteWithInstructionAndIngredient.class})
+	@JsonView(JsonViews.Common.class)
 	private double note;
-	@JsonView({JsonViews.Common.class,JsonViews.RecetteWithInstructionAndIngredient.class})
+	@JsonView(JsonViews.Common.class)
 	private int nombreVotant;
-	@JsonView({JsonViews.Common.class,JsonViews.RecetteWithInstructionAndIngredient.class})
+	@JsonView(JsonViews.Common.class)
 	private int nombrePersonne; // la recette est prevu pour XX personnes
-	@JsonView({JsonViews.Common.class,JsonViews.RecetteWithInstructionAndIngredient.class})
+	@JsonView(JsonViews.Common.class)
 	private LocalTime tempsDeCuisine;
-	@JsonView({JsonViews.Common.class,JsonViews.RecetteWithInstructionAndIngredient.class})
+	@JsonView(JsonViews.Common.class)
 	private Boolean isValid;
 	
 	@OneToMany(mappedBy="recette")
-	@JsonView(JsonViews.RecetteWithInstructionAndIngredient.class)
 	private List<InstructionRecette> instructionRecettes;
 	
 	public Recette() {
