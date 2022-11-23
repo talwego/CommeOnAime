@@ -1,6 +1,19 @@
 body {
-  margin-top: 10%;
+  margin-top: 14%;
   width: 80%;
   margin-left: auto;
   margin-right: auto;
+}
+
+#div-a1 {
+  display: flex;
+}
+
+#div-b1 {
+  width: 30%;
+  display: flex;
+}
+
+#div-b2 {
+  width: 70%;
 }

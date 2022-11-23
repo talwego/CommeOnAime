@@ -24,6 +24,14 @@ import { RecetteListComponent } from './discuisson-angular/component/recette/rec
 import { RegisterComponent } from './discuisson-angular/component/register/register.component';
 import { SertARienDirective } from './discuisson-angular/directive/sert-arien.directive';
 import { routes } from './routes';
+import { AdminHomeComponent } from './discuisson-angular/component/admin/admin-home/admin-home.component';
+import { AdminUserListComponent } from './discuisson-angular/component/admin/admin-user/admin-user-list/admin-user-list.component';
+import { AdminAdminListComponent } from './discuisson-angular/component/admin/admin-admin/admin-admin-list/admin-admin-list.component';
+import { AdminNutritionistListComponent } from './discuisson-angular/component/admin/admin-nutritionist/admin-nutritionist-list/admin-nutritionist-list.component';
+import { FrigoComponent } from './discuisson-angular/component/frigo/frigo.component';
+import { RecetteDetailsComponent } from './discuisson-angular/component/recette/recette-details/recette-details.component';
+import { UserToVIPComponent } from './discuisson-angular/component/user-to-vip/user-to-vip.component';
+import { FrigoBackgroundComponent } from './discuisson-angular/component/frigo/frigo-background/frigo-background.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +52,9 @@ import { routes } from './routes';
     AdminAdminListComponent,
     AdminNutritionistListComponent,
     FrigoComponent,
+    RecetteDetailsComponent,
+    UserToVIPComponent,
+    FrigoBackgroundComponent,
     RegisterComponent,
     LoginComponent,
     BackgroundPourPageConnectionComponent,

@@ -1,4 +1,31 @@
+import { InstructionRecette } from './instruction-recette';
+import { RecetteIngredient } from './recette-ingredient';
+
 export class Recette {
+  public get nombrePersonne(): number | undefined {
+    return this._nombrePersonne;
+  }
+  public set nombrePersonne(value: number | undefined) {
+    this._nombrePersonne = value;
+  }
+  public get nombreVotant(): number | undefined {
+    return this._nombreVotant;
+  }
+  public set nombreVotant(value: number | undefined) {
+    this._nombreVotant = value;
+  }
+  public get recetteIngredients(): RecetteIngredient[] | undefined {
+    return this._recetteIngredients;
+  }
+  public set recetteIngredients(value: RecetteIngredient[] | undefined) {
+    this._recetteIngredients = value;
+  }
+  public get instructionRecettes(): InstructionRecette[] | undefined {
+    return this._instructionRecettes;
+  }
+  public set instructionRecettes(value: InstructionRecette[] | undefined) {
+    this._instructionRecettes = value;
+  }
   public get isValid(): boolean | undefined {
     return this._isValid;
   }
@@ -76,9 +103,11 @@ export class Recette {
     private _finSaison?: number,
     private _commentaires?: string,
     private _note?: number,
+    private _nombreVotant?: number,
+    private _nombrePersonne?: number,
     private _tempsDeCuisine?: Date,
     private _isValid?: boolean,
+    private _instructionRecettes?: InstructionRecette[],
+    private _recetteIngredients?: RecetteIngredient[]
   ) {}
-
-
 }
