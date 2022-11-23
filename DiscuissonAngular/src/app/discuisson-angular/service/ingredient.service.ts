@@ -24,6 +24,12 @@ export class IngredientService {
     return this.httpClient.delete<void>(`${IngredientService.URL}/${id}`);
   }
 
+  public findByName(n: string): Observable<Ingredient[]> {
+    return this.httpClient.get<Ingredient[]>(
+      `${IngredientService.URL}/name/${n}`
+    );
+  }
+
   public update(ingredient: Ingredient): Observable<Ingredient> {
     return this.httpClient.put<Ingredient>(
       `${IngredientService.URL}/${ingredient?.id}`,
