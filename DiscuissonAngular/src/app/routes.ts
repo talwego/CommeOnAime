@@ -7,10 +7,12 @@ import { AdminUserListComponent } from './discuisson-angular/component/admin/adm
 import { FrigoComponent } from './discuisson-angular/component/frigo/frigo.component';
 import { IngredientEditComponent } from './discuisson-angular/component/ingredient/ingredient-edit/ingredient-edit.component';
 import { IngredientListComponent } from './discuisson-angular/component/ingredient/ingredient-list/ingredient-list.component';
+import { LoginComponent } from './discuisson-angular/component/login/login.component';
 import { PageConceptComponent } from './discuisson-angular/component/page/page-concept/page-concept.component';
 import { PageHomeComponent } from './discuisson-angular/component/page/page-home/page-home.component';
 import { RecetteEditComponent } from './discuisson-angular/component/recette/recette-edit/recette-edit.component';
 import { RecetteListComponent } from './discuisson-angular/component/recette/recette-list/recette-list.component';
+import { RegisterComponent } from './discuisson-angular/component/register/register.component';
 
 export const routes: Routes = [
   { path: 'home', component: PageHomeComponent },
@@ -26,6 +28,10 @@ export const routes: Routes = [
   { path: 'admin/user', component: AdminUserListComponent },
   { path: 'admin/nutrionniste', component: AdminNutritionistListComponent },
   { path: 'frigo', component: FrigoComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'inscription', component: RegisterComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: '**', component: PageHomeComponent },
 ];
 
 @NgModule({
