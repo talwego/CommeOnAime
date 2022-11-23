@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import {
+  FormGroup,
+  FormControl,
+  AbstractControl,
+  ValidationErrors,
+} from '@angular/forms';
 import { Ingredient } from '../../model/ingredient';
 import { IngredientService } from '../../service/ingredient.service';
 
@@ -8,6 +14,7 @@ import { IngredientService } from '../../service/ingredient.service';
   styleUrls: ['./frigo.component.css'],
 })
 export class FrigoComponent implements OnInit {
+  nom: string = '';
   ingredients: Ingredient[] = [];
 
   constructor(private ingredientService: IngredientService) {}
@@ -62,5 +69,12 @@ export class FrigoComponent implements OnInit {
   getQuantite(id: number): number {
     let jsonObject = JSON.parse(sessionStorage.getItem('panier')!);
     return jsonObject[id];
+  }
+
+  chercher() {
+    this.ingredientService.findByName(this.nom).subscribe((data) => {
+      console.log('koukou');
+      this.ingredients = data;
+    });
   }
 }
