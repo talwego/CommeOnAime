@@ -2,6 +2,8 @@ package Sopra.DiscuissonAPI.restcontroller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
@@ -19,55 +21,63 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import Sopra.DiscuissonAPI.model.Compte;
 import Sopra.DiscuissonAPI.model.JsonViews;
-import Sopra.DiscuissonAPI.model.User;
-import Sopra.DiscuissonAPI.service.UserService;
+import Sopra.DiscuissonAPI.model.Message;
+import Sopra.DiscuissonAPI.service.CompteService;
+import Sopra.DiscuissonAPI.service.MessageService;
 
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api/compte")
 @CrossOrigin(origins = {"*"})
-public class UserRestController {
-
+public class CompteRestController {
+	
 	@Autowired
-	private UserService userSrv;
-
-	@GetMapping("")
+	private MessageService messageSrv;
+	@Autowired
+	private CompteService compteSrv;
+	
+	
+	@PostMapping("/inscription")
 	@JsonView(JsonViews.Common.class)
-	public List<User> findAll() {
-		return userSrv.findAll();
-	}
-
-	@JsonView(JsonViews.Common.class)
-	@GetMapping("/{id}")
-	public User findById(@PathVariable Integer id) {
-		return userSrv.findById(id);
-	}
-
-
-	@PostMapping("")
-	@JsonView(JsonViews.Common.class)
-	@ResponseStatus(code = HttpStatus.CREATED)
-	public User create(@RequestBody User user, BindingResult br) {
+	public Compte inscription(@Valid @RequestBody Compte compte, BindingResult br) {
 		if (br.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
-		
-		return userSrv.create(user);
+		return compteSrv.save(compte);
 	}
-
+	
+	@JsonView(JsonViews.Common.class)
+	@GetMapping("")
+	public List<Compte> findAll() {
+		return compteSrv.findAll();
+	}
+	
+	
+	@ResponseStatus(code = HttpStatus.CREATED)
+	@PostMapping("")
+	@JsonView(JsonViews.Common.class)
+	public Compte create(@RequestBody Compte compte) {
+		System.out.println(compte);
+		return compteSrv.save(compte);
+	}
+	
+	@DeleteMapping("/{id}")
+	@JsonView(JsonViews.Common.class)
+	public void deleteById(@PathVariable Integer id) {
+		compteSrv.deleteId(id);
+		}
+	
 	@PutMapping("/{id}")
 	@JsonView(JsonViews.Common.class)
-	public User update(@RequestBody User user, BindingResult br, @PathVariable Integer id) {
-		if (br.hasErrors() && userSrv.findById(id) == null) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-		}
-		return userSrv.save(user);
+	public Message update(@RequestBody Message message) {
+	
+		return messageSrv.update(message);
 	}
-
-	@DeleteMapping("/{id}")
-	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-	public void deleteId(@PathVariable Integer id) {
-		userSrv.deleteId(id);
-	}
+	
+		
+	
+	
+	
 }
