@@ -1,20 +1,24 @@
 package Sopra.DiscuissonAPI.service;
 
-import java.time.Duration;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import Sopra.DiscuissonAPI.exception.RecetteException;
+import Sopra.DiscuissonAPI.model.Ingredient;
 import Sopra.DiscuissonAPI.model.Recette;
+import Sopra.DiscuissonAPI.model.RecetteIngredient;
 import Sopra.DiscuissonAPI.repository.RecetteRepository;
 
 @Service
 public class RecetteService {
 	@Autowired
 	private RecetteRepository recetteRepository;
+	@Autowired
+	private IngredientService ingredientService;
 	
 	public List<Recette> findAll(){
 		return recetteRepository.findAll();

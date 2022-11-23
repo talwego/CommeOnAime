@@ -5,7 +5,11 @@
         <p class="backgroundOrange">La recette n°: {{ recette.id }}</p>
       </div>
       <div id="image">
-        <img [src]="urlImage" alt="url" style="border-radius: 10%" />
+        <img
+          [src]="urlImage"
+          onerror="this.src='assets/images/discuissonLogo.png';"
+          style="border-radius: 10%"
+        />
       </div>
     </div>
     <div id="div-a2">
@@ -83,6 +87,13 @@
           </li>
         </ng-container>
       </ol>
+    </div>
+    <div class="edition">
+  
+        <a 
+        routerLink="/recette/edit/{{ recette.id }}" 
+        routerLinkActive="active"
+        >Editer</a>
     </div>
   </div>
 </body>
