@@ -76,6 +76,7 @@ public class UserService {
 			// TO DO AdminException
 			throw new UserException("user deja dans la base");
 		}
+		System.out.println(user);
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		return save(user);
 	}

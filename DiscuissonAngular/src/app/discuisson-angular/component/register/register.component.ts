@@ -50,14 +50,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  contientLogin(control: AbstractControl): ValidationErrors | null {
-    let password = control.get('groupePassword.password');
-    return password?.value
-      .toString()
-      .includes(control.get('login')?.value.toString())
-      ? { contientLogin: true }
-      : null;
-  }
+
 
   passwordAndConfirmationEquals(
     control: AbstractControl
@@ -71,11 +64,19 @@ export class RegisterComponent implements OnInit {
       : { passwordAndConfirmationNotEquals: true };
   }
 
+  contientLogin(control: AbstractControl): ValidationErrors | null {
+    let password = control.get('groupePassword.password');
+    return password?.value
+      .toString()
+      .includes(control.get('login')?.value.toString())
+      ? { contientLogin: true }
+      : null;
+  }
+
   save() {
     let user = {
       login: this.form.get('groupeInfo.login')?.value,
-      password: this.form.get('groupeInfo.groupePassword.password')?.value,
-    };
+      password: this.form.get('groupeInfo.groupePassword.password')?.value,};
     if (
       this.form.get('compteVIP')?.value ||
       this.form.get('age')?.value ||

@@ -1,5 +1,5 @@
 //import { Adresse } from './adresse';
-export abstract class Compte
+export class Compte
 {
   public get password(): string | undefined {
     return this._password;

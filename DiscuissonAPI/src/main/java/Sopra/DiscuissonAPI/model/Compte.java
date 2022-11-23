@@ -101,6 +101,21 @@ public class Compte implements UserDetails{
 		}
 		return Arrays.asList(new SimpleGrantedAuthority(role));
 	}
+	
+	@JsonView(JsonViews.Common.class)
+	public String getROLE() {
+		String role=null;
+		if(this instanceof User) {
+			role="ROLE_USER";
+		}
+			else if(this instanceof Admin) {
+			role="ROLE_ADMIN";
+		}
+			else if(this instanceof Nutritionist){	
+				role="ROLE_NUTRITIONIST";
+		}
+		return role;
+	}
 
 	@Override
 	public String getUsername() {
