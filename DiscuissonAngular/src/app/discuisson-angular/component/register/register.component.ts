@@ -21,14 +21,14 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      genre: new FormControl(),
-      age: new FormControl(),
-      taille: new FormControl(),
-      poids: new FormControl(),
-      vegetarien: new FormControl(''),
-      vegan: new FormControl(''),
+      genre: new FormControl('0'),
+      age: new FormControl('0'),
+      taille: new FormControl('0'),
+      poids: new FormControl('0'),
+      vegetarien: new FormControl(false),
+      vegan: new FormControl(false),
       compteVIP: new FormControl(''),
-      activitePhysique: new FormControl(''),
+      activitePhysique: new FormControl('1'),
       groupeInfo: new FormGroup(
         {
           login: new FormControl('', [Validators.required]),
@@ -99,7 +99,7 @@ export class RegisterComponent implements OnInit {
       });
       console.log(user);
       this.userService.create(user).subscribe((data) => {
-        this.router.navigateByUrl('/home');
+        this.router.navigateByUrl('/login');
       });
     }
   }
