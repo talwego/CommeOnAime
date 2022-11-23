@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Compte } from '../../model/compte';
+import { User } from '../../model/user';
 import { AuthenticationService } from '../../service/authentication.service';
 
 @Component({
@@ -20,11 +22,20 @@ export class LoginComponent implements OnInit {
     this.authSrv.authentication(this.login, this.password).subscribe({
       next: (data) => {
         this.showError = false;
-        sessionStorage.setItem('compte', JSON.stringify(data));
         sessionStorage.setItem(
           'token',
           'Basic ' + btoa(this.login + ':' + this.password)
         );
+
+        sessionStorage.setItem('compte', JSON.stringify(data));
+
+        if (data.role == 'ROLE_USER') {
+          sessionStorage.setItem('role', 'user');
+        } else if (data.role == 'ROLE_ADMIN'){
+          sessionStorage.setItem('role', 'admin');
+        }else
+        sessionStorage.setItem('role', 'nutritionist');
+
         this.router.navigateByUrl('/home');
       },
       error: (err) => {

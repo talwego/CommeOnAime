@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageHomeComponent implements OnInit {
 
+  nom! : string
+
   constructor() { }
 
   ngOnInit(): void {
+    if (sessionStorage.getItem('compte')) {
+    this.nom = JSON.parse(sessionStorage.getItem( 'compte')!).login;
   }
-
+}
 }
