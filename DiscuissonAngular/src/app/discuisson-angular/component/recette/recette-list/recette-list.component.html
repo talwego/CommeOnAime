@@ -1,22 +1,22 @@
 <body>
   <ul class="nav-list">
     <li>
-      <button class="nav-link btnOrange" (click)="initRecette()">
+      <button class="nav-link btnVert" (click)="initRecette()">
         Classique
       </button>
     </li>
     <li>
-      <button class="nav-link btnOrange" (click)="initRecetteVegan()">
+      <button class="nav-link btnVert" (click)="initRecetteVegan()">
         Vegan
       </button>
     </li>
     <li>
-      <button class="nav-link btnOrange" (click)="initRecetteVegetarien()">
+      <button class="nav-link btnVert" (click)="initRecetteVegetarien()">
         Végétarien
       </button>
     </li>
     <li>
-      <button class="nav-link btnOrange" (click)="initRecetteDeSaison(11)">
+      <button class="nav-link btnVert" (click)="initRecetteDeSaison(11)">
         De saison
       </button>
     </li>
@@ -24,15 +24,15 @@
   <div class="liste_recettes">
     <div class="wrapper">
       <ul class="auto-grid">
-        <div class="recette" *ngFor="let p of recettes">
+        <li class="recette" *ngFor="let p of recettes">
           <a
             class="nav-link"
             routerLink="/recette/details/{{ p.id }}"
             routerLinkActive="active"
             ><img
-              src="assets/images/{{ p.id }}.jpg" onerror="this.src='assets/images/discuissonLogo.png';"
+              src="assets/images/{{ p.id }}.jpg"
               width="250px"
-              height="250px"
+              height="300px"
           /></a>
           <ul>
             {{
@@ -51,28 +51,22 @@
               p.tempsDeCuisine
             }}
           </ul>
-          <ul class="nav-list">
-            <li>
-              <a class="nav-link btnVert"
-              routerLink="/recette/edit/{{ p.id }}" 
-              routerLinkActive="active"
-              >editer</a>
-            </li>
-            <li>
-              <button class="nav-link btnVert" (click)="delete(p.id!)">
-                supprimer
-              </button>
-            </li>
+          <ul>
+            <a routerLink="/recette/edit/{{ p.id }}" routerLinkActive="active"
+              >editer</a
+            >
           </ul>
-         </div>
+          <ul>
+            <button class="btn btn-outline-danger" (click)="delete(p.id!)">
+              supprimer
+            </button>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>
-  <ul class="nav-list">
-    <div>
-      <a class="nav-link btnOrange"routerLink="/recette/edit" routerLinkActive="active">nouvelle recette</a>
-    </div>
-  </ul>
 </body>
 
-
+<div>
+  <a routerLink="/recette/edit" routerLinkActive="active">nouvelle recette</a>
+</div>

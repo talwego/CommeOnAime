@@ -1,154 +1,143 @@
-<div id="background">
-  <div div id="formulaire">
+<body id="formulaire">
+  <div>
     <form (ngSubmit)="save()" #form="ngForm">
-      <div class="divCentreFlex">
-        <div id="backgroundH2">
-          <h2 *ngIf="!recette.id">Création d'une recette</h2>
-          <h2 *ngIf="recette.id">Mise à jour d'une recette</h2>
-        </div>
-      </div>
-
-      <div class="form-group" *ngIf="recette.id">
-        <div class="divACoteFlex">
-          <div class="text">Id recette: </div>
-          <input
-            class="form-control"
-            name="id"
-            id="id"
-            [(ngModel)]="recette.id"
-            readonly
-          />
-        </div>
+      <div class="form-group">
+        <label for="id">id:</label>
+        <input
+          class="form-control"
+          id="id"
+          name="id"
+          [(ngModel)]="recette.id"
+          readonly
+          placeholder="generation automatique"
+        />
       </div>
 
       <div class="form-group">
-        <div class="divACoteFlex">
-          <div class="text">Nom de la recette: </div>
-          <input
-            class="form-control"
-            name="name"
-            id="name"
-            [(ngModel)]="recette.name"
-            required
-            #nameCtrl="ngModel"
-          />
-        </div>
+        <label for="name">name:</label>
+        <input
+          class="form-control"
+          name="name"
+          id="name"
+          [(ngModel)]="recette.name"
+          required
+          #nameCtrl="ngModel"
+        />
         <div
           *ngIf="nameCtrl.dirty && nameCtrl.invalid"
           class="alert alert-danger"
         >
-          Tu as oublié le nom :o
+          name obligatoire
         </div>
       </div>
 
       <div class="form-group">
-        <div class="divACoteFlex">
-          <div class="text">Nombre de calorie: </div>
-          <input
-            type="number"
-            class="form-control"
-            name="calorie"
-            id="calorie"
-            [(ngModel)]="recette.calorie"
-            placeholder="Précision: pour une portion d'une personne"
-            required
-            #calorieCtrl="ngModel"
-          />
+        <label for="vegetarien">vegetarien:</label>
+        <input
+          class="form-control"
+          name="vegetarien"
+          id="vegetarien"
+          [(ngModel)]="recette.vegetarien"
+          required
+          #vegetarienCtrl="ngModel"
+        />
+        <div
+          *ngIf="vegetarienCtrl.dirty && vegetarienCtrl.invalid"
+          class="alert alert-danger"
+        >
+          regime obligatoire
         </div>
+      </div>
+
+      <div class="form-group">
+        <label for="vegan">vegan:</label>
+        <input
+          class="form-control"
+          name="vegan"
+          id="vegan"
+          [(ngModel)]="recette.vegan"
+          required
+          #veganCtrl="ngModel"
+        />
+        <div
+          *ngIf="veganCtrl.dirty && veganCtrl.invalid"
+          class="alert alert-danger"
+        >
+          regime obligatoire
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="calorie">calorie:</label>
+        <input
+          class="form-control"
+          name="calorie"
+          id="calorie"
+          [(ngModel)]="recette.calorie"
+          required
+          #calorieCtrl="ngModel"
+        />
         <div
           *ngIf="calorieCtrl.dirty && calorieCtrl.invalid"
           class="alert alert-danger"
         >
-          Tu as oublié les calories :o
+          calorie obligatoire
         </div>
       </div>
 
       <div class="form-group">
-        <div class="divACoteFlex">
-          <div class="text">La saison commence en: </div>
-          <select
-            class="form-select"
-            aria-label="Default select example"
-            name="debutSaison"
-            id="debutSaison"
-            [(ngModel)]="recette.debutSaison"
-          >
-            <option value="1">Janvier</option>
-            <option value="2">Février</option>
-            <option value="3">Mars</option>
-            <option value="4">Avril</option>
-            <option value="5">Mai</option>
-            <option value="6">Juin</option>
-            <option value="7">Juillet</option>
-            <option value="8">Août</option>
-            <option value="9">Septembre</option>
-            <option value="10">Octobre</option>
-            <option value="11">Novembre</option>
-            <option value="12">Décembre</option>
-          </select>
-         </div>
-      </div>
-
-      <div class="form-group">
-        <div class="divACoteFlex">
-          <div class="text">La saison fini en: </div>
-          <select
-            class="form-select"
-            aria-label="Default select example"
-            name="finSaison"
-            id="finSaison"
-            [(ngModel)]="recette.finSaison"
-          >
-            <option value="1">Janvier</option>
-            <option value="2">Février</option>
-            <option value="3">Mars</option>
-            <option value="4">Avril</option>
-            <option value="5">Mai</option>
-            <option value="6">Juin</option>
-            <option value="7">Juillet</option>
-            <option value="8">Août</option>
-            <option value="9">Septembre</option>
-            <option value="10">Octobre</option>
-            <option value="11">Novembre</option>
-            <option value="12">Décembre</option>
-          </select>
-         </div>
-      </div>
-
-      <div class="form-group">
-        <div class="divACoteFlex">
-          <div class="text">Commentaires : </div>
-          <input
-            class="form-control"
-            name="commentaires"
-            id="commentaires"
-            [(ngModel)]="recette.commentaires"
-            placeholder="Votre commentaire"
-            required
-            #calorieCtrl="ngModel"
-          />
+        <label for="debutSaison">debutSaison:</label>
+        <input
+          class="form-control"
+          name="debutSaison"
+          id="debutSaison"
+          [(ngModel)]="recette.debutSaison"
+          required
+          #debutSaisonCtrl="ngModel"
+        />
+        <div
+          *ngIf="debutSaisonCtrl.dirty && debutSaisonCtrl.invalid"
+          class="alert alert-danger"
+        >
+          Debut de saison obligatoire
         </div>
       </div>
 
       <div class="form-group">
-        <div class="divACoteFlex">
-          <div class="text">Note : </div>
-          <input
-            type="number"
-            class="form-control"
-            name="note"
-            id="note"
-            [(ngModel)]="recette.note"
-            placeholder="votre note de 1 à 5"
-            required
-            #calorieCtrl="ngModel"
-          />
+        <label for="finSaison">finSaison:</label>
+        <input
+          class="form-control"
+          name="finSaison"
+          id="finSaison"
+          [(ngModel)]="recette.finSaison"
+          required
+          #finSaisonCtrl="ngModel"
+        />
+        <div
+          *ngIf="finSaisonCtrl.dirty && finSaisonCtrl.invalid"
+          class="alert alert-danger"
+        >
+          Fin de saison obligatoire
         </div>
-       </div>
+      </div>
 
-       <div class="form-group">
-        <div class="divACoteFlex">
-          <div class="text">Temps de préparation :</div>
+      <div class="form-group">
+        <label for="commentaires">commentaires:</label>
+        <input
+          class="form-control"
+          name="commentaires"
+          id="commentaires"
+          [(ngModel)]="recette.commentaires"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="note">note:</label>
+        <input class="form-control" name="note" id="note" />
+      </div>
+
+      <div class="form-group">
+        <label for="tempsDeCuisine">tempsDeCuisine:</label>
         <input
           type="time"
           class="form-control"
@@ -158,19 +147,17 @@
           required
           #tempsDeCuisineCtrl="ngModel"
         />
-      </div>
         <div
           *ngIf="tempsDeCuisineCtrl.dirty && tempsDeCuisineCtrl.invalid"
           class="alert alert-danger"
         >
-        Tu as oublié le temps de préparation :o
+          Temps De Cuisine obligatoire
         </div>
       </div>
 
       <div class="form-group">
-        <div class="divACoteFlex">
-          <div class="text">Cette recette est-elle correcte ?</div>
-          <input
+        <label for="isValid">isValid:</label>
+        <input
           class="form-control"
           name="isValid"
           id="isValid"
@@ -178,55 +165,15 @@
           required
           #isValidCtrl="ngModel"
         />
-        </div>
         <div
-        *ngIf="isValidCtrl.dirty && isValidCtrl.invalid"
-        class="alert alert-danger"
-          >
-          Tu as oublié de repondre, la recette est-elle valide?  :o
+          *ngIf="isValidCtrl.dirty && isValidCtrl.invalid"
+          class="alert alert-danger"
+        >
+          isValid obligatoire
         </div>
       </div>
 
-
-      <div class="divCentreFlex">
-        <div class="divCentreFlex2">
-          <div style="width: 65px">C'est une recette : </div>
-          <div>
-            <div class="form-check form-switch">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                id="vegan"
-                name="vegan"
-                [(ngModel)]="recette.vegan"
-              />
-              <label class="form-check-label" for="flexSwitchCheckDefault"
-                >vegan</label
-              >
-            </div>
-            <div class="form-check form-switch">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                id="vegetarien"
-                name="vegetarien"
-                [(ngModel)]="recette.vegetarien"
-              />
-              <label class="form-check-label" for="flexSwitchCheckChecked"
-                >végétarienne</label
-              >
-            </div>
-          </div>
-        </div>
-        
-      </div>
-
-
-
-
- 
-
-      <div class="divCentreFlex">
+      <div class="form-group">
         <button
           type="submit"
           class="btn btn-outline-primary"
@@ -243,6 +190,4 @@
       </div>
     </form>
   </div>
-</div>
-
-
+</body>
