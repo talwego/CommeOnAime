@@ -89,3 +89,12 @@ body {
 ol li {
   padding-bottom: 15px;
 }
+
+.edition{
+  align-items: center;
+  font-size: 25px;
+  color: white;
+  background-color: rgba(102, 172, 38, 1);
+  border-radius: 20px;
+  text-align: center;
+}
