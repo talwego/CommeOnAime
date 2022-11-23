@@ -4,6 +4,8 @@ import { Ingredient } from 'src/app/discuisson-angular/model/ingredient';
 import { Recette } from 'src/app/discuisson-angular/model/recette';
 import { IngredientService } from 'src/app/discuisson-angular/service/ingredient.service';
 import { RecetteService } from 'src/app/discuisson-angular/service/recette.service';
+import { RecetteIngredientService } from 'src/app/discuisson-angular/service/recette-ingredient.service';
+import { RecetteIngredient } from 'src/app/discuisson-angular/model/recette-ingredient';
 
 @Component({
   selector: 'app-recette-edit',
@@ -13,12 +15,14 @@ import { RecetteService } from 'src/app/discuisson-angular/service/recette.servi
 export class RecetteEditComponent implements OnInit {
   recette: Recette = new Recette();
   ingredients: Ingredient[] = [];
+  recetteIngredients:  RecetteIngredient[] = [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private recetteService: RecetteService,
     private router: Router,
-    private ingredientService: IngredientService
+    private ingredientService: IngredientService,
+    private recetteIngredientService: RecetteIngredientService
   ) {}
 
   ngOnInit(): void {
@@ -28,6 +32,7 @@ export class RecetteEditComponent implements OnInit {
         .findByIdWithDetails(params['id'])
         .subscribe((data) => {
           this.recette = data;
+          console.log(this.recette)
         });
       }
     });
@@ -46,4 +51,14 @@ export class RecetteEditComponent implements OnInit {
     }
   }
   
+  deleteRecetteIngredient(id:number) {
+    this.recetteIngredientService.deleteById(id).subscribe(() => {
+      this.initRecetteIngredient();
+    });
+  }
+  initRecetteIngredient() {
+    this.recetteIngredientService.findAll().subscribe((data) => {
+      this.recetteIngredients = data;
+    });
+  }
 }

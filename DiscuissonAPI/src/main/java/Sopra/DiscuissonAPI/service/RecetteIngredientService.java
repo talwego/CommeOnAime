@@ -65,7 +65,7 @@ public class RecetteIngredientService {
 		return save(recetteIngredient);
 	}
 	
-	private RecetteIngredient save(RecetteIngredient recetteIngredient) {
+	public RecetteIngredient save(RecetteIngredient recetteIngredient) {
 		if (_ingredientRepository.existsById(recetteIngredient.getIngredient().getId()) && _recetteRepository.existsById(recetteIngredient.getRecette().getId())) {
 			return _recetteIngredientRepository.save(recetteIngredient);
 		}
