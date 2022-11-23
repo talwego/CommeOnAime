@@ -24,4 +24,9 @@ public class JsonViews {
 		
 	}
 	
+	public static class CompteWithMessage extends Common{			
+		
+	}
+	
+	
 }

@@ -27,6 +27,8 @@ import { RegisterComponent } from './discuisson-angular/component/register/regis
 import { UserToVIPComponent } from './discuisson-angular/component/user-to-vip/user-to-vip.component';
 import { SertARienDirective } from './discuisson-angular/directive/sert-arien.directive';
 import { routes } from './routes';
+import { MessageListComponent } from './discuisson-angular/component/message/message-list/message-list.component';
+import { MessageEditComponent } from './discuisson-angular/component/message/message-edit/message-edit.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,8 @@ import { routes } from './routes';
     RegisterComponent,
     LoginComponent,
     BackgroundPourPageConnectionComponent,
+    MessageListComponent,
+    MessageEditComponent,
   ],
   imports: [
     BrowserModule,

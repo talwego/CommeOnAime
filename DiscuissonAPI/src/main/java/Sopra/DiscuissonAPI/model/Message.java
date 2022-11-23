@@ -19,44 +19,40 @@ public class Message {
 	@JsonView(JsonViews.Common.class)
 	private Integer id;
 	@JsonView(JsonViews.Common.class)
-	private String sujet;
-	@JsonView(JsonViews.Common.class)
 	private String text;
+	@ManyToOne
+	@JoinColumn(name = "id_envoyeur", nullable = false)
 	@JsonView(JsonViews.Common.class)
-	private LocalDate dateMessageDate;
+	private Compte envoyeur;
 
 	@ManyToOne
-	@JoinColumn(name = "id_nutritionist", nullable = false)
+	@JoinColumn(name = "id_recepteur", nullable = false)
 	@JsonView(JsonViews.Common.class)
-	private Nutritionist nutritionist;
-
-	@ManyToOne
-	@JoinColumn(name = "id_user", nullable = false)
-	@JsonView(JsonViews.Common.class)
-	private User user;
+	private Compte recepteur;
 
 	public Message() {
 	}
 
-	public Message(Integer id, String sujet, String text, LocalDate dateMessageDate, Nutritionist nutritionist,
-			User user) {
+	
+
+	public Message(Integer id, String text, Compte envoyeur, Compte recepteur) {
 		super();
 		this.id = id;
-		this.sujet = sujet;
 		this.text = text;
-		this.dateMessageDate = dateMessageDate;
-		this.nutritionist = nutritionist;
-		this.user = user;
+		this.envoyeur = envoyeur;
+		this.recepteur = recepteur;
 	}
 
-	public Message(String sujet, String text, LocalDate dateMessageDate, Nutritionist nutritionist, User user) {
+
+
+	public Message(String text, Compte envoyeur, Compte recepteur) {
 		super();
-		this.sujet = sujet;
 		this.text = text;
-		this.dateMessageDate = dateMessageDate;
-		this.nutritionist = nutritionist;
-		this.user = user;
+		this.envoyeur = envoyeur;
+		this.recepteur = recepteur;
 	}
+
+
 
 	public Integer getId() {
 		return id;
@@ -66,14 +62,7 @@ public class Message {
 		this.id = id;
 	}
 
-	public String getSujet() {
-		return sujet;
-	}
-
-	public void setSujet(String sujet) {
-		this.sujet = sujet;
-	}
-
+	
 	public String getText() {
 		return text;
 	}
@@ -82,35 +71,39 @@ public class Message {
 		this.text = text;
 	}
 
-	public LocalDate getDateMessageDate() {
-		return dateMessageDate;
+
+
+	public Compte getEnvoyeur() {
+		return envoyeur;
 	}
 
-	public void setDateMessageDate(LocalDate dateMessageDate) {
-		this.dateMessageDate = dateMessageDate;
+
+
+	public void setEnvoyeur(Compte envoyeur) {
+		this.envoyeur = envoyeur;
 	}
 
-	public Nutritionist getNutritionist() {
-		return nutritionist;
+
+
+	public Compte getRecepteur() {
+		return recepteur;
 	}
 
-	public void setNutritionist(Nutritionist nutritionist) {
-		this.nutritionist = nutritionist;
+
+
+	public void setRecepteur(Compte recepteur) {
+		this.recepteur = recepteur;
 	}
 
-	public User getUser() {
-		return user;
-	}
 
-	public void setUser(User user) {
-		this.user = user;
-	}
 
 	@Override
 	public String toString() {
-		return "Message [id=" + id + ", sujet=" + sujet + ", text=" + text + ", dateMessageDate=" + dateMessageDate
-				+ ", nutritionist=" + nutritionist + ", user=" + user + "]";
+		return "Message [id=" + id + ", text=" + text + ", envoyeur=" + envoyeur + ", recepteur=" + recepteur + "]";
 	}
+
+	
+
 
 
 }

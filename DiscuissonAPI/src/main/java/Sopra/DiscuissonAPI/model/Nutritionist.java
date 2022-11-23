@@ -15,8 +15,7 @@ public class Nutritionist extends Compte{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	@OneToMany(mappedBy="nutritionist")
-	private List<Message> messages = new ArrayList<>();
+	
 
 	public Nutritionist() {
 		super();
@@ -30,17 +29,11 @@ public class Nutritionist extends Compte{
 		super(id, login, password);
 	}
 
-	public List<Message> getMessages() {
-		return messages;
-	}
-
-	public void setMessages(List<Message> messages) {
-		this.messages = messages;
-	}
+	
 
 	@Override
 	public String toString() {
-		return "Nutritionist [messages=" + messages + "]";
+		return "Nutritionist []";
 	}
 
 	public Object getMessage() {
