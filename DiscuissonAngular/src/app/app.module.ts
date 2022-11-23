@@ -20,7 +20,10 @@ import { IngredientListComponent } from './discuisson-angular/component/ingredie
 import { IngredientMenuComponent } from './discuisson-angular/component/ingredient/ingredient-menu/ingredient-menu.component';
 import { LoginComponent } from './discuisson-angular/component/login/login.component';
 import { MenuComponent } from './discuisson-angular/component/menu/menu.component';
+import { MessageEditComponent } from './discuisson-angular/component/message/message-edit/message-edit.component';
+import { MessageListComponent } from './discuisson-angular/component/message/message-list/message-list.component';
 import { PageConceptComponent } from './discuisson-angular/component/page/page-concept/page-concept.component';
+import { PageHomeUserComponent } from './discuisson-angular/component/page/page-home-user/page-home-user.component';
 import { PageHomeBackgroundComponent } from './discuisson-angular/component/page/page-home/page-home-background/page-home-background.component';
 import { PageHomeComponent } from './discuisson-angular/component/page/page-home/page-home.component';
 import { RecetteDetailsComponent } from './discuisson-angular/component/recette/recette-details/recette-details.component';
@@ -30,9 +33,6 @@ import { RegisterComponent } from './discuisson-angular/component/register/regis
 import { UserToVIPComponent } from './discuisson-angular/component/user-to-vip/user-to-vip.component';
 import { SertARienDirective } from './discuisson-angular/directive/sert-arien.directive';
 import { routes } from './routes';
-import { PageHomeUserComponent } from './discuisson-angular/component/page/page-home-user/page-home-user.component';
-
-
 
 @NgModule({
   declarations: [
