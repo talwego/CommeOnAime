@@ -16,18 +16,18 @@ public class Message {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@JsonView(JsonViews.Common.class)
+	@JsonView({JsonViews.Common.class,JsonViews.Message.class})
 	private Integer id;
-	@JsonView(JsonViews.Common.class)
+	@JsonView({JsonViews.Common.class,JsonViews.Message.class})
 	private String text;
 	@ManyToOne
 	@JoinColumn(name = "id_envoyeur", nullable = false)
-	@JsonView(JsonViews.Common.class)
+	@JsonView({JsonViews.Common.class,JsonViews.Message.class})
 	private Compte envoyeur;
 
 	@ManyToOne
 	@JoinColumn(name = "id_recepteur", nullable = false)
-	@JsonView(JsonViews.Common.class)
+	@JsonView({JsonViews.Common.class,JsonViews.Message.class})
 	private Compte recepteur;
 
 	public Message() {

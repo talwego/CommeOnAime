@@ -44,7 +44,7 @@ public class MessageRestController {
 		return messageSrv.findById(id);
 	}
 
-	@JsonView(JsonViews.Common.class)
+	@JsonView(JsonViews.Message.class)
 	@GetMapping("")
 	public List<Message> findAll() {
 		return messageSrv.findAll();

@@ -28,5 +28,9 @@ public class JsonViews {
 		
 	}
 	
+	public static class Message {			
+		
+	}
+	
 	
 }

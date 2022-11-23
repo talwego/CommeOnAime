@@ -40,7 +40,7 @@ public class Compte implements UserDetails{
 	protected Integer id;
 	
 	@Column(length = 50,nullable = false,unique = true)
-	@JsonView(JsonViews.Common.class)
+	@JsonView({JsonViews.Common.class,JsonViews.Message.class})
 	protected String login;
 	
 	@Column(length = 255,nullable = false)

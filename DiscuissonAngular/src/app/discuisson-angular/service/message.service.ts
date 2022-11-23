@@ -8,7 +8,7 @@ import { Message } from '../model/message';
   providedIn: 'root'
 })
 export class MessageService {
-  static URL: string = 'http://localhost:8080/eshop/api/message';
+  static URL: string = 'http://localhost:8080/discuisson/api/message';
 
   constructor(private httpClient: HttpClient) {}
 
@@ -27,7 +27,7 @@ export class MessageService {
   public update(message: Message): Observable<Message> {
     return this.httpClient.put<Message>(
       `${MessageService.URL}/${message.id}`,
-      this.messageToJson(message)
+      message
     );
   }
 

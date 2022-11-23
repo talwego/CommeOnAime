@@ -30,6 +30,7 @@ import { routes } from './routes';
 import { MessageListComponent } from './discuisson-angular/component/message/message-list/message-list.component';
 import { MessageEditComponent } from './discuisson-angular/component/message/message-edit/message-edit.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +58,7 @@ import { MessageEditComponent } from './discuisson-angular/component/message/mes
     BackgroundPourPageConnectionComponent,
     MessageListComponent,
     MessageEditComponent,
+
   ],
   imports: [
     BrowserModule,

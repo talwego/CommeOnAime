@@ -8,6 +8,8 @@ import { FrigoComponent } from './discuisson-angular/component/frigo/frigo.compo
 import { IngredientEditComponent } from './discuisson-angular/component/ingredient/ingredient-edit/ingredient-edit.component';
 import { IngredientListComponent } from './discuisson-angular/component/ingredient/ingredient-list/ingredient-list.component';
 import { LoginComponent } from './discuisson-angular/component/login/login.component';
+import { MessageEditComponent } from './discuisson-angular/component/message/message-edit/message-edit.component';
+import { MessageListComponent } from './discuisson-angular/component/message/message-list/message-list.component';
 import { PageConceptComponent } from './discuisson-angular/component/page/page-concept/page-concept.component';
 import { PageHomeComponent } from './discuisson-angular/component/page/page-home/page-home.component';
 import { RecetteDetailsComponent } from './discuisson-angular/component/recette/recette-details/recette-details.component';
@@ -35,7 +37,11 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'inscription', component: RegisterComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'message', component: MessageListComponent },
+  { path: 'message/edit', component: MessageEditComponent },
+  { path: 'message/edit/:id', component: MessageEditComponent },
   { path: '**', component: PageHomeComponent },
+
 ];
 
 @NgModule({
