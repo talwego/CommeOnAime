@@ -63,6 +63,7 @@
         </div>
       </div>
 
+
       <div class="form-group">
         <div class="divACoteFlex">
           <div class="text">La saison commence en: </div>
@@ -221,25 +222,9 @@
         
       </div>
 
-
-
-
- 
-
       <div class="divCentreFlex">
-        <button
-          type="submit"
-          class="btn btn-outline-primary"
-          [disabled]="form.invalid"
-        >
-          enregistrer
-        </button>
-        <a
-          routerLink="/recette"
-          routerLinkActive="active"
-          class="btn btn-outline-warning"
-          >annuler</a
-        >
+        <button type="submit" [disabled]="form.invalid">enregistrer</button>
+        <a routerLink="/recette" routerLinkActive="active">annuler</a>
       </div>
     </form>
   </div>
