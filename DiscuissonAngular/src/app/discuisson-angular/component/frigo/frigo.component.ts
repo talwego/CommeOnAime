@@ -71,10 +71,10 @@ export class FrigoComponent implements OnInit {
     return jsonObject[id];
   }
 
-  chercher() {
+  /*chercher() {
     this.ingredientService.findByName(this.nom).subscribe((data) => {
       console.log('koukou');
       this.ingredients = data;
     });
-  }
+  }*/
 }

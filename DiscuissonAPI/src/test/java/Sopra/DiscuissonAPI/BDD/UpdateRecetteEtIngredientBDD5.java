@@ -72,9 +72,9 @@ public class UpdateRecetteEtIngredientBDD5 {
 	
 	public void updateMessage() {
 		
-		_messageService.create("Yo","Je veux perdre 10 kilos en 1 semaine",LocalDate.of(2022, 3, 1), 9, 1);
-		_messageService.create("Yo","Ca va être compliqué",LocalDate.of(2022, 9, 10), 9, 1);
-		_messageService.create("Yo","noooooooooooooon qhxbezxbjz !!",LocalDate.of(2022, 11,22), 9, 1);
+		_messageService.create("Je veux perdre 10 kilos en 1 semaine", 9, 1);
+		_messageService.create("Ca va être compliqué", 1, 9);
+		_messageService.create("noooooooooooooon qhxbezxbjz !!",9, 1);
 		
 	}
 
