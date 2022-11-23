@@ -1,10 +1,10 @@
 body {
   margin-top: 10%;
 }
-.nav-list .btnVert {
+.nav-list .btnOrange {
   font-size: 25px;
   color: white;
-  background-color: rgba(102, 172, 38, 1);
+  background-color: rgba(224, 125, 42, 1);
   border-radius: 12px;
   text-decoration: none;
   padding-left: 12%;
@@ -50,7 +50,20 @@ body {
 .recette {
   padding: 5rem 1rem;
   text-align: center;
-  font-size: 1.2rem;
-  background: #be2edd;
-  color: #ffffff;
+  font-size: 1.1rem;
+  background: white;
+  color: black;
+}
+
+.btnVert {
+  
+  font-size: 1.1rem;
+  color: white;
+  background-color: rgba(102, 172, 38, 1);
+  border-radius: 0.9rem;
+  text-align: center;
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
