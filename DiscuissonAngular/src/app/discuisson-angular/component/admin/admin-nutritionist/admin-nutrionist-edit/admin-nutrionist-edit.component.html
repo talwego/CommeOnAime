@@ -1,0 +1,74 @@
+<div id="background">
+  <div id="formulaire">
+    <form (ngSubmit)="save()" #form="ngForm">
+      <div class="divCentreFlex">
+        <div id="backgroundH2">
+          <h2 *ngIf="!nutrionist.id">Création d'un nutritionniste</h2>
+          <h2 *ngIf="nutrionist.id">Mise à jour d'un nutritionniste</h2>
+        </div>
+      </div>
+
+      <div class="form-group" *ngIf="nutrionist.id">
+        <div class="divACoteFlex">
+          <div class="text">Mon id est...</div>
+          <input
+            class="form-control"
+            name="id"
+            id="id"
+            [(ngModel)]="nutrionist.id"
+            readonly
+          />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="divACoteFlex">
+          <div class="text">Mon login est...</div>
+          <input
+            class="form-control"
+            name="name"
+            id="name"
+            [(ngModel)]="nutrionist.login"
+            required
+            placeholder="pomme, salade, cuisse de grenouille, etc..."
+            #nameCtrl="ngModel"
+          />
+        </div>
+        <div
+          *ngIf="nameCtrl.dirty && nameCtrl.invalid"
+          class="alert alert-danger"
+        >
+          Tu as oublié mon login :o
+        </div>
+      </div>
+
+      <div class="form-group" *ngIf="!nutrionist.id">
+        <div class="divACoteFlex">
+          <div class="text">Mon password est...</div>
+          <input
+            class="form-control"
+            name="name"
+            id="name"
+            [(ngModel)]="nutrionist.password"
+            required
+            placeholder="pomme, salade, cuisse de grenouille, etc..."
+            #nameCtrl="ngModel"
+          />
+        </div>
+        <div
+          *ngIf="nameCtrl.dirty && nameCtrl.invalid"
+          class="alert alert-danger"
+        >
+          Tu as oublié mon password :o
+        </div>
+      </div>
+
+      <div class="divCentreFlex">
+        <button type="submit" [disabled]="form.invalid">enregistrer</button>
+        <a routerLink="/nutrionniste/nutrionniste" routerLinkActive="active"
+          >annuler</a
+        >
+      </div>
+    </form>
+  </div>
+</div>

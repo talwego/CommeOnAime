@@ -4,9 +4,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
+import { AdminAdminEditComponent } from './discuisson-angular/component/admin/admin-admin/admin-admin-edit/admin-admin-edit.component';
 import { AdminAdminListComponent } from './discuisson-angular/component/admin/admin-admin/admin-admin-list/admin-admin-list.component';
 import { AdminHomeComponent } from './discuisson-angular/component/admin/admin-home/admin-home.component';
+import { AdminNutrionistEditComponent } from './discuisson-angular/component/admin/admin-nutritionist/admin-nutrionist-edit/admin-nutrionist-edit.component';
 import { AdminNutritionistListComponent } from './discuisson-angular/component/admin/admin-nutritionist/admin-nutritionist-list/admin-nutritionist-list.component';
+import { AdminUserEditComponent } from './discuisson-angular/component/admin/admin-user/admin-user-edit/admin-user-edit.component';
 import { AdminUserListComponent } from './discuisson-angular/component/admin/admin-user/admin-user-list/admin-user-list.component';
 import { BackgroundPourPageConnectionComponent } from './discuisson-angular/component/background-pour-page-connection/background-pour-page-connection.component';
 import { FooterComponent } from './discuisson-angular/component/footer/footer.component';
@@ -53,6 +56,9 @@ import { routes } from './routes';
     RegisterComponent,
     LoginComponent,
     BackgroundPourPageConnectionComponent,
+    AdminAdminEditComponent,
+    AdminUserEditComponent,
+    AdminNutrionistEditComponent,
   ],
   imports: [
     BrowserModule,

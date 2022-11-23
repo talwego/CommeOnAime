@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AdminAdminEditComponent } from './discuisson-angular/component/admin/admin-admin/admin-admin-edit/admin-admin-edit.component';
 import { AdminAdminListComponent } from './discuisson-angular/component/admin/admin-admin/admin-admin-list/admin-admin-list.component';
 import { AdminHomeComponent } from './discuisson-angular/component/admin/admin-home/admin-home.component';
+import { AdminNutrionistEditComponent } from './discuisson-angular/component/admin/admin-nutritionist/admin-nutrionist-edit/admin-nutrionist-edit.component';
 import { AdminNutritionistListComponent } from './discuisson-angular/component/admin/admin-nutritionist/admin-nutritionist-list/admin-nutritionist-list.component';
+import { AdminUserEditComponent } from './discuisson-angular/component/admin/admin-user/admin-user-edit/admin-user-edit.component';
 import { AdminUserListComponent } from './discuisson-angular/component/admin/admin-user/admin-user-list/admin-user-list.component';
 import { FrigoComponent } from './discuisson-angular/component/frigo/frigo.component';
 import { IngredientEditComponent } from './discuisson-angular/component/ingredient/ingredient-edit/ingredient-edit.component';
@@ -28,8 +31,17 @@ export const routes: Routes = [
   { path: 'recette/details/:id', component: RecetteDetailsComponent },
   { path: 'admin', component: AdminHomeComponent },
   { path: 'admin/admin', component: AdminAdminListComponent },
-  { path: 'admin/user', component: AdminUserListComponent },
-  { path: 'admin/nutrionniste', component: AdminNutritionistListComponent },
+  { path: 'admin/edit', component: AdminAdminEditComponent },
+  { path: 'admin/edit/:id', component: AdminAdminEditComponent },
+  { path: 'user/user', component: AdminUserListComponent },
+  { path: 'user/edit', component: AdminUserEditComponent },
+  { path: 'user/edit/:id', component: AdminUserEditComponent },
+  {
+    path: 'nutrionniste/nutrionniste',
+    component: AdminNutritionistListComponent,
+  },
+  { path: 'nutrionniste/edit', component: AdminNutrionistEditComponent },
+  { path: 'nutrionniste/edit/:id', component: AdminNutrionistEditComponent },
   { path: 'frigo', component: FrigoComponent },
   { path: 'userVIP', component: UserToVIPComponent },
   { path: 'login', component: LoginComponent },
