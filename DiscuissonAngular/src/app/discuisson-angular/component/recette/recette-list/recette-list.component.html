@@ -1,67 +1,72 @@
 <body>
   <ul class="nav-list">
     <li>
-      <button 
-       class="nav-link btnVert"
-       (click)="initRecette()">
-       Classique
-       </button>
+      <button class="nav-link btnVert" (click)="initRecette()">
+        Classique
+      </button>
     </li>
     <li>
-      <button class="nav-link btnVert"
-    (click)="initRecetteVegan()">
-      Vegan
-    </button>
+      <button class="nav-link btnVert" (click)="initRecetteVegan()">
+        Vegan
+      </button>
     </li>
     <li>
-     <button class="nav-link btnVert"
-     (click)="initRecetteVegetarien()">
-      Végétarien
-     </button>
+      <button class="nav-link btnVert" (click)="initRecetteVegetarien()">
+        Végétarien
+      </button>
     </li>
     <li>
-     <button class="nav-link btnVert" 
-     (click)="initRecetteDeSaison(11)">
+      <button class="nav-link btnVert" (click)="initRecetteDeSaison(11)">
         De saison
       </button>
     </li>
   </ul>
-<div class="liste_recettes">
-  <div  class="wrapper">
-    
-    <ul class="auto-grid">
-      <li class="recette" *ngFor="let p of recettes">
-        <a class="nav-link" routerLink="/recette/detail/{{ p.id }}" routerLinkActive="active"
-          ><img
-            src="assets/images/{{p}}.jpg"
-            width="250px"
-            height="300px"
-        /></a>
-        <ul>{{ p.name }}</ul>
-        <ul>Note {{ p.note }}</ul>
-        <ul>Temps de préparation {{ p.tempsDeCuisine }}</ul>
-        <ul>
-          <a 
-          routerLink="/recette/edit/{{ p.id }}" 
-          routerLinkActive="active"
-            >editer</a
-          >
-        </ul>
-        <ul>
-          <button class="btn btn-outline-danger" (click)="delete(p.id!)">
-            supprimer
-          </button>
-        </ul>
-      </li>
-    </ul>
+  <div class="liste_recettes">
+    <div class="wrapper">
+      <ul class="auto-grid">
+        <li class="recette" *ngFor="let p of recettes">
+          <a
+            class="nav-link"
+            routerLink="/recette/details/{{ p.id }}"
+            routerLinkActive="active"
+            ><img
+              src="assets/images/{{ p.id }}.jpg"
+              width="250px"
+              height="300px"
+          /></a>
+          <ul>
+            {{
+              p.name
+            }}
+          </ul>
+          <ul>
+            Note
+            {{
+              p.note
+            }}
+          </ul>
+          <ul>
+            Temps de préparation
+            {{
+              p.tempsDeCuisine
+            }}
+          </ul>
+          <ul>
+            <a routerLink="/recette/edit/{{ p.id }}" routerLinkActive="active"
+              >editer</a
+            >
+          </ul>
+          <ul>
+            <button class="btn btn-outline-danger" (click)="delete(p.id!)">
+              supprimer
+            </button>
+          </ul>
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
-
 </body>
 
-  <div>
-    
-      <a routerLink="/recette/edit" routerLinkActive="active">nouvelle recette</a>
-  </div>
-  
-
+<div>
+  <a routerLink="/recette/edit" routerLinkActive="active">nouvelle recette</a>
+</div>

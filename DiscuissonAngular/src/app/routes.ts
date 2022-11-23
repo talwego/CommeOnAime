@@ -13,8 +13,8 @@ import { PageHomeComponent } from './discuisson-angular/component/page/page-home
 import { RecetteDetailsComponent } from './discuisson-angular/component/recette/recette-details/recette-details.component';
 import { RecetteEditComponent } from './discuisson-angular/component/recette/recette-edit/recette-edit.component';
 import { RecetteListComponent } from './discuisson-angular/component/recette/recette-list/recette-list.component';
-import { UserToVIPComponent } from './discuisson-angular/component/user-to-vip/user-to-vip.component';
 import { RegisterComponent } from './discuisson-angular/component/register/register.component';
+import { UserToVIPComponent } from './discuisson-angular/component/user-to-vip/user-to-vip.component';
 
 export const routes: Routes = [
   { path: 'home', component: PageHomeComponent },
