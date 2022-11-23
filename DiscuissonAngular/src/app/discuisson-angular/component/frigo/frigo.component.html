@@ -76,7 +76,25 @@
         >valider panier</a
       >
     </div>
-    <form [formGroup]="form"><input type="text" formControlName="nom" /></form>
+    <form (ngSubmit)="chercher()" #form="ngForm" action="">
+      <div class="form-goup">
+        <label for="nom">Nom d'utilisateur :</label>
+        <input
+          type="nom"
+          name="nom"
+          class="form-control"
+          placeholder="TiiToOnZ"
+          [(ngModel)]="nom"
+        />
+      </div>
+      <button
+        class="btn btn-outline-success"
+        type="submit"
+        [disabled]="form.invalid"
+      >
+        Se connecter
+      </button>
+    </form>
   </div>
 </body>
 <app-frigo-background></app-frigo-background>

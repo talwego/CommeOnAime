@@ -52,10 +52,10 @@ public class IngredientRestController {
 	public List<Ingredient> findByVegan(){
 		return ingredientService.findByVegan(true);
 	}
-	@GetMapping("/name/{n}")
+	@GetMapping("/name/{nomingredient}")
 	@JsonView(JsonViews.Ingredient.class)
-	public List<Ingredient> findByName(@RequestBody String n){
-		return ingredientService.findByName(n);
+	public List<Ingredient> findByName(@PathVariable String nomingredient){
+		return ingredientService.findByName(nomingredient);
 	}
 	
 	public List<Ingredient> findByCalorieBetween(int obj1, int obj2){

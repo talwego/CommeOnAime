@@ -14,16 +14,12 @@ import { IngredientService } from '../../service/ingredient.service';
   styleUrls: ['./frigo.component.css'],
 })
 export class FrigoComponent implements OnInit {
-  form!: FormGroup;
+  nom: string = '';
   ingredients: Ingredient[] = [];
 
   constructor(private ingredientService: IngredientService) {}
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      nom: new FormControl('', this.contient),
-    });
-
     if (!sessionStorage.getItem('panier')) {
       sessionStorage.setItem(
         'panier',
@@ -75,15 +71,10 @@ export class FrigoComponent implements OnInit {
     return jsonObject[id];
   }
 
-  contient(control: AbstractControl): ValidationErrors | null {
-    console.log(this.form.get('nom'));
-
-    if (control.value) {
-      this.ingredientService.findByName(control.value).subscribe((data) => {
-        console.log('koukou');
-        this.ingredients = data;
-      });
-    }
-    return { change: true };
+  chercher() {
+    this.ingredientService.findByName(this.nom).subscribe((data) => {
+      console.log('koukou');
+      this.ingredients = data;
+    });
   }
 }
