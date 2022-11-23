@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import Sopra.DiscuissonAPI.exception.IdException;
 import Sopra.DiscuissonAPI.exception.MessageException;
 import Sopra.DiscuissonAPI.exception.RecetteIngredientException;
+import Sopra.DiscuissonAPI.model.Compte;
 import Sopra.DiscuissonAPI.model.Ingredient;
 import Sopra.DiscuissonAPI.model.Message;
 import Sopra.DiscuissonAPI.model.Nutritionist;
@@ -17,9 +18,8 @@ import Sopra.DiscuissonAPI.model.User;
 import Sopra.DiscuissonAPI.model.Recette;
 import Sopra.DiscuissonAPI.model.RecetteIngredient;
 import Sopra.DiscuissonAPI.repository.MessageRepository;
-import Sopra.DiscuissonAPI.repository.NutritionistRepository;
 import Sopra.DiscuissonAPI.repository.RecetteRepository;
-import Sopra.DiscuissonAPI.repository.UserRepository;
+import Sopra.DiscuissonAPI.repository.CompteRepository;
 import net.bytebuddy.asm.Advice.Return;
 
 @Service
@@ -28,19 +28,11 @@ public class MessageService {
 		@Autowired
 		private MessageRepository messageRepo;
 		@Autowired
-		private NutritionistRepository nutritionistRepo;
-		@Autowired
-		private UserRepository userRepo;
+		private CompteRepository compteRepo;
 		
 		
 		public List<Message> findAll(){
 			return messageRepo.findAll();
-		}
-		
-		public Message findByDateMessageDate(LocalDate dateMessageDate) {
-			return messageRepo.findByDateMessageDate(dateMessageDate).orElseThrow(()->{
-				throw new MessageException("Date inconnu");
-			});
 		}
 
 		public Message findById(Integer id) {
@@ -49,14 +41,14 @@ public class MessageService {
 			});
 		}
 		
-		public Message create(String sujet, String text, LocalDate dateMessage, int idNutritionnist, int idUser) {
-			Nutritionist nutritionist = nutritionistRepo.findById(idNutritionnist).orElseThrow(()->{
-				throw new MessageException("nutritionniste inconnu");
+		public Message create(String text, int idEnvoyeur, int idRecepteur) {
+			Compte envoyeur = compteRepo.findById(idEnvoyeur).orElseThrow(()->{
+				throw new MessageException("envoyeur inconnu");
 			});
-			User user = userRepo.findById(idUser).orElseThrow(()->{
-				throw new MessageException("user inconnu");
+			Compte recepteur = compteRepo.findById(idRecepteur).orElseThrow(()->{
+				throw new MessageException("recepteur inconnu");
 			});
-			return save(new Message(sujet, text, dateMessage, nutritionist, user));
+			return save(new Message(text, envoyeur, recepteur));
 		
 		}
 		
@@ -64,10 +56,6 @@ public class MessageService {
 		public Message create(Message message) {
 			if (message.getId() != null) {
 				throw new MessageException("Message deja dans la base");
-			}
-			if(message.getSujet()==null||message.getSujet().isBlank()) {
-
-				throw new MessageException("Sujet obligatoire");
 			}
 			if(message.getText()==null||message.getText().isBlank()) {
 				throw new MessageException("Text obligatoire");
@@ -83,9 +71,7 @@ public class MessageService {
 		}
 
 		public Message save(Message message) {
-			if (message.getSujet() == null || message.getSujet().isBlank() || message.getSujet().length() > 30) {
-				throw new MessageException("Probleme sujet");
-			}
+			
 			if (message.getText() == null || message.getText().isBlank()){
 				throw new MessageException("Probleme text");
 			}

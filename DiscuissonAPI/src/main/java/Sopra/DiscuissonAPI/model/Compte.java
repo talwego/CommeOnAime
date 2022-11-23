@@ -1,7 +1,9 @@
 package Sopra.DiscuissonAPI.model;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
@@ -11,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -37,11 +40,18 @@ public class Compte implements UserDetails{
 	protected Integer id;
 	
 	@Column(length = 50,nullable = false,unique = true)
-	@JsonView(JsonViews.Common.class)
+	@JsonView({JsonViews.Common.class,JsonViews.Message.class})
 	protected String login;
 	
 	@Column(length = 255,nullable = false)
 	protected String password;
+	
+	@OneToMany(mappedBy="envoyeur")
+	private List<Message> messages = new ArrayList<>();
+	
+	@OneToMany(mappedBy="recepteur")
+	private List<Message> messages2 = new ArrayList<>();
+	
 	
 	public Compte() {
 	}
@@ -57,6 +67,16 @@ public class Compte implements UserDetails{
 		this.login = login;
 		this.password = password;
 	}
+	
+	
+	public List<Message> getMessages() {
+		return messages;
+	}
+
+	public void setMessages(List<Message> messages) {
+		this.messages = messages;
+	}
+	
 
 	public Integer getId() {
 		return id;

@@ -32,11 +32,6 @@ import Sopra.DiscuissonAPI.repository.NutritionistRepository;
 				});
 			}
 			
-			public Nutritionist findByIdFetch(Integer id) {
-				return nutritionistRepo.findByIdFetchMessage(id).orElseThrow(()->{
-					throw new NutritionistException("id inconnu");
-				});
-			}
 			
 			public Nutritionist create(Nutritionist nutritionist) {
 				if (nutritionist.getId() != null) {

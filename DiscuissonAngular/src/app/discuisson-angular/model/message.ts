@@ -1,21 +1,24 @@
+import { Compte } from "./compte";
+
 export class Message {
-  public get dateMessageDate(): Date | undefined  {
-    return this._dateMessageDate;
+  public get recepteur(): Compte | undefined {
+    return this._recepteur;
   }
-  public set dateMessageDate(value: Date  | undefined ) {
-    this._dateMessageDate = value;
+  public set recepteur(value: Compte | undefined) {
+    this._recepteur = value;
   }
-  public get text(): string  | undefined  {
+  public get envoyeur(): Compte | undefined {
+    return this._envoyeur;
+  }
+  public set envoyeur(value: Compte | undefined) {
+    this._envoyeur = value;
+  }
+
+  public get text(): string  | undefined {
     return this._text;
   }
   public set text(value: string  | undefined ) {
     this._text = value;
-  }
-  public get sujet(): string  | undefined {
-    return this._sujet;
-  }
-  public set sujet(value: string  | undefined ) {
-    this._sujet = value;
   }
   public get id(): number | undefined  {
     return this._id;
@@ -26,9 +29,9 @@ export class Message {
 
   constructor(
     private _id?: number,
-    private _sujet?: string,
     private _text?: string,
-    private _dateMessageDate?: Date,
+    private _envoyeur?: Compte,
+    private _recepteur?: Compte,
 
   ) {}
 }

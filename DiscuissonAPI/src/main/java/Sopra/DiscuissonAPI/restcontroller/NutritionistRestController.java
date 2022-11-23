@@ -73,26 +73,6 @@ public class NutritionistRestController {
 		return nutritionistSrv.save(nutritionist);
 	}
 
-	@PatchMapping("/{id}")
-	@JsonView(JsonViews.Common.class)
-	public Nutritionist patch(@RequestBody Map<String, Object> fields, @PathVariable Integer id) {
-		Nutritionist nutritionist = nutritionistSrv.findById(id);
-		fields.forEach((l, w) -> {
-			if (l.equals("message")) {
-				Map<String, Object> mapMessage = (Map<String, Object>) w;
-				mapMessage.forEach((lMessage, wMessage) -> {
-					Field fieldMessage = ReflectionUtils.findField(Message.class, lMessage);
-					ReflectionUtils.makeAccessible(fieldMessage);
-					ReflectionUtils.setField(fieldMessage, nutritionist.getMessage(), wMessage);
-				});
-			} else {
-				Field field = ReflectionUtils.findField(Nutritionist.class, l);
-				ReflectionUtils.makeAccessible(field);
-				ReflectionUtils.setField(field, nutritionist, w);
-			}
-		});
-		return nutritionistSrv.save(nutritionist);
-	}
 
 	@DeleteMapping("/{id}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)

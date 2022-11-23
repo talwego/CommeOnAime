@@ -9,6 +9,6 @@ import Sopra.DiscuissonAPI.model.Message;
 
 public interface MessageRepository extends JpaRepository<Message, Integer>{
 
-	Optional<Message> findByDateMessageDate(LocalDate dateMessageDate);
+	
 
 }
