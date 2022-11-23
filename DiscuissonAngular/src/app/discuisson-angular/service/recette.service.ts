@@ -9,6 +9,13 @@ import { Observable } from 'rxjs';
 export class RecetteService {
   constructor(private httpClient: HttpClient) {}
 
+  public findBySaison(saison:number): Observable<Recette[]> {
+
+      return this.httpClient.get<Recette[]>(
+        `http://localhost:8080/discuisson/api/recette/saison/${saison}`
+    );
+  }
+
   public findAll(): Observable<Recette[]> {
     return this.httpClient.get<Recette[]>(
       'http://localhost:8080/discuisson/api/recette'

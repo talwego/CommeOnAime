@@ -58,6 +58,14 @@ public class RecetteRestController {
 	public List<Recette> findAll(){
 		return recetteService.findAll();
 	}
+	//Liste recettes saison
+	@GetMapping("/saison/{saison}")
+	@JsonView(JsonViews.Recette.class)
+	public List<Recette> findBySaison(@PathVariable int saison){
+		System.out.println(saison);
+		return recetteService.findBySaison(saison);
+	}
+	
 	//Liste recettes vegetariennes
 	@GetMapping("/vegetarien")
 	@JsonView(JsonViews.Recette.class)
