@@ -24,13 +24,16 @@ export class RecetteEditComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
       if (params['id']) {
-        this.recetteService.findById(params['id']).subscribe((data) => {
+        this.recetteService
+        .findByIdWithDetails(params['id'])
+        .subscribe((data) => {
           this.recette = data;
         });
       }
     });
+   
   }
-
+  
   save() {
     if (this.recette.id) {
       this.recetteService.update(this.recette).subscribe((data) => {
@@ -42,4 +45,5 @@ export class RecetteEditComponent implements OnInit {
       });
     }
   }
+  
 }

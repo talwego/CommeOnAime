@@ -1,5 +1,5 @@
 <div id="background">
-  <div div id="formulaire">
+  <div  id="formulaire">
     <form (ngSubmit)="save()" #form="ngForm">
       <div class="divCentreFlex">
         <div id="backgroundH2">
@@ -167,7 +167,32 @@
         Tu as oublié le temps de préparation :o
         </div>
       </div>
+      <!--**************************************ajout ingredient **********************************--> 
+      <div id="list_ingredient">
+        <p class="text">Liste des ingredients :</p>
+        
+          <ng-container *ngFor="let p of recette.recetteIngredients">
+            <p>
+              {{ p.quantite }}{{ p.ingredient!.unite }} de
+              {{ p.ingredient!.name }}
+            </p>
+          </ng-container>
+        
+      </div>
 
+      <!--************************************ajout instruction*********************************--> 
+      <div id="list_instruction">
+        <p class="text">Liste des étapes:</p>
+        <ol>
+          <ng-container *ngFor="let p of recette.instructionRecettes">
+            <li>
+              {{ p.instruction }}
+            </li>
+          </ng-container>
+        </ol>
+      </div>
+
+      <!--**************************************************************************************--> 
       <div class="form-group">
         <div class="divACoteFlex">
           <div class="text">Cette recette est-elle correcte ?</div>
