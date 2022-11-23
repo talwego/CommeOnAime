@@ -126,7 +126,7 @@
             [(ngModel)]="recette.commentaires"
             placeholder="Votre commentaire"
             required
-            #calorieCtrl="ngModel"
+            #commentairesCtrl="ngModel"
           />
         </div>
       </div>
@@ -167,7 +167,8 @@
         Tu as oublié le temps de préparation :o
         </div>
       </div>
-      <!--**************************************ajout ingredient **********************************--> 
+      <!--**************************************Ingredient **********************************--> 
+      <!--afficher/supprimer ingredient de la recette-->
       <div id="list_ingredient">
         <p class="text">Liste des ingredients :</p>
         
@@ -182,7 +183,63 @@
               </button>
             </td>
           </ng-container>
-        
+          <td>
+          </td>
+        <!--ajouter un ingredient-->
+        <h2 >Ajout d'un ingredient</h2>
+        <form (ngSubmit)="saveRecetteIngredient()" #form="ngForm">
+
+          <div class="form-group">
+            <div class="divACoteFlex">
+              <div class="text">choix ingredient: </div>
+              <select
+                class="form-select"
+                aria-label="Default select example"
+                name="finSaison"
+                id="finSaison"
+                [(ngModel)]="recetteIngredient.ingredient"
+              >
+              <option value="1">Pomme de terre</option>
+              <option value="12">Beurre</option>
+              <option value="22">Oeuf</option>
+              <option value="15">Brocoli</option>
+              <option value="20">Poireau</option>
+                
+              </select>
+             </div>
+          </div>
+
+          <div class="form-group">
+            <div class="divACoteFlex">
+              <div class="text">Quantite: </div>
+              <input
+                type="number"
+                class="form-control"
+                name="quantite"
+                id="quantite"
+                [(ngModel)]="recetteIngredient.quantite"
+                placeholder="Précision: pour une portion d'une personne"
+                />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="divACoteFlex">
+              <div class="text">Recette ID : </div>
+              <input
+                type="number"
+                class="form-control"
+                name="idrecette"
+                id="idrecette"
+                [(ngModel)]="recetteIngredient.recette"
+              />
+            </div>
+           </div>
+
+          <div class="divCentreFlex">
+            <button type="submit" >enregistrer</button>
+          </div>
+        </form>
       </div>
 
       <!--************************************ajout instruction*********************************--> 

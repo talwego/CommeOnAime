@@ -16,6 +16,7 @@ export class RecetteEditComponent implements OnInit {
   recette: Recette = new Recette();
   ingredients: Ingredient[] = [];
   recetteIngredients:  RecetteIngredient[] = [];
+  recetteIngredient:  RecetteIngredient = new RecetteIngredient();
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -50,7 +51,18 @@ export class RecetteEditComponent implements OnInit {
       });
     }
   }
-  
+  saveRecetteIngredient() {
+    if (this.recetteIngredient.id) {
+      this.recetteIngredientService.update(this.recetteIngredient).subscribe((data) => {
+        this.router.navigateByUrl('/recette');
+      });
+    } else {
+      this.recetteIngredientService.create(this.recetteIngredient).subscribe((data) => {
+        this.router.navigateByUrl('/recette');
+        console.log(this.recetteIngredient)
+      });
+    }
+  }
   deleteRecetteIngredient(id:number) {
     this.recetteIngredientService.deleteById(id).subscribe(() => {
       this.initRecetteIngredient();
