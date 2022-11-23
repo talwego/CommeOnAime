@@ -39,10 +39,10 @@ export class User extends Compte {
   public set age(value: number | undefined) {
     this._age = value;
   }
-  public get genre(): Genre | undefined {
+  public get genre(): string | undefined {
     return this._genre;
   }
-  public set genre(value: Genre | undefined) {
+  public set genre(value: string | undefined) {
     this._genre = value;
   }
 
@@ -51,7 +51,7 @@ export class User extends Compte {
     _id?: number,
     _login?: string,
     _password?: string,
-    private _genre?: Genre,
+    private _genre?: string,
     private _age?: number,
     private _taille?: number,
     private _poids?: number,

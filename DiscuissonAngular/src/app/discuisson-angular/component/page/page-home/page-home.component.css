@@ -7,7 +7,7 @@ body {
 }
 
 body div {
-  margin-top: 5%;
+  margin-top: 3%;
   display: flex;
   justify-content: center;
 }
@@ -23,3 +23,6 @@ body div {
   padding-right: 8px;
   text-decoration: none;
 }
+
+#bonjour {
+  background-color: rgba(224, 125, 42, 1);}

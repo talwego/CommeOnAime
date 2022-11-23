@@ -1,4 +1,5 @@
-
+<app-background-pour-page-connection></app-background-pour-page-connection>
+<body>
 <div style="margin-top:10%" class="container">
   <div class="row justify-content-center">
     <div class="col-md-6">
@@ -20,7 +21,7 @@
               <ng-container formGroupName="groupePassword">
               <div class="form-group">
                 <label for="password">Mot de passe :</label>
-                <input formControlName="password" class="form-control" placeholder="*******" required/>
+                <input formControlName="password" class="form-control" placeholder="*******"/>
                 <!--<div
                   *ngIf="
                     form.get('groupeInfo.groupePassword.password')?.dirty &&
@@ -31,7 +32,7 @@
               <br>
                 <div class="form-group">
                   <label for="confirmation">Confirmation du mot de passe :</label>
-                  <input formControlName="confirmation" class="form-control" placeholder="*******" required/>
+                  <input formControlName="confirmation" class="form-control" placeholder="*******"/>
                   <!--<div
                     *ngIf="
                       form.get('groupeInfo.groupePassword')?.dirty &&
@@ -45,13 +46,13 @@
             <div class="form-group">
             <label>Genre :</label><br>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="genre" id="homme" value="homme" checked>
+              <input formControlName="genre" class="form-check-input" type="radio" name="genre" id="homme" value="0">
               <label class="form-check-label" for="homme">
                 Homme
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="genre" id="femme" value="femme">
+              <input formControlName="genre" class="form-check-input" type="radio" name="genre" id="femme" value="1">
               <label class="form-check-label" for="femme">
                 Femme
               </label>
@@ -74,20 +75,33 @@
           </div>
             <br><br>
             <div class="form-group">
+
             <label>Regime :</label><br>
-            <div class="form-check">
-              <input formControlName="vegetarien" class="form-check-input" type="checkbox" value="1" id="flexCheckVegetarien" checked>
-              <label class="form-check-label" for="flexCheckVegetarien">
-                Végétarien
-              </label>
-            </div>
-            <div class="form-check">
-              <input formControlName="vegan" class="form-check-input" type="checkbox" value="1" id="flexCheckVegan" checked>
-              <label class="form-check-label" for="flexCheckVegan">
-                Vegan
-              </label>
-            </div>
-          </div>
+                <div>
+                  <div class="form-check form-switch">
+                    <input formControlName="vegan"
+                      class="form-check-input"
+                      type="checkbox"
+                      id="vegan"
+                      name="vegan"
+                    />
+                    <label class="form-check-label" for="flexSwitchCheckDefault"
+                      >Vegan</label
+                    >
+                  </div>
+                  <div class="form-check form-switch">
+                    <input formControlName="vegetarien"
+                      class="form-check-input"
+                      type="checkbox"
+                      id="vegetarien"
+                      name="vegetarien"
+                    />
+                    <label class="form-check-label" for="flexSwitchCheckChecked"
+                      >Végétarien</label
+                    >
+                  </div>
+                </div>
+              </div>
             <br>
             <div class="form-group">
             <label>Activité Physique :</label><br>
@@ -111,12 +125,12 @@
           </div>
           <br><br>
           <div>
-          <button class="btn btn-outline-success" type="submit">S'inscrire</button>
-          <button class="btn btn-outline-warning" routerLink="/login" routerLinkActive="active">Se connecter</button>
+          <button id="conexion2" class="btn btn-outline-dark" type="submit">S'inscrire</button>
+          <button id="conexion1" class="btn btn-outline-dark" routerLink="/login" routerLinkActive="active">Se connecter</button>
         </div>
         </form>
       </div>
     </div>
   </div>
 </div>
-
+</body>

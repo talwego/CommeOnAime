@@ -17,3 +17,20 @@ body {
   padding-right: 8px;
   text-decoration: none;
 }
+
+#conexion1 {
+  background-color: rgba(224, 125, 42, 1);
+  border-radius: 20px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 7px;
+
+}
+
+#conexion2 {
+  background-color: rgba(102, 172, 38, 1);
+  border-radius: 20px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 7px;
+}
