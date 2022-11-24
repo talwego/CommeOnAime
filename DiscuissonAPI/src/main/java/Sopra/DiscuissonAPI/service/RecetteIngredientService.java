@@ -75,7 +75,9 @@ public class RecetteIngredientService {
 	}
 	
 	public void delete(RecetteIngredient recetteIngredient) {
-		if (_ingredientRepository.existsById(recetteIngredient.getId())) {
+		System.out.println("======>>>");
+		System.out.println(recetteIngredient);
+		if (_recetteIngredientRepository.existsById(recetteIngredient.getId())) {
 			_recetteIngredientRepository.delete(recetteIngredient);
 		}
 		else {

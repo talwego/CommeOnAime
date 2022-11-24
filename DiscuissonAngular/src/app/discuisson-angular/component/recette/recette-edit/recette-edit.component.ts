@@ -15,8 +15,8 @@ import { RecetteIngredient } from 'src/app/discuisson-angular/model/recette-ingr
 export class RecetteEditComponent implements OnInit {
   recette: Recette = new Recette();
   ingredients: Ingredient[] = [];
-  recetteIngredients:  RecetteIngredient[] = [];
-  recetteIngredient:  RecetteIngredient = new RecetteIngredient();
+  recetteIngredients: RecetteIngredient[] = [];
+  recetteIngredient: RecetteIngredient = new RecetteIngredient();
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -27,19 +27,22 @@ export class RecetteEditComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.ingredientService.findAll().subscribe((data) => {
+      this.ingredients = data;
+    });
     this.activatedRoute.params.subscribe((params) => {
       if (params['id']) {
         this.recetteService
-        .findByIdWithDetails(params['id'])
-        .subscribe((data) => {
-          this.recette = data;
-          console.log(this.recette)
-        });
+          .findByIdWithDetails(params['id'])
+          .subscribe((data) => {
+            this.recette = data;
+            this.recetteIngredient.recette = new Recette();
+            this.recetteIngredient.recette.id = this.recette.id;
+          });
       }
     });
-   
   }
-  
+
   save() {
     if (this.recette.id) {
       this.recetteService.update(this.recette).subscribe((data) => {
@@ -52,18 +55,22 @@ export class RecetteEditComponent implements OnInit {
     }
   }
   saveRecetteIngredient() {
+    console.log(this.recetteIngredient);
     if (this.recetteIngredient.id) {
-      this.recetteIngredientService.update(this.recetteIngredient).subscribe((data) => {
-        this.router.navigateByUrl('/recetteIngredient');
-      });
+      this.recetteIngredientService
+        .update(this.recetteIngredient)
+        .subscribe((data) => {
+          this.router.navigateByUrl('/recetteIngredient');
+        });
     } else {
-      this.recetteIngredientService.create(this.recetteIngredient).subscribe((data) => {
-        this.router.navigateByUrl('/recetteIngredient');
-        console.log(this.recetteIngredient)
-      });
+      this.recetteIngredientService
+        .create(this.recetteIngredient)
+        .subscribe((data) => {
+          this.router.navigateByUrl('/recetteIngredient');
+        });
     }
   }
-  deleteRecetteIngredient(id:number) {
+  deleteRecetteIngredient(id: number) {
     this.recetteIngredientService.deleteById(id).subscribe(() => {
       this.initRecetteIngredient();
     });
@@ -72,5 +79,9 @@ export class RecetteEditComponent implements OnInit {
     this.recetteIngredientService.findAll().subscribe((data) => {
       this.recetteIngredients = data;
     });
+  }
+  byId(obj1: Ingredient, obj2: Ingredient) {
+    if (obj1 && obj2) return obj1.id == obj2.id;
+    return false;
   }
 }

@@ -4,11 +4,10 @@ import { Observable } from 'rxjs';
 import { RecetteIngredient } from '../model/recette-ingredient';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RecetteIngredientService {
-
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   public findAll(): Observable<RecetteIngredient[]> {
     return this.httpClient.get<RecetteIngredient[]>(
@@ -16,8 +15,9 @@ export class RecetteIngredientService {
     );
   }
 
-  
   public deleteById(id: number): Observable<RecetteIngredient> {
+    console.log(id);
+
     return this.httpClient.delete<RecetteIngredient>(
       `http://localhost:8080/discuisson/api/recetteIngredient/${id}`
     );
@@ -27,16 +27,18 @@ export class RecetteIngredientService {
       `http://localhost:8080/discuisson/api/recetteIngredient/${id}`
     );
   }
-  public update(recetteIngredient: RecetteIngredient): Observable<RecetteIngredient> {
-    console.debug(recetteIngredient);
+  public update(
+    recetteIngredient: RecetteIngredient
+  ): Observable<RecetteIngredient> {
     return this.httpClient.put<RecetteIngredient>(
       `http://localhost:8080/discuisson/api/recetteIngredient/${recetteIngredient?.id}`,
       recetteIngredient
     );
   }
 
-  public create(recetteIngredient: RecetteIngredient): Observable<RecetteIngredient> {
-    console.debug(recetteIngredient);
+  public create(
+    recetteIngredient: RecetteIngredient
+  ): Observable<RecetteIngredient> {
     return this.httpClient.post<RecetteIngredient>(
       'http://localhost:8080/discuisson/api/recetteIngredient',
       this.recetteIngredientToJson(recetteIngredient)
@@ -45,10 +47,15 @@ export class RecetteIngredientService {
   private recetteIngredientToJson(recetteIngredient: RecetteIngredient): any {
     let recetteIngredientEnJsonPourJava = {
       quantite: recetteIngredient.quantite,
-      ingredient_id: recetteIngredient.ingredient,
-      recette_id: recetteIngredient.recette,
-      
+      ingredient: {
+        id: recetteIngredient.ingredient?.id,
+      },
+      recette: {
+        id: recetteIngredient.recette?.id,
+      },
     };
+    console.log(recetteIngredientEnJsonPourJava);
+
     return recetteIngredientEnJsonPourJava;
   }
 }

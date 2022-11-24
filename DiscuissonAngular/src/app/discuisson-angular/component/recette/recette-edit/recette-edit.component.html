@@ -1,5 +1,5 @@
 <div id="background">
-  <div  id="formulaire">
+  <div id="formulaire">
     <form (ngSubmit)="save()" #form="ngForm">
       <div class="divCentreFlex">
         <div id="backgroundH2">
@@ -10,7 +10,7 @@
 
       <div class="form-group" *ngIf="recette.id">
         <div class="divACoteFlex">
-          <div class="text">Id recette: </div>
+          <div class="text">Id recette:</div>
           <input
             class="form-control"
             name="id"
@@ -23,7 +23,7 @@
 
       <div class="form-group">
         <div class="divACoteFlex">
-          <div class="text">Nom de la recette: </div>
+          <div class="text">Nom de la recette:</div>
           <input
             class="form-control"
             name="name"
@@ -43,7 +43,7 @@
 
       <div class="form-group">
         <div class="divACoteFlex">
-          <div class="text">Nombre de calorie: </div>
+          <div class="text">Nombre de calorie:</div>
           <input
             type="number"
             class="form-control"
@@ -63,10 +63,9 @@
         </div>
       </div>
 
-
       <div class="form-group">
         <div class="divACoteFlex">
-          <div class="text">La saison commence en: </div>
+          <div class="text">La saison commence en:</div>
           <select
             class="form-select"
             aria-label="Default select example"
@@ -87,12 +86,12 @@
             <option value="11">Novembre</option>
             <option value="12">Décembre</option>
           </select>
-         </div>
+        </div>
       </div>
 
       <div class="form-group">
         <div class="divACoteFlex">
-          <div class="text">La saison fini en: </div>
+          <div class="text">La saison fini en:</div>
           <select
             class="form-select"
             aria-label="Default select example"
@@ -113,12 +112,12 @@
             <option value="11">Novembre</option>
             <option value="12">Décembre</option>
           </select>
-         </div>
+        </div>
       </div>
 
       <div class="form-group">
         <div class="divACoteFlex">
-          <div class="text">Commentaires : </div>
+          <div class="text">Commentaires :</div>
           <input
             class="form-control"
             name="commentaires"
@@ -133,7 +132,7 @@
 
       <div class="form-group">
         <div class="divACoteFlex">
-          <div class="text">Note : </div>
+          <div class="text">Note :</div>
           <input
             type="number"
             class="form-control"
@@ -145,97 +144,94 @@
             #calorieCtrl="ngModel"
           />
         </div>
-       </div>
+      </div>
 
-       <div class="form-group">
+      <div class="form-group">
         <div class="divACoteFlex">
           <div class="text">Temps de préparation :</div>
-        <input
-          type="time"
-          class="form-control"
-          name="tempsDeCuisine"
-          id="tempsDeCuisine"
-          [(ngModel)]="recette.tempsDeCuisine"
-          required
-          #tempsDeCuisineCtrl="ngModel"
-        />
-      </div>
+          <input
+            type="time"
+            class="form-control"
+            name="tempsDeCuisine"
+            id="tempsDeCuisine"
+            [(ngModel)]="recette.tempsDeCuisine"
+            required
+            #tempsDeCuisineCtrl="ngModel"
+          />
+        </div>
         <div
           *ngIf="tempsDeCuisineCtrl.dirty && tempsDeCuisineCtrl.invalid"
           class="alert alert-danger"
         >
-        Tu as oublié le temps de préparation :o
+          Tu as oublié le temps de préparation :o
         </div>
       </div>
-      <!--**************************************Ingredient **********************************--> 
+      <!--**************************************Ingredient **********************************-->
       <!--afficher/supprimer ingredient de la recette-->
       <div id="list_ingredient">
         <p class="text">Liste des ingredients :</p>
-        
-          <ng-container *ngFor="let p of recette.recetteIngredients">
-            <p>
-              {{ p.quantite }}{{ p.ingredient!.unite }} de
-              {{ p.ingredient!.name }}
-            </p>
-            <td>
-              <button  (click)="deleteRecetteIngredient(p.id!)">
-                supprimer
-              </button>
-            </td>
-          </ng-container>
-          <td>
-          </td>
-        <!--ajouter un ingredient-->
-        <h2 >Ajout d'un ingredient</h2>
-        <form (ngSubmit)="saveRecetteIngredient()" #form="ngForm">
 
+        <ng-container *ngFor="let p of recette.recetteIngredients">
+          <p>
+            {{ p.quantite }}{{ p.ingredient!.unite }} de
+            {{ p.ingredient!.name }}
+          </p>
+          <td>
+            <button (click)="deleteRecetteIngredient(p.id!)">supprimer</button>
+          </td>
+        </ng-container>
+        <td></td>
+        <!--ajouter un ingredient-->
+        <h2>Ajout d'un ingredient</h2>
+        <form (ngSubmit)="saveRecetteIngredient()" #form="ngForm">
           <div class="form-group">
             <div class="divACoteFlex">
-              <div class="text">Ingredient ID : </div>
-              <input
+              <div class="text">Ingredient ID :</div>
+              <!--<input
                 type="number"
                 class="form-control"
                 name="idIngredient"
                 id="idIngredeint"
                 [(ngModel)]="recetteIngredient.ingredient"
-              />
-            </div>
-           </div>
-
-          <div class="form-group">
-            <div class="divACoteFlex">
-              <div class="text">Quantite: </div>
-              <input
-                type="number"
+              />-->
+              <select
                 class="form-control"
-                name="quantite"
-                id="quantite"
-                [(ngModel)]="recetteIngredient.quantite"
-                placeholder="Précision: pour une portion d'une personne"
+                name="recetteIngredient.ingredient"
+                [(ngModel)]="recetteIngredient.ingredient"
+                [compareWith]="byId"
+                required
+                #fournisseurCtrl="ngModel"
+              >
+                <option *ngFor="let f of ingredients" [ngValue]="f">
+                  {{ f.name }}
+                </option>
+              </select>
+              <div *ngIf="fournisseurCtrl.invalid">
+                *ingredient obligatoire si ajout
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="divACoteFlex">
+                <div class="text">Quantite:</div>
+                <input
+                  type="number"
+                  class="form-control"
+                  name="quantite"
+                  id="quantite"
+                  [(ngModel)]="recetteIngredient.quantite"
+                  placeholder="Précision: pour une portion d'une personne"
                 />
+              </div>
             </div>
-          </div>
 
-          <div class="form-group">
-            <div class="divACoteFlex">
-              <div class="text">Recette ID : </div>
-              <input
-                type="number"
-                class="form-control"
-                name="idrecette"
-                id="idrecette"
-                [(ngModel)]="recetteIngredient.recette"
-              />
+            <div class="divCentreFlex">
+              <button type="submit">enregistrer</button>
             </div>
-           </div>
-
-          <div class="divCentreFlex">
-            <button type="submit" >enregistrer</button>
           </div>
         </form>
       </div>
 
-      <!--************************************ajout instruction*********************************--> 
+      <!--************************************ajout instruction*********************************-->
       <div id="list_instruction">
         <p class="text">Liste des étapes:</p>
         <ol>
@@ -247,31 +243,30 @@
         </ol>
       </div>
 
-      <!--**************************************************************************************--> 
+      <!--**************************************************************************************-->
       <div class="form-group">
         <div class="divACoteFlex">
           <div class="text">Cette recette est-elle correcte ?</div>
           <input
-          class="form-control"
-          name="isValid"
-          id="isValid"
-          [(ngModel)]="recette.isValid"
-          required
-          #isValidCtrl="ngModel"
-        />
+            class="form-control"
+            name="isValid"
+            id="isValid"
+            [(ngModel)]="recette.isValid"
+            required
+            #isValidCtrl="ngModel"
+          />
         </div>
         <div
-        *ngIf="isValidCtrl.dirty && isValidCtrl.invalid"
-        class="alert alert-danger"
-          >
-          Tu as oublié de repondre, la recette est-elle valide?  :o
+          *ngIf="isValidCtrl.dirty && isValidCtrl.invalid"
+          class="alert alert-danger"
+        >
+          Tu as oublié de repondre, la recette est-elle valide? :o
         </div>
       </div>
 
-
       <div class="divCentreFlex">
         <div class="divCentreFlex2">
-          <div style="width: 65px">C'est une recette : </div>
+          <div style="width: 65px">C'est une recette :</div>
           <div>
             <div class="form-check form-switch">
               <input
@@ -299,7 +294,6 @@
             </div>
           </div>
         </div>
-        
       </div>
 
       <div class="divCentreFlex">
@@ -309,5 +303,3 @@
     </form>
   </div>
 </div>
-
-
