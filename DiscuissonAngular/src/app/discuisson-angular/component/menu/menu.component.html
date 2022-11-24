@@ -27,23 +27,28 @@
         >
       </li>
       <li>
-        <a class="nav-link" routerLink="/message" routerLinkActive="active"
+        <a
+        class="nav-link" routerLink="/messagerie" routerLinkActive="active"
           >Messagerie</a
         >
       </li>
       <li>
-        <a class="nav-link" routerLink="/ingredient" routerLinkActive="active"
+        <a
+        class="nav-link" routerLink="/ingredient" routerLinkActive="active"
           >Liste-Ingredients</a
         >
       </li>
       <li>
-        <a class="nav-link" routerLink="/admin" routerLinkActive="active"
+        <a
+        *ngIf="admin"
+        class="nav-link" routerLink="/admin" routerLinkActive="active"
           >Partie Admin</a
         >
       </li>
       <li>
         <div>
           <a
+           *ngIf="anonymous"
             class="nav-link btnVert"
             routerLink="/login"
             routerLinkActive="active"
@@ -52,13 +57,24 @@
         </div>
       </li>
       <li>
-        <!--
+        <div>
+          <a
+           *ngIf="user"
+            class="nav-link btnVert"
+            routerLink="/monCompte"
+            routerLinkActive="active"
+            >Mon compte </a
+          >
+        </div>
+      </li>
+      <li>
       <div>
-        <button class="btn btn-link nav-link" (click)="logoff()">
+        <li *ngIf="authenticated" class="nav-item">
+        <button class="btn btn-dark" (click)="logoff()">
           Déconnexion
         </button>
       </div>
-      --></li>
+     </li>
     </ul>
   </nav>
   <hr />

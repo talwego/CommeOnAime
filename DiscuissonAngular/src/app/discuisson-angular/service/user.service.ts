@@ -23,7 +23,7 @@ export class UserService {
     return this.httpClient.delete<void>(`${UserService.URL}/${id}`);
   }
 
-  public update(ingredient: User): Observable<User> {
+  public update(ingredient: any): Observable<User> {
     return this.httpClient.put<User>(
       `${UserService.URL}/${ingredient?.id}`,
       ingredient

@@ -22,14 +22,14 @@ export class AuthenticationService {
   }
 
   public isAdmin(): boolean {
-    return sessionStorage.getItem('role') == 'ROLE_ADMIN';
+    return sessionStorage.getItem('role') == 'admin';
   }
 
   public isUser(): boolean {
-    return sessionStorage.getItem('role') == 'ROLE_USER';
+    return sessionStorage.getItem('role') == 'user';
   }
 
   public isNutritionist(): boolean {
-    return sessionStorage.getItem('role') == 'ROLE_NUTRITIONIST';
+    return sessionStorage.getItem('role') == 'nutritionist';
   }
 }

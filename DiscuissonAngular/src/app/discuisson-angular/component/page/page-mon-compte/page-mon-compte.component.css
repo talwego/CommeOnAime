@@ -1,0 +1,48 @@
+body {
+  position: absolute;
+  top: 0%;
+  background-color: rgba(255, 255, 255, 0);
+  height: 100%;
+  width: 100%;
+}
+
+.btnVert {
+  font-size: 30px;
+  color: white;
+  background-color: rgba(102, 172, 38, 1);
+  border-radius: 10px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  text-decoration: none;
+}
+
+.btnPayer {
+  font-size: 15px;
+  color: white;
+  background-color: rgb(0, 0, 0);
+  border-radius: 10px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  text-decoration: none;
+}
+
+#conexion1 {
+  background-color: rgba(224, 125, 42, 1);
+  border-radius: 20px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 7px;
+
+}
+
+#conexion2 {
+  background-color: rgba(102, 172, 38, 1);
+  border-radius: 20px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 7px;
+}
