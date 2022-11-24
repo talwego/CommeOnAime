@@ -191,23 +191,16 @@
 
           <div class="form-group">
             <div class="divACoteFlex">
-              <div class="text">choix ingredient: </div>
-              <select
-                class="form-select"
-                aria-label="Default select example"
-                name="finSaison"
-                id="finSaison"
+              <div class="text">Ingredient ID : </div>
+              <input
+                type="number"
+                class="form-control"
+                name="idIngredient"
+                id="idIngredeint"
                 [(ngModel)]="recetteIngredient.ingredient"
-              >
-              <option value=1>Pomme de terre</option>
-              <option value=12>Beurre</option>
-              <option value=22>Oeuf</option>
-              <option value=15>Brocoli</option>
-              <option value=20>Poireau</option>
-                
-              </select>
-             </div>
-          </div>
+              />
+            </div>
+           </div>
 
           <div class="form-group">
             <div class="divACoteFlex">

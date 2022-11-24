@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import Sopra.DiscuissonAPI.model.Ingredient;
 import Sopra.DiscuissonAPI.model.JsonViews;
+import Sopra.DiscuissonAPI.model.Recette;
 import Sopra.DiscuissonAPI.model.RecetteIngredient;
 import Sopra.DiscuissonAPI.service.RecetteIngredientService;
 
@@ -27,7 +29,7 @@ public class RecetteIngredientRestController {
 	private RecetteIngredientService recetteIngredientService;
 	
 	@PostMapping("")
-	@JsonView(JsonViews.Ingredient.class)
+	@JsonView(JsonViews.RecetteIngredient.class)
 	public RecetteIngredient create(@RequestBody RecetteIngredient recetteIngredient) {
 		System.out.println(recetteIngredient);
 		return recetteIngredientService.save(recetteIngredient);

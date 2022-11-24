@@ -38,7 +38,7 @@ export class RecetteIngredientService {
   public create(recetteIngredient: RecetteIngredient): Observable<RecetteIngredient> {
     console.debug(recetteIngredient);
     return this.httpClient.post<RecetteIngredient>(
-      'http://localhost:8080/discuisson/api/recetteIngredient/create',
+      'http://localhost:8080/discuisson/api/recetteIngredient',
       this.recetteIngredientToJson(recetteIngredient)
     );
   }
