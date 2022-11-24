@@ -7,6 +7,7 @@ import { AdminNutrionistEditComponent } from './discuisson-angular/component/adm
 import { AdminNutritionistListComponent } from './discuisson-angular/component/admin/admin-nutritionist/admin-nutritionist-list/admin-nutritionist-list.component';
 import { AdminUserEditComponent } from './discuisson-angular/component/admin/admin-user/admin-user-edit/admin-user-edit.component';
 import { AdminUserListComponent } from './discuisson-angular/component/admin/admin-user/admin-user-list/admin-user-list.component';
+import { FrigoSelectionComponent } from './discuisson-angular/component/frigo/frigo-selection/frigo-selection.component';
 import { FrigoComponent } from './discuisson-angular/component/frigo/frigo.component';
 import { IngredientEditComponent } from './discuisson-angular/component/ingredient/ingredient-edit/ingredient-edit.component';
 import { IngredientListComponent } from './discuisson-angular/component/ingredient/ingredient-list/ingredient-list.component';
@@ -45,6 +46,7 @@ export const routes: Routes = [
   { path: 'nutrionniste/edit', component: AdminNutrionistEditComponent },
   { path: 'nutrionniste/edit/:id', component: AdminNutrionistEditComponent },
   { path: 'frigo', component: FrigoComponent },
+  { path: 'frigo/selection', component: FrigoSelectionComponent },
   { path: 'userVIP', component: UserToVIPComponent },
   { path: 'login', component: LoginComponent },
   { path: 'inscription', component: RegisterComponent },

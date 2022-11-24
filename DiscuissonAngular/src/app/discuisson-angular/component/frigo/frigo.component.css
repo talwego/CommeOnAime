@@ -17,3 +17,21 @@ body {
 #div-b2 {
   width: 70%;
 }
+
+#div-c1 {
+  display: flex;
+  gap: 3rem;
+}
+
+.btnVert,
+.btn-a {
+  font-size: 20px;
+  color: white;
+  background-color: rgba(102, 172, 38, 1);
+  border-radius: 10px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  text-decoration: none;
+}
