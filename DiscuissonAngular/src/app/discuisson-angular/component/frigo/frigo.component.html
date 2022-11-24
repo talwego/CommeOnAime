@@ -1,7 +1,32 @@
 <body>
   <div id="div-a1">
-    <div id="div-b1"></div>
+    <span id="div-b1"></span>
     <div id="div-b2">
+      <form (ngSubmit)="chercher()" [formGroup]="form">
+        <ng-container formGroupName="groupeing">
+          <div id="div-c1">
+            <input
+              formControlName="search"
+              class="form-control"
+              placeholder="Cherche-moi parmi les ingrédients"
+            />
+            <a (click)="reinit()" class="btn-a"
+              ><span style="color: white">Voir tous les ingrédients</span></a
+            >
+            <a (click)="deleteFrigo()" class="btn-a"
+              ><span style="color: white">Réinitialiser mon frigo</span></a
+            >
+            <button class="btn btnVert" type="submit">Go</button>
+            <a
+              routerLink="/frigo/selection"
+              routerLinkActive="active"
+              class="btn-a"
+              style="width: 300px"
+              ><span style="color: white">Voir mes recettes</span></a
+            >
+          </div>
+        </ng-container>
+      </form>
       <table class="table">
         <thead>
           <tr>
@@ -17,6 +42,16 @@
             <ng-container *ngIf="getQuantite(p.id!)">
               <td>{{ p.name }}</td>
               <td>
+                <a (click)="ajouterPanier2(p.id!)">
+                  <img
+                    src="assets/images/image-frigo/plusPlusVert-sans-bg.png"
+                    width="30px"
+                    alt=""
+                  />
+                </a>
+              </td>
+
+              <td>
                 <a (click)="ajouterPanier(p.id!)">
                   <img
                     src="assets/images/image-frigo/plusVert-sans-bg.png"
@@ -25,6 +60,7 @@
                   />
                 </a>
               </td>
+
               <ng-container *ngIf="getQuantite(p.id!)"
                 ><td>{{ getQuantite(p.id!) }}{{ p.unite }}</td>
                 <td>
@@ -32,6 +68,16 @@
                     <img
                       style="padding-top: 2%"
                       src="assets/images/image-frigo/moinsVert-sans-bg.png"
+                      width="30px"
+                      alt=""
+                    />
+                  </a>
+                </td>
+                <td>
+                  <a (click)="retirerPanier2(p.id!)">
+                    <img
+                      style="padding-top: 2%"
+                      src="assets/images/image-frigo/moinsMoinsVert-sans-bg.png"
                       width="30px"
                       alt=""
                     />
@@ -53,6 +99,13 @@
           <tr *ngFor="let p of ingredients">
             <ng-container *ngIf="!getQuantite(p.id!)">
               <td>{{ p.name }}</td>
+              <a (click)="ajouterPanier2(p.id!)">
+                <img
+                  src="assets/images/image-frigo/plusPlusVert-sans-bg.png"
+                  width="30px"
+                  alt=""
+                />
+              </a>
               <td>
                 <a (click)="ajouterPanier(p.id!)">
                   <img
@@ -62,22 +115,11 @@
                   />
                 </a>
               </td>
-              <td></td>
-              <td></td>
-              <td></td>
             </ng-container>
           </tr>
         </tbody>
       </table>
-      <a
-        routerLink="/achat/validation"
-        routerLinkActive="active"
-        class="btn btn-link"
-        >valider panier</a
-      >
     </div>
-
-
   </div>
+  <app-frigo-background></app-frigo-background>
 </body>
-<app-frigo-background></app-frigo-background>

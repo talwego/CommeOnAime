@@ -45,6 +45,12 @@ public class RecetteRestController {
 		return recetteService.findById(id);
 	}
 	
+	@GetMapping("/details")
+	@JsonView(JsonViews.RecetteWithInstructionAndIngredient.class)
+	public List<Recette> findAllWithInstructionAndIngredient() {
+		return recetteService.findAll();
+	}
+	
 	@JsonView(JsonViews.Recette.class)
 	@PostMapping("/list")
 	public List<Recette> create(@RequestBody List<Recette> recettes) {
