@@ -1,42 +1,46 @@
 <body>
   <div id="table">
     <table class="table table-hover">
+
+      <!--
       <thead>
         <tr>
           <th scope="col">id:</th>
-          <th scope="col">message:</th>
-          <th scope="col">envoyeur:</th>
+
+          <th scope="col"><envoyeur:</th>
+          <th scope="col"><message:</th>
           <th scope="col">receveur:</th>
           <th></th>
           <th></th>
         </tr>
       </thead>
+    -->
 
       <tbody>
         <tr *ngFor="let message of messages">
-          <th scope="row">{{ message.id }}</th>
-
+         <!-- <th scope="row">{{ message.id }}</th>-->
+          <td>{{ message.envoyeur?.login }} </td>
           <td>{{ message.text }}</td>
-          <td>{{ message.envoyeur?.login }}</td>
-          <td>{{ message.recepteur?.login }}</td>
+          <!--<td>{{ message.recepteur?.login }}</td>-->
           <td>
-            <button
+            <!--<button
               class="nav-link btnVert"
               routerLink="/message/edit/{{ message.id }}"
               routerLinkActive="active"
 
               >editer
-            </button>
+            </button>-->
           </td>
           <td>
-            <button
+            <!--<button
               class="nav-link btnVert" (click)="delete(message.id!)">
               supprimer
-            </button>
+            </button>-->
           </td>
         </tr>
       </tbody>
     </table>
+    <!--
     <div style="display: flex; justify-content:center">
       <button
         class="nav-link btnVert"
@@ -46,9 +50,10 @@
         nouveau message
       </button>
     </div>
+    -->
 
   </div>
-  <br />
-  <hr />
 </body>
+
+<app-message-edit></app-message-edit>
 

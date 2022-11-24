@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Message } from 'src/app/discuisson-angular/model/message';
+import { CompteService } from 'src/app/discuisson-angular/service/compte.service';
 import { MessageService } from 'src/app/discuisson-angular/service/message.service';
 
 
@@ -15,7 +16,8 @@ export class MessageEditComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private messageService: MessageService,
-    private router: Router
+    private router: Router,
+    private compteService : CompteService
   ) {}
 
   ngOnInit(): void {
@@ -29,15 +31,23 @@ export class MessageEditComponent implements OnInit {
   }
 
   save() {
-    if (this.message.id) {
-      this.messageService.update(this.message).subscribe((data) => {
+
+    this.compteService.findById(1).subscribe((data) => {
+      this.message.envoyeur=data;
+    });
+
+    this.compteService.findById(9).subscribe((data) => {
+      this.message.recepteur=data;
+    });
+    console.log('Save');
+    console.log(this.message);
+
+
+    this.messageService.create(this.message).subscribe((data) => {
         this.router.navigateByUrl('/message');
       });
-    } else {
-      this.messageService.create(this.message).subscribe((data) => {
-        this.router.navigateByUrl('/message');
-      });
-    }
+
+    this.ngOnInit();
   }
 
 }

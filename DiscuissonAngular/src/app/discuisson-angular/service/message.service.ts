@@ -27,11 +27,14 @@ export class MessageService {
   public update(message: Message): Observable<Message> {
     return this.httpClient.put<Message>(
       `${MessageService.URL}/${message.id}`,
-      message
+      this.messageToJson(message)
     );
   }
 
   public create(message: Message): Observable<Message> {
+    console.log('CREATE');
+    console.log(message);
+    console.log(this.messageToJson(message));
     return this.httpClient.post<Message>(
       MessageService.URL,
       this.messageToJson(message)
@@ -39,14 +42,21 @@ export class MessageService {
   }
 
   public messageToJson(message: Message): any {
+    console.log("messagetoJson");
+    console.log(message);
+    console.log(message.envoyeur);
+    console.log(message.envoyeur?.id);
     let messageJson = {
+
       text: message.text,
-      envoyeur: message.envoyeur,
-      recepteur: message.recepteur,
+      envoyeur: {id:message.envoyeur?.id},
+      recepteur: {id:message.recepteur?.id}
     };
     if (message.id) {
       Object.assign(messageJson, { id: message.id });
     }
+    console.log("PATATE");
+    console.log(messageJson);
     return messageJson;
   }
 

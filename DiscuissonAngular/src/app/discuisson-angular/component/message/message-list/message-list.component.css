@@ -1,22 +1,27 @@
 body {
   margin-top: 10%;
   width: 80%;
+
   margin-left: auto;
   margin-right: auto;
+  border: solid rgb(102, 172, 38, 1) 0.5px;
+  border-radius: 10px;
+  box-shadow: 1.5px 1.5px 0px 0px rgb(125, 189, 124);
+  font-size: 16px;
 }
 
-#table {
+/*#table {
   margin-bottom: 15%;
-}
+}*/
 
-tr {
+/*tr {
   border-top: 2px solid rgba(102, 172, 38, 1);
 }
 
 br {
   margin: 20%;
   padding: 20%;
-}
+}*/
 
 .btnVert {
   border: 2px solid black;
@@ -28,3 +33,5 @@ br {
   padding-left: 10%;
   padding-right: 10%;
 }
+
+
