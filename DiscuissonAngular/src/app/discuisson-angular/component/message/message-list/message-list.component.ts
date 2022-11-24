@@ -6,13 +6,13 @@ import { MessageService } from 'src/app/discuisson-angular/service/message.servi
 @Component({
   selector: 'app-message-list',
   templateUrl: './message-list.component.html',
-  styleUrls: ['./message-list.component.css']
+  styleUrls: ['./message-list.component.css'],
 })
 export class MessageListComponent implements OnInit {
   messages: Message[]=[];
   idconnecte: Number = JSON.parse(sessionStorage.getItem('compte')!).id;
 
-  constructor(private messageService: MessageService ) {}
+  constructor(private messageService: MessageService) {}
 
   ngOnInit(): void {
     interval(100).subscribe((data) => {
@@ -29,10 +29,9 @@ export class MessageListComponent implements OnInit {
     )
   }
 
-  delete(id:number) {
+  delete(id: number) {
     this.messageService.deleteById(id).subscribe(() => {
       this.initMessage();
     });
   }
-
 }
