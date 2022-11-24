@@ -41,16 +41,30 @@
           <tr *ngFor="let p of ingredients">
             <ng-container *ngIf="getQuantite(p.id!)">
               <td>{{ p.name }}</td>
+
               <td>
-                <a (click)="ajouterPanier2(p.id!)">
+                <a (click)="retirerPanier2(p.id!)">
                   <img
-                    src="assets/images/image-frigo/plusPlusVert-sans-bg.png"
+                    style="padding-top: 2%"
+                    src="assets/images/image-frigo/moinsMoinsVert-sans-bg.png"
+                    width="60px"
+                    alt=""
+                  />
+                </a>
+              </td>
+
+              <td>
+                <a (click)="retirerPanier(p.id!)">
+                  <img
+                    style="padding-top: 2%"
+                    src="assets/images/image-frigo/moinsVert-sans-bg.png"
                     width="30px"
                     alt=""
                   />
                 </a>
               </td>
 
+              <td>{{ getQuantite(p.id!) }}{{ p.unite }}</td>
               <td>
                 <a (click)="ajouterPanier(p.id!)">
                   <img
@@ -61,39 +75,26 @@
                 </a>
               </td>
 
-              <ng-container *ngIf="getQuantite(p.id!)"
-                ><td>{{ getQuantite(p.id!) }}{{ p.unite }}</td>
-                <td>
-                  <a (click)="retirerPanier(p.id!)">
-                    <img
-                      style="padding-top: 2%"
-                      src="assets/images/image-frigo/moinsVert-sans-bg.png"
-                      width="30px"
-                      alt=""
-                    />
-                  </a>
-                </td>
-                <td>
-                  <a (click)="retirerPanier2(p.id!)">
-                    <img
-                      style="padding-top: 2%"
-                      src="assets/images/image-frigo/moinsMoinsVert-sans-bg.png"
-                      width="30px"
-                      alt=""
-                    />
-                  </a>
-                </td>
-                <td>
-                  <a (click)="supprimerPanier(p.id!)">
-                    <img
-                      style="padding-top: 2%"
-                      src="assets/images/image-frigo/poubelleVert-sans-bg.png"
-                      width="30px"
-                      alt=""
-                    />
-                  </a>
-                </td>
-              </ng-container>
+              <td>
+                <a (click)="ajouterPanier2(p.id!)">
+                  <img
+                    src="assets/images/image-frigo/plusPlusVert-sans-bg.png"
+                    width="60px"
+                    alt=""
+                  />
+                </a>
+              </td>
+
+              <td>
+                <a (click)="supprimerPanier(p.id!)">
+                  <img
+                    style="padding-top: 2%"
+                    src="assets/images/image-frigo/poubelleVert-sans-bg.png"
+                    width="30px"
+                    alt=""
+                  />
+                </a>
+              </td>
             </ng-container>
           </tr>
           <tr *ngFor="let p of ingredients">
@@ -101,8 +102,9 @@
               <td>{{ p.name }}</td>
               <a (click)="ajouterPanier2(p.id!)">
                 <img
+                  style="padding-top: 5%"
                   src="assets/images/image-frigo/plusPlusVert-sans-bg.png"
-                  width="30px"
+                  width="60px"
                   alt=""
                 />
               </a>
