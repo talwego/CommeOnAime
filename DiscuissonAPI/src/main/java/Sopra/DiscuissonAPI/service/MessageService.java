@@ -41,6 +41,10 @@ public class MessageService {
 			});
 		}
 		
+		public List<Message> findByUserQuiVoit(Integer id) {
+			return messageRepo.findByUserQuiVoit(id);
+		}
+		
 		public Message create(String text, int idEnvoyeur, int idRecepteur) {
 			Compte envoyeur = compteRepo.findById(idEnvoyeur).orElseThrow(()->{
 				throw new MessageException("envoyeur inconnu");
