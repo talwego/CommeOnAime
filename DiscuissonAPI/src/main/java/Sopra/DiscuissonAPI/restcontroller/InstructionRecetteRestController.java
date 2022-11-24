@@ -15,51 +15,48 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import Sopra.DiscuissonAPI.model.InstructionRecette;
 import Sopra.DiscuissonAPI.model.JsonViews;
 import Sopra.DiscuissonAPI.model.RecetteIngredient;
+import Sopra.DiscuissonAPI.service.InstructionRecetteService;
 import Sopra.DiscuissonAPI.service.RecetteIngredientService;
 
 @RestController
-@RequestMapping("/api/recetteIngredient")
+@RequestMapping("/api/instructionRecette")
 @CrossOrigin(origins = {"*"})
-public class RecetteIngredientRestController {
+public class InstructionRecetteRestController {
 	@Autowired
-	private RecetteIngredientService recetteIngredientService;
+	private InstructionRecetteService instructionRecetteService;
 	
 	@PostMapping("")
-	@JsonView(JsonViews.Ingredient.class)
-	public RecetteIngredient create(@RequestBody RecetteIngredient recetteIngredient) {
-		System.out.println(recetteIngredient);
-		return recetteIngredientService.save(recetteIngredient);
+	@JsonView(JsonViews.InstructionRecette.class)
+	public InstructionRecette create(@RequestBody InstructionRecette instructionRecette) {
+		return instructionRecetteService.create(instructionRecette);
 	}
 	
 	
 	@GetMapping("")
-	@JsonView(JsonViews.RecetteIngredient.class)
-	public List<RecetteIngredient> findAll(){
-		return recetteIngredientService.findAll();
+	@JsonView(JsonViews.InstructionRecette.class)
+	public List<InstructionRecette> findAll(){
+		return instructionRecetteService.findAll();
 	}
 	
 	@GetMapping("/{id}")
 	@JsonView(JsonViews.Common.class)
-	public RecetteIngredient findById(@PathVariable Integer id) {
-		return recetteIngredientService.findById(id);
+	public InstructionRecette findById(@PathVariable Integer id) {
+		return instructionRecetteService.findById(id);
 	}
 	
 	
 	@DeleteMapping("/{id}")
-	@JsonView(JsonViews.RecetteIngredient.class)
+	@JsonView(JsonViews.InstructionRecette.class)
 	public void deleteById(@PathVariable Integer id) {
-		recetteIngredientService.deleteById(id);
+		instructionRecetteService.deleteById(id);
 		}
 	
-	@PutMapping("/{id}")
-	@JsonView(JsonViews.RecetteIngredient.class)
-	public RecetteIngredient update(@RequestBody RecetteIngredient recetteIngredient) {
-	
-		return recetteIngredientService.update(recetteIngredient);
-	}
 	
 	
 	
 }
+
+

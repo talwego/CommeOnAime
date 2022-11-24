@@ -54,11 +54,11 @@ export class RecetteEditComponent implements OnInit {
   saveRecetteIngredient() {
     if (this.recetteIngredient.id) {
       this.recetteIngredientService.update(this.recetteIngredient).subscribe((data) => {
-        this.router.navigateByUrl('/recette');
+        this.router.navigateByUrl('/recetteIngredient');
       });
     } else {
       this.recetteIngredientService.create(this.recetteIngredient).subscribe((data) => {
-        this.router.navigateByUrl('/recette');
+        this.router.navigateByUrl('/recetteIngredient');
         console.log(this.recetteIngredient)
       });
     }
