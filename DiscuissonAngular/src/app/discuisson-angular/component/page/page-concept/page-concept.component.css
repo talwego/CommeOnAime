@@ -4,6 +4,10 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+h2 {
+  font-size: 28px;
+  font-weight: bold;
+}
 
 .div-z1 {
   display: flex;
@@ -25,10 +29,28 @@ body {
 
 p {
   font-size: 20px;
+  text-align: justify;
 }
 
 .p-imp {
+  text-align: center;
   font-size: 25px;
+}
+
+.p-imp2 {
+  text-align: center;
+  font-size:30px;
+  color: rgba(102, 172, 38, 1);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.p-imp3 {
+  text-align: center;
+  font-size:30px;
+  color: rgba(224, 125, 42, 1);
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 #div-c1 {
@@ -43,9 +65,12 @@ hr {
 }
 
 .div-z2 {
-  width: 40%;
-  margin-left: 5%;
-  margin-right: 5%;
+  width: 100%;
+  margin-top: 30px;
+
+
+
+
 }
 
 #div-b2 {
@@ -61,8 +86,21 @@ hr {
   border-radius: 10px;
   padding-top: 4px;
   padding-bottom: 4px;
-  padding-left: 8px;
-  padding-right: 8px;
+  text-align: center;
+
+  text-decoration: none;
+}
+
+.btnOrange {
+  width: 21%;
+  font-size: 30px;
+  color: white;
+  background-color: rgba(224, 125, 42, 1);
+  border-radius: 10px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  text-align: center;
+
   text-decoration: none;
 }
 

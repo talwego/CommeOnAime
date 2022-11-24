@@ -57,9 +57,9 @@ public class UpdateRecetteEtIngredientBDD4 {
 
 	public void updateMessage() {
 		
-		_messageService.create("Je veux perdre 10 kilos en 1 semaine", 9, 1);
-		_messageService.create("Ca va être compliqué", 1, 9);
-		_messageService.create("noooooooooooooon qhxbezxbjz !!",9, 1);
+		_messageService.create("Je veux perdre 10 kilos en 1 semaine", 1, 9);
+		_messageService.create("Ca va être compliqué", 9, 1);
+		_messageService.create("noooooooooooooon qhxbezxbjz !!",1, 9);
 		
 	}
 

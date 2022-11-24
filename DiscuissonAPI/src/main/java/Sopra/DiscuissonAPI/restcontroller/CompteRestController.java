@@ -54,6 +54,11 @@ public class CompteRestController {
 		return compteSrv.findAll();
 	}
 	
+	@JsonView(JsonViews.Common.class)
+	@GetMapping("/{id}")
+	public Compte findById(@PathVariable Integer id) {
+		return compteSrv.findById(id);
+	}
 	
 	@ResponseStatus(code = HttpStatus.CREATED)
 	@PostMapping("")

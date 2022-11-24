@@ -1,19 +1,14 @@
-#background {
-  height: max-content;
-  background: linear-gradient(
-    0deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(102, 172, 38, 0.3) 10%,
-    rgba(255, 255, 255, 0) 50%,
-    rgba(102, 172, 38, 0.3) 90%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  display: flex;
-  justify-content: center;
-  padding-top: 2%;
-  padding-bottom: 10%;
-}
 
+
+
+#background {
+  margin-top: 1%;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 300px;
+}
+/*
 #formulaire {
   margin-top: 10%;
   top: 50px;
@@ -63,20 +58,23 @@ h2 {
   flex-direction: row;
   align-items: center;
   width: 30%;
-}
+}*/
 
 button,
 a {
   background-color: rgba(102, 172, 38, 1);
   color: white;
   border-radius: 10px;
-  margin-top: 5%;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-top: 1%;
 }
 
 button:disabled {
   display: none;
+}
+
+button:hover {
+  background-color: orange;
+
 }
 
 a {
@@ -86,3 +84,6 @@ a {
   padding-right: 8px;
   text-decoration: none;
 }
+
+
+
