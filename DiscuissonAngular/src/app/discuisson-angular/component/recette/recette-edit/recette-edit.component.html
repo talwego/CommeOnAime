@@ -168,7 +168,7 @@
       </div>
       <!--**************************************Ingredient **********************************-->
       <!--afficher/supprimer ingredient de la recette-->
-      <div id="list_ingredient">
+      <div id="list_ingredient" *ngIf="id">
         <p class="text">Liste des ingredients :</p>
 
         <ng-container *ngFor="let p of recette.recetteIngredients">
@@ -225,7 +225,7 @@
       </div>
 
       <!--************************************ajout instruction*********************************-->
-      <div id="list_instruction">
+      <div id="list_instruction" *ngIf="id">
         <p class="text">Liste des étapes:</p>
         <ol>
           <ng-container *ngFor="let p of recette.instructionRecettes">
@@ -243,10 +243,9 @@
                   id="quantite"
                   [(ngModel)]="instuctionRecette.instruction"
                   placeholder="Me cuire avec amour"
+                  #control="ngModel"
                 />
-                <div *ngIf="fournisseurCtrl.invalid">
-                  *etape obligatoire si ajout
-                </div>
+                <div *ngIf="control.invalid">*etape obligatoire si ajout</div>
               </div>
 
               <div class="divCentreFlex">

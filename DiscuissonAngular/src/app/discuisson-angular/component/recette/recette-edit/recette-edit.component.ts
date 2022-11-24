@@ -20,6 +20,7 @@ export class RecetteEditComponent implements OnInit {
   recetteIngredients: RecetteIngredient[] = [];
   recetteIngredient: RecetteIngredient = new RecetteIngredient();
   instuctionRecette: InstructionRecette = new InstructionRecette();
+  id!: number;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -31,6 +32,10 @@ export class RecetteEditComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.init();
+  }
+
+  init() {
     this.ingredientService.findAll().subscribe((data) => {
       this.ingredients = data;
     });
@@ -45,7 +50,7 @@ export class RecetteEditComponent implements OnInit {
             this.instuctionRecette.recette = new Recette();
             this.instuctionRecette.recette.id = this.recette.id;
           });
-        console.log(params['id']);
+        this.id = params['id'];
       }
     });
   }
@@ -53,11 +58,11 @@ export class RecetteEditComponent implements OnInit {
   save() {
     if (this.recette.id) {
       this.recetteService.update(this.recette).subscribe((data) => {
-        this.router.navigateByUrl('/recette');
+        this.init();
       });
     } else {
       this.recetteService.create(this.recette).subscribe((data) => {
-        this.router.navigateByUrl('/recette');
+        this.init();
       });
     }
   }
@@ -66,13 +71,13 @@ export class RecetteEditComponent implements OnInit {
       this.recetteIngredientService
         .update(this.recetteIngredient)
         .subscribe((data) => {
-          this.router.navigateByUrl('/recette');
+          this.init();
         });
     } else {
       this.recetteIngredientService
         .create(this.recetteIngredient)
         .subscribe((data) => {
-          this.router.navigateByUrl('/recette');
+          this.init();
         });
     }
   }
@@ -81,13 +86,13 @@ export class RecetteEditComponent implements OnInit {
       this.instructionService
         .update(this.instuctionRecette)
         .subscribe((data) => {
-          this.router.navigateByUrl('/recette');
+          this.init();
         });
     } else {
       this.instructionService
         .create(this.instuctionRecette)
         .subscribe((data) => {
-          this.router.navigateByUrl('/recette');
+          this.init();
         });
     }
   }
