@@ -33,15 +33,8 @@ export class PageMonCompteComponent implements OnInit {
       vegan: new FormControl(JSON.parse(sessionStorage.getItem( 'compte')!).vegan),
       compteVIP: new FormControl(JSON.parse(sessionStorage.getItem( 'compte')!).compteVIP),
       activitePhysique: new FormControl(JSON.parse(sessionStorage.getItem( 'compte')!).activitePhysique),
-      groupeInfo: new FormGroup(
-        {
-          login: new FormControl(JSON.parse(sessionStorage.getItem( 'compte')!).login, [Validators.required]),
-        },
-      ),
     });
   }
-
-
 
   save() {
     let user = {
@@ -68,7 +61,7 @@ export class PageMonCompteComponent implements OnInit {
         activitePhysique: this.form.get('activitePhysique')?.value,
       });
       console.log(user);
-      this.userService.update(user).subscribe((data) => {
+      this.userService.create(user).subscribe((data) => {
         this.router.navigateByUrl('/home');
       });
     }

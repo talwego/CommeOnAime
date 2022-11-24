@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
       poids: new FormControl('0'),
       vegetarien: new FormControl(false),
       vegan: new FormControl(false),
-      compteVIP: new FormControl(''),
+      compteVIP: new FormControl('0'),
       activitePhysique: new FormControl('1'),
       groupeInfo: new FormGroup(
         {

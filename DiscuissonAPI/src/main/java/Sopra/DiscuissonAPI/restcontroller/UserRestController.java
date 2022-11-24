@@ -1,9 +1,7 @@
 package Sopra.DiscuissonAPI.restcontroller;
-
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.ReflectionUtils;
@@ -20,12 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
-
 import com.fasterxml.jackson.annotation.JsonView;
-
 import Sopra.DiscuissonAPI.model.JsonViews;
 import Sopra.DiscuissonAPI.model.User;
-import Sopra.DiscuissonAPI.service.Produit;
 import Sopra.DiscuissonAPI.service.UserService;
 
 
@@ -76,7 +71,7 @@ public class UserRestController {
 		userSrv.deleteId(id);
 	}
 	
-	@PatchMapping("/{id}")
+	/*@PatchMapping("/{id}")
 	@JsonView(JsonViews.Common.class)
 	public User update(@RequestBody Map<String, Object> fields, @PathVariable Integer id) {
 		User user = userSrv.findById(id);
@@ -86,5 +81,5 @@ public class UserRestController {
 				ReflectionUtils.setField(field, user, v);
 			});
 		return userSrv.update(user);
-	}
+	}*/
 }

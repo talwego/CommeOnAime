@@ -1,27 +1,28 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { AdminAdminEditComponent } from './discuisson-angular/component/admin/admin-admin/admin-admin-edit/admin-admin-edit.component';
-import { AdminAdminListComponent } from './discuisson-angular/component/admin/admin-admin/admin-admin-list/admin-admin-list.component';
-import { AdminHomeComponent } from './discuisson-angular/component/admin/admin-home/admin-home.component';
-import { AdminNutrionistEditComponent } from './discuisson-angular/component/admin/admin-nutritionist/admin-nutrionist-edit/admin-nutrionist-edit.component';
-import { AdminNutritionistListComponent } from './discuisson-angular/component/admin/admin-nutritionist/admin-nutritionist-list/admin-nutritionist-list.component';
-import { AdminUserEditComponent } from './discuisson-angular/component/admin/admin-user/admin-user-edit/admin-user-edit.component';
-import { AdminUserListComponent } from './discuisson-angular/component/admin/admin-user/admin-user-list/admin-user-list.component';
-import { FrigoSelectionComponent } from './discuisson-angular/component/frigo/frigo-selection/frigo-selection.component';
-import { FrigoComponent } from './discuisson-angular/component/frigo/frigo.component';
-import { IngredientEditComponent } from './discuisson-angular/component/ingredient/ingredient-edit/ingredient-edit.component';
-import { IngredientListComponent } from './discuisson-angular/component/ingredient/ingredient-list/ingredient-list.component';
-import { LoginComponent } from './discuisson-angular/component/login/login.component';
-import { MessageEditComponent } from './discuisson-angular/component/message/message-edit/message-edit.component';
-import { MessageListComponent } from './discuisson-angular/component/message/message-list/message-list.component';
-import { PageConceptComponent } from './discuisson-angular/component/page/page-concept/page-concept.component';
-import { PageHomeComponent } from './discuisson-angular/component/page/page-home/page-home.component';
-import { PageMonCompteComponent } from './discuisson-angular/component/page/page-mon-compte/page-mon-compte.component';
-import { RecetteDetailsComponent } from './discuisson-angular/component/recette/recette-details/recette-details.component';
-import { RecetteEditComponent } from './discuisson-angular/component/recette/recette-edit/recette-edit.component';
-import { RecetteListComponent } from './discuisson-angular/component/recette/recette-list/recette-list.component';
-import { RegisterComponent } from './discuisson-angular/component/register/register.component';
-import { UserToVIPComponent } from './discuisson-angular/component/user-to-vip/user-to-vip.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { AdminAdminEditComponent } from "./discuisson-angular/component/admin/admin-admin/admin-admin-edit/admin-admin-edit.component";
+import { AdminAdminListComponent } from "./discuisson-angular/component/admin/admin-admin/admin-admin-list/admin-admin-list.component";
+import { AdminHomeComponent } from "./discuisson-angular/component/admin/admin-home/admin-home.component";
+import { AdminNutrionistEditComponent } from "./discuisson-angular/component/admin/admin-nutritionist/admin-nutrionist-edit/admin-nutrionist-edit.component";
+import { AdminNutritionistListComponent } from "./discuisson-angular/component/admin/admin-nutritionist/admin-nutritionist-list/admin-nutritionist-list.component";
+import { AdminUserEditComponent } from "./discuisson-angular/component/admin/admin-user/admin-user-edit/admin-user-edit.component";
+import { AdminUserListComponent } from "./discuisson-angular/component/admin/admin-user/admin-user-list/admin-user-list.component";
+import { FrigoSelectionComponent } from "./discuisson-angular/component/frigo/frigo-selection/frigo-selection.component";
+import { FrigoComponent } from "./discuisson-angular/component/frigo/frigo.component";
+import { IngredientEditComponent } from "./discuisson-angular/component/ingredient/ingredient-edit/ingredient-edit.component";
+import { IngredientListComponent } from "./discuisson-angular/component/ingredient/ingredient-list/ingredient-list.component";
+import { LoginComponent } from "./discuisson-angular/component/login/login.component";
+import { MessageEditComponent } from "./discuisson-angular/component/message/message-edit/message-edit.component";
+import { MessageListComponent } from "./discuisson-angular/component/message/message-list/message-list.component";
+import { PageConceptComponent } from "./discuisson-angular/component/page/page-concept/page-concept.component";
+import { PageHomeComponent } from "./discuisson-angular/component/page/page-home/page-home.component";
+import { PageMonCompteComponent } from "./discuisson-angular/component/page/page-mon-compte/page-mon-compte.component";
+import { RecetteDetailsComponent } from "./discuisson-angular/component/recette/recette-details/recette-details.component";
+import { RecetteEditComponent } from "./discuisson-angular/component/recette/recette-edit/recette-edit.component";
+import { RecetteListComponent } from "./discuisson-angular/component/recette/recette-list/recette-list.component";
+import { RegisterComponent } from "./discuisson-angular/component/register/register.component";
+import { UserToVIPComponent } from "./discuisson-angular/component/user-to-vip/user-to-vip.component";
+
 
 export const routes: Routes = [
   { path: 'home', component: PageHomeComponent },
