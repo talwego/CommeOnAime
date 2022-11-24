@@ -1,36 +1,33 @@
 <body>
- 
-
   <div id="div-b2">
     <form (ngSubmit)="chercher()" [formGroup]="form">
       <ng-container formGroupName="groupeing">
         <div id="div-c1">
           <ul class="nav-list">
-            <li>
+            <!--<li>
               <input
               type="number"
               formControlName="search"
               class="form-control"
               placeholder="Autoriser si il X objets (aliments+quantités) ne corresponde pas a mon frigo"
             /> <button class="btn btnVert" type="submit">Go</button>
-            </li>
-            
+            </li>-->
+
             <li>
               <a (click)="reinit()" class="btn btnVert"
-              ><span style="color: white">Réinitialiser ma selection</span></a
-            >
+                ><span style="color: white">Réinitialiser ma selection</span></a
+              >
             </li>
             <li>
               <a
-              routerLink="/frigo"
-              routerLinkActive="active"
-              class="btn btnVert"
-              style="width: 300px"
-              ><span style="color: white">Retourner au frigo</span></a
-            >
+                routerLink="/frigo"
+                routerLinkActive="active"
+                class="btn btnVert"
+                style="width: 300px"
+                ><span style="color: white">Retourner au frigo</span></a
+              >
             </li>
           </ul>
-          
         </div>
       </ng-container>
     </form>
@@ -70,18 +67,4 @@
       </div>
     </div>
   </div>
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>

@@ -81,6 +81,7 @@ export class FrigoComponent implements OnInit {
   deleteFrigo() {
     let map: Map<number, number> = this.panier;
     map.clear;
+    this.reinit();
   }
 
   get panier(): Map<number, number> {
