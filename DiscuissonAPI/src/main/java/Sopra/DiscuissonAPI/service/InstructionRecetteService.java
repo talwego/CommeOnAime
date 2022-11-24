@@ -67,7 +67,7 @@ public class InstructionRecetteService {
 		_instructionRecetteRepository.delete(instructionRecette);
 	}
 
-	public void deleteId(Integer id) 
+	public void deleteById(Integer id) 
 	{
 		_instructionRecetteRepository.deleteById(id);
 	}

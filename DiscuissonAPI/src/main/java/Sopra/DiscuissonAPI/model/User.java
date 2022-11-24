@@ -36,8 +36,6 @@ public class User extends Compte{
 	@JsonView(JsonViews.Common.class)
 	private ActivitePhysique activitePhysique;
 	
-	@OneToMany(mappedBy="user")
-	private List<Message> messages = new ArrayList<>();
 	
 	@OneToMany(mappedBy="user")
 	private List<ElementFrigo> elementFrigos;
@@ -120,20 +118,14 @@ public class User extends Compte{
 		this.vegan = vegan;
 	}
 
-	public List<Message> getMessages() {
-		return messages;
-	}
-
-	public void setMessages(List<Message> messages) {
-		this.messages = messages;
-	}
-
 	@Override
 	public String toString() {
-		return "User [ genre=" + genre + ", age=" + age + ", taille=" + taille + ", poids="
-				+ poids + ", compteVIP=" + compteVIP + ", vegetarien=" + vegetarien + ", vegan=" + vegan + ", messages="
-				+ messages + "]";
+		return "User [genre=" + genre + ", age=" + age + ", taille=" + taille + ", poids=" + poids + ", compteVIP="
+				+ compteVIP + ", vegetarien=" + vegetarien + ", vegan=" + vegan + ", activitePhysique="
+				+ activitePhysique + ", elementFrigos=" + elementFrigos + "]";
 	}
+
+	
 
 	
 	

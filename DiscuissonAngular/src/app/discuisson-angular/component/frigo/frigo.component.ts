@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormGroup,
-  FormControl,
-  AbstractControl,
-  ValidationErrors,
-} from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 import { Ingredient } from '../../model/ingredient';
 import { IngredientService } from '../../service/ingredient.service';
 
@@ -14,15 +9,21 @@ import { IngredientService } from '../../service/ingredient.service';
   styleUrls: ['./frigo.component.css'],
 })
 export class FrigoComponent implements OnInit {
+  form!: FormGroup;
   nom: string = '';
   ingredients: Ingredient[] = [];
 
   constructor(private ingredientService: IngredientService) {}
 
   ngOnInit(): void {
-    if (!sessionStorage.getItem('panier')) {
+    this.form = new FormGroup({
+      groupeing: new FormGroup({
+        search: new FormControl(''),
+      }),
+    });
+    if (!sessionStorage.getItem('frigo')) {
       sessionStorage.setItem(
-        'panier',
+        'frigo',
         JSON.stringify(new Map<number, number>())
       );
     }
@@ -38,27 +39,52 @@ export class FrigoComponent implements OnInit {
     } else {
       map.set(id, 100);
     }
-    sessionStorage.setItem('panier', JSON.stringify(Object.fromEntries(map)));
+    sessionStorage.setItem('frigo', JSON.stringify(Object.fromEntries(map)));
   }
 
   retirerPanier(id: number) {
     let map: Map<number, number> = this.panier;
-    if (map.get(id) == 100) {
+    if (map.get(id)! <= 100) {
       map.delete(id);
     } else {
       map.set(id, map.get(id)! - 100);
     }
-    sessionStorage.setItem('panier', JSON.stringify(Object.fromEntries(map)));
+    sessionStorage.setItem('frigo', JSON.stringify(Object.fromEntries(map)));
+  }
+
+  ajouterPanier2(id: number) {
+    let map: Map<number, number> = this.panier;
+    if (map.has(id)) {
+      map.set(id, map.get(id)! + 1000);
+    } else {
+      map.set(id, 1000);
+    }
+    sessionStorage.setItem('frigo', JSON.stringify(Object.fromEntries(map)));
+  }
+
+  retirerPanier2(id: number) {
+    let map: Map<number, number> = this.panier;
+    if (map.get(id)! <= 1000) {
+      map.delete(id);
+    } else {
+      map.set(id, map.get(id)! - 1000);
+    }
+    sessionStorage.setItem('frigo', JSON.stringify(Object.fromEntries(map)));
   }
 
   supprimerPanier(id: number) {
     let map: Map<number, number> = this.panier;
     map.delete(id);
-    sessionStorage.setItem('panier', JSON.stringify(Object.fromEntries(map)));
+    sessionStorage.setItem('frigo', JSON.stringify(Object.fromEntries(map)));
+  }
+
+  deleteFrigo() {
+    let map: Map<number, number> = this.panier;
+    map.clear;
   }
 
   get panier(): Map<number, number> {
-    let jsonObject = JSON.parse(sessionStorage.getItem('panier')!);
+    let jsonObject = JSON.parse(sessionStorage.getItem('frigo')!);
     let panier: Map<number, number> = new Map<number, number>();
     for (let value in jsonObject) {
       panier.set(parseInt(value), jsonObject[value]);
@@ -67,13 +93,22 @@ export class FrigoComponent implements OnInit {
   }
 
   getQuantite(id: number): number {
-    let jsonObject = JSON.parse(sessionStorage.getItem('panier')!);
+    let jsonObject = JSON.parse(sessionStorage.getItem('frigo')!);
     return jsonObject[id];
   }
 
   chercher() {
-    this.ingredientService.findByName(this.nom).subscribe((data) => {
-      console.log('koukou');
+    if (this.form.get('groupeing.search')) {
+      this.ingredientService
+        .findByName(this.form.get('groupeing.search')?.value)
+        .subscribe((data) => {
+          this.ingredients = data;
+        });
+    }
+  }
+
+  reinit() {
+    this.ingredientService.findAll().subscribe((data) => {
       this.ingredients = data;
     });
   }

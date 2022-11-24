@@ -26,7 +26,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import Sopra.DiscuissonAPI.model.JsonViews;
 import Sopra.DiscuissonAPI.model.Message;
 import Sopra.DiscuissonAPI.service.MessageService;
-import Sopra.DiscuissonAPI.service.UserService;
+import Sopra.DiscuissonAPI.service.CompteService;
 
 @RestController
 @RequestMapping("/api/message")
@@ -36,7 +36,7 @@ public class MessageRestController {
 	@Autowired
 	private MessageService messageSrv;
 	@Autowired
-	private UserService userSrv;	
+	private CompteService compteSrv;	
 
 	@JsonView(JsonViews.MessageWithUser.class)
 	@GetMapping("/{id}")
@@ -44,10 +44,16 @@ public class MessageRestController {
 		return messageSrv.findById(id);
 	}
 
-	@JsonView(JsonViews.Common.class)
+	@JsonView(JsonViews.Message.class)
 	@GetMapping("")
 	public List<Message> findAll() {
 		return messageSrv.findAll();
+	}
+	
+	@JsonView(JsonViews.Message.class)
+	@GetMapping("/user/message/{id}")
+	public List<Message> findAll(@PathVariable Integer id) {
+		return messageSrv.findByUserQuiVoit(id);
 	}
 	
 	@ResponseStatus(code = HttpStatus.CREATED)
@@ -57,8 +63,8 @@ public class MessageRestController {
 		if (br.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "données incorrectes");
 		}
-		if (message.getUser() != null && message.getUser().getId() != null) {
-			message.setUser(userSrv.findById(message.getUser().getId()));
+		if (message.getEnvoyeur() != null && message.getEnvoyeur().getId() != null) {
+			message.setEnvoyeur(compteSrv.findById(message.getEnvoyeur().getId()));
 		}
 		return messageSrv.create(message);
 	}
@@ -90,7 +96,7 @@ public class MessageRestController {
 		fields.forEach((k, v) -> {
 			if (k.equals("message")) {
 				Map<String, Object> map = (Map<String, Object>) v;
-				message.setUser(userSrv.findById(Integer.parseInt(map.get("id").toString())));
+				message.setEnvoyeur(compteSrv.findById(Integer.parseInt(map.get("id").toString())));
 			} else {
 				Field field = ReflectionUtils.findField(Message.class, k);
 				ReflectionUtils.makeAccessible(field);

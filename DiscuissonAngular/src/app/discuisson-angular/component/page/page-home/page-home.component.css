@@ -1,3 +1,5 @@
+
+
 body {
   position: fixed;
   top: 0%;
@@ -12,7 +14,9 @@ body div {
   justify-content: center;
 }
 
-.btnVert {
+
+
+/*.btnVert {
   font-size: 30px;
   color: white;
   background-color: rgba(102, 172, 38, 1);
@@ -22,6 +26,44 @@ body div {
   padding-left: 8px;
   padding-right: 8px;
   text-decoration: none;
+}*/
+
+a {
+  border: none;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  color: #eeeeee;
+  font-weight: 600;
+  font-size: 15px;
+  background-color: rgba(102, 172, 38, 1);
+  padding: 15px 50px;
+  margin: 0 auto;
+}
+a span {
+  position: relative;
+  z-index: 1;
+}
+a:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 470%;
+  width: 140%;
+  background: rgba(224, 125, 42, 1);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-transform: translateX(-100%) translateY(-25%) rotate(45deg);
+  transform: translateX(-100%) translateY(-25%) rotate(45deg);
+}
+a:hover:after {
+  -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+  transform: translateX(-9%) translateY(-25%) rotate(45deg);
 }
 
 #bonjour {

@@ -10,7 +10,6 @@ import Sopra.DiscuissonAPI.exception.CompteException;
 import Sopra.DiscuissonAPI.exception.IdException;
 import Sopra.DiscuissonAPI.exception.MessageException;
 import Sopra.DiscuissonAPI.model.Compte;
-import Sopra.DiscuissonAPI.model.Nutritionist;
 import Sopra.DiscuissonAPI.repository.CompteRepository;
 
 
@@ -29,7 +28,7 @@ public class CompteService {
 	
 	public Compte findById(Integer id) 
 	{
-		
+
 		return compteRepo.findById(id).orElseThrow(()->{
 			throw new MessageException("id inconnu");
 		});
@@ -45,6 +44,11 @@ public class CompteService {
 		return compteRepo.findByPasswordContaining(password);
 	}
 	
+	public Compte findByIdFetch(Integer id) {
+		return compteRepo.findByIdFetchMessage(id).orElseThrow(()->{
+			throw new CompteException("id inconnu");
+		});
+	}
 	
 	public Compte create(Compte compte) 
 	{

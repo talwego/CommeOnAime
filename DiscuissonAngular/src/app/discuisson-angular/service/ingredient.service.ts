@@ -21,6 +21,8 @@ export class IngredientService {
   }
 
   public deleteById(id: number): Observable<void> {
+    console.log(id);
+
     return this.httpClient.delete<void>(`${IngredientService.URL}/${id}`);
   }
 

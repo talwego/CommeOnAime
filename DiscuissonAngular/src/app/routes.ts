@@ -7,10 +7,13 @@ import { AdminNutrionistEditComponent } from './discuisson-angular/component/adm
 import { AdminNutritionistListComponent } from './discuisson-angular/component/admin/admin-nutritionist/admin-nutritionist-list/admin-nutritionist-list.component';
 import { AdminUserEditComponent } from './discuisson-angular/component/admin/admin-user/admin-user-edit/admin-user-edit.component';
 import { AdminUserListComponent } from './discuisson-angular/component/admin/admin-user/admin-user-list/admin-user-list.component';
+import { FrigoSelectionComponent } from './discuisson-angular/component/frigo/frigo-selection/frigo-selection.component';
 import { FrigoComponent } from './discuisson-angular/component/frigo/frigo.component';
 import { IngredientEditComponent } from './discuisson-angular/component/ingredient/ingredient-edit/ingredient-edit.component';
 import { IngredientListComponent } from './discuisson-angular/component/ingredient/ingredient-list/ingredient-list.component';
 import { LoginComponent } from './discuisson-angular/component/login/login.component';
+import { MessageEditComponent } from './discuisson-angular/component/message/message-edit/message-edit.component';
+import { MessageListComponent } from './discuisson-angular/component/message/message-list/message-list.component';
 import { PageConceptComponent } from './discuisson-angular/component/page/page-concept/page-concept.component';
 import { PageHomeComponent } from './discuisson-angular/component/page/page-home/page-home.component';
 import { PageMonCompteComponent } from './discuisson-angular/component/page/page-mon-compte/page-mon-compte.component';
@@ -44,10 +47,14 @@ export const routes: Routes = [
   { path: 'nutrionniste/edit', component: AdminNutrionistEditComponent },
   { path: 'nutrionniste/edit/:id', component: AdminNutrionistEditComponent },
   { path: 'frigo', component: FrigoComponent },
+  { path: 'frigo/selection', component: FrigoSelectionComponent },
   { path: 'userVIP', component: UserToVIPComponent },
   { path: 'login', component: LoginComponent },
   { path: 'inscription', component: RegisterComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'message', component: MessageListComponent },
+  { path: 'message/edit', component: MessageEditComponent },
+  { path: 'message/edit/:id', component: MessageEditComponent },
   { path: 'monCompte', component: PageMonCompteComponent },
   { path: '**', component: PageHomeComponent },
 ];

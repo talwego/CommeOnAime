@@ -1,13 +1,11 @@
 package Sopra.DiscuissonAPI.BDD;
 
-import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
 import javax.transaction.Transactional;
 
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -72,9 +70,9 @@ public class UpdateRecetteEtIngredientBDD5 {
 	
 	public void updateMessage() {
 		
-		_messageService.create("Yo","Je veux perdre 10 kilos en 1 semaine",LocalDate.of(2022, 3, 1), 9, 1);
-		_messageService.create("Yo","Ca va être compliqué",LocalDate.of(2022, 9, 10), 9, 1);
-		_messageService.create("Yo","noooooooooooooon qhxbezxbjz !!",LocalDate.of(2022, 11,22), 9, 1);
+		_messageService.create("Je veux perdre 10 kilos en 1 semaine", 1, 9);
+		_messageService.create("Ca va être compliqué madame", 9, 1);
+		_messageService.create("noooooooooooooon qhxbezxbjz !!",1, 9);
 		
 	}
 

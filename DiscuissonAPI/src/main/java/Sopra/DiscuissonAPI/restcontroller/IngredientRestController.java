@@ -18,7 +18,9 @@ import com.fasterxml.jackson.annotation.JsonView;
 import Sopra.DiscuissonAPI.model.Ingredient;
 import Sopra.DiscuissonAPI.model.JsonViews;
 import Sopra.DiscuissonAPI.model.Recette;
+import Sopra.DiscuissonAPI.model.RecetteIngredient;
 import Sopra.DiscuissonAPI.service.IngredientService;
+import Sopra.DiscuissonAPI.service.RecetteIngredientService;
 
 
 @RestController
@@ -27,6 +29,8 @@ import Sopra.DiscuissonAPI.service.IngredientService;
 public class IngredientRestController {
 	@Autowired
 	private IngredientService ingredientService;
+	@Autowired
+	private RecetteIngredientService recetteIngredientService;
 	
 	@PostMapping("")
 	@JsonView(JsonViews.Ingredient.class)
@@ -81,8 +85,16 @@ public class IngredientRestController {
 	@DeleteMapping("/{id}")
 	@JsonView(JsonViews.Ingredient.class)
 	public void deleteById(@PathVariable Integer id) {
-		ingredientService.deleteById(id);
+		List<RecetteIngredient> recetteIngredients = recetteIngredientService.findAll();
+		for (RecetteIngredient r : recetteIngredients) {
+			if (r.getIngredient().getId()==id) {
+				recetteIngredientService.deleteById(r.getId());
+			}
 		}
+		ingredientService.deleteById(id);
+	}
+	
+	
 	
 	@PutMapping("/{id}")
 	@JsonView(JsonViews.Ingredient.class)
