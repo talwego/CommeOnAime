@@ -15,8 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import Sopra.DiscuissonAPI.model.InstructionRecette;
 import Sopra.DiscuissonAPI.model.JsonViews;
 import Sopra.DiscuissonAPI.model.Recette;
+import Sopra.DiscuissonAPI.model.RecetteIngredient;
+import Sopra.DiscuissonAPI.service.InstructionRecetteService;
+import Sopra.DiscuissonAPI.service.RecetteIngredientService;
 import Sopra.DiscuissonAPI.service.RecetteService;
 
 @RestController
@@ -25,6 +29,10 @@ import Sopra.DiscuissonAPI.service.RecetteService;
 public class RecetteRestController {
 	@Autowired
 	private RecetteService recetteService;
+	@Autowired
+	private RecetteIngredientService recetteIngredientService;
+	@Autowired
+	private InstructionRecetteService instructionRecetteService;
 	
 	@PostMapping("")
 	@JsonView(JsonViews.Recette.class)
@@ -93,6 +101,19 @@ public class RecetteRestController {
 	}
 	@DeleteMapping("/{id}")
 	public void deleteById(@PathVariable Integer id) {
+		List<RecetteIngredient> recetteIngredients = recetteIngredientService.findAll();
+		for (RecetteIngredient r : recetteIngredients) {
+			if (r.getRecette().getId()==id) {
+				recetteIngredientService.deleteById(r.getId());
+			}
+		}
+		
+		List<InstructionRecette> instructionRecettes = instructionRecetteService.findAll();
+		for (InstructionRecette i : instructionRecettes) {
+			if (i.getRecette().getId()==id) {
+				instructionRecetteService.deleteById(i.getId());
+			}
+		}
 			recetteService.deleteById(id);
 		
 	}
