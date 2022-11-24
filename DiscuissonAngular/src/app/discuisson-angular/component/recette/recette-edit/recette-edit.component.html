@@ -1,16 +1,11 @@
 <div id="background">
   <div id="formulaire">
     <form (ngSubmit)="save()" #form="ngForm">
-      <div class="form-group">
-        <label for="id">id:</label>
-        <input
-          class="form-control"
-          id="id"
-          name="id"
-          [(ngModel)]="recette.id"
-          readonly
-          placeholder="generation automatique"
-        />
+      <div class="divCentreFlex">
+        <div id="backgroundH2">
+          <h2 *ngIf="!recette.id">Création d'une recette</h2>
+          <h2 *ngIf="recette.id">Mise à jour d'une recette</h2>
+        </div>
       </div>
 
       <div class="form-group" *ngIf="recette.id">
@@ -42,7 +37,7 @@
           *ngIf="nameCtrl.dirty && nameCtrl.invalid"
           class="alert alert-danger"
         >
-          nom obligatoire
+          Tu as oublié le nom :o
         </div>
       </div>
 
@@ -60,23 +55,11 @@
             #calorieCtrl="ngModel"
           />
         </div>
-      </div>
-
-      <div class="form-group">
-        <label for="calorie">calorie:</label>
-        <input
-          class="form-control"
-          name="calorie"
-          id="calorie"
-          [(ngModel)]="recette.calorie"
-          required
-          #calorieCtrl="ngModel"
-        />
         <div
           *ngIf="calorieCtrl.dirty && calorieCtrl.invalid"
           class="alert alert-danger"
         >
-          calorie obligatoire
+          Tu as oublié les calories :o
         </div>
       </div>
 
