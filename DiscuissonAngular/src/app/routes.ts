@@ -13,6 +13,7 @@ import { IngredientListComponent } from './discuisson-angular/component/ingredie
 import { LoginComponent } from './discuisson-angular/component/login/login.component';
 import { PageConceptComponent } from './discuisson-angular/component/page/page-concept/page-concept.component';
 import { PageHomeComponent } from './discuisson-angular/component/page/page-home/page-home.component';
+import { PageMonCompteComponent } from './discuisson-angular/component/page/page-mon-compte/page-mon-compte.component';
 import { RecetteDetailsComponent } from './discuisson-angular/component/recette/recette-details/recette-details.component';
 import { RecetteEditComponent } from './discuisson-angular/component/recette/recette-edit/recette-edit.component';
 import { RecetteListComponent } from './discuisson-angular/component/recette/recette-list/recette-list.component';
@@ -47,6 +48,7 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'inscription', component: RegisterComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'monCompte', component: PageMonCompteComponent },
   { path: '**', component: PageHomeComponent },
 ];
 

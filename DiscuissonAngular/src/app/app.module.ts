@@ -30,7 +30,7 @@ import { RegisterComponent } from './discuisson-angular/component/register/regis
 import { UserToVIPComponent } from './discuisson-angular/component/user-to-vip/user-to-vip.component';
 import { SertARienDirective } from './discuisson-angular/directive/sert-arien.directive';
 import { routes } from './routes';
-import { PageHomeUserComponent } from './discuisson-angular/component/page/page-home-user/page-home-user.component';
+import { PageMonCompteComponent } from './discuisson-angular/component/page/page-mon-compte/page-mon-compte.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +60,8 @@ import { PageHomeUserComponent } from './discuisson-angular/component/page/page-
     AdminAdminEditComponent,
     AdminUserEditComponent,
     AdminNutrionistEditComponent,
-    PageHomeUserComponent,
+    PageMonCompteComponent,
+    PageMonCompteComponent
   ],
   imports: [
     BrowserModule,
