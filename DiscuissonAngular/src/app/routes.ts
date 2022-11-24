@@ -24,6 +24,7 @@ import { RegisterComponent } from "./discuisson-angular/component/register/regis
 import { UserToVIPComponent } from "./discuisson-angular/component/user-to-vip/user-to-vip.component";
 
 
+
 export const routes: Routes = [
   { path: 'home', component: PageHomeComponent },
   { path: 'concept', component: PageConceptComponent },
