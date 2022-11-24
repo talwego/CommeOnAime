@@ -23,17 +23,18 @@
   </ul>
   <div class="liste_recettes">
     <div class="wrapper">
-      <ul class="auto-grid">
-        <li class="recette" *ngFor="let p of recettes">
+      <div class="auto-grid">
+        <div class="recette" *ngFor="let p of recettes">
           <a
             class="nav-link"
             routerLink="/recette/details/{{ p.id }}"
             routerLinkActive="active"
             ><img
               src="assets/images/{{ p.id }}.jpg"
-              width="250px"
+              width="300px"
               height="300px"
           /></a>
+          
           <ul>
             {{p.name}}
           </ul>
@@ -42,23 +43,23 @@
             {{p.note}}
           </ul>
           <ul>
-            Temps de préparation
-            {{
-              p.tempsDeCuisine
-            }}
+            Préparation: {{p.tempsDeCuisine}}
           </ul>
-          <ul>
-            <a routerLink="/recette/edit/{{ p.id }}" routerLinkActive="active"
-              >editer</a
-            >
-          </ul>
-          <ul>
-            <button class="btn btn-outline-danger" (click)="delete(p.id!)">
-              supprimer
-            </button>
-          </ul>
-        </li>
-      </ul>
+          <div class="liste_bouton">
+            <ul >
+              <a class="btn btn-light" routerLink="/recette/edit/{{ p.id }}" routerLinkActive="active"
+                >editer</a
+              >
+            </ul>
+            <ul >
+              <button class="btn btn-light" (click)="delete(p.id!)">
+                supprimer
+              </button>
+            </ul>
+          </div>
+          
+        </div>
+      </div>
     </div>
   </div>
 </body>

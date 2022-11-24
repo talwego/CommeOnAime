@@ -7,12 +7,12 @@ body {
   background-color: rgba(102, 172, 38, 1);
   border-radius: 12px;
   text-decoration: none;
-  padding-left: 12%;
-  padding-right: 12%;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-left: 5%;
+  padding-right:5%;
+  padding-top: 1%;
+  padding-bottom: 1%;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
 }
 
@@ -47,10 +47,17 @@ body {
   font-family: sans-serif;
 }
 
+.liste_bouton {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+
 .recette {
   padding: 5rem 1rem;
   text-align: center;
   font-size: 1.2rem;
-  background: #be2edd;
-  color: #ffffff;
+  background: white;
+  color: black;
 }
