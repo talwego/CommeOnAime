@@ -50,6 +50,12 @@ public class MessageRestController {
 		return messageSrv.findAll();
 	}
 	
+	@JsonView(JsonViews.Message.class)
+	@GetMapping("/user/message/{id}")
+	public List<Message> findAll(@PathVariable Integer id) {
+		return messageSrv.findByUserQuiVoit(id);
+	}
+	
 	@ResponseStatus(code = HttpStatus.CREATED)
 	@PostMapping("")
 	@JsonView(JsonViews.Common.class)

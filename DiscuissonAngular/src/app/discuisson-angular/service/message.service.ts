@@ -19,6 +19,12 @@ export class MessageService {
     return this.httpClient.get<Message>(`${MessageService.URL}/${id}`);
   }
 
+  public findByUserQuiVoit(id: number): Observable<Message[]> {
+    return this.httpClient.get<Message[]>(
+      `${MessageService.URL}/user/message/${id}`
+    );
+  }
+
   public deleteById(id: number): Observable<void> {
     return this.httpClient.delete<void>(`${MessageService.URL}/${id}`);
   }

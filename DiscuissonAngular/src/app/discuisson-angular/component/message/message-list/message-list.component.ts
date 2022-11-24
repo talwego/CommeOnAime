@@ -9,24 +9,21 @@ import { MessageService } from 'src/app/discuisson-angular/service/message.servi
   styleUrls: ['./message-list.component.css'],
 })
 export class MessageListComponent implements OnInit {
-  messages: Message[]=[];
-  idconnecte: Number = JSON.parse(sessionStorage.getItem('compte')!).id;
+  messages: Message[] = [];
+  idconnecte: number = JSON.parse(sessionStorage.getItem('compte')!).id;
 
   constructor(private messageService: MessageService) {}
 
   ngOnInit(): void {
-    interval(100).subscribe((data) => {
+    interval(1000).subscribe((data) => {
       this.initMessage();
     });
   }
 
   initMessage() {
-
-    this.messageService.findAll().subscribe((data) =>{
-
-      this.messages=data;
-    }
-    )
+    this.messageService.findByUserQuiVoit(this.idconnecte).subscribe((data) => {
+      this.messages = data;
+    });
   }
 
   delete(id: number) {
