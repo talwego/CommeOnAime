@@ -23,6 +23,18 @@ body {
   gap: 3rem;
 }
 
+.backgroundOrange {
+  display: flex;
+  background-color: rgba(224, 125, 42, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  height: 40px;
+  font-size: 25px;
+  color: white;
+}
+
 .btnVert,
 .btn-a {
   font-size: 20px;

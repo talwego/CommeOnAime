@@ -2,28 +2,7 @@
   <div id="div-a1">
     <span id="div-b1"></span>
     <div id="div-b2">
-      <form (ngSubmit)="chercher()" [formGroup]="form">
-        <ng-container formGroupName="groupeing">
-          <div id="div-c1">
-            <input
-              formControlName="search"
-              class="form-control"
-              placeholder="Cherche-moi parmi les ingrédients"
-            />
-            <a (click)="reinit()" class="btn-a"
-              ><span style="color: white">Réinitialiser</span></a
-            >
-            <button class="btn btnVert" type="submit">Go</button>
-            <a
-              routerLink="/frigo/selection"
-              routerLinkActive="active"
-              class="btn-a"
-              style="width: 300px"
-              ><span style="color: white">Voir mes recettes</span></a
-            >
-          </div>
-        </ng-container>
-      </form>
+      <p class="backgroundOrange">Recettes proposées:</p>
       <table class="table">
         <thead>
           <tr>

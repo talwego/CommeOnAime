@@ -33,6 +33,7 @@ import { RegisterComponent } from './discuisson-angular/component/register/regis
 import { UserToVIPComponent } from './discuisson-angular/component/user-to-vip/user-to-vip.component';
 import { SertARienDirective } from './discuisson-angular/directive/sert-arien.directive';
 import { routes } from './routes';
+import { FrigoSelectionComponent } from './discuisson-angular/component/frigo/frigo-selection/frigo-selection.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { routes } from './routes';
     AdminUserEditComponent,
     AdminNutrionistEditComponent,
     PageHomeUserComponent,
+    FrigoSelectionComponent,
   ],
   imports: [
     BrowserModule,
