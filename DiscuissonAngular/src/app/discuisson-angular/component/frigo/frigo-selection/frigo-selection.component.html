@@ -1,76 +1,61 @@
 <body>
-  <div id="div-a1">
-    <span id="div-b1"></span>
-    <div id="div-b2">
-      <p class="backgroundOrange">Recettes proposées:</p>
-      <table class="table">
-        <thead>
-          <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let p of ingredients">
-            <ng-container *ngIf="getQuantite(p.id!)">
-              <td>{{ p.name }}</td>
-              <td>
-                <a (click)="ajouterPanier(p.id!)">
-                  <img
-                    src="assets/images/image-frigo/plusVert-sans-bg.png"
-                    width="30px"
-                    alt=""
-                  />
-                </a>
-              </td>
-              <ng-container *ngIf="getQuantite(p.id!)"
-                ><td>{{ getQuantite(p.id!) }}{{ p.unite }}</td>
-                <td>
-                  <a (click)="retirerPanier(p.id!)">
-                    <img
-                      style="padding-top: 2%"
-                      src="assets/images/image-frigo/moinsVert-sans-bg.png"
-                      width="30px"
-                      alt=""
-                    />
-                  </a>
-                </td>
-                <td>
-                  <a (click)="supprimerPanier(p.id!)">
-                    <img
-                      style="padding-top: 2%"
-                      src="assets/images/image-frigo/poubelleVert-sans-bg.png"
-                      width="30px"
-                      alt=""
-                    />
-                  </a>
-                </td>
-              </ng-container>
-            </ng-container>
-          </tr>
-          <tr *ngFor="let p of ingredients">
-            <ng-container *ngIf="!getQuantite(p.id!)">
-              <td>{{ p.name }}</td>
-              <td>
-                <a (click)="ajouterPanier(p.id!)">
-                  <img
-                    src="assets/images/image-frigo/plusVert-sans-bg.png"
-                    width="30px"
-                    alt=""
-                  />
-                </a>
-              </td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </ng-container>
-          </tr>
-        </tbody>
-      </table>
+  <div id="div-b2">
+    <form (ngSubmit)="chercher()" [formGroup]="form">
+      <ng-container formGroupName="groupeing">
+        <div id="div-c1">
+          <input
+            type="number"
+            formControlName="search"
+            class="form-control"
+            placeholder="Autoriser si il X objets (aliments+quantités) ne corresponde pas a mon frigo"
+          />
+          <button class="btn btnVert" type="submit">Go</button>
+          <a (click)="reinit()" class="btn-a"
+            ><span style="color: white">Réinitialiser ma selection</span></a
+          >
+          <a
+            routerLink="/frigo"
+            routerLinkActive="active"
+            class="btn-a"
+            style="width: 300px"
+            ><span style="color: white">Retourner au frigo</span></a
+          >
+        </div>
+      </ng-container>
+    </form>
+  </div>
+  <div class="liste_recettes">
+    <div class="wrapper">
+      <ul class="auto-grid">
+        <li class="recette" *ngFor="let p of recettesSelection">
+          <a
+            class="nav-link"
+            routerLink="/recette/details/{{ p.id }}"
+            routerLinkActive="active"
+            ><img
+              src="assets/images/{{ p.id }}.jpg"
+              width="250px"
+              height="300px"
+          /></a>
+          <ul>
+            {{
+              p.name
+            }}
+          </ul>
+          <ul>
+            Note
+            {{
+              p.note
+            }}
+          </ul>
+          <ul>
+            Temps de préparation
+            {{
+              p.tempsDeCuisine
+            }}
+          </ul>
+        </li>
+      </ul>
     </div>
   </div>
 </body>
-<app-frigo-background></app-frigo-background>

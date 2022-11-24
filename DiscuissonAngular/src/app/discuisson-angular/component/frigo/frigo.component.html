@@ -11,7 +11,10 @@
               placeholder="Cherche-moi parmi les ingrédients"
             />
             <a (click)="reinit()" class="btn-a"
-              ><span style="color: white">Réinitialiser</span></a
+              ><span style="color: white">Voir tous les ingrédients</span></a
+            >
+            <a (click)="deleteFrigo()" class="btn-a"
+              ><span style="color: white">Réinitialiser mon frigo</span></a
             >
             <button class="btn btnVert" type="submit">Go</button>
             <a
@@ -39,6 +42,16 @@
             <ng-container *ngIf="getQuantite(p.id!)">
               <td>{{ p.name }}</td>
               <td>
+                <a (click)="ajouterPanier2(p.id!)">
+                  <img
+                    src="assets/images/image-frigo/plusPlusVert-sans-bg.png"
+                    width="30px"
+                    alt=""
+                  />
+                </a>
+              </td>
+
+              <td>
                 <a (click)="ajouterPanier(p.id!)">
                   <img
                     src="assets/images/image-frigo/plusVert-sans-bg.png"
@@ -47,6 +60,7 @@
                   />
                 </a>
               </td>
+
               <ng-container *ngIf="getQuantite(p.id!)"
                 ><td>{{ getQuantite(p.id!) }}{{ p.unite }}</td>
                 <td>
@@ -54,6 +68,16 @@
                     <img
                       style="padding-top: 2%"
                       src="assets/images/image-frigo/moinsVert-sans-bg.png"
+                      width="30px"
+                      alt=""
+                    />
+                  </a>
+                </td>
+                <td>
+                  <a (click)="retirerPanier2(p.id!)">
+                    <img
+                      style="padding-top: 2%"
+                      src="assets/images/image-frigo/moinsMoinsVert-sans-bg.png"
                       width="30px"
                       alt=""
                     />
@@ -75,6 +99,13 @@
           <tr *ngFor="let p of ingredients">
             <ng-container *ngIf="!getQuantite(p.id!)">
               <td>{{ p.name }}</td>
+              <a (click)="ajouterPanier2(p.id!)">
+                <img
+                  src="assets/images/image-frigo/plusPlusVert-sans-bg.png"
+                  width="30px"
+                  alt=""
+                />
+              </a>
               <td>
                 <a (click)="ajouterPanier(p.id!)">
                   <img
@@ -84,14 +115,11 @@
                   />
                 </a>
               </td>
-              <td></td>
-              <td></td>
-              <td></td>
             </ng-container>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
+  <app-frigo-background></app-frigo-background>
 </body>
-<app-frigo-background></app-frigo-background>

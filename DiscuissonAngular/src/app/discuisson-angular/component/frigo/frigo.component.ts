@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormGroup,
-  FormControl,
-  AbstractControl,
-  ValidationErrors,
-} from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 import { Ingredient } from '../../model/ingredient';
 import { IngredientService } from '../../service/ingredient.service';
 
@@ -49,10 +44,30 @@ export class FrigoComponent implements OnInit {
 
   retirerPanier(id: number) {
     let map: Map<number, number> = this.panier;
-    if (map.get(id) == 100) {
+    if (map.get(id)! <= 100) {
       map.delete(id);
     } else {
       map.set(id, map.get(id)! - 100);
+    }
+    sessionStorage.setItem('frigo', JSON.stringify(Object.fromEntries(map)));
+  }
+
+  ajouterPanier2(id: number) {
+    let map: Map<number, number> = this.panier;
+    if (map.has(id)) {
+      map.set(id, map.get(id)! + 1000);
+    } else {
+      map.set(id, 1000);
+    }
+    sessionStorage.setItem('frigo', JSON.stringify(Object.fromEntries(map)));
+  }
+
+  retirerPanier2(id: number) {
+    let map: Map<number, number> = this.panier;
+    if (map.get(id)! <= 1000) {
+      map.delete(id);
+    } else {
+      map.set(id, map.get(id)! - 1000);
     }
     sessionStorage.setItem('frigo', JSON.stringify(Object.fromEntries(map)));
   }
@@ -63,8 +78,13 @@ export class FrigoComponent implements OnInit {
     sessionStorage.setItem('frigo', JSON.stringify(Object.fromEntries(map)));
   }
 
+  deleteFrigo() {
+    let map: Map<number, number> = this.panier;
+    map.clear;
+  }
+
   get panier(): Map<number, number> {
-    let jsonObject = JSON.parse(sessionStorage.getItem('panier')!);
+    let jsonObject = JSON.parse(sessionStorage.getItem('frigo')!);
     let panier: Map<number, number> = new Map<number, number>();
     for (let value in jsonObject) {
       panier.set(parseInt(value), jsonObject[value]);
@@ -73,7 +93,7 @@ export class FrigoComponent implements OnInit {
   }
 
   getQuantite(id: number): number {
-    let jsonObject = JSON.parse(sessionStorage.getItem('panier')!);
+    let jsonObject = JSON.parse(sessionStorage.getItem('frigo')!);
     return jsonObject[id];
   }
 
