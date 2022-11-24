@@ -61,7 +61,7 @@ import { PageMonCompteComponent } from './discuisson-angular/component/page/page
     AdminUserEditComponent,
     AdminNutrionistEditComponent,
     PageMonCompteComponent,
-    PageMonCompteComponent
+
   ],
   imports: [
     BrowserModule,
