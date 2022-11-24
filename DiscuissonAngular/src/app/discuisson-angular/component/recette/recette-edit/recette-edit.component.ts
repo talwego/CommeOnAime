@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Ingredient } from 'src/app/discuisson-angular/model/ingredient';
 import { Recette } from 'src/app/discuisson-angular/model/recette';
-import { IngredientService } from 'src/app/discuisson-angular/service/ingredient.service';
-import { RecetteService } from 'src/app/discuisson-angular/service/recette.service';
-import { RecetteIngredientService } from 'src/app/discuisson-angular/service/recette-ingredient.service';
 import { RecetteIngredient } from 'src/app/discuisson-angular/model/recette-ingredient';
+import { IngredientService } from 'src/app/discuisson-angular/service/ingredient.service';
+import { RecetteIngredientService } from 'src/app/discuisson-angular/service/recette-ingredient.service';
+import { RecetteService } from 'src/app/discuisson-angular/service/recette.service';
 
 @Component({
   selector: 'app-recette-edit',

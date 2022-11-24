@@ -14,6 +14,7 @@ import { AdminUserListComponent } from './discuisson-angular/component/admin/adm
 import { BackgroundPourPageConnectionComponent } from './discuisson-angular/component/background-pour-page-connection/background-pour-page-connection.component';
 import { FooterComponent } from './discuisson-angular/component/footer/footer.component';
 import { FrigoBackgroundComponent } from './discuisson-angular/component/frigo/frigo-background/frigo-background.component';
+import { FrigoSelectionComponent } from './discuisson-angular/component/frigo/frigo-selection/frigo-selection.component';
 import { FrigoComponent } from './discuisson-angular/component/frigo/frigo.component';
 import { IngredientEditComponent } from './discuisson-angular/component/ingredient/ingredient-edit/ingredient-edit.component';
 import { IngredientListComponent } from './discuisson-angular/component/ingredient/ingredient-list/ingredient-list.component';
@@ -33,7 +34,6 @@ import { RegisterComponent } from './discuisson-angular/component/register/regis
 import { UserToVIPComponent } from './discuisson-angular/component/user-to-vip/user-to-vip.component';
 import { SertARienDirective } from './discuisson-angular/directive/sert-arien.directive';
 import { routes } from './routes';
-import { FrigoSelectionComponent } from './discuisson-angular/component/frigo/frigo-selection/frigo-selection.component';
 
 @NgModule({
   declarations: [
