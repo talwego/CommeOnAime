@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Message } from 'src/app/discuisson-angular/model/message';
 import { CompteService } from 'src/app/discuisson-angular/service/compte.service';
 import { MessageService } from 'src/app/discuisson-angular/service/message.service';
+import { MessageListComponent } from '../message-list/message-list.component';
 
 @Component({
   selector: 'app-message-edit',
@@ -35,11 +36,13 @@ export class MessageEditComponent implements OnInit {
       this.compteService.findById(9).subscribe((data2) => {
         this.message.recepteur = data2;
         this.messageService.create(this.message).subscribe((data) => {
-          this.router.navigateByUrl('/message');
+          this.router
+            .navigateByUrl('/message/edit', { skipLocationChange: true })
+            .then(() => {
+              this.router.navigate(['/message']);
+            });
         });
       });
     });
-    console.log('Save');
-    console.log(this.message);
   }
 }
