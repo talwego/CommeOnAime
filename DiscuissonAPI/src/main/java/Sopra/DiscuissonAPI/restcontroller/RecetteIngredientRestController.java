@@ -52,6 +52,7 @@ public class RecetteIngredientRestController {
 	@DeleteMapping("/{id}")
 	@JsonView(JsonViews.RecetteIngredient.class)
 	public void deleteById(@PathVariable Integer id) {
+		System.out.println("coucou");
 		recetteIngredientService.deleteById(id);
 		}
 	

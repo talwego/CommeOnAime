@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Ingredient } from 'src/app/discuisson-angular/model/ingredient';
+import { InstructionRecette } from 'src/app/discuisson-angular/model/instruction-recette';
 import { Recette } from 'src/app/discuisson-angular/model/recette';
 import { RecetteIngredient } from 'src/app/discuisson-angular/model/recette-ingredient';
 import { IngredientService } from 'src/app/discuisson-angular/service/ingredient.service';
@@ -17,6 +18,7 @@ export class RecetteEditComponent implements OnInit {
   ingredients: Ingredient[] = [];
   recetteIngredients: RecetteIngredient[] = [];
   recetteIngredient: RecetteIngredient = new RecetteIngredient();
+  instuctionRecette: InstructionRecette = new InstructionRecette();
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -39,6 +41,7 @@ export class RecetteEditComponent implements OnInit {
             this.recetteIngredient.recette = new Recette();
             this.recetteIngredient.recette.id = this.recette.id;
           });
+        console.log(params['id']);
       }
     });
   }
@@ -46,16 +49,46 @@ export class RecetteEditComponent implements OnInit {
   save() {
     if (this.recette.id) {
       this.recetteService.update(this.recette).subscribe((data) => {
-        this.router.navigateByUrl('/recette');
+        this.activatedRoute.params.subscribe((params) => {
+          if (params['id']) {
+            this.router.navigateByUrl('/recette/edit' + params['id']);
+          }
+        });
       });
     } else {
       this.recetteService.create(this.recette).subscribe((data) => {
-        this.router.navigateByUrl('/recette');
+        this.activatedRoute.params.subscribe((params) => {
+          if (params['id']) {
+            this.router.navigateByUrl('/recette/edit' + params['id']);
+          }
+        });
       });
     }
   }
   saveRecetteIngredient() {
-    console.log(this.recetteIngredient);
+    if (this.recetteIngredient.id) {
+      this.recetteIngredientService
+        .update(this.recetteIngredient)
+        .subscribe((data) => {
+          this.activatedRoute.params.subscribe((params) => {
+            if (params['id']) {
+              this.router.navigateByUrl('/recette/edit' + params['id']);
+            }
+          });
+        });
+    } else {
+      this.recetteIngredientService
+        .create(this.recetteIngredient)
+        .subscribe((data) => {
+          this.activatedRoute.params.subscribe((params) => {
+            if (params['id']) {
+              this.router.navigateByUrl('/recette/edit' + params['id']);
+            }
+          });
+        });
+    }
+  }
+  saveInstruction() {
     if (this.recetteIngredient.id) {
       this.recetteIngredientService
         .update(this.recetteIngredient)
@@ -66,7 +99,11 @@ export class RecetteEditComponent implements OnInit {
       this.recetteIngredientService
         .create(this.recetteIngredient)
         .subscribe((data) => {
-          this.router.navigateByUrl('/recetteIngredient');
+          this.activatedRoute.params.subscribe((params) => {
+            if (params['id']) {
+              this.router.navigateByUrl('/recette/edit' + params['id']);
+            }
+          });
         });
     }
   }

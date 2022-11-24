@@ -972,7 +972,7 @@ public class UpdateRecetteEtIngredientBDD5 {
 	@Test //1er chose a faire => config spring => create
 	@Transactional
 	@Commit
-@Disabled
+	@Disabled
 	public void createBDD() {
 		updateCompte();
 		updateRecetteEtIngredient();
@@ -982,7 +982,7 @@ public class UpdateRecetteEtIngredientBDD5 {
 	@Test //2nd chose a faire => config spring => update
 	@Transactional
 	@Commit
-	////@Disabled
+	//@Disabled
 	public void update2BDD() {
 		updateRecetteWithVeganVegetarien();
 	}

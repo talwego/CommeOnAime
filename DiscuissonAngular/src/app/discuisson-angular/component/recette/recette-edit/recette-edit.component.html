@@ -186,14 +186,7 @@
         <form (ngSubmit)="saveRecetteIngredient()" #form="ngForm">
           <div class="form-group">
             <div class="divACoteFlex">
-              <div class="text">Ingredient ID :</div>
-              <!--<input
-                type="number"
-                class="form-control"
-                name="idIngredient"
-                id="idIngredeint"
-                [(ngModel)]="recetteIngredient.ingredient"
-              />-->
+              <div class="text">Ingredient:</div>
               <select
                 class="form-control"
                 name="recetteIngredient.ingredient"
@@ -225,7 +218,7 @@
             </div>
 
             <div class="divCentreFlex">
-              <button type="submit">enregistrer</button>
+              <button type="submit">enregistrer l'ingrédient</button>
             </div>
           </div>
         </form>
@@ -240,6 +233,27 @@
               {{ p.instruction }}
             </li>
           </ng-container>
+          <form (ngSubmit)="saveInstruction()" #form="ngForm">
+            <div class="form-group">
+              <div class="divACoteFlex">
+                <div class="text">Nouvelle étape:</div>
+                <input
+                  class="form-control"
+                  name="quantite"
+                  id="quantite"
+                  [(ngModel)]="recetteIngredient.quantite"
+                  placeholder="Précision: pour une portion d'une personne"
+                />
+                <div *ngIf="fournisseurCtrl.invalid">
+                  *etape obligatoire si ajout
+                </div>
+              </div>
+
+              <div class="divCentreFlex">
+                <button type="submit">enregistrer l'instruction</button>
+              </div>
+            </div>
+          </form>
         </ol>
       </div>
 

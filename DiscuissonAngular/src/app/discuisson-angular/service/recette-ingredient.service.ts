@@ -16,8 +16,6 @@ export class RecetteIngredientService {
   }
 
   public deleteById(id: number): Observable<RecetteIngredient> {
-    console.log(id);
-
     return this.httpClient.delete<RecetteIngredient>(
       `http://localhost:8080/discuisson/api/recetteIngredient/${id}`
     );
