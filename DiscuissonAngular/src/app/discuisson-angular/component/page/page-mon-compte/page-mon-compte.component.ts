@@ -61,7 +61,7 @@ export class PageMonCompteComponent implements OnInit {
         activitePhysique: this.form.get('activitePhysique')?.value,
       });
       console.log(user);
-      this.userService.create(user).subscribe((data) => {
+      this.userService.update(user).subscribe((data) => {
         this.router.navigateByUrl('/home');
       });
     }
