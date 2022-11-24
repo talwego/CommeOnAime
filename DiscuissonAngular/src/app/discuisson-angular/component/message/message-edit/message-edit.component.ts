@@ -31,7 +31,7 @@ export class MessageEditComponent implements OnInit {
   }
 
   save() {
-    this.compteService.findById(1).subscribe((data1) => {
+    this.compteService.findById(JSON.parse(sessionStorage.getItem('compte')!).id).subscribe((data1) => {
       this.message.envoyeur = data1;
       this.compteService.findById(9).subscribe((data2) => {
         this.message.recepteur = data2;

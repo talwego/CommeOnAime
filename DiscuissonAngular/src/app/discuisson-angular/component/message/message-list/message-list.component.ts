@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { interval } from 'rxjs';
 import { Message } from 'src/app/discuisson-angular/model/message';
 import { MessageService } from 'src/app/discuisson-angular/service/message.service';
 
@@ -9,16 +10,21 @@ import { MessageService } from 'src/app/discuisson-angular/service/message.servi
 })
 export class MessageListComponent implements OnInit {
   messages: Message[]=[];
+  idconnecte: Number = JSON.parse(sessionStorage.getItem('compte')!).id;
 
   constructor(private messageService: MessageService ) {}
 
   ngOnInit(): void {
-    this.initMessage();
+    interval(100).subscribe((data) => {
+      this.initMessage();
+    });
   }
 
   initMessage() {
+
     this.messageService.findAll().subscribe((data) =>{
-      this.messages = data;
+
+      this.messages=data;
     }
     )
   }
