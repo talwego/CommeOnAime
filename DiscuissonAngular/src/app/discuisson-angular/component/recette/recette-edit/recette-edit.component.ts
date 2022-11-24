@@ -93,7 +93,7 @@ export class RecetteEditComponent implements OnInit {
       this.recetteIngredientService
         .update(this.recetteIngredient)
         .subscribe((data) => {
-          this.router.navigateByUrl('/recetteIngredient');
+          this.router.navigateByUrl('/recette');
         });
     } else {
       this.recetteIngredientService
@@ -101,7 +101,7 @@ export class RecetteEditComponent implements OnInit {
         .subscribe((data) => {
           this.activatedRoute.params.subscribe((params) => {
             if (params['id']) {
-              this.router.navigateByUrl('/recette/edit' + params['id']);
+              this.router.navigateByUrl('/recette');
             }
           });
         });
