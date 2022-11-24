@@ -1,5 +1,5 @@
-<body id="formulaire">
-  <div>
+<div id="background">
+  <div id="formulaire">
     <form (ngSubmit)="save()" #form="ngForm">
       <div class="form-group">
         <label for="id">id:</label>
@@ -13,34 +13,31 @@
         />
       </div>
 
-      <div class="form-group">
-        <label for="name">name:</label>
-        <input
-          class="form-control"
-          name="name"
-          id="name"
-          [(ngModel)]="recette.name"
-          required
-          #nameCtrl="ngModel"
-        />
-        <div
-          *ngIf="nameCtrl.dirty && nameCtrl.invalid"
-          class="alert alert-danger"
-        >
-          name obligatoire
+      <div class="form-group" *ngIf="recette.id">
+        <div class="divACoteFlex">
+          <div class="text">Id recette:</div>
+          <input
+            class="form-control"
+            name="id"
+            id="id"
+            [(ngModel)]="recette.id"
+            readonly
+          />
         </div>
       </div>
 
       <div class="form-group">
-        <label for="vegetarien">vegetarien:</label>
-        <input
-          class="form-control"
-          name="vegetarien"
-          id="vegetarien"
-          [(ngModel)]="recette.vegetarien"
-          required
-          #vegetarienCtrl="ngModel"
-        />
+        <div class="divACoteFlex">
+          <div class="text">Nom de la recette:</div>
+          <input
+            class="form-control"
+            name="name"
+            id="name"
+            [(ngModel)]="recette.name"
+            required
+            #nameCtrl="ngModel"
+          />
+        </div>
         <div
           *ngIf="vegetarienCtrl.dirty && vegetarienCtrl.invalid"
           class="alert alert-danger"
@@ -50,20 +47,18 @@
       </div>
 
       <div class="form-group">
-        <label for="vegan">vegan:</label>
-        <input
-          class="form-control"
-          name="vegan"
-          id="vegan"
-          [(ngModel)]="recette.vegan"
-          required
-          #veganCtrl="ngModel"
-        />
-        <div
-          *ngIf="veganCtrl.dirty && veganCtrl.invalid"
-          class="alert alert-danger"
-        >
-          regime obligatoire
+        <div class="divACoteFlex">
+          <div class="text">Nombre de calorie:</div>
+          <input
+            type="number"
+            class="form-control"
+            name="calorie"
+            id="calorie"
+            [(ngModel)]="recette.calorie"
+            placeholder="Précision: pour une portion d'une personne"
+            required
+            #calorieCtrl="ngModel"
+          />
         </div>
       </div>
 
@@ -85,99 +80,210 @@
         </div>
       </div>
 
-
       <div class="form-group">
-        <label for="debutSaison">debutSaison:</label>
-        <input
-          class="form-control"
-          name="debutSaison"
-          id="debutSaison"
-          [(ngModel)]="recette.debutSaison"
-          required
-          #debutSaisonCtrl="ngModel"
-        />
-        <div
-          *ngIf="debutSaisonCtrl.dirty && debutSaisonCtrl.invalid"
-          class="alert alert-danger"
-        >
-          Debut de saison obligatoire
+        <div class="divACoteFlex">
+          <div class="text">La saison commence en:</div>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            name="debutSaison"
+            id="debutSaison"
+            [(ngModel)]="recette.debutSaison"
+          >
+            <option value="1">Janvier</option>
+            <option value="2">Février</option>
+            <option value="3">Mars</option>
+            <option value="4">Avril</option>
+            <option value="5">Mai</option>
+            <option value="6">Juin</option>
+            <option value="7">Juillet</option>
+            <option value="8">Août</option>
+            <option value="9">Septembre</option>
+            <option value="10">Octobre</option>
+            <option value="11">Novembre</option>
+            <option value="12">Décembre</option>
+          </select>
         </div>
       </div>
 
       <div class="form-group">
-        <label for="finSaison">finSaison:</label>
-        <input
-          class="form-control"
-          name="finSaison"
-          id="finSaison"
-          [(ngModel)]="recette.finSaison"
-          required
-          #finSaisonCtrl="ngModel"
-        />
-        <div
-          *ngIf="finSaisonCtrl.dirty && finSaisonCtrl.invalid"
-          class="alert alert-danger"
-        >
-          Fin de saison obligatoire
+        <div class="divACoteFlex">
+          <div class="text">La saison fini en:</div>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            name="finSaison"
+            id="finSaison"
+            [(ngModel)]="recette.finSaison"
+          >
+            <option value="1">Janvier</option>
+            <option value="2">Février</option>
+            <option value="3">Mars</option>
+            <option value="4">Avril</option>
+            <option value="5">Mai</option>
+            <option value="6">Juin</option>
+            <option value="7">Juillet</option>
+            <option value="8">Août</option>
+            <option value="9">Septembre</option>
+            <option value="10">Octobre</option>
+            <option value="11">Novembre</option>
+            <option value="12">Décembre</option>
+          </select>
         </div>
       </div>
 
       <div class="form-group">
-        <label for="commentaires">commentaires:</label>
-        <input
-          class="form-control"
-          name="commentaires"
-          id="commentaires"
-          [(ngModel)]="recette.commentaires"
-        />
+        <div class="divACoteFlex">
+          <div class="text">Commentaires :</div>
+          <input
+            class="form-control"
+            name="commentaires"
+            id="commentaires"
+            [(ngModel)]="recette.commentaires"
+            placeholder="Votre commentaire"
+            required
+            #commentairesCtrl="ngModel"
+          />
+        </div>
       </div>
 
       <div class="form-group">
-        <label for="note">note:</label>
-        <input class="form-control" name="note" id="note" />
+        <div class="divACoteFlex">
+          <div class="text">Note :</div>
+          <input
+            type="number"
+            class="form-control"
+            name="note"
+            id="note"
+            [(ngModel)]="recette.note"
+            placeholder="votre note de 1 à 5"
+            required
+            #calorieCtrl="ngModel"
+          />
+        </div>
       </div>
 
       <div class="form-group">
-        <label for="tempsDeCuisine">tempsDeCuisine:</label>
-        <input
-          type="time"
-          class="form-control"
-          name="tempsDeCuisine"
-          id="tempsDeCuisine"
-          [(ngModel)]="recette.tempsDeCuisine"
-          required
-          #tempsDeCuisineCtrl="ngModel"
-        />
+        <div class="divACoteFlex">
+          <div class="text">Temps de préparation :</div>
+          <input
+            type="time"
+            class="form-control"
+            name="tempsDeCuisine"
+            id="tempsDeCuisine"
+            [(ngModel)]="recette.tempsDeCuisine"
+            required
+            #tempsDeCuisineCtrl="ngModel"
+          />
+        </div>
         <div
           *ngIf="tempsDeCuisineCtrl.dirty && tempsDeCuisineCtrl.invalid"
           class="alert alert-danger"
         >
-          Temps De Cuisine obligatoire
+          Tu as oublié le temps de préparation :o
         </div>
       </div>
+      <!--**************************************Ingredient **********************************-->
+      <!--afficher/supprimer ingredient de la recette-->
+      <div id="list_ingredient">
+        <p class="text">Liste des ingredients :</p>
 
+        <ng-container *ngFor="let p of recette.recetteIngredients">
+          <p>
+            {{ p.quantite }}{{ p.ingredient!.unite }} de
+            {{ p.ingredient!.name }}
+          </p>
+          <td>
+            <button (click)="deleteRecetteIngredient(p.id!)">supprimer</button>
+          </td>
+        </ng-container>
+        <td></td>
+        <!--ajouter un ingredient-->
+        <h2>Ajout d'un ingredient</h2>
+        <form (ngSubmit)="saveRecetteIngredient()" #form="ngForm">
+          <div class="form-group">
+            <div class="divACoteFlex">
+              <div class="text">Ingredient ID :</div>
+              <!--<input
+                type="number"
+                class="form-control"
+                name="idIngredient"
+                id="idIngredeint"
+                [(ngModel)]="recetteIngredient.ingredient"
+              />-->
+              <select
+                class="form-control"
+                name="recetteIngredient.ingredient"
+                [(ngModel)]="recetteIngredient.ingredient"
+                [compareWith]="byId"
+                required
+                #fournisseurCtrl="ngModel"
+              >
+                <option *ngFor="let f of ingredients" [ngValue]="f">
+                  {{ f.name }}
+                </option>
+              </select>
+              <div *ngIf="fournisseurCtrl.invalid">
+                *ingredient obligatoire si ajout
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="divACoteFlex">
+                <div class="text">Quantite:</div>
+                <input
+                  type="number"
+                  class="form-control"
+                  name="quantite"
+                  id="quantite"
+                  [(ngModel)]="recetteIngredient.quantite"
+                  placeholder="Précision: pour une portion d'une personne"
+                />
+              </div>
+            </div>
+
+            <div class="divCentreFlex">
+              <button type="submit">enregistrer</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!--************************************ajout instruction*********************************-->
+      <div id="list_instruction">
+        <p class="text">Liste des étapes:</p>
+        <ol>
+          <ng-container *ngFor="let p of recette.instructionRecettes">
+            <li>
+              {{ p.instruction }}
+            </li>
+          </ng-container>
+        </ol>
+      </div>
+
+      <!--**************************************************************************************-->
       <div class="form-group">
-        <label for="isValid">isValid:</label>
-        <input
-          class="form-control"
-          name="isValid"
-          id="isValid"
-          [(ngModel)]="recette.isValid"
-          required
-          #isValidCtrl="ngModel"
-        />
+        <div class="divACoteFlex">
+          <div class="text">Cette recette est-elle correcte ?</div>
+          <input
+            class="form-control"
+            name="isValid"
+            id="isValid"
+            [(ngModel)]="recette.isValid"
+            required
+            #isValidCtrl="ngModel"
+          />
+        </div>
         <div
           *ngIf="isValidCtrl.dirty && isValidCtrl.invalid"
           class="alert alert-danger"
         >
-          isValid obligatoire
+          Tu as oublié de repondre, la recette est-elle valide? :o
         </div>
       </div>
 
-
       <div class="divCentreFlex">
         <div class="divCentreFlex2">
-          <div style="width: 65px">C'est une recette : </div>
+          <div style="width: 65px">C'est une recette :</div>
           <div>
             <div class="form-check form-switch">
               <input
@@ -205,7 +311,6 @@
             </div>
           </div>
         </div>
-        
       </div>
 
       <div class="divCentreFlex">
